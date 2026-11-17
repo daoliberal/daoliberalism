@@ -1,0 +1,381 @@
+/* ---------- desktop dialog: C-09-Approval ---------- */
+
+/* The prototype frame behind the dialog is the slate page (C-09-Approval:15); the dialog is centred on it. */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  box-sizing: border-box;
+  padding: var(--space-24);
+  overflow-y: auto;
+  background: var(--color-slate);
+}
+
+/* C-09-Approval:27 */
+.dialog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-18);
+  box-sizing: border-box;
+  width: var(--modal-width);
+  max-width: 100%;
+  margin: auto;
+  padding: var(--space-28);
+  border-radius: var(--radius-28);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-modal);
+}
+
+.dialog:focus {
+  outline: none;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+}
+
+.kind {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-pill);
+  background: var(--color-brand-tint);
+  color: var(--color-brand-strong);
+  font-size: var(--fs-13);
+  font-weight: var(--weight-bold);
+  overflow-wrap: anywhere;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-30);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight-sm);
+  overflow-wrap: anywhere;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-18);
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-14);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  gap: var(--space-12);
+  min-width: 0;
+}
+
+.step > div {
+  min-width: 0;
+}
+
+.num {
+  display: inline-flex;
+  flex: 0 0 var(--size-26);
+  align-items: center;
+  justify-content: center;
+  height: var(--size-26);
+  border-radius: var(--radius-pill);
+  background: var(--color-action);
+  color: var(--color-on-action);
+  font-size: var(--fs-13);
+  font-weight: var(--weight-bold);
+}
+
+.stepLabel {
+  font-weight: var(--weight-bold);
+}
+
+.stepText {
+  color: var(--color-ink-2);
+  overflow-wrap: anywhere;
+}
+
+/* Contract and transaction lines are explorer links, underlined like the prototype's <a href="#"> (C-09:38, :69). */
+.contract {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--fs-15);
+  overflow-wrap: anywhere;
+}
+
+.flow {
+  padding: var(--space-14) var(--space-16);
+  border-radius: var(--radius-16);
+  background: var(--color-brand-tint);
+  color: var(--color-brand-strong);
+  font-family: var(--font-mono);
+  font-size: var(--fs-15);
+  overflow-wrap: anywhere;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-12);
+  padding-top: var(--space-12);
+  border-top: var(--border-1) solid var(--color-line-soft);
+  color: var(--color-ink-4);
+  font-size: var(--fs-14);
+}
+
+.signer {
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-10);
+}
+
+.cancelSlot,
+.ctaSlot {
+  display: flex;
+}
+
+.cancelSlot {
+  flex: 1 1 0;
+}
+
+.ctaSlot {
+  flex: 2 1 0;
+}
+
+/* waiting / done / error: C-09-Approval:60-77 */
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-14);
+  padding: var(--space-24) 0;
+  text-align: center;
+}
+
+/* C-09-Approval:69 the confirmation is a little tighter than the waiting view */
+.stateDone {
+  gap: var(--space-12);
+  padding: var(--space-20) 0;
+}
+
+.alert {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-14);
+}
+
+.stateTitle {
+  font-size: var(--fs-18);
+  font-weight: var(--weight-bold);
+}
+
+.stateText {
+  max-width: var(--measure-sm);
+  margin: 0;
+  color: var(--color-ink-3);
+  overflow-wrap: anywhere;
+}
+
+.spinner {
+  width: var(--size-44);
+  height: var(--size-44);
+  border: var(--border-4) solid var(--color-line-soft);
+  border-top-color: var(--color-brand);
+  border-radius: var(--radius-pill);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}
+
+.simulate {
+  min-height: var(--size-target);
+  padding: 0 var(--space-18);
+  border: var(--border-1) dashed var(--color-flow-expense);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-ink-2);
+  font: inherit;
+  font-size: var(--fs-14);
+  cursor: pointer;
+}
+
+.doneMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-52);
+  height: var(--size-52);
+  border-radius: var(--radius-pill);
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+}
+
+.tx {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+}
+
+/* ---------- phone sheet content: C-Mobile ---------- */
+
+.sheetTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sheetClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-target);
+  height: var(--size-target);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.sheetTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-27);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight-sm);
+  overflow-wrap: anywhere;
+}
+
+.lede {
+  margin: var(--space-8) 0 0;
+  color: var(--color-ink-2);
+}
+
+.outcome {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  padding: var(--space-16);
+  border-radius: var(--radius-18);
+  background: var(--color-surface-muted);
+}
+
+.outcomeLabel {
+  color: var(--color-ink-4);
+  font-size: var(--fs-13);
+}
+
+.outcomeAmount {
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-medium);
+}
+
+.outcomeValue {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--fs-32);
+  font-weight: var(--weight-medium);
+  line-height: var(--lh-none);
+}
+
+.outcomeText {
+  color: var(--color-ink-2);
+  font-size: var(--fs-14);
+}
+
+.shares {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6) var(--space-14);
+  color: var(--color-ink-4);
+  font-size: var(--fs-13);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  font-size: var(--fs-14);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-12);
+}
+
+.rowLabel {
+  color: var(--color-ink-4);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.contractMono {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+}
+
+.sheetActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* C-Mobile:50 */
+.approve {
+  min-height: var(--size-cta-lg);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-cta);
+  color: var(--color-on-cta);
+  font: inherit;
+  font-size: var(--fs-16);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+}
+
+/* C-Mobile:51 */
+.dismiss {
+  min-height: var(--size-cta-md);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-ink);
+  font: inherit;
+  font-size: var(--fs-15);
+  text-decoration: underline;
+  text-underline-offset: var(--space-4);
+  cursor: pointer;
+}

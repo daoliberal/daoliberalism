@@ -1,0 +1,134 @@
+/* C-03-Treasury:116-160 */
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-16);
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-28);
+  font-weight: var(--weight-bold);
+}
+
+.lede {
+  max-width: var(--measure-560);
+  margin: var(--space-4) 0 0;
+  color: var(--color-ink-3);
+}
+
+.statNow,
+.stat {
+  padding: var(--space-16);
+  border-radius: var(--radius-16);
+}
+
+.statNow {
+  background: var(--color-brand-tint);
+}
+
+.stat {
+  border: var(--border-1) solid var(--color-line-soft);
+}
+
+.statNowLabel,
+.statLabel {
+  font-size: var(--fs-14);
+}
+
+.statNowLabel {
+  color: var(--color-brand-strong);
+}
+
+.statLabel {
+  color: var(--color-ink-4);
+}
+
+.statNowValue,
+.statValue {
+  font-family: var(--font-mono);
+  overflow-wrap: anywhere;
+}
+
+.statNowValue {
+  color: var(--color-brand-strong);
+  font-size: var(--fs-32);
+}
+
+.statValue {
+  font-size: var(--fs-22);
+}
+
+.formHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+}
+
+.formTitle {
+  margin: 0;
+  font-size: var(--fs-19);
+}
+
+.formNote {
+  color: var(--color-ink-4);
+  font-size: var(--fs-13);
+}
+
+.historyTitle {
+  margin: 0 0 var(--space-8);
+  font-size: var(--fs-18);
+}
+
+/* the date cell is the body font at the row's 15px (C-03-Treasury:154) */
+.date {
+  font-family: var(--font-body);
+  font-size: var(--fs-15);
+}
+
+/* the phone history sheet already frames its content */
+.bare {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  min-width: 0;
+}
+
+/* phone history sheet: one stacked block per spend, no sideways scroll (owner decision 2026-10-21) */
+.spendList {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.spendItem {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--space-4) var(--space-12);
+  padding: var(--space-12) 0;
+  border-bottom: var(--border-1) solid var(--color-line-soft);
+}
+
+.spendDate {
+  font-size: var(--fs-15);
+}
+
+.spendAmount {
+  font-family: var(--font-mono);
+  font-size: var(--fs-15);
+  text-align: right;
+}
+
+.spendTo {
+  grid-column: 1 / -1;
+  color: var(--color-ink-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-13);
+  overflow-wrap: anywhere;
+}

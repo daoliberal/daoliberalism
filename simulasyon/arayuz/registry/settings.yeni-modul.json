@@ -1,0 +1,357 @@
+{
+ "settings": [
+  {
+   "id": "kredi_para",
+   "layer": "P",
+   "group": "para_faiz",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "fields",
+   "params": [
+    "CREDIT_MONEY",
+    "CM_RESERVE",
+    "CM_BRAKE",
+    "CM_PD"
+   ],
+   "requires": [
+    "CREDIT_MONEY"
+   ],
+   "codec": {
+    "type": "fields",
+    "fields": [
+     {
+      "key": "acik",
+      "param": "CREDIT_MONEY",
+      "codec": {
+       "type": "bool",
+       "on": 1,
+       "off": 0
+      }
+     },
+     {
+      "key": "karsilik",
+      "param": "CM_RESERVE",
+      "codec": {
+       "type": "number",
+       "scale": 100,
+       "min": 0,
+       "max": 30,
+       "step": 1,
+       "unit": "yuzde"
+      }
+     },
+     {
+      "key": "fren",
+      "param": "CM_BRAKE",
+      "codec": {
+       "type": "number",
+       "scale": 100,
+       "min": 5,
+       "max": 30,
+       "step": 1,
+       "unit": "yuzde"
+      }
+     },
+     {
+      "key": "rasyonlama",
+      "param": "CM_PD",
+      "codec": {
+       "type": "bool",
+       "on": 1,
+       "off": 0
+      }
+     }
+    ]
+   },
+   "apply": "start_only",
+   "decision": "K-218",
+   "measured_at": {
+    "acik": true,
+    "karsilik": 8,
+    "fren": 10,
+    "rasyonlama": true
+   },
+   "measured_with": {
+    "sehir_kasasi_kurali": {
+     "acik": false,
+     "hafta": 4,
+     "yakinsama": 25
+    },
+    "kar_firmada_kalir": {
+     "acik": false,
+     "hafta": 8
+    },
+    "faize_duyarli_davranis": {
+     "acik": false,
+     "kredi": true
+    },
+    "beklenen_kar_girisim": false
+   },
+   "measured_weeks": 200,
+   "hint_source": "simulasyon/kagit-ustu/modulerlestirme/rapor-birlesik-olcum.md"
+  },
+  {
+   "id": "sehir_kasasi_kurali",
+   "layer": "P",
+   "group": "butce",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "fields",
+   "params": [
+    "TREASURY_RULE",
+    "TR_WEEKS",
+    "TR_CONV"
+   ],
+   "requires": [
+    "TREASURY_RULE"
+   ],
+   "codec": {
+    "type": "fields",
+    "fields": [
+     {
+      "key": "acik",
+      "param": "TREASURY_RULE",
+      "codec": {
+       "type": "bool",
+       "on": 1,
+       "off": 0
+      }
+     },
+     {
+      "key": "hafta",
+      "param": "TR_WEEKS",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 1,
+       "max": 12,
+       "step": 1,
+       "unit": "hafta"
+      }
+     },
+     {
+      "key": "yakinsama",
+      "param": "TR_CONV",
+      "codec": {
+       "type": "number",
+       "scale": 100,
+       "min": 5,
+       "max": 50,
+       "step": 5,
+       "unit": "yuzde"
+      }
+     }
+    ]
+   },
+   "apply": "start_only",
+   "decision": "K-219",
+   "measured_at": {
+    "acik": true,
+    "hafta": 4,
+    "yakinsama": 25
+   },
+   "measured_with": {
+    "kredi_para": {
+     "acik": false,
+     "karsilik": 8,
+     "fren": 10,
+     "rasyonlama": true
+    },
+    "kar_firmada_kalir": {
+     "acik": false,
+     "hafta": 8
+    },
+    "faize_duyarli_davranis": {
+     "acik": false,
+     "kredi": true
+    },
+    "beklenen_kar_girisim": false
+   },
+   "measured_weeks": 200,
+   "hint_source": "simulasyon/kagit-ustu/modulerlestirme/rapor-birlesik-olcum.md"
+  },
+  {
+   "id": "kar_firmada_kalir",
+   "layer": "P",
+   "group": "butce",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "fields",
+   "params": [
+    "PROFIT_KEEP",
+    "PK_WEEKS"
+   ],
+   "requires": [
+    "PROFIT_KEEP"
+   ],
+   "codec": {
+    "type": "fields",
+    "fields": [
+     {
+      "key": "acik",
+      "param": "PROFIT_KEEP",
+      "codec": {
+       "type": "bool",
+       "on": 1,
+       "off": 0
+      }
+     },
+     {
+      "key": "hafta",
+      "param": "PK_WEEKS",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 4,
+       "max": 13,
+       "step": 1,
+       "unit": "hafta"
+      }
+     }
+    ]
+   },
+   "apply": "start_only",
+   "decision": "K-220",
+   "measured_at": {
+    "acik": true,
+    "hafta": 4
+   },
+   "measured_with": {
+    "kredi_para": {
+     "acik": true,
+     "karsilik": 8,
+     "fren": 10,
+     "rasyonlama": true
+    },
+    "sehir_kasasi_kurali": {
+     "acik": true,
+     "hafta": 4,
+     "yakinsama": 25
+    },
+    "faize_duyarli_davranis": {
+     "acik": false,
+     "kredi": true
+    },
+    "beklenen_kar_girisim": false
+   },
+   "measured_weeks": 200,
+   "hint_source": "simulasyon/kagit-ustu/modulerlestirme/rapor-birlesik-olcum.md"
+  },
+  {
+   "id": "faize_duyarli_davranis",
+   "layer": "V",
+   "group": "dunya",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "fields",
+   "params": [
+    "RATE_BEHAV",
+    "RB_CREDIT"
+   ],
+   "requires": [
+    "RATE_BEHAV"
+   ],
+   "codec": {
+    "type": "fields",
+    "fields": [
+     {
+      "key": "acik",
+      "param": "RATE_BEHAV",
+      "codec": {
+       "type": "bool",
+       "on": 1,
+       "off": 0
+      }
+     },
+     {
+      "key": "kredi",
+      "param": "RB_CREDIT",
+      "codec": {
+       "type": "bool",
+       "on": 1,
+       "off": 0
+      }
+     }
+    ]
+   },
+   "apply": "live",
+   "actor": "hane",
+   "scenario_editable": true,
+   "measured_at": {
+    "acik": true,
+    "kredi": true
+   },
+   "measured_with": {
+    "kredi_para": {
+     "acik": true,
+     "karsilik": 8,
+     "fren": 10,
+     "rasyonlama": true
+    },
+    "sehir_kasasi_kurali": {
+     "acik": true,
+     "hafta": 4,
+     "yakinsama": 25
+    },
+    "kar_firmada_kalir": {
+     "acik": false,
+     "hafta": 8
+    },
+    "beklenen_kar_girisim": false
+   },
+   "measured_weeks": 200,
+   "hint_source": "simulasyon/kagit-ustu/modulerlestirme/rapor-birlesik-olcum.md"
+  },
+  {
+   "id": "beklenen_kar_girisim",
+   "layer": "V",
+   "group": "dunya",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "toggle",
+   "params": [
+    "ENTRY_EXP"
+   ],
+   "requires": [
+    "ENTRY_EXP"
+   ],
+   "codec": {
+    "type": "bool",
+    "on": 1,
+    "off": 0
+   },
+   "apply": "live",
+   "actor": "girisimci",
+   "scenario_editable": true,
+   "measured_at": true,
+   "measured_with": {
+    "kredi_para": {
+     "acik": true,
+     "karsilik": 8,
+     "fren": 10,
+     "rasyonlama": true
+    },
+    "sehir_kasasi_kurali": {
+     "acik": true,
+     "hafta": 4,
+     "yakinsama": 25
+    },
+    "kar_firmada_kalir": {
+     "acik": false,
+     "hafta": 8
+    },
+    "faize_duyarli_davranis": {
+     "acik": false,
+     "kredi": true
+    }
+   },
+   "measured_weeks": 200,
+   "hint_source": "simulasyon/kagit-ustu/modulerlestirme/rapor-birlesik-olcum.md"
+  }
+ ]
+}

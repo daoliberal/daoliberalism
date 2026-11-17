@@ -1,0 +1,32 @@
+{
+ "hafta": 24,
+ "taban": 20,
+ "degisen": [
+  [
+   "s1_un12",
+   0,
+   25
+  ],
+  [
+   "s2_un3",
+   1,
+   5
+  ]
+ ],
+ "yeni": [
+  [
+   "s1_firin2",
+   "firin",
+   1,
+   5,
+   "lonca2",
+   "oyuncu",
+   22,
+   "uretim"
+  ]
+ ],
+ "kapanan": [
+  "s2_un4",
+  "s2_un5"
+ ]
+}

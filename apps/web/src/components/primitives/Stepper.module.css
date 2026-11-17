@@ -1,0 +1,33 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-30);
+  height: var(--size-30);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-13);
+}
+
+.todo {
+  background: var(--color-line-soft);
+  color: var(--color-ink-5);
+}
+
+.current {
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.done {
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+}

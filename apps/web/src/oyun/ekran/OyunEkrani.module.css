@@ -1,0 +1,203 @@
+.alan {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--ekran-zemin);
+  color: var(--ekran-yazi);
+  font-family: var(--font-body);
+}
+
+.tuval {
+  position: absolute;
+  inset: 0;
+}
+
+/* Kaplama tıklamayı geçirir (panel dışına tıklama tuvale gider); yalnız doğrudan çocukları yakalar. */
+.kaplama {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.kaplama > * {
+  pointer-events: auto;
+}
+
+.ustSerit {
+  position: absolute;
+  /* Şehir listesi alt sayfanın (25) üstünde kalsın. */
+  z-index: 30;
+  top: var(--space-16);
+  left: var(--space-16);
+  right: var(--space-16);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+  pointer-events: none;
+}
+
+.ustSerit > * {
+  pointer-events: auto;
+}
+
+.ustSol {
+  display: flex;
+  align-items: flex-start;
+}
+
+.ustOrta {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.ustOrta > * {
+  pointer-events: auto;
+}
+
+.ustSag {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+
+.panelSol,
+.panelSag {
+  position: absolute;
+  z-index: 15;
+  bottom: var(--space-140);
+  width: var(--measure-340);
+  display: flex;
+  flex-direction: column;
+}
+
+.panelSol {
+  top: var(--size-88);
+  left: var(--space-16);
+}
+
+.panelSag {
+  top: var(--size-88);
+  right: var(--space-16);
+}
+
+/* Daraltılmış sol panel yalnız başlık yüksekliğini kaplar. */
+.panelSol[data-daraltilmis="true"] {
+  bottom: auto;
+}
+
+/* Masaüstünde yalnız gruplar (kendi konumlarını taşırlar); telefonda alt şerit tek sütundur (üst üste binmezler). */
+.alt {
+  display: contents;
+}
+
+.alt > * {
+  pointer-events: auto;
+}
+
+.altSol {
+  position: absolute;
+  z-index: 15;
+  left: var(--space-16);
+  bottom: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-8);
+  width: var(--measure-560);
+  max-width: calc(100% - var(--space-32));
+}
+
+.altSag {
+  position: absolute;
+  z-index: 15;
+  right: var(--space-16);
+  bottom: var(--space-16);
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-10);
+}
+
+.not {
+  margin: 0;
+  padding: var(--space-6) var(--space-12);
+  border-radius: var(--radius-12);
+  background: var(--ekran-not-zemin);
+  color: var(--ekran-not-yazi);
+  font-size: var(--fs-13);
+  font-weight: var(--weight-bold);
+}
+
+.panelDugme {
+  min-height: var(--size-target);
+  padding: 0 var(--space-14);
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-12);
+  background: var(--ekran-cam);
+  color: var(--ekran-yazi);
+  font: inherit;
+  font-size: var(--fs-14);
+  font-weight: var(--weight-bold);
+  box-shadow: var(--shadow-modal);
+  cursor: pointer;
+}
+
+.gizli {
+  position: absolute;
+  width: var(--space-1);
+  height: var(--space-1);
+  margin: calc(-1 * var(--space-1));
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1280px) {
+  .panelSol,
+  .panelSag {
+    width: var(--measure-sm);
+    max-width: calc(50% - var(--space-24));
+  }
+}
+
+@media (max-width: 720px) {
+  .ustSerit {
+    top: var(--space-10);
+    left: var(--space-10);
+    right: var(--space-10);
+    gap: var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  .ustOrta {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .alt {
+    position: absolute;
+    z-index: 15;
+    left: var(--space-10);
+    right: var(--space-10);
+    bottom: var(--space-10);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-8);
+    pointer-events: none;
+  }
+
+  .altSol,
+  .altSag {
+    position: static;
+    width: auto;
+    max-width: none;
+  }
+
+  .altSag {
+    align-self: flex-end;
+  }
+}

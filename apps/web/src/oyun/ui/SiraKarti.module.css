@@ -1,0 +1,26 @@
+.liste {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.sira {
+  min-width: var(--space-24);
+  color: var(--color-slate);
+  font-weight: var(--weight-bold);
+}
+
+.ad {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}

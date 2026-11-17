@@ -1,0 +1,94 @@
+{
+  "scenarios": [
+    {
+      "id": "gercekci",
+      "measured": false,
+      "values": {}
+    },
+    {
+      "id": "tutumlu",
+      "measured": false,
+      "values": {
+        "harcama_egrisi": {
+          "ilk": 80,
+          "egim": 0.15
+        },
+        "az_birikimli_harcama": {
+          "pay": 1.5,
+          "esik": 12
+        },
+        "mevduat_elde_tutma": {
+          "tutma": 4,
+          "pay": 50
+        }
+      }
+    },
+    {
+      "id": "savurgan",
+      "measured": false,
+      "values": {
+        "harcama_egrisi": {
+          "ilk": 95,
+          "egim": 0.15
+        },
+        "az_birikimli_harcama": {
+          "pay": 5,
+          "esik": 12
+        },
+        "mevduat_elde_tutma": {
+          "tutma": 1,
+          "pay": 50
+        }
+      }
+    },
+    {
+      "id": "riskten",
+      "measured": false,
+      "values": {
+        "kurma_egilimi": 0.1,
+        "piyasa_sinyali": {
+          "fiyat": 0.95,
+          "girdi": 30
+        }
+      }
+    },
+    {
+      "id": "atak",
+      "measured": false,
+      "values": {
+        "kurma_egilimi": 0.4,
+        "piyasa_sinyali": {
+          "fiyat": 0.8,
+          "girdi": 50
+        }
+      }
+    },
+    {
+      "id": "hareketli",
+      "measured": false,
+      "values": {
+        "goc": {
+          "npc_payi": 10,
+          "oyuncu_payi": 100,
+          "bekleme": 1
+        }
+      }
+    },
+    {
+      "id": "yapiskan",
+      "measured": false,
+      "values": {
+        "issizlik_ucret_tepkisi": {
+          "dogal": 20,
+          "katsayi": 0.1,
+          "dusus": 0
+        }
+      }
+    },
+    {
+      "id": "ozel",
+      "measured": false,
+      "values": {}
+    }
+  ]
+}

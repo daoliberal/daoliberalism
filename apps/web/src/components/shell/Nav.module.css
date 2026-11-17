@@ -1,0 +1,7 @@
+/* C-02-Treasuries:23 */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  gap: var(--space-4);
+}

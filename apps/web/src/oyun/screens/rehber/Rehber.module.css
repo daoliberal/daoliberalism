@@ -1,0 +1,66 @@
+.tur {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  min-width: 0;
+}
+
+.no {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: var(--fs-13);
+}
+
+.metin {
+  margin: 0;
+  color: var(--color-ink-2);
+  overflow-wrap: anywhere;
+}
+
+.cerceve {
+  margin: 0;
+  font-size: var(--fs-16);
+  font-weight: var(--weight-bold);
+}
+
+.dugmeler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.liste {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: 0;
+  padding-left: var(--space-20);
+}
+
+.adim {
+  overflow-wrap: anywhere;
+}
+
+.ipucu {
+  position: sticky;
+  bottom: var(--space-12);
+  z-index: 40;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+  box-sizing: border-box;
+  padding: var(--space-12) var(--space-16);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-16);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-modal);
+}
+
+.ipucuMetin {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}

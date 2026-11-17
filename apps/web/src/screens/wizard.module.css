@@ -1,0 +1,195 @@
+/* Shared frame of the two setup wizards: C-04-CreateTreasury:34, C-06-CreateDAO:34 */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  box-sizing: border-box;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-28) var(--gutter) var(--space-80);
+}
+
+.narrow {
+  max-width: var(--page-narrow);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-44);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-tight);
+}
+
+.lede {
+  margin: var(--space-8) 0 0;
+  color: var(--color-ink-3);
+}
+
+.ledeTreasury {
+  max-width: var(--measure-640);
+}
+
+.ledeDao {
+  max-width: var(--measure-lg);
+}
+
+/* C-04-CreateTreasury:73 form column + live preview column */
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-24);
+}
+
+.formCol {
+  display: flex;
+  flex: 999 1 var(--measure-560);
+  flex-direction: column;
+  min-width: 0;
+}
+
+.previewCol {
+  display: flex;
+  flex: 1 1 var(--aside-basis);
+  flex-direction: column;
+  min-width: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.gap14 {
+  gap: var(--space-14);
+}
+
+.gap16 {
+  gap: var(--space-16);
+}
+
+.gap18 {
+  gap: var(--space-18);
+}
+
+.gap22 {
+  gap: var(--space-22);
+}
+
+.h2 {
+  margin: 0;
+  font-size: var(--fs-22);
+  font-weight: var(--weight-bold);
+}
+
+.text {
+  margin: 0;
+  color: var(--color-ink-3);
+}
+
+/* fee + expenses over 100%: C-04-CreateTreasury:73 (same look as a field error) */
+.limit {
+  margin: 0;
+  padding: var(--space-12) var(--space-14);
+  border-radius: var(--radius-12);
+  background: var(--color-caution-bg);
+  color: var(--color-caution-accent);
+  font-weight: var(--weight-bold);
+}
+
+/* rule / treasury summary boxes: C-04-CreateTreasury:83, C-06-CreateDAO:76 */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-200), 100%), 1fr));
+  gap: var(--space-12);
+  margin: 0;
+}
+
+.fact {
+  min-width: 0;
+  padding: var(--space-14);
+  border: var(--border-1) solid var(--color-line-soft);
+  border-radius: var(--radius-14);
+  overflow-wrap: anywhere;
+}
+
+.term {
+  font-size: var(--fs-13);
+  color: var(--color-ink-4);
+}
+
+.def {
+  margin: 0;
+}
+
+.defMono22 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-22);
+}
+
+.defMono14 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+}
+
+.defBold {
+  font-weight: var(--weight-bold);
+}
+
+.defBold18 {
+  font-size: var(--fs-18);
+  font-weight: var(--weight-bold);
+}
+
+/* Back / Continue / sign row: C-04-CreateTreasury:99 */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-10);
+  padding-top: var(--space-18);
+  border-top: var(--border-1) solid var(--color-line-soft);
+}
+
+/* selectable cards (split rule C-04-CreateTreasury:71-72) */
+.choice {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-18);
+  border: var(--border-2) solid var(--color-line);
+  border-radius: var(--radius-16);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.choice[aria-pressed="true"] {
+  border-color: var(--color-brand);
+}
+
+.choiceTitle {
+  font-size: var(--fs-17);
+  font-weight: var(--weight-bold);
+}
+
+.choiceAside {
+  font-weight: var(--weight-regular);
+  color: var(--color-ink-4);
+}
+
+.choiceText {
+  color: var(--color-ink-3);
+}
+
+.choiceCode {
+  font-family: var(--font-mono);
+  font-size: var(--fs-13);
+  color: var(--color-brand);
+}

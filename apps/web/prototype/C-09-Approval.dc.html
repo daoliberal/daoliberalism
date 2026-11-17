@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Approve and sign — daoliberal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;family=Atkinson+Hyperlegible+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0B6B5D}a:hover{color:#074A40}
+@keyframes dlspin{to{transform:rotate(360deg)}}
+</style>
+</helmet>
+<div style="width: 1280px; height: 900px; box-sizing: border-box; background: #5E6A74; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 16px; line-height: 1.5; color: #12181F; position: relative; display: flex; flex-direction: column; align-items: center; padding: 24px">
+
+<div style="align-self: stretch; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: #FFFFFF; font-size: 14px">
+<span style="font-weight: 700; margin-right: 4px">Prototype · preview action</span>
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="6">
+<button onClick="{{t.pick}}" aria-pressed="{{t.on}}" style="min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid {{t.border}}; background: {{t.bg}}; color: {{t.fg}}; font: inherit; font-size: 13px; font-weight: 700">{{t.label}}</button>
+</sc-for>
+</div>
+
+<section role="dialog" aria-modal="true" aria-labelledby="ap-h" style="margin-top: 28px; width: 580px; background: #FFFFFF; border-radius: 28px; padding: 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 24px 60px rgba(10, 16, 22, 0.35)">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #074A40; background: #E3F0EC; border-radius: 999px; padding: 4px 12px">{{v.kind}}</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: #FFF1D6; color: #7A4A00; font-size: 12px; font-weight: 700"><svg width="7" height="7" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#C77700"></circle></svg>Testnet</span>
+</div>
+<h2 id="ap-h" style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 30px; font-weight: 700; line-height: 1.1; letter-spacing: -0.01em">{{v.title}}</h2>
+
+<sc-if value="{{review}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px">
+<li style="display: flex; gap: 12px"><span style="flex: 0 0 26px; height: 26px; border-radius: 999px; background: #12181F; color: #FFFFFF; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">1</span><div><div style="font-weight: 700">What will happen</div><div style="color: #33404C">{{v.happen}}</div></div></li>
+<li style="display: flex; gap: 12px"><span style="flex: 0 0 26px; height: 26px; border-radius: 999px; background: #12181F; color: #FFFFFF; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">2</span><div><div style="font-weight: 700">Contract you sign</div><a href="#" style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 15px">{{v.contract}} ↗</a></div></li>
+<li style="display: flex; gap: 12px"><span style="flex: 0 0 26px; height: 26px; border-radius: 999px; background: #12181F; color: #FFFFFF; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">3</span><div><div style="font-weight: 700">Rules that apply</div><div style="color: #33404C">{{v.rules}}</div></div></li>
+</ol>
+<sc-if value="{{v.hasFlow}}" hint-placeholder-val="{{ true }}">
+<div style="border-radius: 16px; background: #E3F0EC; color: #074A40; padding: 14px 16px; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 15px">{{v.flow}}</div>
+</sc-if>
+<sc-if value="{{v.hasPerm}}" hint-placeholder-val="{{ false }}">
+<div style="border-radius: 16px; border: 2px solid #8A3B09; background: #FDF0E4; color: #6B2C05; padding: 12px 16px; font-weight: 700; display: flex; gap: 10px; align-items: center"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#8A3B09" stroke-width="1.8" style="flex: 0 0 20px"><rect x="4" y="10.5" width="16" height="10.5" rx="2"></rect><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"></path></svg>{{v.perm}}</div>
+</sc-if>
+<div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; color: #4F5B66; padding-top: 12px; border-top: 1px solid #E2E7EB"><span>Signing as <span style="font-family: 'Atkinson Hyperlegible Mono', monospace; color: #12181F">{{v.signer}}</span></span><span>Network fee shown in your wallet</span></div>
+<div style="display: flex; gap: 10px">
+<button style="flex: 1 1 0; min-height: 52px; border-radius: 999px; border: 1px solid #C3CBD2; background: #FFFFFF; font: inherit; font-weight: 700; color: #12181F">Cancel</button>
+<button onClick="{{sign}}" style="flex: 2 1 0; min-height: 52px; border-radius: 999px; border: 0; background: #0B6B5D; color: #FFFFFF; font: inherit; font-weight: 700; font-size: 17px">{{v.cta}}</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{waiting}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 24px 0; text-align: center">
+<span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 999px; border: 4px solid #E2E7EB; border-top-color: #0B6B5D; animation: dlspin 1s linear infinite"></span>
+<div style="font-weight: 700; font-size: 18px">Waiting for your wallet</div>
+<p style="margin: 0; color: #3D4954; max-width: 400px">Check the request in your wallet. Nothing happens until you approve it there.</p>
+<button onClick="{{confirm}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px dashed #8D9AA6; background: #FFFFFF; font: inherit; font-size: 14px; color: #33404C">Prototype: simulate wallet approval</button>
+</div>
+</sc-if>
+
+<sc-if value="{{done}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 20px 0; text-align: center">
+<span aria-hidden="true" style="width: 52px; height: 52px; border-radius: 999px; background: #0B6B5D; display: inline-flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+<div style="font-weight: 700; font-size: 18px">Confirmed on-chain</div>
+<p style="margin: 0; color: #3D4954">{{v.doneText}}</p>
+<a href="#" style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px">Transaction 0x6b0e…9d24 ↗</a>
+<button onClick="{{reset}}" style="min-height: 48px; padding: 0 22px; border-radius: 999px; border: 0; background: #12181F; color: #FFFFFF; font: inherit; font-weight: 700">Done</button>
+</div>
+</sc-if>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const k = s.k || 'join';
+    const phase = s.phase || 'review';
+    const V = {
+      join: { label: 'Join DAO', kind: 'Membership', title: 'Let Atlas‑7 join Northwind Studio', happen: 'Atlas‑7 becomes a member of Northwind Studio. Joining is free and uses one Commonwealth seat. Earnings go to your wallet, never to the agent.', contract: 'DAO membership · 0x61f0…aa32', rules: 'Commonwealth: 5% fee · 3% expenses · 7-day hold · Equal split', flow: 'Per 1 ETH order → 0.92 to 7 owners ≈ 0.1314 each, after 7 days', perm: '', cta: 'Approve and sign', signer: '0x91c4…a4F2', doneText: 'Atlas‑7 is now a member of Northwind Studio.' },
+      spend: { label: 'Spend', kind: 'Treasury spend · founder only', title: 'Send 1.250 ETH from Commonwealth', happen: '1.250 ETH moves from the treasury balance to 0x7e19…b2c0.', contract: 'Commonwealth treasury · 0x4f2a…91c0', rules: 'In Phase 1 only the founder can spend the treasury balance.', flow: 'Balance 23.408 → 22.158 ETH', perm: 'Public: this spend appears in the treasury’s history for everyone', cta: 'Sign spend', signer: '0x3b02…7E21', doneText: 'The spend is recorded in Commonwealth’s public history.' },
+      deploy: { label: 'Deploy treasury', kind: 'New treasury', title: 'Deploy the Tidewater treasury', happen: 'A new treasury contract is created with the rules below. Anyone can read it and compare it with other treasuries.', contract: 'Treasury factory · 0xa4c7…0e55', rules: '2% fee · 1% expenses · 14-day hold · 300 max agents · Equal split', flow: 'Per 1 ETH order → 0.97 to members’ owners, after 14 days', perm: 'These rules cannot be changed in Phase 1', cta: 'Deploy and sign', signer: '0x91c4…a4F2', doneText: 'Tidewater is live and listed under Treasuries.' },
+      dao: { label: 'Create DAO', kind: 'New DAO', title: 'Create Coral Desk under Lean Guild', happen: 'Coral Desk is created and joins Lean Guild for free. Your agent Ox‑Relay becomes its first member.', contract: 'DAO registry · 0x2b51…d7e0', rules: 'Lean Guild: 1% fee · 0% expenses · 14-day hold · Equal split', flow: 'Per 1 ETH order → 0.99 to members’ owners, after 14 days', perm: 'Coral Desk can’t leave or switch treasury in Phase 1', cta: 'Create and sign', signer: '0x91c4…a4F2', doneText: 'Coral Desk is live under Lean Guild.' },
+      agent: { label: 'Register agent', kind: 'Agent registry', title: 'Register a new agent', happen: 'Agent key 0x0b97…e2C4 is linked to your wallet as its owner. Its profile is read from ipfs://bafy…oxrelay.json.', contract: 'Agent registry · 0x9e2d…41b3', rules: 'Agents never hold funds. Ownership transfer arrives in a later phase.', flow: '', perm: '', cta: 'Register and sign', signer: '0x91c4…a4F2', doneText: 'Ox‑Relay is registered. You can now join DAOs with it.' },
+      claim: { label: 'Claim', kind: 'Claim earnings', title: 'Claim 0.412 ETH', happen: '3 credits whose hold period has ended are paid to your wallet.', contract: 'Commonwealth 0x4f2a…91c0 · Lean Guild 0x8c11…02ab', rules: 'Hold periods ended: 7 days (Commonwealth), 14 days (Lean Guild).', flow: '0.412 ETH → 0x91c4…a4F2', perm: '', cta: 'Claim and sign', signer: '0x91c4…a4F2', doneText: '0.412 ETH is in your wallet.' }
+    };
+    const v = V[k];
+    return {
+      tabs: Object.keys(V).map((key) => ({
+        label: V[key].label, on: key === k,
+        bg: key === k ? '#FFFFFF' : 'transparent', fg: key === k ? '#12181F' : '#FFFFFF', border: key === k ? '#FFFFFF' : 'rgba(255,255,255,0.6)',
+        pick: () => this.setState({ k: key, phase: 'review' })
+      })),
+      v: Object.assign({}, v, { hasFlow: !!v.flow, hasPerm: !!v.perm }),
+      review: phase === 'review', waiting: phase === 'waiting', done: phase === 'done',
+      sign: () => this.setState({ phase: 'waiting' }),
+      confirm: () => this.setState({ phase: 'done' }),
+      reset: () => this.setState({ phase: 'review' })
+    };
+  }
+}
+</script>
+</body>
+</html>

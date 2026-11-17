@@ -1,0 +1,92 @@
+/* Treasury picker button-card: C-06-CreateDAO:66-73 (screen composite) */
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-12) var(--space-28);
+  padding: var(--space-18) var(--space-20);
+  border: var(--border-2) solid var(--color-line);
+  border-radius: var(--radius-18);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.card[aria-pressed="true"] {
+  border-color: var(--color-brand);
+  background: var(--color-surface-selected);
+}
+
+.card[aria-disabled="true"] {
+  background: var(--color-surface-muted);
+  color: var(--color-ink-4);
+  cursor: not-allowed;
+}
+
+.name {
+  display: flex;
+  flex: 1 1 var(--min-200);
+  flex-direction: column;
+  min-width: 0;
+}
+
+.nameText {
+  font-size: var(--fs-19);
+  font-weight: var(--weight-bold);
+}
+
+.rules {
+  font-family: var(--font-mono);
+  font-size: var(--fs-13);
+  color: var(--color-ink-2);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.statMem {
+  flex: 0 1 var(--basis-180);
+}
+
+.statSeats {
+  flex: 0 1 var(--basis-140);
+}
+
+.statLabel {
+  font-size: var(--fs-13);
+  color: var(--color-ink-4);
+}
+
+.statMemValue {
+  font-family: var(--font-mono);
+  font-size: var(--fs-22);
+  color: var(--color-brand);
+}
+
+.statSeatsValue {
+  font-family: var(--font-mono);
+  font-size: var(--fs-18);
+}
+
+.chosen {
+  font-size: var(--fs-14);
+  font-weight: var(--weight-bold);
+  color: var(--color-brand);
+}
+
+.reason {
+  font-size: var(--fs-14);
+  font-weight: var(--weight-bold);
+  color: var(--color-caution-accent);
+}
+
+.compare {
+  align-self: flex-start;
+  font-weight: var(--weight-bold);
+}

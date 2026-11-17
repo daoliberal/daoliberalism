@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "note": "Tutarlılık uyarıları (R1b). `when`: bütün kartların değeri aynı anda eşleşirse uyarı çıkar; kart değeri bir nesneyse (fields kartı) yalnız verilen alanlar eşleşmelidir. `artan`: kartın verilen alanları (sırayla) küçükten büyüğe olmalıdır; aksi hâlde uyarı çıkar. Metin `metinler.tr.json` `_uyarilar` bölümündedir.",
+  "rules": [
+    {
+      "id": "kurtarma_var_gecis_kisa",
+      "when": {
+        "zarar_eden_firmayi_kurtarma": "var",
+        "gecis_destegi": "kisa_sureli"
+      },
+      "textKey": "_uyarilar.kurtarma_var_gecis"
+    },
+    {
+      "id": "kurtarma_var_gecis_fon",
+      "when": {
+        "zarar_eden_firmayi_kurtarma": "var",
+        "gecis_destegi": "kurtarma_fonuyla"
+      },
+      "textKey": "_uyarilar.kurtarma_var_gecis"
+    },
+    {
+      "id": "kurtarma_var_ozellestirme",
+      "when": {
+        "zarar_eden_firmayi_kurtarma": "var",
+        "ozellestirme": {
+          "acik": true
+        }
+      },
+      "textKey": "_uyarilar.kurtarma_var_ozellestirme"
+    },
+    {
+      "id": "kurtarma_var_altyapi",
+      "when": {
+        "zarar_eden_firmayi_kurtarma": "var",
+        "altyapi_idari_yonetim": true
+      },
+      "textKey": "_uyarilar.kurtarma_var_altyapi"
+    },
+    {
+      "id": "kamu_hizmet_kapali",
+      "when": {
+        "kamu_hizmet_sozlesmesi": false
+      },
+      "textKey": "_uyarilar.kamu_hizmet_kapali"
+    },
+    {
+      "id": "fon_kapali_genc",
+      "when": {
+        "kurulus_fonu": {
+          "acik": false
+        },
+        "genc_firma_destegi": true
+      },
+      "textKey": "_uyarilar.fon_kapali_genc"
+    },
+    {
+      "id": "genc_itibar_var",
+      "when": {
+        "genc_firma_destegi": true,
+        "itibar_sarti": "var"
+      },
+      "textKey": "_uyarilar.genc_itibar_var"
+    },
+    {
+      "id": "sosyal_paket_kapali",
+      "when": {
+        "lonca_sosyal_paket": false
+      },
+      "textKey": "_uyarilar.sosyal_paket_kapali"
+    },
+    {
+      "id": "aralik_tarafsiz_faiz",
+      "artan": {
+        "kart": "tarafsiz_faiz",
+        "alanlar": [
+          "taban",
+          "tavan"
+        ]
+      },
+      "textKey": "_uyarilar.aralik_tarafsiz_faiz"
+    },
+    {
+      "id": "aralik_kredi_ortak",
+      "artan": {
+        "kart": "kredi_ortak",
+        "alanlar": [
+          "faiz_tabani",
+          "faiz_tavani"
+        ]
+      },
+      "textKey": "_uyarilar.aralik_kredi_ortak"
+    },
+    {
+      "id": "aralik_lonca_aidat",
+      "artan": {
+        "kart": "lonca_aidat_araligi",
+        "alanlar": [
+          "en_az",
+          "en_cok"
+        ]
+      },
+      "textKey": "_uyarilar.aralik_lonca_aidat"
+    },
+    {
+      "id": "para_devri_eski_kasa",
+      "when": {
+        "para_devresi": "kasa_biriktirir",
+        "sehir_kasasi_kurali": {
+          "acik": true
+        }
+      },
+      "textKey": "_uyarilar.para_devri_eski_kasa"
+    },
+    {
+      "id": "para_devri_eski_kar",
+      "when": {
+        "para_devresi": "kasa_biriktirir",
+        "kar_firmada_kalir": {
+          "acik": true
+        }
+      },
+      "textKey": "_uyarilar.para_devri_eski_kar"
+    },
+    {
+      "id": "hayalet_destek_kapali",
+      "when": {
+        "hayalet_firma": {
+          "kip": "destek_gelmeyen"
+        },
+        "gecis_destegi": "kapali"
+      },
+      "textKey": "_uyarilar.hayalet_destek"
+    },
+    {
+      "id": "hayalet_destek_kisa",
+      "when": {
+        "hayalet_firma": {
+          "kip": "destek_gelmeyen"
+        },
+        "gecis_destegi": "kisa_sureli"
+      },
+      "textKey": "_uyarilar.hayalet_destek"
+    },
+    {
+      "id": "bosluk_zinciri_ahir_kapali",
+      "when": {
+        "bosluk_zinciri": true,
+        "ahir_gecisi": {
+          "kural": "kapali"
+        }
+      },
+      "textKey": "_uyarilar.bosluk_zinciri_ahir"
+    }
+  ]
+}

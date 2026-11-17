@@ -1,0 +1,133 @@
+/* ---- desktop: C-03-Treasury:78-93 (always-dark panel, so panel tokens only) ---- */
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-22);
+  font-weight: var(--weight-bold);
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-12);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.fieldLabel {
+  color: var(--color-panel-muted);
+  font-size: var(--fs-13);
+}
+
+.input {
+  min-width: 0;
+  height: var(--size-48);
+  padding: 0 var(--space-12);
+  border: var(--border-1) solid var(--color-panel-border);
+  border-radius: var(--radius-12);
+  background: var(--color-panel-surface);
+  color: var(--color-panel-ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-20);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-15);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-12);
+  padding: var(--space-8) 0;
+  border-bottom: var(--border-1) solid var(--color-panel-line);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.term {
+  color: var(--color-panel-muted);
+  font-family: var(--font-body);
+}
+
+.strong {
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
+}
+
+.detail,
+.accent,
+.each {
+  margin: 0;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.accent,
+.each {
+  color: var(--color-panel-accent);
+}
+
+.each {
+  font-size: var(--fs-18);
+}
+
+.note {
+  margin: 0;
+  padding: var(--space-12) var(--space-14);
+  border-radius: var(--radius-12);
+  background: var(--color-panel-surface);
+  color: var(--color-panel-note);
+  font-size: var(--fs-14);
+}
+
+/* ---- phone: C-M2-Treasury:33-45 ---- */
+.mLines {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+}
+
+.mLine {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-4) 0;
+}
+
+.mMuted {
+  color: var(--color-ink-4);
+}
+
+.mTotal {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-6) 0 0;
+  border-top: var(--border-1) solid var(--color-line);
+  font-size: var(--fs-17);
+}
+
+.mTotalLabel {
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
+}
+
+.mAccent {
+  color: var(--color-brand);
+}
+
+.mNote {
+  color: var(--color-ink-2);
+  font-size: var(--fs-13);
+}

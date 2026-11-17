@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect data-katman="govde" x="26.4" y="72" width="3.2" height="12.6"/>
+  <circle data-katman="agac" cx="28" cy="71" r="14"/>
+  <circle data-katman="agac-isik" cx="23.8" cy="65" r="6.3"/>
+  <rect data-katman="govde" x="64.4" y="66" width="3.2" height="15.3"/>
+  <circle data-katman="agac" cx="66" cy="65" r="17"/>
+  <circle data-katman="agac-isik" cx="60.9" cy="57.5" r="7.7"/>
+  <rect data-katman="govde" x="44.4" y="82" width="3.2" height="10.8"/>
+  <circle data-katman="agac" cx="46" cy="81" r="12"/>
+  <circle data-katman="agac-isik" cx="42.4" cy="76" r="5.4"/>
+  <rect data-katman="govde" x="80.4" y="82" width="3.2" height="9.9"/>
+  <circle data-katman="agac" cx="82" cy="81" r="11"/>
+  <circle data-katman="agac-isik" cx="78.7" cy="76.5" r="5"/>
+  <rect data-katman="govde" x="12.4" y="86" width="3.2" height="7.2"/>
+  <circle data-katman="agac" cx="14" cy="85" r="8"/>
+  <circle data-katman="agac-isik" cx="11.6" cy="82" r="3.6"/>
+</svg>

@@ -1,0 +1,45 @@
+.bilgi {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: var(--fs-14);
+  overflow-wrap: anywhere;
+}
+
+.bolum {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.altBaslik {
+  margin: 0;
+  font-size: var(--fs-16);
+}
+
+.farklar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fark {
+  padding: var(--space-4) var(--space-10);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-12);
+  overflow-wrap: anywhere;
+}
+
+.redler {
+  margin: 0;
+  padding-left: var(--space-20);
+}
+
+.alt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+}

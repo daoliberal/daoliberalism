@@ -1,0 +1,221 @@
+.kok {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  min-width: 0;
+}
+
+.baslik {
+  margin: 0;
+  font-size: var(--fs-18);
+}
+
+.not {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: var(--fs-13);
+}
+
+.kontroller {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.dugme {
+  min-height: var(--size-44);
+  padding: var(--space-6) var(--space-16);
+  border: var(--border-1) solid var(--color-line-strong);
+  border-radius: var(--radius-12);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.sahne {
+  width: 100%;
+  aspect-ratio: 10 / 7;
+  overflow: hidden;
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-16);
+  background: var(--color-bg);
+  touch-action: none;
+}
+
+.sahneKap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.ozetKutu {
+  padding: var(--space-12) var(--space-16);
+  border-radius: var(--radius-12);
+  background: var(--color-surface-muted);
+  color: var(--color-ink-2);
+  font-size: var(--fs-14);
+}
+
+.lejand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--color-ink-3);
+  font-size: var(--fs-13);
+}
+
+.lejandOge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.lejandSekil {
+  width: var(--size-22);
+  height: var(--size-14);
+}
+
+.detay {
+  min-width: 0;
+}
+
+.ozetBaslik {
+  min-height: var(--size-44);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: var(--weight-bold);
+}
+
+.tabloKutu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.kaydirma {
+  overflow-x: auto;
+}
+
+.tablo {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-14);
+  font-variant-numeric: tabular-nums;
+}
+
+.tablo th,
+.tablo td {
+  padding: var(--space-6) var(--space-10);
+  border-bottom: var(--border-1) solid var(--color-line-soft);
+  text-align: start;
+}
+
+.altBaslik {
+  margin: 0 0 var(--space-8);
+  font-size: var(--fs-14);
+}
+
+.liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.satirDugme {
+  min-height: var(--size-44);
+  padding: var(--space-4) var(--space-12);
+  border: var(--border-1) solid var(--color-line-strong);
+  border-radius: var(--radius-12);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.seciliSatir {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-on-action);
+  font-weight: var(--weight-bold);
+}
+
+.tekSehir {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  min-width: 0;
+}
+
+/* Oyun kabuğu: tuval kabı doldurur; tablo yedeği ya da klavye odağıyla beliren yüzen panel. */
+.kabuk {
+  position: absolute;
+  inset: 0;
+  gap: 0;
+}
+
+.kabukNot {
+  position: absolute;
+  z-index: 5;
+  top: var(--size-76);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Tuval varken tablo ekranda görünmez ama klavye ve ekran okuyucuyla erişilir; odak içine girince yüzen panel olur. */
+.detayYuzen {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-16);
+  width: var(--space-1);
+  height: var(--space-1);
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.detayYuzen:focus-within {
+  z-index: 20;
+  width: var(--measure-sm);
+  max-width: calc(100% - var(--space-32));
+  height: auto;
+  max-height: 50%;
+  overflow: auto;
+  clip-path: none;
+  white-space: normal;
+  padding: var(--space-8) var(--space-12);
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-14);
+  background: var(--ekran-cam);
+  color: var(--ekran-yazi);
+  box-shadow: var(--shadow-modal);
+}
+
+/* Tuval yokken tablo tam alandır; yan paneller için kenar boşluğu bırakılır. */
+.detayTam {
+  position: absolute;
+  inset: 0;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: var(--size-76) var(--space-16) var(--space-140);
+}
+
+@media (min-width: 721px) {
+  .detayTam {
+    padding-left: calc(var(--measure-340) + var(--space-32));
+    padding-right: calc(var(--measure-340) + var(--space-32));
+  }
+}
+
+/* Canlı bölge kabı düzene katılmaz; notlar kendi konumlarında durur. */
+.durumKap {
+  display: contents;
+}

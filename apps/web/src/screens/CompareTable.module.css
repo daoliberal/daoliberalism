@@ -1,0 +1,137 @@
+/*
+ * C-02-Treasuries side-by-side table (:121). Heights and paddings per row are the prototype's.
+ * Track sizes: label column 180 (flex 0 0 180), then one column per treasury (flex 1 1 220, min 200 + 20 padding + 1 border),
+ * 20 between columns (the prototype's margin-left).
+ */
+.table {
+  min-width: var(--table-min-lg);
+  padding: var(--space-8) var(--space-24) var(--space-20);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: var(--size-180);
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(calc(var(--min-200) + var(--space-20) + var(--border-1)), 1fr);
+  column-gap: var(--space-20);
+}
+
+.head {
+  height: var(--size-84);
+}
+
+.owners {
+  height: var(--size-88);
+}
+
+.short {
+  height: var(--size-60);
+}
+
+.split,
+.go {
+  height: var(--size-76);
+}
+
+.seats {
+  height: var(--size-72);
+}
+
+/* the rules sit on the cells, not on the row: the 20 between columns stays open, as in the prototype */
+.owners > * {
+  border-top: var(--border-2) solid var(--color-ink);
+}
+
+.short > *,
+.split > *,
+.go > *,
+.seats > * {
+  border-top: var(--border-1) solid var(--color-line-soft);
+}
+
+/* row header column */
+.labelCell {
+  box-sizing: border-box;
+  padding-top: var(--space-16);
+  color: var(--color-ink-4);
+  font-size: var(--fs-14);
+  overflow-wrap: anywhere;
+}
+
+.owners .labelCell {
+  padding-top: var(--space-14);
+  color: var(--color-ink);
+  font-weight: var(--weight-bold);
+}
+
+.labelSub {
+  color: var(--color-ink-4);
+  font-weight: var(--weight-regular);
+}
+
+/* one treasury column: left rule, 20 of padding, content wraps instead of widening the table */
+.cell {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: var(--space-14) 0 0 var(--space-20);
+  border-left: var(--border-1) solid var(--color-line-soft);
+  overflow-wrap: anywhere;
+}
+
+.head .cell {
+  padding-top: var(--space-16);
+}
+
+.owners .cell,
+.split .cell,
+.seats .cell {
+  padding-top: var(--space-12);
+}
+
+.go .cell {
+  padding-top: var(--space-16);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--fs-24);
+  font-weight: var(--weight-bold);
+}
+
+/* shown as link-styled text: there is no explorer to link to in the mock */
+.address {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--fs-13);
+  text-decoration: underline;
+}
+
+.ownersEth {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--fs-28);
+}
+
+.note {
+  color: var(--color-ink-4);
+  font-size: var(--fs-13);
+}
+
+.mono18 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-18);
+}
+
+.mono16 {
+  font-family: var(--font-mono);
+  font-size: var(--fs-16);
+}
+
+.sub {
+  color: var(--color-ink-4);
+  font-size: var(--fs-14);
+}
+
+.bold {
+  font-weight: var(--weight-bold);
+}

@@ -1,0 +1,78 @@
+/* Oyun ekranı renk takma adları: yalnız mevcut belirteçlere işaret eder (tokens.css değişmez). Tek .kok bloğu, iki bölüm: ekran (T4b), harita (T3). */
+.kok {
+  /* ekran */
+  --ekran-zemin: var(--color-bg);
+  --ekran-cam: var(--color-surface);
+  --ekran-cam-cerceve: var(--color-line-strong);
+  --ekran-seri: var(--color-surface-muted);
+  --ekran-ayrac: var(--color-line);
+  --ekran-yazi: var(--color-ink);
+  --ekran-yazi-soluk: var(--color-slate);
+  --ekran-vurgu: var(--color-brand);
+  --ekran-vurgu-koyu: var(--color-brand-strong);
+  --ekran-vurgu-zemin: var(--color-brand-tint);
+  --ekran-vurgu-yazi: var(--color-on-brand);
+  --ekran-secili: var(--color-surface-selected);
+  --ekran-not-zemin: var(--color-warn-bg);
+  --ekran-not-yazi: var(--color-warn-fg);
+  /* harita */
+  --harita-zemin: var(--color-bg);
+  --harita-sokak: var(--color-surface);
+  --harita-sokak-ana: var(--color-surface);
+  --harita-parsel: var(--color-line-soft);
+  --harita-meydan: var(--color-surface-selected);
+  --harita-etiket: var(--color-ink-2);
+  --harita-secili: var(--color-brand-strong);
+  --harita-ben: var(--color-cta);
+  --harita-ilan: var(--color-panel-accent);
+  --harita-rozet: var(--color-cta);
+  --harita-rozet-yazi: var(--color-on-cta);
+  --harita-ipucu-zemin: var(--color-surface);
+  --harita-ipucu-yazi: var(--color-ink-2);
+  --harita-ipucu-cerceve: var(--color-line);
+  --harita-kontur: var(--color-line-strong);
+  --harita-golge: var(--color-ink);
+  --harita-isik: var(--color-surface);
+  --harita-grup-hammadde: var(--color-caution-accent);
+  --harita-grup-imalat: var(--color-ink-2);
+  --harita-grup-hizmet: var(--color-warn-dot);
+  --harita-grup-lojistik: var(--color-brand);
+  --harita-grup-lonca: var(--color-panel-accent);
+  --harita-grup-sehir: var(--color-slate);
+  --harita-grup-ahir: var(--color-line-strong);
+  --harita-pencere: var(--color-panel-accent);
+  --harita-kapi: var(--color-ink-2);
+  --harita-ayrinti: var(--color-surface);
+  --harita-vurgu: var(--color-panel-accent);
+  --harita-metal: var(--color-slate);
+  --harita-saman: var(--color-warn-dot);
+  --harita-agac: var(--color-brand);
+  --harita-govde: var(--color-caution-accent);
+  --harita-cim: var(--color-brand-tint);
+  --harita-yol: var(--color-surface);
+  --harita-duman: var(--color-line);
+  --harita-ton-iyi: var(--color-brand);
+  --harita-ton-orta: var(--color-caution-accent);
+  --harita-ton-dar: var(--color-warn-dot);
+  --harita-ton-dusen: var(--color-panel-accent);
+  --harita-ton-yatay: var(--color-line-strong);
+  --harita-ton-artan: var(--color-cta);
+  /* harita (izometrik görünüm) */
+  --harita-izo-cim: var(--color-brand-tint);
+  --harita-izo-asfalt: var(--color-line-strong);
+  --harita-izo-nehir: var(--color-panel-accent);
+  --harita-izo-secili: var(--color-brand-strong);
+  --harita-izo-ben: var(--color-cta);
+  --harita-izo-tahta: var(--color-caution-accent);
+  --harita-izo-iskele: var(--color-warn-dot);
+  --harita-izo-duman: var(--color-line);
+  --harita-izo-isik: var(--color-surface);
+  /* ışık ve parlama: tema değişse de açık kalan panel mürekkebi (tokens.css'te --color-panel-* iki temada da aynı; yüzey rengi koyu temada kararır) */
+  --harita-izo-isik-sicak: var(--color-panel-ink);
+  --harita-izo-ton-iyi: var(--color-brand);
+  --harita-izo-ton-orta: var(--color-caution-accent);
+  --harita-izo-ton-dar: var(--color-warn-dot);
+  --harita-izo-ton-dusen: var(--color-panel-accent);
+  --harita-izo-ton-yatay: var(--color-line-strong);
+  --harita-izo-ton-artan: var(--color-cta);
+}

@@ -1,0 +1,108 @@
+/* the box is 22px as drawn; the label around it is the 44px touch target */
+.check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-44);
+  height: var(--size-44);
+  margin: calc(-1 * var(--space-10)) 0;
+  cursor: pointer;
+}
+
+.box {
+  width: var(--size-22);
+  height: var(--size-22);
+  margin: 0;
+  accent-color: var(--color-brand);
+}
+
+.order {
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+}
+
+.dao {
+  font-weight: var(--weight-bold);
+  color: var(--color-ink);
+}
+
+.sub14 {
+  font-size: var(--fs-14);
+  color: var(--color-ink-4);
+}
+
+.sub13 {
+  font-size: var(--fs-13);
+  color: var(--color-ink-4);
+}
+
+.date {
+  font-size: var(--fs-14);
+  color: var(--color-ink-3);
+}
+
+.amount {
+  font-family: var(--font-mono);
+  font-size: var(--fs-17);
+}
+
+.release {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.status {
+  font-size: var(--fs-14);
+  font-weight: var(--weight-bold);
+  color: var(--color-ink-2);
+}
+
+.statusReady {
+  color: var(--color-brand);
+}
+
+/* C-08-Earnings:63 native <progress> as a 6px bar: track line-soft, fill grey while waiting and brand when ready */
+.progress {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: var(--size-meter);
+  border: 0;
+  border-radius: var(--radius-3);
+  background: var(--color-line-soft);
+  overflow: hidden;
+}
+
+.progress::-webkit-progress-bar {
+  background: var(--color-line-soft);
+}
+
+.progress::-webkit-progress-value {
+  background: var(--color-flow-expense);
+  border-radius: var(--radius-3);
+}
+
+.progress::-moz-progress-bar {
+  background: var(--color-flow-expense);
+  border-radius: var(--radius-3);
+}
+
+.progressReady::-webkit-progress-value {
+  background: var(--color-brand);
+}
+
+.progressReady::-moz-progress-bar {
+  background: var(--color-brand);
+}
+
+/* visually hidden text for the checkbox column header */
+.hidden {
+  position: absolute;
+  width: var(--space-1);
+  height: var(--space-1);
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

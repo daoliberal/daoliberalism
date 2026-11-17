@@ -1,0 +1,82 @@
+.baslik {
+  margin: 0;
+  font-size: var(--fs-18);
+}
+
+.uzman {
+  padding: var(--space-2) var(--space-8);
+  border: var(--border-1) solid var(--color-line-strong);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink-2);
+  font-size: var(--fs-13);
+  font-weight: var(--weight-bold);
+}
+
+.satirlar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  margin: 0;
+}
+
+.satir {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.etiket {
+  color: var(--color-slate);
+  font-size: var(--fs-13);
+  font-weight: var(--weight-bold);
+}
+
+.metin {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  color: var(--color-ink-2);
+}
+
+.not {
+  color: var(--color-ink-3);
+  font-size: var(--fs-14);
+}
+
+.kilit {
+  margin: 0;
+  padding: var(--space-8) var(--space-12);
+  border-left: var(--border-4) solid var(--color-warn-dot);
+  background: var(--color-warn-bg);
+  color: var(--color-warn-fg);
+  font-weight: var(--weight-bold);
+}
+
+.gosterilen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gosterilenSatir {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-8);
+  min-width: 0;
+}
+
+.gosterilenEtiket {
+  color: var(--color-ink-3);
+  font-size: var(--fs-14);
+  overflow-wrap: anywhere;
+}
+
+.gosterilenDeger {
+  color: var(--color-ink-2);
+  overflow-wrap: anywhere;
+}

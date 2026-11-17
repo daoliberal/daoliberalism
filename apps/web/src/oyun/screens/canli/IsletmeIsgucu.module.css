@@ -1,0 +1,61 @@
+.cubuklar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cubuk {
+  display: grid;
+  grid-template-columns: var(--space-140) 1fr;
+  align-items: center;
+  gap: var(--space-8);
+  min-width: 0;
+}
+
+.cubukAd {
+  font-size: var(--fs-13);
+  overflow-wrap: anywhere;
+}
+
+.cubukIz {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  min-width: 0;
+}
+
+.cubukCizgi {
+  flex: 1;
+  min-width: 0;
+  height: var(--size-meter-md);
+  appearance: none;
+  border: 0;
+  background: var(--color-surface-muted);
+  accent-color: var(--color-ink-2);
+}
+
+.cubukCizgi::-webkit-progress-bar {
+  background: var(--color-surface-muted);
+}
+
+.cubukCizgi::-webkit-progress-value {
+  background: var(--color-ink-2);
+}
+
+.cubukCizgi::-moz-progress-bar {
+  background: var(--color-ink-2);
+}
+
+.sayi {
+  font-weight: var(--weight-bold);
+  font-size: var(--fs-13);
+}
+
+.firmalar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}

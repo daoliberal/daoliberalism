@@ -1,0 +1,24 @@
+.alanlar {
+  min-width: 0;
+  margin: 0;
+  padding: var(--space-12) var(--space-14);
+  border: var(--border-1) solid var(--color-line-strong);
+  border-radius: var(--radius-12);
+}
+
+.baslik {
+  padding: 0 var(--space-6);
+  color: var(--color-slate);
+  font-size: var(--fs-13);
+  font-weight: var(--weight-bold);
+}
+
+.alan {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.etiket {
+  font-weight: var(--weight-bold);
+}

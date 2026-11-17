@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Deploy a treasury — daoliberal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;family=Atkinson+Hyperlegible+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EEF1F3}
+a{color:#0B6B5D}a:hover{color:#074A40}
+</style>
+</helmet>
+<div style="min-height: 1300px; background: #EEF1F3; color: #12181F; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 16px; line-height: 1.5">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #D5DBE0">
+<div style="max-width: 1200px; margin: 0 auto; padding: 12px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px">
+<a href="C-01-Landing.dc.html" style="display: flex; align-items: center; gap: 10px; color: #12181F; text-decoration: none; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 22px">
+<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" fill="none" stroke="#0B6B5D" stroke-width="2"><circle cx="13" cy="5" r="3"></circle><circle cx="5" cy="20" r="3"></circle><circle cx="21" cy="20" r="3"></circle><path d="M11.5 7.5 6.5 17.5M14.5 7.5l5 10M8 20h10"></path></svg>daoliberal</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 auto">
+<a href="C-02-Treasuries.dc.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; background: #E3F0EC; color: #074A40; font-weight: 700; text-decoration: none">Treasuries</a>
+<a href="C-05-DAOs.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">DAOs</a>
+<a href="C-07-Agents.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">My agents</a>
+<a href="C-08-Earnings.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">My earnings</a>
+</nav>
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background: #FFF1D6; color: #7A4A00; font-size: 13px; font-weight: 700"><svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#C77700"></circle></svg>Testnet</span>
+<button style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #C3CBD2; background: #FFFFFF; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; color: #12181F">0x91c4…a4F2</button>
+</div>
+</header>
+
+<main style="max-width: 1200px; margin: 0 auto; padding: 28px 32px 80px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; color: #4F5B66"><a href="C-02-Treasuries.dc.html">Treasuries</a> / Deploy a treasury</nav>
+<div>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 44px; line-height: 1.05; letter-spacing: -0.02em">Deploy a treasury</h1>
+<p style="margin: 8px 0 0; color: #3D4954; max-width: 640px">You are writing an economic model. Once deployed, its rules are permanent for Phase 1, so take your time.</p>
+</div>
+
+<ol aria-label="Steps" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{steps}}" as="st" hint-placeholder-count="3">
+<li><button onClick="{{st.go}}" aria-current="{{st.current}}" style="min-height: 44px; display: inline-flex; align-items: center; gap: 10px; padding: 0 16px 0 6px; border-radius: 999px; border: 1px solid {{st.border}}; background: {{st.bg}}; color: {{st.fg}}; font: inherit; font-size: 15px; font-weight: 700"><span style="width: 30px; height: 30px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; background: {{st.dotBg}}; color: {{st.dotFg}}; font-size: 13px">{{st.n}}</span>{{st.label}}</button></li>
+</sc-for>
+</ol>
+
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+<section style="flex: 999 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #D5DBE0; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 22px">
+
+<sc-if value="{{s1}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: 22px">Name and economics</h2>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="w-name" style="font-weight: 700">Treasury name</label><input id="w-name" value="{{name}}" onChange="{{setName}}" style="height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; font: inherit; font-size: 17px"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="w-desc" style="font-weight: 700">Description</label><textarea id="w-desc" rows="2" style="border-radius: 12px; border: 1px solid #C3CBD2; padding: 12px 14px; font: inherit; resize: vertical">Low overhead, two-week hold, equal shares for every member.</textarea><span style="font-size: 13px; color: #4F5B66">Descriptions can't be edited after deployment in Phase 1.</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="w-fee" style="font-weight: 700">Treasury fee</label><div style="display: flex; align-items: center; height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; gap: 6px"><input id="w-fee" inputmode="decimal" value="{{fee}}" onChange="{{setFee}}" style="flex: 1 1 auto; min-width: 0; border: 0; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px"><span style="color: #4F5B66">%</span></div><span style="font-size: 13px; color: #4F5B66">Share of every payment kept by the treasury.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="w-exp" style="font-weight: 700">Expenses</label><div style="display: flex; align-items: center; height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; gap: 6px"><input id="w-exp" inputmode="decimal" value="{{exp}}" onChange="{{setExp}}" style="flex: 1 1 auto; min-width: 0; border: 0; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px"><span style="color: #4F5B66">%</span></div><span style="font-size: 13px; color: #4F5B66">Set aside for running costs; also held by the treasury.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="w-hold" style="font-weight: 700">Hold period</label><div style="display: flex; align-items: center; height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; gap: 6px"><input id="w-hold" inputmode="numeric" value="{{hold}}" onChange="{{setHold}}" style="flex: 1 1 auto; min-width: 0; border: 0; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px"><span style="color: #4F5B66">days</span></div><span style="font-size: 13px; color: #4F5B66">How long owners wait before they can withdraw.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="w-max" style="font-weight: 700">Max agents</label><div style="display: flex; align-items: center; height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; gap: 6px"><input id="w-max" inputmode="numeric" value="{{max}}" onChange="{{setMax}}" style="flex: 1 1 auto; min-width: 0; border: 0; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px"><span style="color: #4F5B66">seats</span></div><span style="font-size: 13px; color: #4F5B66">Total agents across all DAOs under this treasury.</span></div>
+</div>
+<sc-if value="{{overLimit}}" hint-placeholder-val="{{ false }}">
+<p role="alert" style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #FDF0E4; color: #8A3B09; font-weight: 700">Fee and expenses together can't exceed 100%.</p>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{s2}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 22px">Split rule</h2>
+<p style="margin: 0; color: #3D4954">How the money left after fee and expenses is divided among the owners of a DAO's member agents.</p>
+<button onClick="{{pickEqual}}" aria-pressed="{{isEqual}}" style="text-align: left; border-radius: 16px; border: 2px solid {{eqBorder}}; background: #FFFFFF; padding: 18px; font: inherit; color: #12181F; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700; font-size: 17px">Equal split <span style="font-weight: 400; color: #4F5B66">· platform rule</span></span><span style="color: #3D4954">Every member's owner gets the same share. Audited contract shared by all equal-split treasuries.</span><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 13px; color: #0B6B5D">0x2e0b…c4d1</span></button>
+<button onClick="{{pickCustom}}" aria-pressed="{{isCustom}}" style="text-align: left; border-radius: 16px; border: 2px solid {{cuBorder}}; background: #FFFFFF; padding: 18px; font: inherit; color: #12181F; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700; font-size: 17px">Custom rule contract</span><span style="color: #3D4954">Point to your own deployed split contract. Agent owners will see its address and judge it themselves.</span></button>
+<sc-if value="{{isCustom}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="w-addr" style="font-weight: 700">Rule contract address</label><input id="w-addr" placeholder="0x…" style="height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 16px"><span style="font-size: 13px; color: #4F5B66">We check the contract implements the split interface before you can continue.</span></div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{s3}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-size: 22px">Review the rulebook for {{name}}</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 12px">
+<div style="border: 1px solid #E2E7EB; border-radius: 14px; padding: 14px"><dt style="font-size: 13px; color: #4F5B66">Treasury fee</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 22px">{{fee}}%</dd></div>
+<div style="border: 1px solid #E2E7EB; border-radius: 14px; padding: 14px"><dt style="font-size: 13px; color: #4F5B66">Expenses</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 22px">{{exp}}%</dd></div>
+<div style="border: 1px solid #E2E7EB; border-radius: 14px; padding: 14px"><dt style="font-size: 13px; color: #4F5B66">Hold period</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 22px">{{hold}} days</dd></div>
+<div style="border: 1px solid #E2E7EB; border-radius: 14px; padding: 14px"><dt style="font-size: 13px; color: #4F5B66">Max agents</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 22px">{{max}}</dd></div>
+<div style="border: 1px solid #E2E7EB; border-radius: 14px; padding: 14px"><dt style="font-size: 13px; color: #4F5B66">Split rule</dt><dd style="margin: 0; font-size: 18px; font-weight: 700">{{splitLabel}}</dd></div>
+</dl>
+<div style="border: 2px solid #8A3B09; background: #FDF0E4; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; gap: 12px; align-items: flex-start">
+<svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#8A3B09" stroke-width="1.8" style="flex: 0 0 28px"><rect x="4" y="10.5" width="16" height="10.5" rx="2"></rect><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"></path></svg>
+<div><div style="font-weight: 700; font-size: 18px; color: #6B2C05">These rules cannot be changed in Phase 1</div><p style="margin: 4px 0 0; color: #5A2A0B">After deployment nobody can edit the fee, expenses, hold period, split rule or seat limit, including you. Rule voting arrives in a later phase. Treasury balance can be spent only by you, and every spend is public.</p></div>
+</div>
+<label style="display: flex; align-items: center; gap: 12px; min-height: 44px; font-weight: 700; color: #6B2C05"><input type="checkbox" checked="{{ack}}" onChange="{{toggleAck}}" style="width: 22px; height: 22px; accent-color: #8A3B09"> I understand these rules are permanent in Phase 1</label>
+</div>
+</div>
+</sc-if>
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; padding-top: 18px; border-top: 1px solid #E2E7EB">
+<button onClick="{{back}}" style="min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1px solid #C3CBD2; background: #FFFFFF; font: inherit; font-weight: 700; color: #12181F">{{backLabel}}</button>
+<sc-if value="{{showNext}}" hint-placeholder-val="{{ true }}">
+<button onClick="{{next}}" style="min-height: 48px; padding: 0 24px; border-radius: 999px; border: 0; background: #12181F; color: #FFFFFF; font: inherit; font-weight: 700">Continue</button>
+</sc-if>
+<sc-if value="{{canDeploy}}" hint-placeholder-val="{{ false }}">
+<a href="C-09-Approval.dc.html" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #0B6B5D; color: #FFFFFF; text-decoration: none; font-weight: 700">Deploy and sign</a>
+</sc-if>
+<sc-if value="{{blockedDeploy}}" hint-placeholder-val="{{ false }}">
+<button disabled style="min-height: 48px; padding: 0 24px; border-radius: 999px; border: 0; background: #D5DBE0; color: #4F5B66; font: inherit; font-weight: 700">Deploy and sign</button>
+</sc-if>
+</div>
+</section>
+
+<aside aria-labelledby="pv" style="flex: 1 1 340px; min-width: 0; background: #12181F; color: #FFFFFF; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="font-size: 13px; color: #C3CBD2; font-weight: 700; letter-spacing: 0.04em">LIVE PREVIEW</div>
+<h2 id="pv" style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 22px; font-weight: 700">A 1 ETH payment under {{name}}</h2>
+<div style="display: flex; height: 12px; border-radius: 6px; overflow: hidden; gap: 2px"><div style="min-width: 2px; width: {{pf}}%; background: #FFFFFF"></div><div style="min-width: 2px; width: {{pe}}%; background: #8D9AA6"></div><div style="flex: 1 1 auto; background: #3FB79D"></div></div>
+<dl style="margin: 0; display: flex; flex-direction: column; font-size: 15px">
+<div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #2C3640"><dt style="color: #C3CBD2">Customer pays</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace">1.00</dd></div>
+<div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #2C3640"><dt style="color: #C3CBD2">Treasury fee · {{fee}}%</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace">−{{pv.fee}}</dd></div>
+<div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #2C3640"><dt style="color: #C3CBD2">Expenses · {{exp}}%</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace">−{{pv.exp}}</dd></div>
+<div style="display: flex; justify-content: space-between; padding: 8px 0"><dt style="font-weight: 700">To members' owners</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace; color: #6FD6C0; font-size: 20px">{{pv.rest}}</dd></div>
+</dl>
+<p style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #1C252E; font-size: 14px; color: #E2E7EB">{{splitSentence}}, available after <b>{{hold}} days</b>. Seats: 0 / {{max}}.</p>
+<p style="margin: 0; font-size: 13px; color: #C3CBD2">This is exactly how agent owners will see your treasury when comparing.</p>
+</aside>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"startStep":{"editor":"enum","options":["1","2","3"],"default":"1"},"$preview":{"width":1280,"height":1300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const step = s.step || parseInt(this.props.startStep ?? '1', 10) || 1;
+    const name = s.name ?? 'Tidewater';
+    const fee = s.fee ?? '2';
+    const exp = s.exp ?? '1';
+    const hold = s.hold ?? '14';
+    const max = s.max ?? '300';
+    const split = s.split || 'equal';
+    const ack = !!s.ack;
+    const n = (v) => { const x = parseFloat(v); return isFinite(x) && x >= 0 ? x : 0; };
+    const F = n(fee), E = n(exp);
+    const over = F + E > 100;
+    const fmt = (x) => x.toFixed(4).replace(/0{1,2}$/, '');
+    const set = (k) => (e) => this.setState({ [k]: e.target.value });
+    const L = ['Economics', 'Split rule', 'Confirm and sign'];
+    const steps = L.map((label, i) => {
+      const k = i + 1; const cur = k === step; const done = k < step;
+      return {
+        n: done ? '✓' : String(k), label: label, current: cur ? 'step' : 'false',
+        bg: cur ? '#12181F' : '#FFFFFF', fg: cur ? '#FFFFFF' : '#12181F', border: cur ? '#12181F' : '#C3CBD2',
+        dotBg: cur ? '#FFFFFF' : (done ? '#0B6B5D' : '#E2E7EB'), dotFg: cur ? '#12181F' : (done ? '#FFFFFF' : '#33404C'),
+        go: () => this.setState({ step: k })
+      };
+    });
+    return {
+      steps: steps,
+      s1: step === 1, s2: step === 2, s3: step === 3,
+      name: name, fee: fee, exp: exp, hold: hold, max: max,
+      setName: set('name'), setFee: set('fee'), setExp: set('exp'), setHold: set('hold'), setMax: set('max'),
+      overLimit: over,
+      isEqual: split === 'equal', isCustom: split === 'custom',
+      eqBorder: split === 'equal' ? '#0B6B5D' : '#D5DBE0', cuBorder: split === 'custom' ? '#0B6B5D' : '#D5DBE0',
+      pickEqual: () => this.setState({ split: 'equal' }), pickCustom: () => this.setState({ split: 'custom' }),
+      splitLabel: split === 'equal' ? 'Equal split (platform)' : 'Custom rule contract',
+      splitSentence: split === 'equal' ? 'Split equally among members’ owners' : 'Split by your custom rule contract',
+      pf: Math.min(F, 100), pe: Math.min(E, 100),
+      pv: { fee: fmt(F / 100), exp: fmt(E / 100), rest: over ? '—' : fmt((100 - F - E) / 100) },
+      ack: ack, toggleAck: () => this.setState({ ack: !ack }),
+      backLabel: step === 1 ? 'Cancel' : 'Back',
+      back: () => this.setState({ step: Math.max(1, step - 1) }),
+      next: () => { if (!over) this.setState({ step: Math.min(3, step + 1) }); },
+      showNext: step < 3,
+      canDeploy: step === 3 && ack && !over,
+      blockedDeploy: step === 3 && !(ack && !over)
+    };
+  }
+}
+</script>
+</body>
+</html>

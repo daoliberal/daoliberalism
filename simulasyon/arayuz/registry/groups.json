@@ -1,0 +1,20 @@
+{
+  "groups": [
+    { "id": "para_faiz", "order": 1 },
+    { "id": "kredi", "order": 2 },
+    { "id": "bankacilik", "order": 3 },
+    { "id": "vergi", "order": 4 },
+    { "id": "sabit_kalemler", "order": 5 },
+    { "id": "butce", "order": 6 },
+    { "id": "kurtarma", "order": 7 },
+    { "id": "girisim", "order": 8 },
+    { "id": "loncalar", "order": 9 },
+    { "id": "fiyat", "order": 10 },
+    { "id": "pano", "order": 11 },
+    { "id": "konut", "order": 12 },
+    { "id": "inovasyon", "order": 13 },
+    { "id": "dunya", "order": 14 },
+    { "id": "is_piyasasi", "order": 15 },
+    { "id": "hane_geliri", "order": 16 }
+  ]
+}

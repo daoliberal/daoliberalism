@@ -1,0 +1,100 @@
+{
+  "tanilar": [
+    {
+      "id": "faiz_dusmuyor",
+      "requires_cards": {
+        "faiz_kurali": "kural"
+      },
+      "when": [
+        {
+          "alan": "policy_unemployment",
+          "op": ">",
+          "esik_param": "POL_U_STAR",
+          "hafta_sayisi": 13
+        },
+        {
+          "alan": "policy_rate",
+          "op": ">=",
+          "esik_param": "POL_NEUT",
+          "hafta_sayisi": 13
+        }
+      ],
+      "textKey": "neolmuyor.faiz_dusmuyor",
+      "rule_ids": [
+        "faiz_kurali",
+        "dogal_issizlik_kurali",
+        "tarafsiz_faiz"
+      ]
+    },
+    {
+      "id": "destek_yok",
+      "requires_cards": {
+        "gecis_destegi": [
+          "kisa_sureli",
+          "kurtarma_fonuyla"
+        ]
+      },
+      "when": [
+        {
+          "alan": "support_weekly",
+          "op": "==",
+          "esik": 0,
+          "hafta_sayisi": 8
+        },
+        {
+          "alan": "support_denied",
+          "op": ">",
+          "esik": 0,
+          "hafta_sayisi": 8
+        }
+      ],
+      "textKey": "neolmuyor.destek_yok",
+      "rule_ids": [
+        "gecis_destegi"
+      ]
+    },
+    {
+      "id": "kurulus_kredisi_yok",
+      "requires_cards": {
+        "kredi_kurulus": "*"
+      },
+      "when": [
+        {
+          "alan": "founders_applied",
+          "op": ">=",
+          "esik": 1,
+          "hafta_sayisi": 4
+        },
+        {
+          "alan": "founders_rejected",
+          "op": ">=",
+          "alan2": "founders_applied",
+          "carpan": 0.9,
+          "hafta_sayisi": 4
+        }
+      ],
+      "textKey": "neolmuyor.kurulus_kredisi_yok",
+      "rule_ids": [
+        "kredi_kurulus"
+      ]
+    },
+    {
+      "id": "basim_siniri",
+      "requires_cards": {
+        "basim_tavani": "*"
+      },
+      "when": [
+        {
+          "alan": "city_spend_cut",
+          "op": ">",
+          "esik": 0,
+          "hafta_sayisi": 2
+        }
+      ],
+      "textKey": "neolmuyor.basim_siniri",
+      "rule_ids": [
+        "basim_tavani"
+      ]
+    }
+  ]
+}

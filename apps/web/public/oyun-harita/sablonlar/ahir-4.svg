@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 100">
+  <g transform="translate(15 0)">
+  <rect data-katman="duvar2" x="-6" y="78" width="14" height="18"/>
+  <polygon data-katman="cati" points="-8,78 1,69 8,78"/>
+  <rect data-katman="kapi" x="-2" y="84" width="7" height="12"/>
+  <rect data-katman="duvar" x="8" y="64" width="76" height="32"/>
+  <polygon data-katman="cati" points="5,65 16,54 46,49 76,54 87,65 82,65 75,57 46,53 17,57 10,65"/>
+  <polygon data-katman="duvar2" points="11,64 17,57 46,53 75,57 81,64"/>
+  <rect data-katman="saman" x="42" y="58" width="8" height="6"/>
+  <rect data-katman="kapi" x="42" y="57" width="8" height="1.6"/>
+  <rect data-katman="kapi" x="35" y="76" width="22" height="20"/>
+  <polygon data-katman="ayrinti" points="35,76 37.4,76 57,96 54.6,96"/>
+  <polygon data-katman="ayrinti" points="57,76 54.6,76 35,96 37.4,96"/>
+  <rect data-katman="ayrinti" x="33.8" y="74.8" width="24.4" height="1.6"/>
+  <rect data-katman="pencere" x="13" y="70" width="6" height="5"/>
+  <rect data-katman="pencere" x="73" y="70" width="6" height="5"/>
+  <rect data-katman="metal" x="86" y="60" width="11" height="36"/>
+  <path data-katman="cati2" d="M86 60a5.5 5.5 0 0 1 11 0z"/>
+  <rect data-katman="ayrinti" x="86" y="70" width="11" height="1.4"/>
+  <rect data-katman="ayrinti" x="86" y="80" width="11" height="1.4"/>
+  <rect data-katman="cit" x="-14" y="84" width="18" height="2"/>
+  <rect data-katman="cit" x="-14" y="90" width="18" height="2"/>
+  <rect data-katman="cit" x="-14" y="82" width="2.4" height="14"/>
+  <rect data-katman="cit" x="-6" y="82" width="2.4" height="14"/>
+  <rect data-katman="cit" x="1.6" y="82" width="2.4" height="14"/>
+  <circle data-katman="saman" cx="11" cy="92" r="4"/>
+  <circle data-katman="saman" cx="18" cy="92.6" r="3.4"/>
+  <circle data-katman="saman" cx="81" cy="92" r="4"/>
+  <circle data-katman="saman" cx="74" cy="92.6" r="3.4"/>
+  </g>
+</svg>

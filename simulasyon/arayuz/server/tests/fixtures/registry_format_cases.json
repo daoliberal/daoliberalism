@@ -1,0 +1,1399 @@
+{
+ "words": {
+  "yuzde": "%{n}",
+  "acik": "açık",
+  "kapali": "kapalı",
+  "yok": "yok",
+  "yuzde_hafta": "%{n}/hafta (≈ %{yillik}/yıl)",
+  "akce": "{n} Akçe",
+  "hafta": "{n} hafta",
+  "kat": "{n} kat",
+  "oran": "{n}",
+  "sayi": "{n}"
+ },
+ "cases": [
+  {
+   "codec": {
+    "type": "enum",
+    "map": {
+     "kapali": 0,
+     "kisa_sureli": 1,
+     "kurtarma_fonuyla": 2
+    }
+   },
+   "model_value": 0,
+   "ui_value": "kapali",
+   "labels": {
+    "kapali": "kapalı",
+    "kisa_sureli": "kısa süreli",
+    "kurtarma_fonuyla": "kurtarma fonuyla"
+   },
+   "text": "kapalı"
+  },
+  {
+   "codec": {
+    "type": "enum",
+    "map": {
+     "kapali": 0,
+     "kisa_sureli": 1,
+     "kurtarma_fonuyla": 2
+    }
+   },
+   "model_value": 1,
+   "ui_value": "kisa_sureli",
+   "labels": {
+    "kapali": "kapalı",
+    "kisa_sureli": "kısa süreli",
+    "kurtarma_fonuyla": "kurtarma fonuyla"
+   },
+   "text": "kısa süreli"
+  },
+  {
+   "codec": {
+    "type": "enum",
+    "map": {
+     "kapali": 0,
+     "kisa_sureli": 1,
+     "kurtarma_fonuyla": 2
+    }
+   },
+   "model_value": 2,
+   "ui_value": "kurtarma_fonuyla",
+   "labels": {
+    "kapali": "kapalı",
+    "kisa_sureli": "kısa süreli",
+    "kurtarma_fonuyla": "kurtarma fonuyla"
+   },
+   "text": "kurtarma fonuyla"
+  },
+  {
+   "codec": {
+    "type": "enum",
+    "map": {
+     "a": false,
+     "b": true
+    }
+   },
+   "model_value": false,
+   "ui_value": "a",
+   "labels": {
+    "a": "hayır",
+    "b": "evet"
+   },
+   "text": "hayır"
+  },
+  {
+   "codec": {
+    "type": "enum",
+    "map": {
+     "a": false,
+     "b": true
+    }
+   },
+   "model_value": true,
+   "ui_value": "b",
+   "labels": {
+    "a": "hayır",
+    "b": "evet"
+   },
+   "text": "evet"
+  },
+  {
+   "codec": {
+    "type": "bool",
+    "on": true,
+    "off": false
+   },
+   "model_value": true,
+   "ui_value": true,
+   "text": "açık"
+  },
+  {
+   "codec": {
+    "type": "bool",
+    "on": true,
+    "off": false
+   },
+   "model_value": false,
+   "ui_value": false,
+   "text": "kapalı"
+  },
+  {
+   "codec": {
+    "type": "bool",
+    "on": 1,
+    "off": 0
+   },
+   "model_value": 1,
+   "ui_value": true,
+   "text": "açık"
+  },
+  {
+   "codec": {
+    "type": "bool",
+    "on": 1,
+    "off": 0
+   },
+   "model_value": 0,
+   "ui_value": false,
+   "text": "kapalı"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde"
+   },
+   "model_value": 0,
+   "ui_value": 0,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde",
+    "integer": false
+   },
+   "text": "%0"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde"
+   },
+   "model_value": 0.0005,
+   "ui_value": 0.05,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde",
+    "integer": false
+   },
+   "text": "%0,05"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde"
+   },
+   "model_value": 0.075,
+   "ui_value": 7.5,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde",
+    "integer": false
+   },
+   "text": "%7,5"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde"
+   },
+   "model_value": 0.1,
+   "ui_value": 10,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde",
+    "integer": false
+   },
+   "text": "%10"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde"
+   },
+   "model_value": 0.125,
+   "ui_value": 12.5,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde",
+    "integer": false
+   },
+   "text": "%12,5"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde"
+   },
+   "model_value": 0.5,
+   "ui_value": 50,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde",
+    "integer": false
+   },
+   "text": "%50"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde"
+   },
+   "model_value": 1,
+   "ui_value": 100,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde",
+    "integer": false
+   },
+   "text": "%100"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde"
+   },
+   "model_value": 1.5,
+   "ui_value": 150,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde",
+    "integer": false
+   },
+   "text": "%150"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001
+   },
+   "model_value": 0.075,
+   "ui_value": 7.5,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde",
+    "integer": false
+   },
+   "text": "%7,5"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001
+   },
+   "model_value": 0.2,
+   "ui_value": 20,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde",
+    "integer": false
+   },
+   "text": "%20"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde_hafta"
+   },
+   "model_value": 0.001,
+   "ui_value": 0.1,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde_hafta",
+    "integer": false
+   },
+   "text": "%0,1/hafta (≈ %5,2/yıl)"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde_hafta"
+   },
+   "model_value": 0.003,
+   "ui_value": 0.3,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde_hafta",
+    "integer": false
+   },
+   "text": "%0,3/hafta (≈ %15,6/yıl)"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde_hafta"
+   },
+   "model_value": 0.0025,
+   "ui_value": 0.25,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde_hafta",
+    "integer": false
+   },
+   "text": "%0,25/hafta (≈ %13/yıl)"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde_hafta"
+   },
+   "model_value": 0.01,
+   "ui_value": 1,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "yuzde_hafta",
+    "integer": false
+   },
+   "text": "%1/hafta (≈ %52/yıl)"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce"
+   },
+   "model_value": 0,
+   "ui_value": 0,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce",
+    "integer": false
+   },
+   "text": "0 Akçe"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce"
+   },
+   "model_value": 500,
+   "ui_value": 500,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce",
+    "integer": false
+   },
+   "text": "500 Akçe"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce"
+   },
+   "model_value": 2000,
+   "ui_value": 2000,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce",
+    "integer": false
+   },
+   "text": "2.000 Akçe"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce"
+   },
+   "model_value": 12345,
+   "ui_value": 12345,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce",
+    "integer": false
+   },
+   "text": "12.345 Akçe"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce"
+   },
+   "model_value": 1234567,
+   "ui_value": 1234567,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce",
+    "integer": false
+   },
+   "text": "1.234.567 Akçe"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce"
+   },
+   "model_value": 0.5,
+   "ui_value": 0.5,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce",
+    "integer": false
+   },
+   "text": "0,5 Akçe"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce"
+   },
+   "model_value": 1234.5,
+   "ui_value": 1234.5,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce",
+    "integer": false
+   },
+   "text": "1.234,5 Akçe"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce",
+    "integer": true
+   },
+   "model_value": 2000,
+   "ui_value": 2000,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce",
+    "integer": true
+   },
+   "text": "2.000 Akçe"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce",
+    "integer": true
+   },
+   "model_value": 100000,
+   "ui_value": 100000,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce",
+    "integer": true
+   },
+   "text": "100.000 Akçe"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "hafta",
+    "integer": true
+   },
+   "model_value": 26,
+   "ui_value": 26,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "hafta",
+    "integer": true
+   },
+   "text": "26 hafta"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "hafta",
+    "integer": true
+   },
+   "model_value": 52,
+   "ui_value": 52,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "hafta",
+    "integer": true
+   },
+   "text": "52 hafta"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "hafta",
+    "integer": true
+   },
+   "model_value": 104,
+   "ui_value": 104,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "hafta",
+    "integer": true
+   },
+   "text": "104 hafta"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "hafta",
+    "integer": true
+   },
+   "model_value": 260,
+   "ui_value": 260,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "hafta",
+    "integer": true
+   },
+   "text": "260 hafta"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "kat"
+   },
+   "model_value": 1,
+   "ui_value": 1,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "kat",
+    "integer": false
+   },
+   "text": "1 kat"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "kat"
+   },
+   "model_value": 25,
+   "ui_value": 25,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "kat",
+    "integer": false
+   },
+   "text": "25 kat"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "kat"
+   },
+   "model_value": 33.3,
+   "ui_value": 33.3,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "kat",
+    "integer": false
+   },
+   "text": "33,3 kat"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "oran"
+   },
+   "model_value": 0.7,
+   "ui_value": 0.7,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "oran",
+    "integer": false
+   },
+   "text": "0,7"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "oran"
+   },
+   "model_value": 0.05,
+   "ui_value": 0.05,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "oran",
+    "integer": false
+   },
+   "text": "0,05"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "oran"
+   },
+   "model_value": 1,
+   "ui_value": 1,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "oran",
+    "integer": false
+   },
+   "text": "1"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "oran"
+   },
+   "model_value": 0.123,
+   "ui_value": 0.123,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "oran",
+    "integer": false
+   },
+   "text": "0,123"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "sayi",
+    "integer": true
+   },
+   "model_value": 4,
+   "ui_value": 4,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "sayi",
+    "integer": true
+   },
+   "text": "4"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001
+   },
+   "model_value": 2.5,
+   "ui_value": 2.5,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": null,
+    "integer": false
+   },
+   "text": "2,5"
+  },
+  {
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce"
+   },
+   "model_value": -1500,
+   "ui_value": -1500,
+   "control": {
+    "type": "number",
+    "min": -10000,
+    "max": 10000000,
+    "step": 0.001,
+    "unit": "akce",
+    "integer": false
+   },
+   "text": "-1.500 Akçe"
+  },
+  {
+   "codec": {
+    "type": "seed"
+   },
+   "model_value": 0.078,
+   "seeds": [
+    0.078,
+    0.08,
+    0.082,
+    0.084,
+    0.086,
+    0.088
+   ],
+   "ui_value": 0,
+   "labels": {
+    "0": "Dünya 1",
+    "1": "Dünya 2",
+    "2": "Dünya 3",
+    "3": "Dünya 4",
+    "4": "Dünya 5",
+    "5": "Dünya 6"
+   },
+   "text": "Dünya 1"
+  },
+  {
+   "codec": {
+    "type": "seed"
+   },
+   "model_value": 0.084,
+   "seeds": [
+    0.078,
+    0.08,
+    0.082,
+    0.084,
+    0.086,
+    0.088
+   ],
+   "ui_value": 3,
+   "labels": {
+    "0": "Dünya 1",
+    "1": "Dünya 2",
+    "2": "Dünya 3",
+    "3": "Dünya 4",
+    "4": "Dünya 5",
+    "5": "Dünya 6"
+   },
+   "text": "Dünya 4"
+  },
+  {
+   "codec": {
+    "type": "seed"
+   },
+   "model_value": 0.088,
+   "seeds": [
+    0.078,
+    0.08,
+    0.082,
+    0.084,
+    0.086,
+    0.088
+   ],
+   "ui_value": 5,
+   "labels": {
+    "0": "Dünya 1",
+    "1": "Dünya 2",
+    "2": "Dünya 3",
+    "3": "Dünya 4",
+    "4": "Dünya 5",
+    "5": "Dünya 6"
+   },
+   "text": "Dünya 6"
+  },
+  {
+   "codec": {
+    "type": "fields",
+    "fields": [
+     {
+      "key": "acik",
+      "param": "CITY_BOND",
+      "codec": {
+       "type": "bool",
+       "on": true,
+       "off": false
+      }
+     },
+     {
+      "key": "vade",
+      "param": "BOND_TERM",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 26,
+       "max": 260,
+       "step": 26,
+       "integer": true,
+       "unit": "hafta"
+      }
+     },
+     {
+      "key": "tavan",
+      "param": "BOND_DEBT_MAX_W",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 26,
+       "max": 260,
+       "step": 26,
+       "integer": true,
+       "unit": "hafta"
+      }
+     }
+    ]
+   },
+   "model_value": {
+    "CITY_BOND": true,
+    "BOND_TERM": 104,
+    "BOND_DEBT_MAX_W": 52
+   },
+   "ui_value": {
+    "acik": true,
+    "vade": 104,
+    "tavan": 52
+   },
+   "labels": {
+    "acik": "Açık",
+    "vade": "Vade",
+    "tavan": "Borç tavanı"
+   },
+   "text": "Açık: açık; Vade: 104 hafta; Borç tavanı: 52 hafta"
+  },
+  {
+   "codec": {
+    "type": "fields",
+    "fields": [
+     {
+      "key": "acik",
+      "param": "CITY_BOND",
+      "codec": {
+       "type": "bool",
+       "on": true,
+       "off": false
+      }
+     },
+     {
+      "key": "vade",
+      "param": "BOND_TERM",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 26,
+       "max": 260,
+       "step": 26,
+       "integer": true,
+       "unit": "hafta"
+      }
+     },
+     {
+      "key": "tavan",
+      "param": "BOND_DEBT_MAX_W",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 26,
+       "max": 260,
+       "step": 26,
+       "integer": true,
+       "unit": "hafta"
+      }
+     }
+    ]
+   },
+   "model_value": {
+    "CITY_BOND": false,
+    "BOND_TERM": 26,
+    "BOND_DEBT_MAX_W": 260
+   },
+   "ui_value": {
+    "acik": false,
+    "vade": 26,
+    "tavan": 260
+   },
+   "labels": {
+    "acik": "Açık",
+    "vade": "Vade",
+    "tavan": "Borç tavanı"
+   },
+   "text": "Açık: kapalı; Vade: 26 hafta; Borç tavanı: 260 hafta"
+  },
+  {
+   "codec": {
+    "type": "order",
+    "param": "CREDIT_ORDER",
+    "items": [
+     "kurulus",
+     "genc",
+     "dayanma"
+    ]
+   },
+   "model_value": [
+    "kurulus",
+    "genc",
+    "dayanma"
+   ],
+   "ui_value": [
+    "kurulus",
+    "genc",
+    "dayanma"
+   ],
+   "labels": {
+    "kurulus": "Kuruluş",
+    "genc": "Genç",
+    "dayanma": "Dayanma"
+   },
+   "text": "Kuruluş, Genç, Dayanma"
+  },
+  {
+   "codec": {
+    "type": "order",
+    "param": "CREDIT_ORDER",
+    "items": [
+     "kurulus",
+     "genc",
+     "dayanma"
+    ]
+   },
+   "model_value": [
+    "dayanma",
+    "kurulus"
+   ],
+   "ui_value": [
+    "dayanma",
+    "kurulus"
+   ],
+   "labels": {
+    "kurulus": "Kuruluş",
+    "genc": "Genç",
+    "dayanma": "Dayanma"
+   },
+   "text": "Dayanma, Kuruluş"
+  },
+  {
+   "codec": {
+    "type": "order",
+    "param": "CREDIT_ORDER",
+    "items": [
+     "kurulus",
+     "genc",
+     "dayanma"
+    ]
+   },
+   "model_value": [
+    "genc"
+   ],
+   "ui_value": [
+    "genc"
+   ],
+   "labels": {
+    "kurulus": "Kuruluş",
+    "genc": "Genç",
+    "dayanma": "Dayanma"
+   },
+   "text": "Genç"
+  },
+  {
+   "codec": {
+    "type": "multi",
+    "param": "PRIORITY_SECTORS",
+    "items": [
+     "tarim",
+     "sanayi",
+     "hizmet"
+    ]
+   },
+   "model_value": [
+    "tarim",
+    "sanayi"
+   ],
+   "ui_value": [
+    "tarim",
+    "sanayi"
+   ],
+   "labels": {
+    "tarim": "Tarım",
+    "sanayi": "Sanayi",
+    "hizmet": "Hizmet"
+   },
+   "text": "Tarım, Sanayi"
+  },
+  {
+   "codec": {
+    "type": "multi",
+    "param": "PRIORITY_SECTORS",
+    "items": [
+     "tarim",
+     "sanayi",
+     "hizmet"
+    ]
+   },
+   "model_value": [
+    "hizmet"
+   ],
+   "ui_value": [
+    "hizmet"
+   ],
+   "labels": {
+    "tarim": "Tarım",
+    "sanayi": "Sanayi",
+    "hizmet": "Hizmet"
+   },
+   "text": "Hizmet"
+  },
+  {
+   "codec": {
+    "type": "multi",
+    "param": "PRIORITY_SECTORS",
+    "items": [
+     "tarim",
+     "sanayi",
+     "hizmet"
+    ]
+   },
+   "model_value": [],
+   "ui_value": [],
+   "labels": {
+    "tarim": "Tarım",
+    "sanayi": "Sanayi",
+    "hizmet": "Hizmet"
+   },
+   "text": "yok"
+  },
+  {
+   "codec": {
+    "type": "multi",
+    "param": "PRIORITY_SECTORS",
+    "items": [
+     "tarim",
+     "sanayi",
+     "hizmet"
+    ]
+   },
+   "model_value": [
+    "tarim",
+    "sanayi",
+    "hizmet"
+   ],
+   "ui_value": [
+    "tarim",
+    "sanayi",
+    "hizmet"
+   ],
+   "labels": {
+    "tarim": "Tarım",
+    "sanayi": "Sanayi",
+    "hizmet": "Hizmet"
+   },
+   "text": "Tarım, Sanayi, Hizmet"
+  }
+ ],
+ "shows_cases": [
+  {
+   "entry": {
+    "key": "CX_INV_K",
+    "unit": "kat"
+   },
+   "model_value": 12,
+   "value": 12,
+   "text": "12 kat"
+  },
+  {
+   "entry": {
+    "key": "CX_MIN_AGE",
+    "unit": "hafta"
+   },
+   "model_value": 52,
+   "value": 52,
+   "text": "52 hafta"
+  },
+  {
+   "entry": {
+    "key": "CX_MIN_OREP",
+    "unit": "yuzde",
+    "scale": 100
+   },
+   "model_value": 0.05,
+   "value": 5,
+   "text": "%5"
+  },
+  {
+   "entry": {
+    "key": "RM_LO",
+    "scale": 100
+   },
+   "model_value": 0.075,
+   "value": 7.5,
+   "text": "%7,5"
+  },
+  {
+   "entry": {
+    "key": "RISK_X",
+    "unit": "yuzde_hafta",
+    "scale": 100
+   },
+   "model_value": 0.003,
+   "value": 0.3,
+   "text": "%0,3/hafta (≈ %15,6/yıl)"
+  },
+  {
+   "entry": {
+    "key": "START_CASH",
+    "unit": "akce"
+   },
+   "model_value": 2000,
+   "value": 2000,
+   "text": "2.000 Akçe"
+  },
+  {
+   "entry": {
+    "key": "START_CASH",
+    "unit": "akce"
+   },
+   "model_value": 1234.5,
+   "value": 1234.5,
+   "text": "1.234,5 Akçe"
+  },
+  {
+   "entry": {
+    "key": "W",
+    "unit": "oran"
+   },
+   "model_value": 0.7,
+   "value": 0.7,
+   "text": "0,7"
+  },
+  {
+   "entry": {
+    "key": "N"
+   },
+   "model_value": 3,
+   "value": 3,
+   "text": "3"
+  },
+  {
+   "entry": {
+    "key": "N",
+    "unit": "sayi"
+   },
+   "model_value": 0,
+   "value": 0,
+   "text": "0"
+  },
+  {
+   "entry": {
+    "key": "NEG",
+    "unit": "kat"
+   },
+   "model_value": -2,
+   "value": -2,
+   "text": "-2 kat"
+  },
+  {
+   "entry": {
+    "key": "FLAG",
+    "label_key": "etiket"
+   },
+   "model_value": true,
+   "value": true,
+   "text": "açık"
+  },
+  {
+   "entry": {
+    "key": "FLAG"
+   },
+   "model_value": false,
+   "value": false,
+   "text": "kapalı"
+  }
+ ]
+}

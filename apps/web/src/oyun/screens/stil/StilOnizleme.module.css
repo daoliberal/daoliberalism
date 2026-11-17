@@ -1,0 +1,168 @@
+.sayfa {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  min-width: 0;
+  color: var(--ekran-yazi);
+}
+
+.baslik {
+  margin: 0;
+  font-size: var(--fs-24);
+}
+
+.alt {
+  margin: 0;
+  color: var(--ekran-yazi-soluk);
+  font-size: var(--fs-14);
+}
+
+.kontroller {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.dugme {
+  min-height: var(--size-44);
+  padding: var(--space-6) var(--space-16);
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-12);
+  background: var(--ekran-cam);
+  color: var(--ekran-yazi);
+  font: inherit;
+  cursor: pointer;
+}
+
+.sablon {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.sablonAd {
+  margin: 0;
+  font-size: var(--fs-18);
+}
+
+.boylar {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--min-200), 1fr));
+  gap: var(--space-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.kart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-width: 0;
+  padding: var(--space-12);
+  border: var(--border-1) solid var(--ekran-ayrac);
+  border-radius: var(--radius-12);
+  background: var(--harita-zemin);
+}
+
+.resimKap {
+  position: relative;
+  display: block;
+  align-self: center;
+  max-width: 100%;
+}
+
+.resim {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: var(--space-120);
+}
+
+.bindirme {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.tabanKutu {
+  fill: none;
+  stroke: var(--harita-secili);
+  stroke-width: var(--border-2);
+  vector-effect: non-scaling-stroke;
+}
+
+.capaCizgi {
+  stroke: var(--harita-ben);
+  stroke-width: var(--border-1);
+  vector-effect: non-scaling-stroke;
+}
+
+.yerTutucu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--space-120);
+  color: var(--ekran-yazi-soluk);
+  font-size: var(--fs-13);
+  text-align: center;
+}
+
+.kayit {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-2) var(--space-8);
+  margin: 0;
+  font-size: var(--fs-12);
+}
+
+.kayit dt {
+  color: var(--ekran-yazi-soluk);
+}
+
+.kayit dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.takmalar {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--min-200), 1fr));
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.takma {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  min-width: 0;
+  font-size: var(--fs-12);
+}
+
+.kutu {
+  flex: none;
+  width: var(--space-24);
+  height: var(--space-24);
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-6);
+}
+
+.takmaMetin {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.takmaDeger {
+  color: var(--ekran-yazi-soluk);
+}
+
+.takmaAd {
+  overflow-wrap: anywhere;
+}

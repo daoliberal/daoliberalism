@@ -1,0 +1,37 @@
+.baslik {
+  margin: 0;
+  font-size: var(--fs-18);
+}
+
+.satirlar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  margin: 0;
+}
+
+.satir {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.etiket {
+  color: var(--color-slate);
+  font-size: var(--fs-13);
+  font-weight: var(--weight-bold);
+}
+
+.metin {
+  margin: 0;
+  color: var(--color-ink-2);
+}
+
+.kilit {
+  margin: 0;
+  padding: var(--space-8) var(--space-12);
+  border-left: var(--border-4) solid var(--color-warn-dot);
+  background: var(--color-warn-bg);
+  color: var(--color-warn-fg);
+  font-weight: var(--weight-bold);
+}

@@ -1,0 +1,224 @@
+.bolum {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  min-width: 0;
+}
+
+.baslik {
+  margin: 0;
+  font-size: var(--fs-18);
+}
+
+.saat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-width: 0;
+}
+
+.dugmeler {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.hizlar {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.hafta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-10);
+  margin: 0;
+}
+
+.etiket {
+  color: var(--color-slate);
+  font-size: var(--fs-13);
+}
+
+.kucuk {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: var(--fs-14);
+  overflow-wrap: anywhere;
+}
+
+.serit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--space-120), 1fr));
+  gap: var(--space-10);
+  margin: 0;
+}
+
+.olcu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: var(--space-8) var(--space-10);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-12);
+}
+
+.olcu dt,
+.olcu dd {
+  margin: 0;
+}
+
+.deger {
+  font-weight: var(--weight-bold);
+  font-size: var(--fs-18);
+}
+
+.fark {
+  color: var(--color-slate);
+  font-size: var(--fs-13);
+}
+
+.liste {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oge {
+  min-width: 0;
+}
+
+.surum {
+  color: var(--color-ink-2);
+}
+
+.altSatirlar {
+  margin: 0;
+  padding-left: var(--space-24);
+  color: var(--color-slate);
+  font-size: var(--fs-14);
+  overflow-wrap: anywhere;
+}
+
+.baslikSatir {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.egilim {
+  margin-left: var(--space-6);
+  color: var(--color-slate);
+  font-size: var(--fs-13);
+  font-weight: var(--weight-regular);
+}
+
+.saglik {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8) var(--space-16);
+  padding: var(--space-10) var(--space-14);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-12);
+  background: var(--color-surface);
+}
+
+.saglik[data-seviye="warn"] {
+  border-color: var(--color-warn-dot);
+  background: var(--color-warn-bg);
+}
+
+.saglik[data-seviye="bad"] {
+  border-color: var(--color-caution-accent);
+  background: var(--color-caution-bg);
+}
+
+.saglik .etiket {
+  color: var(--color-ink-2);
+}
+
+.durum {
+  font-weight: var(--weight-bold);
+}
+
+.sagSatir {
+  font-size: var(--fs-14);
+}
+
+.sagDugme {
+  padding: var(--space-4) var(--space-8);
+  border: var(--border-1) solid var(--color-line-strong);
+  border-radius: var(--radius-12);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+}
+
+.sagDugme:hover {
+  background: var(--color-surface-muted);
+}
+
+.secici {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-width: 0;
+}
+
+.seciciSatir {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+
+.sekmeKutu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.dugmeSec {
+  min-height: var(--space-48);
+  padding: var(--space-6) var(--space-16);
+  border: var(--border-1) solid var(--color-line-strong);
+  border-radius: var(--radius-12);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.dugmeSec[aria-disabled="true"] {
+  border-style: dashed;
+  background: var(--color-surface-muted);
+  color: var(--color-slate);
+  cursor: not-allowed;
+}
+
+.secili {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-on-action);
+  font-weight: var(--weight-bold);
+}
+
+.kilit {
+  color: var(--color-slate);
+  font-size: var(--fs-13);
+}
+
+.solgun {
+  color: var(--color-slate);
+}

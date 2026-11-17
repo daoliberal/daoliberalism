@@ -1,0 +1,1661 @@
+{
+  "settings": [
+    {
+      "id": "harcama_egrisi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "MPC0",
+        "MPC_SLOPE"
+      ],
+      "requires": [
+        "MPC0",
+        "MPC_SLOPE"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "ilk",
+            "param": "MPC0",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 50,
+              "max": 100,
+              "step": 5,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "egim",
+            "param": "MPC_SLOPE",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 0,
+              "max": 0.5,
+              "step": 0.05,
+              "unit": "oran"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-172",
+      "actor": "hane",
+      "scenario_editable": true
+    },
+    {
+      "id": "servetten_harcama",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "WEALTH_DRAW_YEAR"
+      ],
+      "requires": [
+        "WEALTH_DRAW_YEAR"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 15,
+        "step": 0.5,
+        "unit": "yuzde"
+      },
+      "apply": "start_only",
+      "decision": "K-179",
+      "actor": "hane",
+      "scenario_editable": true
+    },
+    {
+      "id": "goc",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "MIGRATION_SHARE",
+        "PLAYER_MIGRATE_SHARE",
+        "PLAYER_MIGRATE_AFTER"
+      ],
+      "requires": [
+        "MIGRATION_SHARE",
+        "PLAYER_MIGRATE_SHARE",
+        "PLAYER_MIGRATE_AFTER"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "npc_payi",
+            "param": "MIGRATION_SHARE",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0,
+              "max": 20,
+              "step": 1,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "oyuncu_payi",
+            "param": "PLAYER_MIGRATE_SHARE",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 10,
+              "max": 100,
+              "step": 10,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "bekleme",
+            "param": "PLAYER_MIGRATE_AFTER",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 1,
+              "max": 8,
+              "step": 1,
+              "integer": true,
+              "unit": "hafta"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-113",
+      "actor": "hane",
+      "scenario_editable": true
+    },
+    {
+      "id": "baslangic_parasi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "START_AKCE"
+      ],
+      "requires": [
+        "START_AKCE"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 1,
+        "min": 0,
+        "max": 500,
+        "step": 25,
+        "integer": true,
+        "unit": "akce"
+      },
+      "apply": "start_only",
+      "decision": "K-17",
+      "actor": "hane",
+      "scenario_editable": true
+    },
+    {
+      "id": "az_birikimli_harcama",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "POOR_SHARE",
+        "WR_WEEKS"
+      ],
+      "requires": [
+        "POOR_SHARE",
+        "WR_WEEKS"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "pay",
+            "param": "POOR_SHARE",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0,
+              "max": 10,
+              "step": 0.5,
+              "unit": "yuzde_hafta"
+            }
+          },
+          {
+            "key": "esik",
+            "param": "WR_WEEKS",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 4,
+              "max": 52,
+              "step": 4,
+              "integer": true,
+              "unit": "hafta"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-185.13",
+      "actor": "hane",
+      "scenario_editable": true
+    },
+    {
+      "id": "aliskanlik_hizi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "HAB_UP",
+        "HAB_DOWN"
+      ],
+      "requires": [
+        "HAB_UP",
+        "HAB_DOWN"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "artis",
+            "param": "HAB_UP",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 1,
+              "max": 20,
+              "step": 1,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "dusus",
+            "param": "HAB_DOWN",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 1,
+              "max": 20,
+              "step": 1,
+              "unit": "yuzde"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-172",
+      "actor": "hane",
+      "scenario_editable": true
+    },
+    {
+      "id": "mevduat_elde_tutma",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "DEP_KEEP_NEW",
+        "DEP_SHARE"
+      ],
+      "requires": [
+        "DEP_KEEP_NEW",
+        "DEP_SHARE"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "tutma",
+            "param": "DEP_KEEP_NEW",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 1,
+              "max": 8,
+              "step": 1,
+              "integer": true,
+              "unit": "hafta"
+            }
+          },
+          {
+            "key": "pay",
+            "param": "DEP_SHARE",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 10,
+              "max": 100,
+              "step": 10,
+              "unit": "yuzde"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-179",
+      "actor": "hane",
+      "scenario_editable": true
+    },
+    {
+      "id": "mevduat_yonlendirme",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "DEP_ROUTE"
+      ],
+      "requires": [
+        "DEP_ROUTE"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": 1,
+        "off": 0
+      },
+      "apply": "live",
+      "decision": "K-221",
+      "actor": "hane",
+      "scenario_editable": true
+    },
+    {
+      "id": "hane_konut",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": false,
+      "status": "passive",
+      "kind": "toggle",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "unknown",
+      "actor": "hane",
+      "scenario_editable": false,
+      "default": false
+    },
+    {
+      "id": "girisimci_dalgasi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "EO_COHORT",
+        "EO_COHORT_PER",
+        "EO_COHORT_W0",
+        "EO_COHORT_W1"
+      ],
+      "requires": [
+        "EO_COHORT",
+        "EO_COHORT_PER",
+        "EO_COHORT_W0",
+        "EO_COHORT_W1"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "acik",
+            "param": "EO_COHORT",
+            "codec": {
+              "type": "bool",
+              "on": 1,
+              "off": 0
+            }
+          },
+          {
+            "key": "kisi",
+            "param": "EO_COHORT_PER",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 1,
+              "max": 4,
+              "step": 1,
+              "integer": true,
+              "unit": "sayi"
+            }
+          },
+          {
+            "key": "ilk",
+            "param": "EO_COHORT_W0",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 10,
+              "max": 100,
+              "step": 5,
+              "integer": true,
+              "unit": "hafta"
+            }
+          },
+          {
+            "key": "son",
+            "param": "EO_COHORT_W1",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 10,
+              "max": 120,
+              "step": 5,
+              "integer": true,
+              "unit": "hafta"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-213",
+      "actor": "girisimci",
+      "scenario_editable": true,
+      "effective_when": {
+        "itibar_sarti": "yok"
+      }
+    },
+    {
+      "id": "kurma_egilimi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "EO_RATE"
+      ],
+      "requires": [
+        "EO_RATE"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 1,
+        "step": 0.05,
+        "unit": "yuzde_hafta"
+      },
+      "apply": "live",
+      "decision": "K-213",
+      "actor": "girisimci",
+      "scenario_editable": true,
+      "effective_when": {
+        "itibar_sarti": "yok"
+      }
+    },
+    {
+      "id": "issiz_kurucu",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "ENTRY_JOBLESS"
+      ],
+      "requires": [
+        "ENTRY_JOBLESS"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "live",
+      "decision": "K-187.5",
+      "actor": "girisimci",
+      "scenario_editable": true
+    },
+    {
+      "id": "genc_kurucu_verimi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "EO_SKILL"
+      ],
+      "requires": [
+        "EO_SKILL"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 1,
+        "min": 1,
+        "max": 1.6,
+        "step": 0.05,
+        "unit": "kat"
+      },
+      "apply": "live",
+      "decision": "K-213",
+      "actor": "girisimci",
+      "scenario_editable": true,
+      "effective_when": {
+        "itibar_sarti": "yok"
+      }
+    },
+    {
+      "id": "piyasa_sinyali",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "ENTRY_PM",
+        "WORTH_SHORT_X"
+      ],
+      "requires": [
+        "ENTRY_PM",
+        "WORTH_SHORT_X"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "fiyat",
+            "param": "ENTRY_PM",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 0.5,
+              "max": 1,
+              "step": 0.05,
+              "unit": "oran"
+            }
+          },
+          {
+            "key": "girdi",
+            "param": "WORTH_SHORT_X",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 10,
+              "max": 100,
+              "step": 10,
+              "unit": "yuzde"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-117",
+      "actor": "girisimci",
+      "scenario_editable": true,
+      "effective_when": {
+        "itibar_sarti": "var"
+      }
+    },
+    {
+      "id": "fiyat_artis_hizi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "PV2_STEP_UP"
+      ],
+      "requires": [
+        "PV2_STEP_UP"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 5,
+        "max": 50,
+        "step": 5,
+        "unit": "yuzde"
+      },
+      "apply": "live",
+      "decision": "K-187",
+      "actor": "girisimci",
+      "scenario_editable": true
+    },
+    {
+      "id": "hedef_kar_marji",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "PV2_M0"
+      ],
+      "requires": [
+        "PV2_M0"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 30,
+        "step": 1,
+        "unit": "yuzde"
+      },
+      "apply": "live",
+      "decision": "K-187",
+      "actor": "girisimci",
+      "scenario_editable": true
+    },
+    {
+      "id": "ikinci_kaynak",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "SB_SECOND"
+      ],
+      "requires": [
+        "SB_SECOND"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 50,
+        "step": 5,
+        "unit": "yuzde"
+      },
+      "apply": "live",
+      "decision": "K-212",
+      "actor": "girisimci",
+      "scenario_editable": true,
+      "effective_when": {
+        "sektor_panosu": true
+      }
+    },
+    {
+      "id": "girdi_tamponu",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "SB_BUF_LO",
+        "SB_BUF_HI"
+      ],
+      "requires": [
+        "SB_BUF_LO",
+        "SB_BUF_HI"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "en_az",
+            "param": "SB_BUF_LO",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 0,
+              "max": 2,
+              "step": 0.5,
+              "unit": "hafta"
+            }
+          },
+          {
+            "key": "en_cok",
+            "param": "SB_BUF_HI",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 1,
+              "max": 8,
+              "step": 0.5,
+              "unit": "hafta"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-212",
+      "actor": "girisimci",
+      "scenario_editable": true,
+      "effective_when": {
+        "sektor_panosu": true
+      }
+    },
+    {
+      "id": "pano_kurallari",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "SB_GROW",
+        "SB_PREM_MAX"
+      ],
+      "requires": [
+        "SB_GROW",
+        "SB_PREM_MAX"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "buyume",
+            "param": "SB_GROW",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0,
+              "max": 30,
+              "step": 5,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "prim",
+            "param": "SB_PREM_MAX",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0,
+              "max": 30,
+              "step": 5,
+              "unit": "yuzde"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-212",
+      "actor": "yerlesik",
+      "scenario_editable": true,
+      "effective_when": {
+        "sektor_panosu": true
+      }
+    },
+    {
+      "id": "lonca_degistirme",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "SWITCH_COOL"
+      ],
+      "requires": [
+        "SWITCH_COOL"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 1,
+        "min": 4,
+        "max": 52,
+        "step": 4,
+        "integer": true,
+        "unit": "hafta"
+      },
+      "apply": "live",
+      "decision": "K-167",
+      "actor": "girisimci",
+      "scenario_editable": true
+    },
+    {
+      "id": "girisimci_risk_tutumu",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": false,
+      "status": "passive",
+      "kind": "toggle",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "unknown",
+      "actor": "girisimci",
+      "scenario_editable": false,
+      "default": false
+    },
+    {
+      "id": "genc_firma_davranisi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "YK_HIRE_MAX",
+        "YK_ENTRY_WEEKS"
+      ],
+      "requires": [
+        "YK_HIRE_MAX",
+        "YK_ENTRY_WEEKS"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "ise_alim",
+            "param": "YK_HIRE_MAX",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 1,
+              "max": 6,
+              "step": 1,
+              "integer": true,
+              "unit": "sayi"
+            }
+          },
+          {
+            "key": "giris_suresi",
+            "param": "YK_ENTRY_WEEKS",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 0,
+              "max": 52,
+              "step": 2,
+              "integer": true,
+              "unit": "hafta"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-216",
+      "actor": "girisimci",
+      "scenario_editable": true,
+      "shows": [
+        {
+          "key": "YK_HIRE_COVER",
+          "label_key": "kasa",
+          "unit": "kat"
+        },
+        {
+          "key": "YK_MES_FRAC",
+          "label_key": "olcek",
+          "unit": "yuzde",
+          "scale": 100
+        }
+      ],
+      "effective_when": {
+        "genc_firma_destegi": true
+      }
+    },
+    {
+      "id": "ucret_uyumu",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "WAGE_PASS",
+        "WAGE_CATCHUP"
+      ],
+      "requires": [
+        "WAGE_PASS",
+        "WAGE_CATCHUP"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "yansima",
+            "param": "WAGE_PASS",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0,
+              "max": 100,
+              "step": 10,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "hiz",
+            "param": "WAGE_CATCHUP",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 5,
+              "max": 50,
+              "step": 5,
+              "unit": "yuzde"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-116",
+      "actor": "isci",
+      "scenario_editable": true
+    },
+    {
+      "id": "issizlik_ucret_tepkisi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "LAB_U_STAR",
+        "LAB_K",
+        "LAB_DOWN"
+      ],
+      "requires": [
+        "LAB_U_STAR",
+        "LAB_K",
+        "LAB_DOWN"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "dogal",
+            "param": "LAB_U_STAR",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 5,
+              "max": 40,
+              "step": 5,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "katsayi",
+            "param": "LAB_K",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 0,
+              "max": 2,
+              "step": 0.05,
+              "unit": "oran"
+            }
+          },
+          {
+            "key": "dusus",
+            "param": "LAB_DOWN",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0,
+              "max": 100,
+              "step": 10,
+              "unit": "yuzde"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-185.15",
+      "actor": "isci",
+      "scenario_editable": true
+    },
+    {
+      "id": "is_arama",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": false,
+      "status": "passive",
+      "kind": "toggle",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "unknown",
+      "actor": "isci",
+      "scenario_editable": false,
+      "default": false
+    },
+    {
+      "id": "tecrube_terfisi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": false,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "SKILL_ON"
+      ],
+      "requires": [
+        "SKILL_ON"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "unknown",
+      "decision": "K-148",
+      "actor": "isci",
+      "scenario_editable": false
+    },
+    {
+      "id": "mevduata_dagitilan_pay",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "DEP_PAYOUT"
+      ],
+      "requires": [
+        "DEP_PAYOUT"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 100,
+        "step": 10,
+        "unit": "yuzde"
+      },
+      "apply": "live",
+      "decision": "K-158",
+      "actor": "yatirimci",
+      "scenario_editable": true
+    },
+    {
+      "id": "lonca_tahvil_payi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "BOND_POOL_SHARE"
+      ],
+      "requires": [
+        "BOND_POOL_SHARE"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "yuzde"
+      },
+      "apply": "start_only",
+      "decision": "K-185.4",
+      "actor": "yatirimci",
+      "scenario_editable": true
+    },
+    {
+      "id": "lonca_aidat_arama",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "LONCA_FEE",
+        "FEE_STEP",
+        "FEE_EVERY"
+      ],
+      "requires": [
+        "LONCA_FEE",
+        "FEE_STEP",
+        "FEE_EVERY"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "baslangic",
+            "param": "LONCA_FEE",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 2,
+              "max": 12,
+              "step": 1,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "adim",
+            "param": "FEE_STEP",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0.1,
+              "max": 2,
+              "step": 0.1,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "sikligi",
+            "param": "FEE_EVERY",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 1,
+              "max": 26,
+              "step": 1,
+              "integer": true,
+              "unit": "hafta"
+            }
+          }
+        ]
+      },
+      "apply": "start_only",
+      "decision": "K-73",
+      "actor": "yatirimci",
+      "scenario_editable": true
+    },
+    {
+      "id": "lonca_risk_payi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "RISK_K",
+        "RISK_MAX"
+      ],
+      "requires": [
+        "RISK_K",
+        "RISK_MAX"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "katsayi",
+            "param": "RISK_K",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 0,
+              "max": 2,
+              "step": 0.1,
+              "unit": "oran"
+            }
+          },
+          {
+            "key": "en_cok",
+            "param": "RISK_MAX",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0.1,
+              "max": 2,
+              "step": 0.1,
+              "unit": "yuzde_hafta"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-185.5",
+      "actor": "yatirimci",
+      "scenario_editable": true
+    },
+    {
+      "id": "konut_yatirim_karari",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "HOUSE_RISK_PREM"
+      ],
+      "requires": [
+        "HOUSE_RISK_PREM"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 0.5,
+        "step": 0.05,
+        "unit": "yuzde_hafta"
+      },
+      "apply": "start_only",
+      "decision": "K-179",
+      "actor": "yatirimci",
+      "scenario_editable": true
+    },
+    {
+      "id": "konut_fiyat_beklentisi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "HOUSE_EXP_N",
+        "HOUSE_EXP_DAMP"
+      ],
+      "requires": [
+        "HOUSE_EXP_N",
+        "HOUSE_EXP_DAMP"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "pencere",
+            "param": "HOUSE_EXP_N",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 4,
+              "max": 52,
+              "step": 4,
+              "integer": true,
+              "unit": "hafta"
+            }
+          },
+          {
+            "key": "pay",
+            "param": "HOUSE_EXP_DAMP",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0,
+              "max": 100,
+              "step": 10,
+              "unit": "yuzde"
+            }
+          }
+        ]
+      },
+      "apply": "start_only",
+      "decision": "K-179",
+      "actor": "yatirimci",
+      "scenario_editable": true
+    },
+    {
+      "id": "dao_payi_karari",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "EQ_RISK_INV",
+        "EQ_FRAC",
+        "EQ_MAX_HOLD"
+      ],
+      "requires": [
+        "EQ_RISK_INV",
+        "EQ_FRAC",
+        "EQ_MAX_HOLD"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "prim",
+            "param": "EQ_RISK_INV",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0,
+              "max": 1,
+              "step": 0.1,
+              "unit": "yuzde_hafta"
+            }
+          },
+          {
+            "key": "pay",
+            "param": "EQ_FRAC",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 10,
+              "max": 100,
+              "step": 10,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "en_cok",
+            "param": "EQ_MAX_HOLD",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 1,
+              "max": 12,
+              "step": 1,
+              "integer": true,
+              "unit": "sayi"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "K-180",
+      "actor": "yatirimci",
+      "scenario_editable": true
+    },
+    {
+      "id": "konut_satis_sikismasi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "HOUSE_SQUEEZE_W"
+      ],
+      "requires": [
+        "HOUSE_SQUEEZE_W"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 1,
+        "min": 0,
+        "max": 4,
+        "step": 0.5,
+        "unit": "hafta"
+      },
+      "apply": "start_only",
+      "decision": "K-179",
+      "actor": "yatirimci",
+      "scenario_editable": true
+    },
+    {
+      "id": "kitlikta_buyume",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "PM_BOOST_MAX"
+      ],
+      "requires": [
+        "PM_BOOST_MAX"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 1,
+        "min": 1,
+        "max": 4,
+        "step": 0.5,
+        "unit": "kat"
+      },
+      "apply": "live",
+      "decision": "K-153",
+      "actor": "yerlesik",
+      "scenario_editable": true
+    },
+    {
+      "id": "yerlesik_batma_suresi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "NPC_DIE_WEEKS"
+      ],
+      "requires": [
+        "NPC_DIE_WEEKS"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 1,
+        "min": 1,
+        "max": 52,
+        "step": 1,
+        "integer": true,
+        "unit": "hafta"
+      },
+      "apply": "live",
+      "decision": "K-185.2",
+      "actor": "yerlesik",
+      "scenario_editable": true,
+      "effective_when": {
+        "zarar_eden_firmayi_kurtarma": "yok"
+      }
+    },
+    {
+      "id": "navlun",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": false,
+      "status": "active",
+      "kind": "toggle",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "unknown",
+      "decision": "K-52",
+      "actor": "dunya",
+      "scenario_editable": false,
+      "shows": [
+        {
+          "key": "NAVLUN",
+          "label_key": "oran",
+          "unit": "yuzde",
+          "scale": 100
+        }
+      ]
+    },
+    {
+      "id": "kitlik_esigi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": false,
+      "status": "active",
+      "kind": "toggle",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "unknown",
+      "decision": "K-212",
+      "actor": "dunya",
+      "scenario_editable": false,
+      "shows": [
+        {
+          "key": "SB_SCARCE",
+          "label_key": "esik",
+          "unit": "yuzde",
+          "scale": 100
+        }
+      ]
+    },
+    {
+      "id": "lonca_gideri",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": false,
+      "status": "active",
+      "kind": "toggle",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "unknown",
+      "decision": "K-174",
+      "actor": "dunya",
+      "scenario_editable": false,
+      "shows": [
+        {
+          "key": "LC_FIXED",
+          "label_key": "sabit",
+          "unit": "akce"
+        },
+        {
+          "key": "LC_MEMBER",
+          "label_key": "uye",
+          "unit": "akce"
+        },
+        {
+          "key": "LONCA_DEAD_WEEKS",
+          "label_key": "batis",
+          "unit": "hafta"
+        }
+      ]
+    },
+    {
+      "id": "sektor_acilis_esikleri",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": false,
+      "status": "active",
+      "kind": "toggle",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "unknown",
+      "decision": "K-136",
+      "actor": "dunya",
+      "scenario_editable": false,
+      "shows": [
+        {
+          "key": "SW_UNLOCK",
+          "label_key": "yazilim",
+          "unit": "sayi"
+        },
+        {
+          "key": "HW_UNLOCK",
+          "label_key": "donanim",
+          "unit": "sayi"
+        },
+        {
+          "key": "MODA_UNLOCK",
+          "label_key": "moda",
+          "unit": "sayi"
+        },
+        {
+          "key": "TOUR_UNLOCK",
+          "label_key": "turizm",
+          "unit": "sayi"
+        }
+      ]
+    },
+    {
+      "id": "konut_kira_getirisi",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": false,
+      "status": "active",
+      "kind": "toggle",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "unknown",
+      "decision": "K-159",
+      "actor": "dunya",
+      "scenario_editable": false,
+      "shows": [
+        {
+          "key": "HOUSE_YIELD",
+          "label_key": "getiri",
+          "unit": "yuzde_hafta",
+          "scale": 100
+        }
+      ]
+    },
+    {
+      "id": "kira_tabani",
+      "layer": "V",
+      "group": "dunya",
+      "level": "U",
+      "editable": false,
+      "status": "active",
+      "kind": "toggle",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "unknown",
+      "decision": "K-159",
+      "actor": "dunya",
+      "scenario_editable": false,
+      "shows": [
+        {
+          "key": "RENT_H",
+          "label_key": "taban",
+          "unit": "yuzde",
+          "scale": 100
+        },
+        {
+          "key": "HOUSE_ELAST",
+          "label_key": "esneklik",
+          "unit": "oran"
+        },
+        {
+          "key": "RM_MIN",
+          "label_key": "en_az",
+          "unit": "oran"
+        },
+        {
+          "key": "RM_MAX",
+          "label_key": "en_cok",
+          "unit": "oran"
+        },
+        {
+          "key": "RM_RATE",
+          "label_key": "hiz",
+          "unit": "yuzde",
+          "scale": 100
+        }
+      ]
+    }
+  ]
+}

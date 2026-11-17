@@ -1,0 +1,97 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: var(--border-1) solid var(--color-line);
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+/* untrusted text (names, descriptions) must never widen the page */
+.wrap {
+  overflow-wrap: anywhere;
+}
+
+.default {
+  border-color: var(--color-line);
+}
+
+/* C-02-Treasuries:68,178 white surface, brand border */
+.selected {
+  border-color: var(--color-brand);
+}
+
+/* C-03-Treasury:134, C-07-Agents:44 */
+.emphasis {
+  border: var(--border-2) solid var(--color-ink);
+}
+
+.panel {
+  border-color: var(--color-panel-bg);
+  background: var(--color-panel-bg);
+  color: var(--color-panel-ink);
+}
+
+.p-xs {
+  padding: var(--space-16);
+}
+
+.p-compact {
+  padding: var(--space-18);
+}
+
+.p-sm {
+  padding: var(--space-20);
+}
+
+.p-md {
+  padding: var(--space-24);
+}
+
+.p-lg {
+  padding: var(--space-28);
+}
+
+.p-xl {
+  padding: var(--space-32);
+}
+
+.p-row {
+  padding: var(--space-20) var(--space-24);
+}
+
+.r-md {
+  border-radius: var(--radius-20);
+}
+
+.r-lg {
+  border-radius: var(--radius-24);
+}
+
+.g10 {
+  gap: var(--space-10);
+}
+
+.g12 {
+  gap: var(--space-12);
+}
+
+.g14 {
+  gap: var(--space-14);
+}
+
+.g16 {
+  gap: var(--space-16);
+}
+
+.g18 {
+  gap: var(--space-18);
+}
+
+.g20 {
+  gap: var(--space-20);
+}
+
+.g22 {
+  gap: var(--space-22);
+}

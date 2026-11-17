@@ -1,0 +1,6 @@
+{
+  "__readme": "DAO karar yanıtlarının web-yerel örnekleri (6b raporu: 202 {kabul,hafta}; ret 422 error.code işçinin kodu, fields [{id, reason:'invalid'}]; 504 karar_belirsiz). wire_contract.json sunucu sahibindedir; oraya eklenince bu dosya ona taşınır. Sahte sunucu bunları okur, sözleşme testi gerçek biçimle karşılaştırır.",
+  "kabul": { "kabul": true, "hafta": 1 },
+  "ret_422": { "error": { "code": "karar_gecersiz", "message": "Karar kabul edilmedi.", "fields": [{ "id": "tur", "reason": "invalid" }] } },
+  "belirsiz_504": { "error": { "code": "karar_belirsiz", "message": "Karar uygulanmış olabilir; gözlemi yenileyin.", "fields": [] } }
+}

@@ -1,0 +1,82 @@
+.bolum {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  min-width: 0;
+}
+
+.baslik {
+  margin: 0;
+  font-size: var(--fs-18);
+}
+
+.giris {
+  margin: 0;
+  max-width: var(--measure-md);
+  color: var(--color-ink-2);
+}
+
+.not {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: var(--fs-14);
+  overflow-wrap: anywhere;
+}
+
+.kaydir {
+  overflow-x: auto;
+}
+
+.tablo {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tablo th,
+.tablo td {
+  padding: var(--space-8) var(--space-12);
+  border-bottom: var(--border-1) solid var(--color-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.tablo thead th {
+  color: var(--color-slate);
+  font-size: var(--fs-13);
+}
+
+.ad {
+  font-weight: var(--weight-bold);
+}
+
+.sayi {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.nasil {
+  color: var(--color-ink-3);
+  font-size: var(--fs-14);
+}
+
+.ekle {
+  display: block;
+  margin-top: var(--space-2);
+  color: var(--color-ink-3);
+  font-size: var(--fs-13);
+  white-space: normal;
+}
+
+.gorunmez {
+  position: absolute;
+  width: var(--space-1);
+  height: var(--space-1);
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.satir:focus-visible {
+  outline: var(--border-2) solid var(--color-brand-strong);
+  outline-offset: calc(var(--space-2) * -1);
+}

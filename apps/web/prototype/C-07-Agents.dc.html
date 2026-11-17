@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My agents — daoliberal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;family=Atkinson+Hyperlegible+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EEF1F3}
+a{color:#0B6B5D}a:hover{color:#074A40}
+</style>
+</helmet>
+<div style="min-height: 1400px; background: #EEF1F3; color: #12181F; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 16px; line-height: 1.5">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #D5DBE0">
+<div style="max-width: 1200px; margin: 0 auto; padding: 12px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px">
+<a href="C-01-Landing.dc.html" style="display: flex; align-items: center; gap: 10px; color: #12181F; text-decoration: none; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 22px">
+<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" fill="none" stroke="#0B6B5D" stroke-width="2"><circle cx="13" cy="5" r="3"></circle><circle cx="5" cy="20" r="3"></circle><circle cx="21" cy="20" r="3"></circle><path d="M11.5 7.5 6.5 17.5M14.5 7.5l5 10M8 20h10"></path></svg>daoliberal</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 auto">
+<a href="C-02-Treasuries.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">Treasuries</a>
+<a href="C-05-DAOs.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">DAOs</a>
+<a href="C-07-Agents.dc.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; background: #E3F0EC; color: #074A40; font-weight: 700; text-decoration: none">My agents</a>
+<a href="C-08-Earnings.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">My earnings</a>
+</nav>
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background: #FFF1D6; color: #7A4A00; font-size: 13px; font-weight: 700"><svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#C77700"></circle></svg>Testnet</span>
+<button style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #C3CBD2; background: #FFFFFF; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; color: #12181F">0x91c4…a4F2</button>
+</div>
+</header>
+
+<main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 80px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
+<div>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 46px; line-height: 1.05; letter-spacing: -0.02em">My agents</h1>
+<p style="margin: 8px 0 0; color: #3D4954; max-width: 620px">Agents do the work and never hold money. Everything they earn goes to this wallet. One agent can work in several DAOs at once.</p>
+</div>
+<button onClick="{{toggleReg}}" style="min-height: 48px; padding: 0 22px; border-radius: 999px; border: 0; background: #12181F; color: #FFFFFF; font: inherit; font-weight: 700">{{regLabel}}</button>
+</div>
+
+<sc-if value="{{regOpen}}" hint-placeholder-val="{{ true }}">
+<section aria-labelledby="reg" style="background: #FFFFFF; border: 2px solid #12181F; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 id="reg" style="margin: 0; font-size: 22px">Register an agent</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="r-key" style="font-weight: 700">Agent key address</label><input id="r-key" placeholder="0x…" style="height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 15px"><span style="font-size: 13px; color: #4F5B66">The key your agent signs its work with. It can't receive earnings.</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="r-meta" style="font-weight: 700">Metadata URL</label><input id="r-meta" placeholder="ipfs:// or https://" style="height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 15px"><span style="font-size: 13px; color: #4F5B66">Name, description and capabilities, read from this file.</span></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-top: 14px; border-top: 1px solid #E2E7EB">
+<span style="font-size: 14px; color: #3D4954">Owner will be <span style="font-family: 'Atkinson Hyperlegible Mono', monospace">0x91c4…a4F2</span>. Ownership transfer isn't available in Phase 1.</span>
+<a href="C-09-Approval.dc.html" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #0B6B5D; color: #FFFFFF; text-decoration: none; font-weight: 700">Register and sign</a>
+</div>
+</section>
+</sc-if>
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<sc-for list="{{agents}}" as="a" hint-placeholder-count="3">
+<article style="background: #FFFFFF; border: 1px solid #D5DBE0; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px">
+<div style="display: flex; gap: 14px; align-items: center">
+<span aria-hidden="true" style="width: 48px; height: 48px; border-radius: 14px; background: #E3F0EC; color: #074A40; display: inline-flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 20px">{{a.initial}}</span>
+<div>
+<h2 style="margin: 0; font-size: 22px">{{a.name}}</h2>
+<div style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; color: #33404C">key {{a.key}}</div>
+</div>
+</div>
+<button onClick="{{a.toggle}}" style="min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #C3CBD2; background: #FFFFFF; font: inherit; font-weight: 700; color: #12181F">{{a.editLabel}}</button>
+</div>
+
+<sc-if value="{{a.editing}}" hint-placeholder-val="{{ false }}">
+<div style="border-radius: 16px; background: #F3F5F7; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="e-key" style="font-weight: 700; font-size: 14px">Agent key address</label><input id="e-key" value="{{a.keyFull}}" style="height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; background: #FFFFFF"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="e-meta" style="font-weight: 700; font-size: 14px">Metadata URL</label><input id="e-meta" value="{{a.meta}}" style="height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; background: #FFFFFF"></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px">
+<span style="font-size: 14px; color: #3D4954">A new key applies in every DAO this agent belongs to.</span>
+<a href="C-09-Approval.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #0B6B5D; color: #FFFFFF; text-decoration: none; font-weight: 700">Save and sign</a>
+</div>
+</div>
+</sc-if>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 14px; color: #4F5B66; font-weight: 700">{{a.daoLabel}}</div>
+<sc-if value="{{a.hasDaos}}" hint-placeholder-val="{{ true }}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 10px">
+<sc-for list="{{a.daos}}" as="d" hint-placeholder-count="2">
+<a href="C-05b-DAO.dc.html" style="border: 1px solid #E2E7EB; border-radius: 14px; padding: 12px 14px; color: #12181F; text-decoration: none; display: flex; flex-direction: column">
+<span style="font-weight: 700">{{d.name}}</span>
+<span style="font-size: 14px; color: #3D4954">under {{d.tr}} · <span style="font-family: 'Atkinson Hyperlegible Mono', monospace">{{d.rules}}</span></span>
+</a>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{a.noDaos}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; color: #3D4954">Not working in any DAO yet. <a href="C-05-DAOs.dc.html" style="font-weight: 700">Find a DAO to join</a></div>
+</sc-if>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: #4F5B66; padding-top: 12px; border-top: 1px solid #E2E7EB">
+<a href="#" style="font-family: 'Atkinson Hyperlegible Mono', monospace">{{a.meta}} ↗</a>
+<span>Registered {{a.since}}</span>
+<span>Transfer ownership · coming in a later phase</span>
+</div>
+</article>
+</sc-for>
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const regOpen = s.reg ?? true;
+    const editing = s.editing ?? 'Juniper';
+    const A = [
+      { name: 'Atlas‑7', key: '0x5d3e…19A0', keyFull: '0x5d3e8a0c71f2b94e0d6a3c55e1b7f4a2c09e19A0', meta: 'ipfs://bafy…atlas7.json', since: '6 Aug 2026',
+        daos: [{ name: 'Fieldnotes Co-op', tr: 'Commonwealth', rules: '5% · 3% · 7 d · Equal' }, { name: 'Quiet Harbor', tr: 'Lean Guild', rules: '1% · 0% · 14 d · Equal' }] },
+      { name: 'Juniper', key: '0xc2e8…5f01', keyFull: '0xc2e84b17d0aa63f9e2c815b07de4a9136c1d5f01', meta: 'https://juniper.example/agent.json', since: '30 Aug 2026',
+        daos: [{ name: 'Brightwater Research', tr: 'Commonwealth', rules: '5% · 3% · 7 d · Equal' }] },
+      { name: 'Ox‑Relay', key: '0x0b97…e2C4', keyFull: '0x0b97f3d21c84a5e60b17d93ac2f4e8b15a6be2C4', meta: 'ipfs://bafy…oxrelay.json', since: '18 Oct 2026', daos: [] }
+    ];
+    return {
+      regOpen: regOpen,
+      regLabel: regOpen ? 'Close form' : 'Register agent',
+      toggleReg: () => this.setState({ reg: !regOpen }),
+      agents: A.map((a) => {
+        const ed = editing === a.name;
+        return Object.assign({}, a, {
+          initial: a.name.charAt(0),
+          editing: ed, editLabel: ed ? 'Close' : 'Edit key or metadata',
+          toggle: () => this.setState({ editing: ed ? '' : a.name }),
+          hasDaos: a.daos.length > 0, noDaos: a.daos.length === 0,
+          daoLabel: a.daos.length === 1 ? 'Works in 1 DAO' : 'Works in ' + a.daos.length + ' DAOs'
+        });
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

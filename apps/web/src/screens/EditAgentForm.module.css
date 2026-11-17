@@ -1,0 +1,18 @@
+/* C-07-Agents:62 */
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  border-radius: var(--radius-16);
+  background: var(--color-surface-muted);
+}
+
+.note {
+  font-size: var(--fs-14);
+  color: var(--color-ink-3);
+}
+
+.rule {
+  display: block;
+}

@@ -1,0 +1,78 @@
+{
+  "settings": [
+    {
+      "id": "para_devresi",
+      "layer": "P",
+      "group": "butce",
+      "level": "A",
+      "editable": true,
+      "status": "experimental",
+      "kind": "options",
+      "params": [
+        "MONEY_LOOP"
+      ],
+      "requires": [
+        "MONEY_LOOP"
+      ],
+      "codec": {
+        "type": "enum",
+        "map": {
+          "kasa_biriktirir": 0,
+          "kasa_geri_doner": 1,
+          "kar_hanelere": 2
+        }
+      },
+      "apply": "start_only",
+      "decision": "D11"
+    },
+    {
+      "id": "hayalet_firma",
+      "layer": "P",
+      "group": "kurtarma",
+      "level": "A",
+      "editable": true,
+      "status": "experimental",
+      "kind": "fields",
+      "params": [
+        "GHOST_MODE",
+        "GHOST_WEEKS"
+      ],
+      "requires": [
+        "GHOST_MODE",
+        "GHOST_WEEKS"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "kip",
+            "param": "GHOST_MODE",
+            "codec": {
+              "type": "enum",
+              "map": {
+                "kapali": 0,
+                "destek_gelmeyen": 1,
+                "iscisiz_kalan": 2
+              }
+            }
+          },
+          {
+            "key": "hafta",
+            "param": "GHOST_WEEKS",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 1,
+              "max": 104,
+              "step": 1,
+              "unit": "hafta",
+              "integer": true
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "D11"
+    }
+  ]
+}

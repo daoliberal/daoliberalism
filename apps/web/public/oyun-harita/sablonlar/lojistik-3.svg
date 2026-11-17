@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
+  <rect data-katman="metal" x="2" y="94" width="116" height="2.4"/>
+  <rect data-katman="duvar" x="14" y="44" width="92" height="50"/>
+  <rect data-katman="duvar2" x="92" y="44" width="14" height="50"/>
+  <polygon data-katman="cati" points="12,46 60,20 108,46"/>
+  <rect data-katman="cati2" x="55" y="19" width="10" height="3"/>
+  <circle data-katman="pencere" cx="60" cy="36" r="5"/>
+  <circle data-katman="pencere" cx="38" cy="41" r="3"/>
+  <circle data-katman="pencere" cx="82" cy="41" r="3"/>
+  <rect data-katman="kapi" x="20" y="60" width="20" height="34"/>
+  <rect data-katman="metal" x="20" y="63" width="20" height="2"/>
+  <rect data-katman="metal" x="20" y="69" width="20" height="2"/>
+  <rect data-katman="metal" x="20" y="75" width="20" height="2"/>
+  <rect data-katman="metal" x="20" y="81" width="20" height="2"/>
+  <rect data-katman="metal" x="20" y="87" width="20" height="2"/>
+  <rect data-katman="ayrinti2" x="20" y="56" width="20" height="3"/>
+  <rect data-katman="kapi" x="44" y="60" width="20" height="34"/>
+  <rect data-katman="metal" x="44" y="63" width="20" height="2"/>
+  <rect data-katman="metal" x="44" y="69" width="20" height="2"/>
+  <rect data-katman="metal" x="44" y="75" width="20" height="2"/>
+  <rect data-katman="metal" x="44" y="81" width="20" height="2"/>
+  <rect data-katman="metal" x="44" y="87" width="20" height="2"/>
+  <rect data-katman="ayrinti2" x="44" y="56" width="20" height="3"/>
+  <rect data-katman="kapi" x="68" y="60" width="20" height="34"/>
+  <rect data-katman="metal" x="68" y="63" width="20" height="2"/>
+  <rect data-katman="metal" x="68" y="69" width="20" height="2"/>
+  <rect data-katman="metal" x="68" y="75" width="20" height="2"/>
+  <rect data-katman="metal" x="68" y="81" width="20" height="2"/>
+  <rect data-katman="metal" x="68" y="87" width="20" height="2"/>
+  <rect data-katman="ayrinti2" x="68" y="56" width="20" height="3"/>
+  <rect data-katman="metal" x="18" y="92" width="74" height="2"/>
+  <rect data-katman="kapi" x="92" y="76" width="9" height="18"/>
+  <rect data-katman="saman" x="12" y="86" width="8" height="8"/>
+  <rect data-katman="saman" x="17" y="78" width="8" height="8"/>
+  <rect data-katman="ayrinti" x="100" y="86" width="8" height="8"/>
+  <rect data-katman="duvar2" x="106" y="62" width="12" height="32"/>
+  <rect data-katman="cati" x="105" y="58" width="14" height="5"/>
+  <rect data-katman="pencere" x="108" y="67" width="8" height="7"/>
+  <rect data-katman="pencere" x="108" y="78" width="8" height="7"/>
+  <rect data-katman="ayrinti" x="2" y="74" width="14" height="8"/>
+  <rect data-katman="ayrinti2" x="2" y="82" width="14" height="4"/>
+</svg>

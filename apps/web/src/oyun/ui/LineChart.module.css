@@ -1,0 +1,109 @@
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-width: 0;
+  margin: 0;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.izgara {
+  stroke: var(--color-line-soft);
+  stroke-width: var(--border-1);
+}
+
+.referans {
+  stroke: var(--color-ink-3);
+  stroke-width: var(--border-1);
+  stroke-dasharray: var(--space-8) var(--space-4);
+}
+
+.isaret {
+  stroke: var(--color-ink-4);
+  stroke-width: var(--border-1);
+  stroke-dasharray: var(--space-2) var(--space-4);
+}
+
+.m-collapse {
+  stroke: var(--color-caution-accent);
+  stroke-width: var(--border-2);
+}
+
+.m-recovery {
+  stroke: var(--color-brand);
+  stroke-width: var(--border-2);
+}
+
+.cizgi {
+  fill: none;
+  stroke-width: var(--border-2);
+  stroke-linejoin: round;
+}
+
+.c0 {
+  stroke: var(--color-brand);
+}
+
+.c1 {
+  stroke: var(--color-caution-accent);
+}
+
+.c2 {
+  stroke: var(--color-warn-dot);
+}
+
+.c3 {
+  stroke: var(--color-slate);
+}
+
+.b0 {
+  stroke-dasharray: none;
+}
+
+.b1 {
+  stroke-dasharray: var(--space-8) var(--space-4);
+}
+
+.b2 {
+  stroke-dasharray: var(--space-2) var(--space-4);
+  stroke-linecap: round;
+}
+
+.baslik {
+  color: var(--color-ink-2);
+  font-weight: var(--weight-bold);
+}
+
+.bos {
+  margin: 0;
+  color: var(--color-slate);
+}
+
+.gosterge {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6) var(--space-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--color-ink-2);
+  font-size: var(--fs-14);
+}
+
+.oge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.ornek {
+  display: block;
+  width: var(--space-24);
+  height: var(--space-8);
+}

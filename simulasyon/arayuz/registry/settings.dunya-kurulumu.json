@@ -1,0 +1,320 @@
+{
+ "settings": [
+  {
+   "id": "baslangic_istihdami",
+   "layer": "P",
+   "group": "dunya",
+   "level": "A",
+   "editable": true,
+   "status": "experimental",
+   "kind": "number",
+   "params": [
+    "START_EMP"
+   ],
+   "requires": [
+    "START_EMP"
+   ],
+   "codec": {
+    "type": "number",
+    "scale": 100,
+    "min": 0,
+    "max": 90,
+    "step": 1,
+    "unit": "yuzde"
+   },
+   "apply": "start_only",
+   "decision": "D7"
+  },
+  {
+   "id": "isletme_sayisi",
+   "layer": "P",
+   "group": "dunya",
+   "level": "A",
+   "editable": true,
+   "status": "experimental",
+   "kind": "number",
+   "params": [
+    "FIRMS_PER_1000"
+   ],
+   "requires": [
+    "FIRMS_PER_1000"
+   ],
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": 0,
+    "max": 80,
+    "step": 1,
+    "unit": "sayi"
+   },
+   "apply": "start_only",
+   "decision": "D7"
+  },
+  {
+   "id": "isletme_kapasitesi",
+   "layer": "P",
+   "group": "dunya",
+   "level": "A",
+   "editable": true,
+   "status": "experimental",
+   "kind": "fields",
+   "params": [
+    "CAP_MODE",
+    "CAP_AUTO_SHARE",
+    "CAP_AUTO_MIN",
+    "MCAP_RAW",
+    "MCAP_MAKE",
+    "MCAP_SERV",
+    "MCAP_LOG"
+   ],
+   "requires": [
+    "CAP_MODE",
+    "CAP_AUTO_SHARE",
+    "CAP_AUTO_MIN",
+    "MCAP_RAW",
+    "MCAP_MAKE",
+    "MCAP_SERV",
+    "MCAP_LOG"
+   ],
+   "codec": {
+    "type": "fields",
+    "fields": [
+     {
+      "key": "kip",
+      "param": "CAP_MODE",
+      "codec": {
+       "type": "enum",
+       "map": {
+        "sabit": 0,
+        "otomatik": 1,
+        "elle": 2
+       }
+      }
+     },
+     {
+      "key": "pay",
+      "param": "CAP_AUTO_SHARE",
+      "codec": {
+       "type": "number",
+       "scale": 100,
+       "min": 100,
+       "max": 300,
+       "step": 5,
+       "unit": "yuzde"
+      }
+     },
+     {
+      "key": "en_az",
+      "param": "CAP_AUTO_MIN",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 1,
+       "max": 500,
+       "step": 1,
+       "integer": true,
+       "unit": "sayi"
+      }
+     },
+     {
+      "key": "hammadde",
+      "param": "MCAP_RAW",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 5,
+       "max": 2000,
+       "step": 5,
+       "integer": true,
+       "unit": "sayi"
+      }
+     },
+     {
+      "key": "imalat",
+      "param": "MCAP_MAKE",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 5,
+       "max": 2000,
+       "step": 5,
+       "integer": true,
+       "unit": "sayi"
+      }
+     },
+     {
+      "key": "hizmet",
+      "param": "MCAP_SERV",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 5,
+       "max": 2000,
+       "step": 5,
+       "integer": true,
+       "unit": "sayi"
+      }
+     },
+     {
+      "key": "lojistik",
+      "param": "MCAP_LOG",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 5,
+       "max": 2000,
+       "step": 5,
+       "integer": true,
+       "unit": "sayi"
+      }
+     }
+    ]
+   },
+   "apply": "start_only",
+   "decision": "D7"
+  },
+  {
+   "id": "kapasite_buyume_tavani",
+   "layer": "P",
+   "group": "dunya",
+   "level": "A",
+   "editable": true,
+   "status": "experimental",
+   "kind": "options",
+   "params": [
+    "CAP_GROWTH"
+   ],
+   "requires": [
+    "CAP_GROWTH"
+   ],
+   "codec": {
+    "type": "enum",
+    "map": {
+     "sabit_taban": 0,
+     "acilis_kapasitesi": 1
+    }
+   },
+   "apply": "start_only",
+   "decision": "D7"
+  },
+  {
+   "id": "acilis_talebi",
+   "layer": "P",
+   "group": "dunya",
+   "level": "A",
+   "editable": true,
+   "status": "experimental",
+   "kind": "fields",
+   "params": [
+    "START_DEMAND",
+    "START_STOCK_WEEKS"
+   ],
+   "requires": [
+    "START_DEMAND",
+    "START_STOCK_WEEKS"
+   ],
+   "codec": {
+    "type": "fields",
+    "fields": [
+     {
+      "key": "tahmin",
+      "param": "START_DEMAND",
+      "codec": {
+       "type": "enum",
+       "map": {
+        "bugunku": 0,
+        "tutarli": 1
+       }
+      }
+     },
+     {
+      "key": "stok",
+      "param": "START_STOCK_WEEKS",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 0,
+       "max": 8,
+       "step": 1,
+       "integer": true,
+       "unit": "hafta"
+      }
+     }
+    ]
+   },
+   "apply": "start_only",
+   "decision": "D7"
+  },
+  {
+   "id": "npc_baslangic_nakdi",
+   "layer": "P",
+   "group": "dunya",
+   "level": "A",
+   "editable": true,
+   "status": "experimental",
+   "kind": "number",
+   "params": [
+    "NPC_START_CASH"
+   ],
+   "requires": [
+    "NPC_START_CASH"
+   ],
+   "codec": {
+    "type": "number",
+    "scale": 1,
+    "min": 0,
+    "max": 3,
+    "step": 0.5,
+    "unit": "hafta"
+   },
+   "apply": "start_only",
+   "decision": "D7"
+  },
+  {
+   "id": "acilis_konut_stoku",
+   "layer": "P",
+   "group": "dunya",
+   "level": "A",
+   "editable": true,
+   "status": "experimental",
+   "kind": "options",
+   "params": [
+    "HOUSE_MODE"
+   ],
+   "requires": [
+    "HOUSE_MODE"
+   ],
+   "codec": {
+    "type": "enum",
+    "map": {
+     "sabit_kiraci": 0,
+     "acilis_kadrosu": 1
+    }
+   },
+   "apply": "start_only",
+   "decision": "D7"
+  },
+  {
+   "id": "nufus_olcegi",
+   "layer": "P",
+   "group": "dunya",
+   "level": "A",
+   "editable": true,
+   "status": "experimental",
+   "kind": "toggle",
+   "params": [
+    "POP_SCALE"
+   ],
+   "requires": [
+    "POP_SCALE"
+   ],
+   "codec": {
+    "type": "bool",
+    "on": true,
+    "off": false
+   },
+   "apply": "start_only",
+   "decision": "D7"
+  }
+ ]
+}

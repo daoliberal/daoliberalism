@@ -1,0 +1,120 @@
+.scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.scroll:focus-visible {
+  outline: var(--border-2) solid var(--color-brand);
+}
+
+.card {
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-20);
+  background: var(--color-surface);
+}
+
+.table {
+  min-width: 0;
+}
+
+.min-sm {
+  min-width: var(--table-min-sm);
+}
+
+.min-md {
+  min-width: var(--table-min-md);
+}
+
+.min-lg {
+  min-width: var(--table-min-lg);
+}
+
+.min-xl {
+  min-width: var(--table-min-xl);
+}
+
+.row {
+  display: grid;
+  gap: var(--space-12);
+  border-bottom: var(--border-1) solid var(--color-line-soft);
+}
+
+.card .row {
+  padding-inline: var(--space-20);
+}
+
+.head {
+  padding-block: var(--space-10);
+  font-size: var(--fs-13);
+  color: var(--color-ink-4);
+}
+
+.card .head {
+  padding-block: var(--space-12);
+}
+
+.body {
+  align-items: center;
+  padding-block: var(--space-14);
+}
+
+.body.compact {
+  padding-block: var(--space-12);
+}
+
+.selected {
+  background: var(--color-surface-selected);
+}
+
+.end {
+  text-align: right;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-15);
+}
+
+/* untrusted text must stay inside its cell */
+.wrap {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.lead2 {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.mid14 {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.triple12 {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(0, 1fr);
+}
+
+.even4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.even5 {
+  grid-template-columns: minmax(0, 1.4fr) repeat(4, minmax(0, 1fr));
+}
+
+.ledger7 {
+  grid-template-columns: var(--size-56) minmax(0, 0.8fr) minmax(0, 1.6fr) minmax(0, 1.2fr) minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1.5fr);
+}
+
+.frame {
+  overflow: hidden;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+  padding: var(--space-16) var(--space-20);
+  background: var(--color-surface-muted);
+}

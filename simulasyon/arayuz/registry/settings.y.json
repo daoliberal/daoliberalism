@@ -1,0 +1,296 @@
+{
+  "settings": [
+    {
+      "id": "sigorta_sirketleri",
+      "layer": "Y",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "INSURANCE"
+      ],
+      "requires": [
+        "INSURANCE"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "start_only",
+      "decision": "K-185.11",
+      "actor": "dunya"
+    },
+    {
+      "id": "ikinci_el_esya",
+      "layer": "Y",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "RESALE_ON"
+      ],
+      "requires": [
+        "RESALE_ON"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "start_only",
+      "decision": "K-174",
+      "actor": "dunya"
+    },
+    {
+      "id": "haneler_mevduat_yatirir",
+      "layer": "Y",
+      "group": "dunya",
+      "level": "U",
+      "editable": false,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "DEP_ON"
+      ],
+      "requires": [
+        "DEP_ON"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "unknown",
+      "decision": "K-158",
+      "actor": "dunya"
+    },
+    {
+      "id": "sektor_medya",
+      "layer": "Y",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "DIRECT_AD",
+        "MEDIA_LONCA"
+      ],
+      "requires": [
+        "DIRECT_AD",
+        "MEDIA_LONCA"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "reklam",
+            "param": "DIRECT_AD",
+            "codec": {
+              "type": "bool",
+              "on": true,
+              "off": false
+            }
+          },
+          {
+            "key": "lonca",
+            "param": "MEDIA_LONCA",
+            "codec": {
+              "type": "bool",
+              "on": true,
+              "off": false
+            }
+          }
+        ]
+      },
+      "apply": "start_only",
+      "decision": "K-183",
+      "actor": "dunya"
+    },
+    {
+      "id": "sektor_saglik",
+      "layer": "Y",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "HEALTH"
+      ],
+      "requires": [
+        "HEALTH"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "start_only",
+      "decision": "K-185.12",
+      "actor": "dunya"
+    },
+    {
+      "id": "sektor_egitim",
+      "layer": "Y",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "EDUCATION"
+      ],
+      "requires": [
+        "EDUCATION"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "start_only",
+      "decision": "K-185.12",
+      "actor": "dunya"
+    },
+    {
+      "id": "sektor_enerji",
+      "layer": "Y",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "ENERGY_ON"
+      ],
+      "requires": [
+        "ENERGY_ON"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "start_only",
+      "decision": "K-130",
+      "actor": "dunya"
+    },
+    {
+      "id": "sektor_turizm",
+      "layer": "Y",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "TOUR_ON"
+      ],
+      "requires": [
+        "TOUR_ON"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "start_only",
+      "decision": "K-138",
+      "actor": "dunya"
+    },
+    {
+      "id": "sektor_yazilim",
+      "layer": "Y",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "SOFT_ON"
+      ],
+      "requires": [
+        "SOFT_ON"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "live",
+      "decision": "K-136",
+      "actor": "dunya"
+    },
+    {
+      "id": "sektor_donanim",
+      "layer": "Y",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "HW_ON"
+      ],
+      "requires": [
+        "HW_ON"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "live",
+      "decision": "K-142",
+      "actor": "dunya"
+    },
+    {
+      "id": "sektor_moda",
+      "layer": "Y",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "MODA_ON"
+      ],
+      "requires": [
+        "MODA_ON"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "live",
+      "decision": "K-147",
+      "actor": "dunya"
+    },
+    {
+      "id": "dunya_temeli",
+      "layer": "Y",
+      "group": "dunya",
+      "level": "U",
+      "editable": false,
+      "status": "passive",
+      "kind": "toggle",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "unknown",
+      "actor": "dunya",
+      "default": false
+    }
+  ]
+}

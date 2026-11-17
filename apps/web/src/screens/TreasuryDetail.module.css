@@ -1,0 +1,195 @@
+/* C-03-Treasury:34-50, 96-114 (desktop) and C-M2-Treasury:24-31, 61-64 (phone) */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-28);
+  box-sizing: border-box;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-28) var(--space-32) var(--space-80);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-20);
+}
+
+.titleBlock {
+  max-width: var(--measure-xl);
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-52);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-none);
+  letter-spacing: var(--ls-tight);
+  overflow-wrap: anywhere;
+}
+
+.description {
+  margin: var(--space-12) 0 0;
+  color: var(--color-ink-3);
+  font-size: var(--fs-18);
+  overflow-wrap: anywhere;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: var(--space-4) var(--space-16);
+  min-width: 0;
+  margin: 0;
+  font-size: var(--fs-14);
+}
+
+.term {
+  color: var(--color-ink-4);
+}
+
+.detail {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-24);
+}
+
+.rulebook {
+  flex: 999 1 var(--measure-560);
+  min-width: 0;
+}
+
+.calculator {
+  flex: 1 1 var(--measure-340);
+  min-width: 0;
+}
+
+.sectionHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-28);
+  font-weight: var(--weight-bold);
+  overflow-wrap: anywhere;
+}
+
+.count {
+  color: var(--color-ink-4);
+  font-weight: var(--weight-medium);
+}
+
+.seeAll {
+  font-weight: var(--weight-bold);
+}
+
+.daoTable {
+  margin-top: var(--space-12);
+}
+
+.daoLink {
+  color: var(--color-ink);
+  font-weight: var(--weight-bold);
+}
+
+.joined {
+  color: var(--color-ink-3);
+}
+
+/* ---- phone ---- */
+.narrow {
+  gap: var(--space-16);
+  max-width: none;
+  padding: var(--space-18) var(--space-16) var(--space-28);
+  font-size: var(--fs-15);
+}
+
+.mTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-34);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-none);
+  letter-spacing: var(--ls-tight);
+  overflow-wrap: anywhere;
+}
+
+.mFacts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-6) var(--space-12);
+  margin-top: var(--space-10);
+  font-size: var(--fs-13);
+}
+
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-10);
+}
+
+.box {
+  padding: var(--space-12);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-16);
+  background: var(--color-surface);
+}
+
+.boxLabel {
+  color: var(--color-ink-4);
+  font-size: var(--fs-12);
+}
+
+.boxValue {
+  font-family: var(--font-mono);
+  font-size: var(--fs-18);
+  overflow-wrap: anywhere;
+}
+
+.boxLink {
+  font-size: var(--fs-13);
+}
+
+/* "Spending history" opens a sheet on the phone: a button that looks like the prototype's link (owner decision 2026-10-21) */
+.boxLink {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-brand);
+  font-family: inherit;
+  font-size: var(--fs-13);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.boxLink:hover {
+  color: var(--color-brand-strong);
+}

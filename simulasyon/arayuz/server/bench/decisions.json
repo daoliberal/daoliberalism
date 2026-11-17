@@ -1,0 +1,10 @@
+{
+  "lookahead": 2,
+  "seam_mode": "frontier",
+  "max_runs": 3,
+  "mvp_live_keys": [
+    "CORP_TAX",
+    "TRANS_SUPPORT",
+    "WAGE_TAX"
+  ]
+}

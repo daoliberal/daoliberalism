@@ -1,0 +1,20 @@
+/* C-07-Agents:43 */
+.title {
+  margin: 0;
+  font-size: var(--fs-22);
+}
+
+/* C-07-Agents:49: rule above the owner line and the button */
+.footer {
+  padding-top: var(--space-14);
+  border-top: var(--border-1) solid var(--color-line-soft);
+}
+
+.owner {
+  font-size: var(--fs-14);
+  color: var(--color-ink-3);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}

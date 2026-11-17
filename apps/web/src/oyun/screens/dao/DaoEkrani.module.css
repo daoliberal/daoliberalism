@@ -1,0 +1,199 @@
+.dao {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  min-width: 0;
+  max-width: var(--measure-xl);
+}
+
+/* Oyun ekranı genişliği kullanır: üç panel yan yana (en az 320px), harita tam genişlik; telefonda tek sütun. */
+.oyun {
+  max-width: none;
+}
+
+.bilgi {
+  margin: 0;
+  color: var(--color-ink-2);
+  font-size: var(--fs-18);
+  line-height: var(--lh-body);
+  overflow-wrap: anywhere;
+}
+
+.kucuk {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: var(--fs-14);
+  overflow-wrap: anywhere;
+}
+
+.baslik {
+  margin: 0;
+  font-size: var(--fs-26);
+  overflow-wrap: anywhere;
+}
+
+.altBaslik {
+  margin: 0;
+  font-size: var(--fs-18);
+}
+
+.dugmeler {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.kontrol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-width: 0;
+}
+
+.hafta {
+  margin: 0;
+  font-size: var(--fs-18);
+}
+
+.hiz {
+  margin-inline-start: var(--space-12);
+  color: var(--color-slate);
+  font-size: var(--fs-14);
+}
+
+.izgara {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--grid-min-520)), 1fr));
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  min-width: 0;
+  padding: var(--space-16);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-12);
+  background: var(--color-surface);
+}
+
+/* Kararlar uzun panel: geniş ekranda iki satır kaplar (Ben ve Loncalar altında yığılır); telefonda tek sütun. */
+.uzun {
+  grid-row: span 2;
+}
+
+@media (max-width: 720px) {
+  .uzun {
+    grid-row: auto;
+  }
+}
+
+.genis {
+  grid-column: 1 / -1;
+}
+
+.bolum {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-width: 0;
+  padding-top: var(--space-12);
+  border-top: var(--border-1) solid var(--color-line-soft);
+}
+
+.ilk {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.ilerleme {
+  width: 100%;
+}
+
+.liste {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin: 0;
+  padding-left: var(--space-20);
+  overflow-wrap: anywhere;
+}
+
+.olaylar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-wrap: anywhere;
+}
+
+.sonuc {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.hata {
+  margin: 0;
+  color: var(--color-warn-fg);
+  overflow-wrap: anywhere;
+}
+
+/* Şehir ekranı sağ paneli: bağlam eylemleri alt alta; ilk bölümün üst çizgisi yok. */
+.baglam {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  min-width: 0;
+}
+
+.baglam > .bolum:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.loncalar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lonca {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-bottom: var(--space-8);
+  border-bottom: var(--border-1) solid var(--color-line-soft);
+  overflow-wrap: anywhere;
+}
+
+.ilanlar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ilan {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-bottom: var(--space-8);
+  border-bottom: var(--border-1) solid var(--color-line-soft);
+  overflow-wrap: anywhere;
+}
+
+.uyari {
+  margin: 0;
+  font-size: var(--fs-14);
+  color: var(--color-warn-fg);
+}

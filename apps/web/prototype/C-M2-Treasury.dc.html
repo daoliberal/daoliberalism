@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Commonwealth rulebook (mobile, dark) — daoliberal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;family=Atkinson+Hyperlegible+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#6FD6C0}a:hover{color:#A8EADB}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #0B1015; color: #EEF2F5; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 15px; line-height: 1.5; display: flex; flex-direction: column; overflow: hidden">
+<header style="display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-bottom: 1px solid #26323C">
+<a href="C-M1-Treasuries.dc.html" aria-label="Back to treasuries" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #EEF2F5"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"></path></svg></a>
+<span style="flex: 1 1 auto; font-weight: 700">Treasury</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: #3A2A0A; color: #FFD58A; font-size: 12px; font-weight: 700"><svg width="7" height="7" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#F0A626"></circle></svg>Testnet</span>
+</header>
+
+<div style="flex: 1 1 auto; overflow-y: auto; padding: 18px 16px 28px; display: flex; flex-direction: column; gap: 16px">
+<div>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 34px; font-weight: 700; line-height: 1; letter-spacing: -0.02em">Commonwealth</h1>
+<div style="display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: 10px; font-size: 13px; align-items: center">
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; border: 1px solid #3A4753; color: #D5DCE2; font-weight: 700"><svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5.5" width="8" height="5.5" rx="1"></rect><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5"></path></svg>Rules fixed in Phase 1</span>
+<a href="#" style="font-family: 'Atkinson Hyperlegible Mono', monospace">0x4f2a…91c0 ↗</a>
+</div>
+</div>
+
+<section aria-labelledby="m2c" style="background: #141C23; border: 1px solid #26323C; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 10px">
+<label id="m2c" for="m2-amt" style="font-weight: 700; flex: 1 1 auto">Customer pays</label>
+<div style="display: flex; align-items: center; height: 44px; border: 2px solid #EEF2F5; border-radius: 12px; padding: 0 10px; gap: 6px"><input id="m2-amt" inputmode="decimal" value="{{amt}}" onChange="{{setAmt}}" style="width: 56px; border: 0; background: transparent; color: #EEF2F5; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px"><span style="color: #A7B3BE; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 13px">ETH</span></div>
+</div>
+<div style="display: flex; height: 10px; border-radius: 5px; overflow: hidden; gap: 2px"><div style="width: 5%; background: #EEF2F5"></div><div style="width: 3%; background: #7B8995"></div><div style="flex: 1 1 auto; background: #3FB79D"></div></div>
+<div style="display: flex; flex-direction: column; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px">
+<div style="display: flex; justify-content: space-between; padding: 4px 0"><span style="color: #A7B3BE">Fee 5%</span><span>−{{c.fee}}</span></div>
+<div style="display: flex; justify-content: space-between; padding: 4px 0"><span style="color: #A7B3BE">Expenses 3%</span><span>−{{c.exp}}</span></div>
+<div style="display: flex; justify-content: space-between; padding: 6px 0 0; border-top: 1px solid #26323C; font-size: 17px"><span style="font-family: 'Atkinson Hyperlegible Next', sans-serif; font-weight: 700">To owners</span><span style="color: #6FD6C0">{{c.rest}}</span></div>
+</div>
+<div style="font-size: 13px; color: #B9C4CE">Split equally, claimable after 7 days (28 Oct 2026).</div>
+</section>
+
+<section aria-labelledby="m2r" style="display: flex; flex-direction: column">
+<h2 id="m2r" style="margin: 0 0 4px; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 22px; font-weight: 700">Rulebook</h2>
+<sc-for list="{{rules}}" as="r" hint-placeholder-count="5">
+<div style="display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid #26323C">
+<span style="flex: 0 0 28px; height: 28px; border-radius: 999px; background: #17332D; color: #6FD6C0; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center">{{r.n}}</span>
+<div style="flex: 1 1 auto; min-width: 0">
+<div style="display: flex; justify-content: space-between; gap: 8px"><span style="font-weight: 700">{{r.title}}</span><span style="font-family: 'Atkinson Hyperlegible Mono', monospace">{{r.value}}</span></div>
+<p style="margin: 2px 0 4px; font-size: 14px; color: #B9C4CE">{{r.plain}}</p>
+<a href="#" style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 12px">{{r.code}} ↗</a>
+</div>
+</div>
+</sc-for>
+</section>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<div style="background: #141C23; border: 1px solid #26323C; border-radius: 16px; padding: 12px"><div style="font-size: 12px; color: #A7B3BE">Treasury balance</div><div style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px">23.408 ETH</div><a href="C-03-Treasury.dc.html" style="font-size: 13px">Spending history</a></div>
+<div style="background: #141C23; border: 1px solid #26323C; border-radius: 16px; padding: 12px"><div style="font-size: 12px; color: #A7B3BE">DAOs under it</div><div style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px">18</div><a href="C-05-DAOs.dc.html" style="font-size: 13px">Browse DAOs</a></div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const amt = s.amt ?? '1.00';
+    const a = parseFloat(amt); const A = isFinite(a) && a >= 0 ? a : 0;
+    const fmt = (x) => x.toFixed(4).replace(/0{1,2}$/, '');
+    return {
+      amt: amt,
+      setAmt: (e) => this.setState({ amt: e.target.value }),
+      c: { fee: fmt(A * 0.05), exp: fmt(A * 0.03), rest: fmt(A * 0.92) },
+      rules: [
+        { n: '1', title: 'Treasury fee', value: '5%', plain: '5% of every payment goes to the treasury balance.', code: 'FeeRule · 0x4f2a…91c0' },
+        { n: '2', title: 'Expenses', value: '3%', plain: '3% is set aside for running costs.', code: 'ExpenseRule · 0x4f2a…91c0' },
+        { n: '3', title: 'Hold period', value: '7 days', plain: 'Shares unlock 7 days after the payment.', code: 'HoldRule · 0x4f2a…91c0' },
+        { n: '4', title: 'Split rule', value: 'Equal', plain: 'The rest is divided equally among members’ owners.', code: 'EqualSplit · 0x2e0b…c4d1' },
+        { n: '5', title: 'Max agents', value: '142/500', plain: '358 seats open, read live from the contract.', code: 'SeatLimit · 0x4f2a…91c0' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

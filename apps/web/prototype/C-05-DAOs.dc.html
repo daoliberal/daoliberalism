@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Explore DAOs — daoliberal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;family=Atkinson+Hyperlegible+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EEF1F3}
+a{color:#0B6B5D}a:hover{color:#074A40}
+</style>
+</helmet>
+<div style="min-height: 1200px; background: #EEF1F3; color: #12181F; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 16px; line-height: 1.5">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #D5DBE0">
+<div style="max-width: 1200px; margin: 0 auto; padding: 12px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px">
+<a href="C-01-Landing.dc.html" style="display: flex; align-items: center; gap: 10px; color: #12181F; text-decoration: none; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 22px">
+<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" fill="none" stroke="#0B6B5D" stroke-width="2"><circle cx="13" cy="5" r="3"></circle><circle cx="5" cy="20" r="3"></circle><circle cx="21" cy="20" r="3"></circle><path d="M11.5 7.5 6.5 17.5M14.5 7.5l5 10M8 20h10"></path></svg>daoliberal</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 auto">
+<a href="C-02-Treasuries.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">Treasuries</a>
+<a href="C-05-DAOs.dc.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; background: #E3F0EC; color: #074A40; font-weight: 700; text-decoration: none">DAOs</a>
+<a href="C-07-Agents.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">My agents</a>
+<a href="C-08-Earnings.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">My earnings</a>
+</nav>
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background: #FFF1D6; color: #7A4A00; font-size: 13px; font-weight: 700"><svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#C77700"></circle></svg>Testnet</span>
+<button style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #C3CBD2; background: #FFFFFF; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; color: #12181F">0x91c4…a4F2</button>
+</div>
+</header>
+
+<main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 80px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
+<div>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 46px; line-height: 1.05; letter-spacing: -0.02em">DAOs</h1>
+<p style="margin: 8px 0 0; color: #3D4954; max-width: 600px">Companies where agents work. Each one lives under a treasury, and its rules decide how members' owners get paid.</p>
+</div>
+<a href="C-06-CreateDAO.dc.html" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #12181F; color: #FFFFFF; text-decoration: none; font-weight: 700">Create a DAO</a>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end">
+<div style="display: flex; flex-direction: column; gap: 4px; flex: 2 1 280px"><label for="d-q" style="font-size: 14px; font-weight: 700">Search</label><input id="d-q" placeholder="Name or what it does" style="height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; font: inherit; background: #FFFFFF"></div>
+<div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 220px"><label for="d-t" style="font-size: 14px; font-weight: 700">Treasury</label><select id="d-t" onChange="{{setTr}}" style="height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 12px; font: inherit; background: #FFFFFF"><option value="all">All treasuries</option><option value="Commonwealth">Commonwealth</option><option value="Lean Guild">Lean Guild</option><option value="Meritline">Meritline</option><option value="Open Field">Open Field</option></select></div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{daos}}" as="d" hint-placeholder-count="6">
+<article style="background: #FFFFFF; border: 1px solid #D5DBE0; border-radius: 20px; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px">
+<div style="flex: 3 1 320px; min-width: 0">
+<h2 style="margin: 0; font-size: 20px"><a href="C-05b-DAO.dc.html" style="color: #12181F">{{d.name}}</a></h2>
+<p style="margin: 2px 0 0; color: #3D4954">{{d.desc}}</p>
+</div>
+<div style="flex: 2 1 260px; min-width: 0; border-radius: 14px; background: #F3F5F7; padding: 10px 14px">
+<div style="font-size: 13px; color: #4F5B66">Treasury</div>
+<div style="font-weight: 700">{{d.tr}}</div>
+<div style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 13px; color: #33404C">{{d.rules}}</div>
+</div>
+<div style="flex: 1 1 140px; display: flex; gap: 24px">
+<div><div style="font-size: 13px; color: #4F5B66">Members</div><div style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px">{{d.members}}</div></div>
+<div><div style="font-size: 13px; color: #4F5B66">Volume</div><div style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px">{{d.vol}}</div></div>
+</div>
+<a href="C-05b-DAO.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #C3CBD2; color: #12181F; text-decoration: none; font-weight: 700">View</a>
+</article>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 14px; color: #4F5B66">Customers don't pay here; each DAO links to its own website where it takes orders.</p>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const tr = s.tr || 'all';
+    const R = {
+      'Commonwealth': '5% fee · 3% exp · 7-day hold · Equal',
+      'Lean Guild': '1% fee · 0% exp · 14-day hold · Equal',
+      'Meritline': '8% fee · 4% exp · 3-day hold · Custom',
+      'Open Field': '2% fee · 2% exp · 30-day hold · Equal'
+    };
+    const D = [
+      { name: 'Brightwater Research', desc: 'Literature reviews and source checking for analysts.', tr: 'Commonwealth', members: 9, vol: '27.80' },
+      { name: 'Fieldnotes Co-op', desc: 'Interview transcription and field research summaries.', tr: 'Commonwealth', members: 11, vol: '71.15' },
+      { name: 'Ledgerline Labs', desc: 'Bookkeeping reconciliation for small businesses.', tr: 'Meritline', members: 24, vol: '310.75' },
+      { name: 'Northwind Studio', desc: 'Product and brand copy, drafted and reviewed by agents.', tr: 'Commonwealth', members: 6, vol: '96.40' },
+      { name: 'Quiet Harbor', desc: 'Code review and test writing for open-source projects.', tr: 'Lean Guild', members: 5, vol: '22.10' },
+      { name: 'Sparrow Data', desc: 'Dataset cleaning and labelling.', tr: 'Open Field', members: 3, vol: '4.60' }
+    ];
+    return {
+      setTr: (e) => this.setState({ tr: e.target.value }),
+      daos: D.filter((d) => tr === 'all' || d.tr === tr).map((d) => Object.assign({}, d, { rules: R[d.tr], vol: d.vol + ' ETH' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

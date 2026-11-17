@@ -1,0 +1,18 @@
+{
+ "recipe": {
+  "cityNames": [
+   "Yıldızdere",
+   "Yelkenova",
+   "Sisliova",
+   "Zambakbük",
+   "Çiğdemyurt"
+  ],
+  "durationWeeks": 520,
+  "name": "Taşkale Birliği",
+  "seedIndex": 0,
+  "templateId": "gecis_destegi",
+  "values": {
+   "gecis_destegi": "kurtarma_fonuyla"
+  }
+ }
+}

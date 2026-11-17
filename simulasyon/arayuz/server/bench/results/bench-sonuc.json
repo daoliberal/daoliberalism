@@ -1,0 +1,126 @@
+{
+  "csv_leftovers": [],
+  "deepcopy": {
+    "w100": {
+      "rss_delta_mb": 11.265625,
+      "sec": 0.1239760419994127
+    },
+    "w200": {
+      "rss_delta_mb": 22.984375,
+      "sec": 0.212420416995883
+    },
+    "w50": {
+      "rss_delta_mb": 7.234375,
+      "sec": 0.06576445800601505
+    }
+  },
+  "firms_by_week": {
+    "100": 309,
+    "125": 302,
+    "150": 283,
+    "175": 259,
+    "200": 264,
+    "25": 206,
+    "50": 219,
+    "75": 268
+  },
+  "livepatch": {
+    "CORP_TAX": {
+      "derived_diff": [],
+      "diverges_after": true,
+      "equal_before": true,
+      "first_diff_week": 31,
+      "horizon": 60,
+      "new_value": 0.4,
+      "params_only": {
+        "diverges_after": false,
+        "equal_before": true,
+        "first_diff_week": null
+      },
+      "patch_week": 20,
+      "w_captured": []
+    },
+    "SALES_TAX": {
+      "derived_diff": [
+        "MARKET_MARKUP0",
+        "MM_BASE0",
+        "W.MARKET_MARKUP",
+        "W.MM_BASE",
+        "W.TAXV"
+      ],
+      "diverges_after": false,
+      "equal_before": true,
+      "first_diff_week": null,
+      "horizon": 60,
+      "new_value": 0.1,
+      "params_only": {
+        "diverges_after": false,
+        "equal_before": true,
+        "first_diff_week": null
+      },
+      "patch_week": 20,
+      "w_captured": [
+        "MARKET_MARKUP",
+        "MM_BASE",
+        "TAXV"
+      ]
+    },
+    "TRANS_SUPPORT": {
+      "derived_diff": [],
+      "diverges_after": true,
+      "equal_before": true,
+      "first_diff_week": 20,
+      "horizon": 60,
+      "new_value": 0,
+      "params_only": {
+        "diverges_after": false,
+        "equal_before": true,
+        "first_diff_week": null
+      },
+      "patch_week": 20,
+      "w_captured": []
+    },
+    "WAGE_TAX": {
+      "derived_diff": [],
+      "diverges_after": true,
+      "equal_before": true,
+      "first_diff_week": 20,
+      "horizon": 60,
+      "new_value": 0.25,
+      "params_only": {
+        "diverges_after": false,
+        "equal_before": true,
+        "first_diff_week": null
+      },
+      "patch_week": 20,
+      "w_captured": []
+    }
+  },
+  "no_csv_file_written": true,
+  "replay_detail": {
+    "first_diff_week": null,
+    "weeks": 100
+  },
+  "replay_deterministic": true,
+  "restore_detail": {
+    "checks": {
+      "w200_to_210": true,
+      "w30_to_50": true
+    },
+    "w200_diff": null,
+    "w30_diff": null
+  },
+  "restore_equals_continuous": true,
+  "rss_mb_w200": 160.234375,
+  "sec_per_week": {
+    "w101_200": 0.9224944165034685,
+    "w1_50": 0.6258147499902407,
+    "w51_100": 0.7155441250069998
+  },
+  "sec_per_week_extra": {
+    "max_w101_200": 1.1777749169850722,
+    "mean_w101_200": 0.9298568016514764,
+    "total_200": 159.91488658511662
+  },
+  "wk_rows_in_memory": 200
+}

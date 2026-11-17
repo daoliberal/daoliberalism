@@ -1,0 +1,79 @@
+.callout {
+  display: flex;
+  overflow-wrap: anywhere;
+}
+
+.caution {
+  border: var(--border-2) solid var(--color-caution-accent);
+  background: var(--color-caution-bg);
+}
+
+/* C-04-CreateTreasury:89, C-06-CreateDAO:85 */
+.block {
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-20);
+  border-radius: var(--radius-18);
+}
+
+/* C-09-Approval:45 */
+.inline {
+  align-items: center;
+  gap: var(--space-10);
+  padding: var(--space-12) var(--space-16);
+  border-radius: var(--radius-16);
+  color: var(--color-caution-fg);
+  font-weight: var(--weight-bold);
+}
+
+.inlineText {
+  min-width: 0;
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+}
+
+.icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  color: var(--color-caution-accent);
+}
+
+.body {
+  min-width: 0;
+}
+
+.title {
+  font-size: var(--fs-18);
+  font-weight: var(--weight-bold);
+  color: var(--color-caution-fg);
+}
+
+.text {
+  margin: 0;
+  color: var(--color-caution-fg-strong);
+}
+
+.textAfterTitle {
+  margin-top: var(--space-4);
+}
+
+/* acknowledgement row: the caller passes <label><input type="checkbox"> text</label> */
+.ack label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  min-height: var(--size-target);
+  font-weight: var(--weight-bold);
+  color: var(--color-caution-fg);
+}
+
+.ack input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: var(--size-22);
+  height: var(--size-22);
+  accent-color: var(--color-caution-accent);
+}

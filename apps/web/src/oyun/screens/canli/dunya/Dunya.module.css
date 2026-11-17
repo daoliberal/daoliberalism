@@ -1,0 +1,99 @@
+.alan {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  min-width: 0;
+}
+
+.baslik {
+  margin: 0;
+  font-size: var(--fs-18);
+}
+
+.not {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: var(--fs-14);
+}
+
+/* Sabit dizilim: altı sütunlu ızgarada üst sırada üç, alt sırada iki düğüm (ortalanmış); dar ekranda tek sütun. */
+.izgara {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-10);
+}
+
+.yer {
+  grid-column: span 2;
+  min-width: 0;
+}
+
+.yer[data-yer="3"] {
+  grid-column: 2 / span 2;
+}
+
+.yer[data-yer="4"] {
+  grid-column: 4 / span 2;
+}
+
+@media (max-width: 720px) {
+  .izgara {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .yer,
+  .yer[data-yer="3"],
+  .yer[data-yer="4"] {
+    grid-column: auto;
+  }
+}
+
+.dugum {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: var(--space-12) var(--space-14);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-12);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+button.dugum {
+  min-height: var(--space-48);
+  cursor: pointer;
+}
+
+button.dugum:hover {
+  background: var(--color-surface-muted);
+}
+
+.dugum[data-seviye="warn"] {
+  border-color: var(--color-warn-dot);
+  background: var(--color-warn-bg);
+}
+
+.dugum[data-seviye="bad"] {
+  border-color: var(--color-caution-accent);
+  background: var(--color-caution-bg);
+}
+
+.ad {
+  font-size: var(--fs-16);
+}
+
+.durum {
+  font-size: var(--fs-13);
+  font-weight: var(--weight-bold);
+}
+
+.deger {
+  color: var(--color-ink-2);
+  font-size: var(--fs-14);
+}

@@ -1,0 +1,12 @@
+/* Erişilebilir kopya: görsel olarak gizli (görünen kutu Pixi sahnesinde imleci izler), ekran okuyucuya açık. */
+.ipucu {
+  position: absolute;
+  width: var(--space-1);
+  height: var(--space-1);
+  margin: calc(-1 * var(--space-1));
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  pointer-events: none;
+}

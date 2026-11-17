@@ -1,0 +1,214 @@
+{
+  "settings": [
+    {
+      "id": "tahvil_faizi",
+      "layer": "S",
+      "group": "dunya",
+      "level": "A",
+      "editable": false,
+      "status": "active",
+      "kind": "number",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 1000,
+        "step": 1e-06,
+        "unit": "yuzde_hafta"
+      },
+      "apply": "unknown",
+      "source_world_field": "bond_rate"
+    },
+    {
+      "id": "kira_gostergesi",
+      "layer": "S",
+      "group": "dunya",
+      "level": "A",
+      "editable": false,
+      "status": "active",
+      "kind": "number",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 1000,
+        "step": 1e-06,
+        "unit": "yuzde"
+      },
+      "apply": "unknown",
+      "source_world_field": "rent_pct"
+    },
+    {
+      "id": "piyasa_ucret_endeksi",
+      "layer": "S",
+      "group": "dunya",
+      "level": "A",
+      "editable": false,
+      "status": "active",
+      "kind": "number",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "number",
+        "scale": 1,
+        "min": 0,
+        "max": 1000,
+        "step": 1e-06,
+        "unit": "sayi"
+      },
+      "apply": "unknown",
+      "source_world_field": "wage_index"
+    },
+    {
+      "id": "piyasa_fiyat_endeksi",
+      "layer": "S",
+      "group": "dunya",
+      "level": "A",
+      "editable": false,
+      "status": "active",
+      "kind": "number",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "number",
+        "scale": 1,
+        "min": 0,
+        "max": 1000,
+        "step": 1e-06,
+        "unit": "sayi"
+      },
+      "apply": "unknown",
+      "source_world_field": "price_index"
+    },
+    {
+      "id": "konut_fiyat_endeksi",
+      "layer": "S",
+      "group": "dunya",
+      "level": "A",
+      "editable": false,
+      "status": "active",
+      "kind": "number",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "number",
+        "scale": 1,
+        "min": 0,
+        "max": 1000,
+        "step": 1e-06,
+        "unit": "sayi"
+      },
+      "apply": "unknown",
+      "source_world_field": "house_index"
+    },
+    {
+      "id": "politika_faizi",
+      "layer": "S",
+      "group": "dunya",
+      "level": "A",
+      "editable": false,
+      "status": "active",
+      "kind": "number",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 1000,
+        "step": 1e-06,
+        "unit": "yuzde_hafta"
+      },
+      "apply": "unknown",
+      "source_world_field": "policy_rate"
+    },
+    {
+      "id": "mevduat_faizi",
+      "layer": "S",
+      "group": "dunya",
+      "level": "A",
+      "editable": false,
+      "status": "active",
+      "kind": "number",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 1000,
+        "step": 1e-06,
+        "unit": "yuzde_hafta"
+      },
+      "apply": "unknown",
+      "source_world_field": "deposit_rate"
+    },
+    {
+      "id": "ortalama_kredi_faizi",
+      "layer": "S",
+      "group": "dunya",
+      "level": "A",
+      "editable": false,
+      "status": "active",
+      "kind": "number",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 1000,
+        "step": 1e-06,
+        "unit": "yuzde_hafta"
+      },
+      "apply": "unknown",
+      "source_world_field": "loan_rate_avg"
+    },
+    {
+      "id": "ortalama_lonca_aidati",
+      "layer": "S",
+      "group": "dunya",
+      "level": "A",
+      "editable": false,
+      "status": "active",
+      "kind": "number",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 1000,
+        "step": 1e-06,
+        "unit": "yuzde"
+      },
+      "apply": "unknown",
+      "source_world_field": "lonca_fee_avg"
+    },
+    {
+      "id": "ortalama_telif",
+      "layer": "S",
+      "group": "dunya",
+      "level": "A",
+      "editable": false,
+      "status": "active",
+      "kind": "number",
+      "params": [],
+      "requires": [],
+      "codec": {
+        "type": "number",
+        "scale": 100,
+        "min": 0,
+        "max": 1000,
+        "step": 1e-06,
+        "unit": "yuzde"
+      },
+      "apply": "unknown",
+      "source_world_field": "royalty_avg"
+    }
+  ]
+}

@@ -1,0 +1,463 @@
+{
+ "kaynak": {
+  "dosya": "simulasyon/kagit-ustu/modulerlestirme/simkit/policy.py",
+  "islev": "pol_step",
+  "satirlar": {
+   "enflasyon_kirpma": "90-92 (infl, -1..+1 arası kırpılır)",
+   "kural_kapali": "80-81 (POL_ON kapalıysa pol_step hiçbir şey yapmaz: politika faizi yoktur; kredi faizi mevduat faizini izler, credit_core.py:220-246)",
+   "ilk_deger": "82-83 (pol[0] ilk değeri = min(POL_MAX, max(POL_MIN, POL_NEUT)))",
+   "hedef_cd_acik": "96-97",
+   "hedef_cd_kapali": "98-99",
+   "kirpma": "100 (POL_MIN/POL_MAX)",
+   "adim": "102 (haftalık en çok POL_STEP)"
+  },
+  "dogrulandi": "Satır numaraları oyun-kural dalında (birleşme öncesi taban) policy.py okunarak doğrulandı; birleşmeden sonra yeniden doğrulanmalı.",
+  "sabitler": "params.py:401-405 (POL_NEUT, POL_MIN, POL_MAX, POL_STEP, POL_A_INF, POL_A_U, POL_A_IDLE, POL_INF_TGT, POL_U_STAR, POL_IDLE_STAR, POL_CD, POL_CD_STAR, POL_A_CD)",
+  "birim": "Model birimi: haftalık kesir (0,003 = %0,3/hafta); enflasyon yıllık kesir; işsizlik, kredi/mevduat ve boşta mevduat payı kesir.",
+  "uretim": "Beklenen değerler pol_step satırlarının Python'da birebir yazımıyla hesaplandı (modelin W durumu gerekmeden)."
+ },
+ "durumlar": [
+  {
+   "ad": "cd_varsayilan_hedefte",
+   "params": {
+    "on": true,
+    "cd": true,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 0.0,
+    "unemp": 0.25,
+    "cd": 0.7,
+    "idle": 0.5
+   },
+   "beklenen": 0.003
+  },
+  {
+   "ad": "cd_enflasyon_5_yuzde",
+   "params": {
+    "on": true,
+    "cd": true,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 0.05,
+    "unemp": 0.25,
+    "cd": 0.7,
+    "idle": 0.5
+   },
+   "beklenen": 0.0035
+  },
+  {
+   "ad": "cd_issizlik_yuksek_faiz_duser",
+   "params": {
+    "on": true,
+    "cd": true,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 0.0,
+    "unemp": 0.4,
+    "cd": 0.7,
+    "idle": 0.5
+   },
+   "beklenen": 0.0024000000000000002
+  },
+  {
+   "ad": "cd_kredi_hedefin_altinda_faiz_yukselir_modelin_isareti",
+   "params": {
+    "on": true,
+    "cd": true,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 0.0,
+    "unemp": 0.25,
+    "cd": 0.4,
+    "idle": 0.5
+   },
+   "beklenen": 0.0048
+  },
+  {
+   "ad": "cd_tavana_kirpilir",
+   "params": {
+    "on": true,
+    "cd": true,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 1.0,
+    "unemp": 0.0,
+    "cd": 0.0,
+    "idle": 0.5
+   },
+   "beklenen": 0.01
+  },
+  {
+   "ad": "cd_tabana_kirpilir",
+   "params": {
+    "on": true,
+    "cd": true,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": -0.5,
+    "unemp": 0.9,
+    "cd": 1.0,
+    "idle": 0.5
+   },
+   "beklenen": 0.0001
+  },
+  {
+   "ad": "cd_enflasyon_sinirlanir_arti",
+   "params": {
+    "on": true,
+    "cd": true,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 3.5,
+    "unemp": 0.25,
+    "cd": 0.7,
+    "idle": 0.5
+   },
+   "beklenen": 0.01
+  },
+  {
+   "ad": "cd_enflasyon_sinirlanir_eksi",
+   "params": {
+    "on": true,
+    "cd": true,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": -4.0,
+    "unemp": 0.25,
+    "cd": 0.7,
+    "idle": 0.5
+   },
+   "beklenen": 0.0001
+  },
+  {
+   "ad": "cd_guclu_tepkiler",
+   "params": {
+    "on": true,
+    "cd": true,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.02,
+    "aU": 0.008,
+    "aCd": 0.012,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 0.08,
+    "unemp": 0.3,
+    "cd": 0.6,
+    "idle": 0.5
+   },
+   "beklenen": 0.005399999999999999
+  },
+  {
+   "ad": "cd_zayif_tepkiler_ozel_hedefler",
+   "params": {
+    "on": true,
+    "cd": true,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.005,
+    "aU": 0.002,
+    "aCd": 0.003,
+    "aIdle": 0.003,
+    "infTgt": 0.02,
+    "uStar": 0.15,
+    "cdStar": 0.5,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 0.06,
+    "unemp": 0.2,
+    "cd": 0.9,
+    "idle": 0.5
+   },
+   "beklenen": 0.0019000000000000002
+  },
+  {
+   "ad": "idle_varsayilan_hedefte",
+   "params": {
+    "on": true,
+    "cd": false,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 0.0,
+    "unemp": 0.25,
+    "cd": 0.7,
+    "idle": 0.5
+   },
+   "beklenen": 0.003
+  },
+  {
+   "ad": "idle_bosta_mevduat_yuksek_faiz_duser",
+   "params": {
+    "on": true,
+    "cd": false,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 0.02,
+    "unemp": 0.25,
+    "cd": 0.0,
+    "idle": 0.9
+   },
+   "beklenen": 0.002
+  },
+  {
+   "ad": "idle_bosta_mevduat_dusuk_faiz_yukselir",
+   "params": {
+    "on": true,
+    "cd": false,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 0.02,
+    "unemp": 0.25,
+    "cd": 0.0,
+    "idle": 0.1
+   },
+   "beklenen": 0.0044
+  },
+  {
+   "ad": "idle_cd_girdisi_yok_sayilir",
+   "params": {
+    "on": true,
+    "cd": false,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 0.0,
+    "unemp": 0.25,
+    "cd": 0.01,
+    "idle": 0.5
+   },
+   "beklenen": 0.003
+  },
+  {
+   "ad": "idle_tavana_kirpilir",
+   "params": {
+    "on": true,
+    "cd": false,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 1.0,
+    "unemp": 0.0,
+    "cd": 0.0,
+    "idle": 0.0
+   },
+   "beklenen": 0.01
+  },
+  {
+   "ad": "idle_tabana_kirpilir",
+   "params": {
+    "on": true,
+    "cd": false,
+    "neut": 0.003,
+    "min": 0.0001,
+    "max": 0.01,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": -1.0,
+    "unemp": 0.8,
+    "cd": 0.0,
+    "idle": 1.0
+   },
+   "beklenen": 0.0001
+  },
+  {
+   "ad": "ozel_tarafsiz_taban_tavan",
+   "params": {
+    "on": true,
+    "cd": true,
+    "neut": 0.005,
+    "min": 0.002,
+    "max": 0.008,
+    "step": 0.0003,
+    "aInf": 0.01,
+    "aU": 0.004,
+    "aCd": 0.006,
+    "aIdle": 0.003,
+    "infTgt": 0.0,
+    "uStar": 0.25,
+    "cdStar": 0.7,
+    "idleStar": 0.5
+   },
+   "girdi": {
+    "infl": 0.0,
+    "unemp": 0.25,
+    "cd": 0.7,
+    "idle": 0.5
+   },
+   "beklenen": 0.005
+  }
+ ]
+}

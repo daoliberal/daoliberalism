@@ -1,0 +1,11 @@
+/* Fills the viewport so the phone tab bar sits at the bottom of short pages (html and body are 100% high, see global.css). */
+.frame {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* A plain block: the screens' own <main> keeps its max-width and auto margins. */
+.content {
+  flex: 1 1 auto;
+}

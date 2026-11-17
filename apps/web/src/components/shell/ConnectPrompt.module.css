@@ -1,0 +1,25 @@
+/* Same frame as the owner screens: C-07-Agents:34 */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  box-sizing: border-box;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-40) var(--gutter) var(--space-80);
+}
+
+/* C-07-Agents:37 */
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-46);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-tight);
+}
+
+.message {
+  margin: 0;
+  color: var(--color-ink-3);
+}

@@ -1,0 +1,5 @@
+/* ipfs:// and transaction hashes have no explorer in Phase 1: the link look without a link */
+.linkText {
+  color: var(--color-brand);
+  text-decoration: underline;
+}

@@ -1,0 +1,10407 @@
+{
+ "hello": {
+  "ok": true,
+  "server_version": "0.1.0",
+  "model_version": "v13.3",
+  "defaults_hash": "0123456789abcdef",
+  "sec_per_week_p50": 0.98,
+  "live": true,
+  "capabilities": {
+   "branch": true,
+   "seeds": false,
+   "compare": false,
+   "library": false,
+   "city": true,
+   "chain": true,
+   "jobs": false,
+   "rebuild": true,
+   "harita": true
+  }
+ },
+ "info": {
+  "kind": "live",
+  "modelNote": "v13.3",
+  "seeds": [
+   {
+    "index": 0,
+    "label": "Dünya 1"
+   },
+   {
+    "index": 1,
+    "label": "Dünya 2"
+   },
+   {
+    "index": 2,
+    "label": "Dünya 3"
+   },
+   {
+    "index": 3,
+    "label": "Dünya 4"
+   },
+   {
+    "index": 4,
+    "label": "Dünya 5"
+   },
+   {
+    "index": 5,
+    "label": "Dünya 6"
+   }
+  ],
+  "durationWeeks": 200,
+  "settings": [
+   {
+    "id": "gecis_destegi",
+    "changeable": true,
+    "options": [
+     {
+      "value": "kapali",
+      "available": true
+     },
+     {
+      "value": "kisa_sureli",
+      "available": true
+     },
+     {
+      "value": "kurtarma_fonuyla",
+      "available": true
+     }
+    ]
+   },
+   {
+    "id": "dunya_tohumu",
+    "changeable": true,
+    "options": [
+     {
+      "value": "0",
+      "available": true
+     },
+     {
+      "value": "1",
+      "available": true
+     },
+     {
+      "value": "2",
+      "available": true
+     },
+     {
+      "value": "3",
+      "available": true
+     },
+     {
+      "value": "4",
+      "available": true
+     },
+     {
+      "value": "5",
+      "available": true
+     }
+    ]
+   }
+  ],
+  "fixedRules": [
+   {
+    "settingId": "ucret_stopaji",
+    "valueKey": "lock.deger.ucret_stopaji",
+    "valueText": "%10"
+   },
+   {
+    "settingId": "kurumlar_vergisi",
+    "valueKey": "lock.deger.kurumlar_vergisi",
+    "valueText": "%20"
+   },
+   {
+    "settingId": "zararda_once_kucul",
+    "valueKey": "lock.deger.zararda_once_kucul",
+    "valueText": "açık"
+   }
+  ],
+  "templates": [
+   {
+    "id": "dayanikli_taban",
+    "values": {
+     "gecis_destegi": "kapali"
+    }
+   }
+  ],
+  "durations": [
+   100,
+   200,
+   500,
+   520
+  ],
+  "capabilities": {
+   "branch": true,
+   "seeds": false,
+   "compare": false,
+   "library": false,
+   "city": true,
+   "chain": true,
+   "jobs": false,
+   "rebuild": true,
+   "harita": true
+  },
+  "world": {
+   "cities": [
+    {
+     "index": 0,
+     "coal": true,
+     "gold": false,
+     "resources": [
+      {
+       "id": "coal",
+       "label": "Kömür madeni"
+      }
+     ],
+     "specialties": [
+      {
+       "sector": "tarla_bugday",
+       "label": "Buğday tarlası"
+      },
+      {
+       "sector": "tarla_seker",
+       "label": "Şeker tarlası"
+      },
+      {
+       "sector": "tarla_pamuk",
+       "label": "Pamuk tarlası"
+      },
+      {
+       "sector": "maden_silika",
+       "label": "Silika madeni"
+      },
+      {
+       "sector": "maden_aluminyum",
+       "label": "Alüminyum madeni"
+      }
+     ],
+     "population_share": 0.2
+    },
+    {
+     "index": 1,
+     "coal": false,
+     "gold": true,
+     "resources": [
+      {
+       "id": "gold",
+       "label": "Altın madeni"
+      }
+     ],
+     "specialties": [
+      {
+       "sector": "maden_kimyasal",
+       "label": "Kimyasal madeni"
+      },
+      {
+       "sector": "petrol",
+       "label": "Petrol"
+      },
+      {
+       "sector": "kereste",
+       "label": "Kereste"
+      },
+      {
+       "sector": "cam",
+       "label": "Cam"
+      },
+      {
+       "sector": "plastik",
+       "label": "Plastik"
+      }
+     ],
+     "population_share": 0.2
+    },
+    {
+     "index": 2,
+     "coal": false,
+     "gold": false,
+     "resources": [],
+     "specialties": [
+      {
+       "sector": "tekstil",
+       "label": "Tekstil"
+      },
+      {
+       "sector": "sise_sut",
+       "label": "Şişe süt"
+      },
+      {
+       "sector": "kola",
+       "label": "Kola"
+      },
+      {
+       "sector": "deterjan",
+       "label": "Deterjan"
+      },
+      {
+       "sector": "giyim",
+       "label": "Giyim"
+      }
+     ],
+     "population_share": 0.2
+    },
+    {
+     "index": 3,
+     "coal": true,
+     "gold": false,
+     "resources": [
+      {
+       "id": "coal",
+       "label": "Kömür madeni"
+      }
+     ],
+     "specialties": [
+      {
+       "sector": "mobilya",
+       "label": "Mobilya"
+      },
+      {
+       "sector": "tarla_bugday",
+       "label": "Buğday tarlası"
+      },
+      {
+       "sector": "sise_sut",
+       "label": "Şişe süt"
+      },
+      {
+       "sector": "kola",
+       "label": "Kola"
+      },
+      {
+       "sector": "giyim",
+       "label": "Giyim"
+      }
+     ],
+     "population_share": 0.2
+    },
+    {
+     "index": 4,
+     "coal": false,
+     "gold": true,
+     "resources": [
+      {
+       "id": "gold",
+       "label": "Altın madeni"
+      }
+     ],
+     "specialties": [
+      {
+       "sector": "tekstil",
+       "label": "Tekstil"
+      },
+      {
+       "sector": "kereste",
+       "label": "Kereste"
+      },
+      {
+       "sector": "deterjan",
+       "label": "Deterjan"
+      },
+      {
+       "sector": "cam",
+       "label": "Cam"
+      },
+      {
+       "sector": "tarla_pamuk",
+       "label": "Pamuk tarlası"
+      }
+     ],
+     "population_share": 0.2
+    }
+   ],
+   "basis": "model_defaults",
+   "chain": {
+    "sectors": [
+     {
+      "sector": "ahir",
+      "label": "Ahır (süt, deri, et)",
+      "product": "sut"
+     },
+     {
+      "sector": "tarla_bugday",
+      "label": "Buğday tarlası",
+      "product": "bugday"
+     },
+     {
+      "sector": "tarla_seker",
+      "label": "Şeker tarlası",
+      "product": "seker"
+     },
+     {
+      "sector": "tarla_pamuk",
+      "label": "Pamuk tarlası",
+      "product": "pamuk"
+     },
+     {
+      "sector": "maden_silika",
+      "label": "Silika madeni",
+      "product": "silika"
+     },
+     {
+      "sector": "maden_aluminyum",
+      "label": "Alüminyum madeni",
+      "product": "aluminyum"
+     },
+     {
+      "sector": "maden_kimyasal",
+      "label": "Kimyasal madeni",
+      "product": "kimyasal"
+     },
+     {
+      "sector": "petrol",
+      "label": "Petrol",
+      "product": "petrol"
+     },
+     {
+      "sector": "kereste",
+      "label": "Kereste",
+      "product": "kereste"
+     },
+     {
+      "sector": "un",
+      "label": "Un değirmeni",
+      "product": "un"
+     },
+     {
+      "sector": "cam",
+      "label": "Cam",
+      "product": "cam"
+     },
+     {
+      "sector": "plastik",
+      "label": "Plastik",
+      "product": "plastik"
+     },
+     {
+      "sector": "tekstil",
+      "label": "Tekstil",
+      "product": "tekstil"
+     },
+     {
+      "sector": "firin",
+      "label": "Fırın",
+      "product": "ekmek"
+     },
+     {
+      "sector": "sise_sut",
+      "label": "Şişe süt",
+      "product": "sise_sut"
+     },
+     {
+      "sector": "kola",
+      "label": "Kola",
+      "product": "kola"
+     },
+     {
+      "sector": "deterjan",
+      "label": "Deterjan",
+      "product": "deterjan"
+     },
+     {
+      "sector": "giyim",
+      "label": "Giyim",
+      "product": "kot"
+     },
+     {
+      "sector": "mobilya",
+      "label": "Mobilya",
+      "product": "sandalye"
+     },
+     {
+      "sector": "moda",
+      "label": "Moda",
+      "product": "moda"
+     },
+     {
+      "sector": "yazilim",
+      "label": "Yazılım",
+      "product": "yazilim"
+     },
+     {
+      "sector": "guvenlik",
+      "label": "Güvenlik",
+      "product": "koruma"
+     },
+     {
+      "sector": "ulasim",
+      "label": "Ulaşım",
+      "product": "yolculuk"
+     },
+     {
+      "sector": "otel",
+      "label": "Otel",
+      "product": "konaklama"
+     },
+     {
+      "sector": "elektronik",
+      "label": "Elektronik bileşen",
+      "product": "bilesen"
+     },
+     {
+      "sector": "bilgisayar",
+      "label": "Bilgisayar",
+      "product": "bilgisayar"
+     },
+     {
+      "sector": "maden_komur",
+      "label": "Kömür madeni",
+      "product": "komur"
+     },
+     {
+      "sector": "santral",
+      "label": "Elektrik santrali",
+      "product": "elektrik"
+     },
+     {
+      "sector": "maden_altin",
+      "label": "Altın madeni",
+      "product": "altin"
+     },
+     {
+      "sector": "kuyumcu",
+      "label": "Kuyumcu",
+      "product": "mucevher"
+     },
+     {
+      "sector": "restoran",
+      "label": "Restoran",
+      "product": "yemek"
+     },
+     {
+      "sector": "eglence",
+      "label": "Eğlence",
+      "product": "eglence"
+     },
+     {
+      "sector": "insaat",
+      "label": "İnşaat",
+      "product": "insaat"
+     }
+    ],
+    "edges": [
+     {
+      "from": "santral",
+      "to": "tarla_bugday",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "tarla_bugday",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "tarla_seker",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "tarla_seker",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "tarla_pamuk",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "tarla_pamuk",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "maden_silika",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "maden_silika",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "maden_aluminyum",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "maden_aluminyum",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "maden_kimyasal",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "maden_kimyasal",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "petrol",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "petrol",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "kereste",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "kereste",
+      "product": "koruma"
+     },
+     {
+      "from": "tarla_bugday",
+      "to": "un",
+      "product": "bugday"
+     },
+     {
+      "from": "santral",
+      "to": "un",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "un",
+      "product": "koruma"
+     },
+     {
+      "from": "maden_silika",
+      "to": "cam",
+      "product": "silika"
+     },
+     {
+      "from": "santral",
+      "to": "cam",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "cam",
+      "product": "koruma"
+     },
+     {
+      "from": "petrol",
+      "to": "plastik",
+      "product": "petrol"
+     },
+     {
+      "from": "santral",
+      "to": "plastik",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "plastik",
+      "product": "koruma"
+     },
+     {
+      "from": "tarla_pamuk",
+      "to": "tekstil",
+      "product": "pamuk"
+     },
+     {
+      "from": "santral",
+      "to": "tekstil",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "tekstil",
+      "product": "koruma"
+     },
+     {
+      "from": "un",
+      "to": "firin",
+      "product": "un"
+     },
+     {
+      "from": "santral",
+      "to": "firin",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "firin",
+      "product": "koruma"
+     },
+     {
+      "from": "ahir",
+      "to": "sise_sut",
+      "product": "sut"
+     },
+     {
+      "from": "cam",
+      "to": "sise_sut",
+      "product": "cam"
+     },
+     {
+      "from": "santral",
+      "to": "sise_sut",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "sise_sut",
+      "product": "koruma"
+     },
+     {
+      "from": "tarla_seker",
+      "to": "kola",
+      "product": "seker"
+     },
+     {
+      "from": "maden_aluminyum",
+      "to": "kola",
+      "product": "aluminyum"
+     },
+     {
+      "from": "santral",
+      "to": "kola",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "kola",
+      "product": "koruma"
+     },
+     {
+      "from": "maden_kimyasal",
+      "to": "deterjan",
+      "product": "kimyasal"
+     },
+     {
+      "from": "plastik",
+      "to": "deterjan",
+      "product": "plastik"
+     },
+     {
+      "from": "santral",
+      "to": "deterjan",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "deterjan",
+      "product": "koruma"
+     },
+     {
+      "from": "tekstil",
+      "to": "giyim",
+      "product": "tekstil"
+     },
+     {
+      "from": "santral",
+      "to": "giyim",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "giyim",
+      "product": "koruma"
+     },
+     {
+      "from": "kereste",
+      "to": "mobilya",
+      "product": "kereste"
+     },
+     {
+      "from": "tekstil",
+      "to": "mobilya",
+      "product": "tekstil"
+     },
+     {
+      "from": "santral",
+      "to": "mobilya",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "mobilya",
+      "product": "koruma"
+     },
+     {
+      "from": "tekstil",
+      "to": "moda",
+      "product": "tekstil"
+     },
+     {
+      "from": "santral",
+      "to": "moda",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "moda",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "ulasim",
+      "product": "elektrik"
+     },
+     {
+      "from": "firin",
+      "to": "otel",
+      "product": "ekmek"
+     },
+     {
+      "from": "deterjan",
+      "to": "otel",
+      "product": "deterjan"
+     },
+     {
+      "from": "santral",
+      "to": "otel",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "otel",
+      "product": "koruma"
+     },
+     {
+      "from": "maden_silika",
+      "to": "elektronik",
+      "product": "silika"
+     },
+     {
+      "from": "maden_aluminyum",
+      "to": "elektronik",
+      "product": "aluminyum"
+     },
+     {
+      "from": "santral",
+      "to": "elektronik",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "elektronik",
+      "product": "koruma"
+     },
+     {
+      "from": "elektronik",
+      "to": "bilgisayar",
+      "product": "bilesen"
+     },
+     {
+      "from": "plastik",
+      "to": "bilgisayar",
+      "product": "plastik"
+     },
+     {
+      "from": "santral",
+      "to": "bilgisayar",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "bilgisayar",
+      "product": "koruma"
+     },
+     {
+      "from": "guvenlik",
+      "to": "maden_komur",
+      "product": "koruma"
+     },
+     {
+      "from": "maden_komur",
+      "to": "santral",
+      "product": "komur"
+     },
+     {
+      "from": "guvenlik",
+      "to": "santral",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "maden_altin",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "maden_altin",
+      "product": "koruma"
+     },
+     {
+      "from": "maden_altin",
+      "to": "kuyumcu",
+      "product": "altin"
+     },
+     {
+      "from": "santral",
+      "to": "kuyumcu",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "kuyumcu",
+      "product": "koruma"
+     },
+     {
+      "from": "firin",
+      "to": "restoran",
+      "product": "ekmek"
+     },
+     {
+      "from": "sise_sut",
+      "to": "restoran",
+      "product": "sise_sut"
+     },
+     {
+      "from": "deterjan",
+      "to": "restoran",
+      "product": "deterjan"
+     },
+     {
+      "from": "santral",
+      "to": "restoran",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "restoran",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "eglence",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "eglence",
+      "product": "koruma"
+     },
+     {
+      "from": "kereste",
+      "to": "insaat",
+      "product": "kereste"
+     },
+     {
+      "from": "cam",
+      "to": "insaat",
+      "product": "cam"
+     },
+     {
+      "from": "santral",
+      "to": "insaat",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "insaat",
+      "product": "koruma"
+     }
+    ]
+   }
+  }
+ },
+ "info_run": {
+  "kind": "live",
+  "modelNote": "v13.3",
+  "seeds": [
+   {
+    "index": 0,
+    "label": "Dünya 1"
+   },
+   {
+    "index": 1,
+    "label": "Dünya 2"
+   },
+   {
+    "index": 2,
+    "label": "Dünya 3"
+   },
+   {
+    "index": 3,
+    "label": "Dünya 4"
+   },
+   {
+    "index": 4,
+    "label": "Dünya 5"
+   },
+   {
+    "index": 5,
+    "label": "Dünya 6"
+   }
+  ],
+  "durationWeeks": 200,
+  "settings": [
+   {
+    "id": "gecis_destegi",
+    "changeable": true,
+    "options": [
+     {
+      "value": "kapali",
+      "available": true
+     },
+     {
+      "value": "kisa_sureli",
+      "available": true
+     },
+     {
+      "value": "kurtarma_fonuyla",
+      "available": true
+     }
+    ]
+   },
+   {
+    "id": "dunya_tohumu",
+    "changeable": false,
+    "reason": "start_only",
+    "options": [
+     {
+      "value": "0",
+      "available": false,
+      "reason": "locked"
+     },
+     {
+      "value": "1",
+      "available": false,
+      "reason": "locked"
+     },
+     {
+      "value": "2",
+      "available": false,
+      "reason": "locked"
+     },
+     {
+      "value": "3",
+      "available": false,
+      "reason": "locked"
+     },
+     {
+      "value": "4",
+      "available": false,
+      "reason": "locked"
+     },
+     {
+      "value": "5",
+      "available": false,
+      "reason": "locked"
+     }
+    ]
+   }
+  ],
+  "fixedRules": [
+   {
+    "settingId": "ucret_stopaji",
+    "valueKey": "lock.deger.ucret_stopaji",
+    "valueText": "%10"
+   },
+   {
+    "settingId": "kurumlar_vergisi",
+    "valueKey": "lock.deger.kurumlar_vergisi",
+    "valueText": "%20"
+   },
+   {
+    "settingId": "zararda_once_kucul",
+    "valueKey": "lock.deger.zararda_once_kucul",
+    "valueText": "açık"
+   }
+  ],
+  "templates": [
+   {
+    "id": "dayanikli_taban",
+    "values": {
+     "gecis_destegi": "kapali"
+    }
+   }
+  ],
+  "durations": [
+   100,
+   200,
+   500,
+   520
+  ],
+  "capabilities": {
+   "branch": true,
+   "seeds": false,
+   "compare": false,
+   "library": false,
+   "city": true,
+   "chain": true,
+   "jobs": false,
+   "rebuild": true,
+   "harita": true
+  },
+  "world": {
+   "cities": [
+    {
+     "index": 0,
+     "coal": true,
+     "gold": false,
+     "resources": [
+      {
+       "id": "coal",
+       "label": "Kömür madeni"
+      }
+     ],
+     "specialties": [
+      {
+       "sector": "tarla_bugday",
+       "label": "Buğday tarlası"
+      },
+      {
+       "sector": "tarla_seker",
+       "label": "Şeker tarlası"
+      },
+      {
+       "sector": "tarla_pamuk",
+       "label": "Pamuk tarlası"
+      },
+      {
+       "sector": "maden_silika",
+       "label": "Silika madeni"
+      },
+      {
+       "sector": "maden_aluminyum",
+       "label": "Alüminyum madeni"
+      }
+     ],
+     "population_share": 0.2
+    },
+    {
+     "index": 1,
+     "coal": false,
+     "gold": true,
+     "resources": [
+      {
+       "id": "gold",
+       "label": "Altın madeni"
+      }
+     ],
+     "specialties": [
+      {
+       "sector": "maden_kimyasal",
+       "label": "Kimyasal madeni"
+      },
+      {
+       "sector": "petrol",
+       "label": "Petrol"
+      },
+      {
+       "sector": "kereste",
+       "label": "Kereste"
+      },
+      {
+       "sector": "cam",
+       "label": "Cam"
+      },
+      {
+       "sector": "plastik",
+       "label": "Plastik"
+      }
+     ],
+     "population_share": 0.2
+    },
+    {
+     "index": 2,
+     "coal": false,
+     "gold": false,
+     "resources": [],
+     "specialties": [
+      {
+       "sector": "tekstil",
+       "label": "Tekstil"
+      },
+      {
+       "sector": "sise_sut",
+       "label": "Şişe süt"
+      },
+      {
+       "sector": "kola",
+       "label": "Kola"
+      },
+      {
+       "sector": "deterjan",
+       "label": "Deterjan"
+      },
+      {
+       "sector": "giyim",
+       "label": "Giyim"
+      }
+     ],
+     "population_share": 0.2
+    },
+    {
+     "index": 3,
+     "coal": true,
+     "gold": false,
+     "resources": [
+      {
+       "id": "coal",
+       "label": "Kömür madeni"
+      }
+     ],
+     "specialties": [
+      {
+       "sector": "mobilya",
+       "label": "Mobilya"
+      },
+      {
+       "sector": "tarla_bugday",
+       "label": "Buğday tarlası"
+      },
+      {
+       "sector": "sise_sut",
+       "label": "Şişe süt"
+      },
+      {
+       "sector": "kola",
+       "label": "Kola"
+      },
+      {
+       "sector": "giyim",
+       "label": "Giyim"
+      }
+     ],
+     "population_share": 0.2
+    },
+    {
+     "index": 4,
+     "coal": false,
+     "gold": true,
+     "resources": [
+      {
+       "id": "gold",
+       "label": "Altın madeni"
+      }
+     ],
+     "specialties": [
+      {
+       "sector": "tekstil",
+       "label": "Tekstil"
+      },
+      {
+       "sector": "kereste",
+       "label": "Kereste"
+      },
+      {
+       "sector": "deterjan",
+       "label": "Deterjan"
+      },
+      {
+       "sector": "cam",
+       "label": "Cam"
+      },
+      {
+       "sector": "tarla_pamuk",
+       "label": "Pamuk tarlası"
+      }
+     ],
+     "population_share": 0.2
+    }
+   ],
+   "basis": "model_defaults",
+   "chain": {
+    "sectors": [
+     {
+      "sector": "ahir",
+      "label": "Ahır (süt, deri, et)",
+      "product": "sut"
+     },
+     {
+      "sector": "tarla_bugday",
+      "label": "Buğday tarlası",
+      "product": "bugday"
+     },
+     {
+      "sector": "tarla_seker",
+      "label": "Şeker tarlası",
+      "product": "seker"
+     },
+     {
+      "sector": "tarla_pamuk",
+      "label": "Pamuk tarlası",
+      "product": "pamuk"
+     },
+     {
+      "sector": "maden_silika",
+      "label": "Silika madeni",
+      "product": "silika"
+     },
+     {
+      "sector": "maden_aluminyum",
+      "label": "Alüminyum madeni",
+      "product": "aluminyum"
+     },
+     {
+      "sector": "maden_kimyasal",
+      "label": "Kimyasal madeni",
+      "product": "kimyasal"
+     },
+     {
+      "sector": "petrol",
+      "label": "Petrol",
+      "product": "petrol"
+     },
+     {
+      "sector": "kereste",
+      "label": "Kereste",
+      "product": "kereste"
+     },
+     {
+      "sector": "un",
+      "label": "Un değirmeni",
+      "product": "un"
+     },
+     {
+      "sector": "cam",
+      "label": "Cam",
+      "product": "cam"
+     },
+     {
+      "sector": "plastik",
+      "label": "Plastik",
+      "product": "plastik"
+     },
+     {
+      "sector": "tekstil",
+      "label": "Tekstil",
+      "product": "tekstil"
+     },
+     {
+      "sector": "firin",
+      "label": "Fırın",
+      "product": "ekmek"
+     },
+     {
+      "sector": "sise_sut",
+      "label": "Şişe süt",
+      "product": "sise_sut"
+     },
+     {
+      "sector": "kola",
+      "label": "Kola",
+      "product": "kola"
+     },
+     {
+      "sector": "deterjan",
+      "label": "Deterjan",
+      "product": "deterjan"
+     },
+     {
+      "sector": "giyim",
+      "label": "Giyim",
+      "product": "kot"
+     },
+     {
+      "sector": "mobilya",
+      "label": "Mobilya",
+      "product": "sandalye"
+     },
+     {
+      "sector": "moda",
+      "label": "Moda",
+      "product": "moda"
+     },
+     {
+      "sector": "yazilim",
+      "label": "Yazılım",
+      "product": "yazilim"
+     },
+     {
+      "sector": "guvenlik",
+      "label": "Güvenlik",
+      "product": "koruma"
+     },
+     {
+      "sector": "ulasim",
+      "label": "Ulaşım",
+      "product": "yolculuk"
+     },
+     {
+      "sector": "otel",
+      "label": "Otel",
+      "product": "konaklama"
+     },
+     {
+      "sector": "elektronik",
+      "label": "Elektronik bileşen",
+      "product": "bilesen"
+     },
+     {
+      "sector": "bilgisayar",
+      "label": "Bilgisayar",
+      "product": "bilgisayar"
+     },
+     {
+      "sector": "maden_komur",
+      "label": "Kömür madeni",
+      "product": "komur"
+     },
+     {
+      "sector": "santral",
+      "label": "Elektrik santrali",
+      "product": "elektrik"
+     },
+     {
+      "sector": "maden_altin",
+      "label": "Altın madeni",
+      "product": "altin"
+     },
+     {
+      "sector": "kuyumcu",
+      "label": "Kuyumcu",
+      "product": "mucevher"
+     },
+     {
+      "sector": "restoran",
+      "label": "Restoran",
+      "product": "yemek"
+     },
+     {
+      "sector": "eglence",
+      "label": "Eğlence",
+      "product": "eglence"
+     },
+     {
+      "sector": "insaat",
+      "label": "İnşaat",
+      "product": "insaat"
+     }
+    ],
+    "edges": [
+     {
+      "from": "santral",
+      "to": "tarla_bugday",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "tarla_bugday",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "tarla_seker",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "tarla_seker",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "tarla_pamuk",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "tarla_pamuk",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "maden_silika",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "maden_silika",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "maden_aluminyum",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "maden_aluminyum",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "maden_kimyasal",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "maden_kimyasal",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "petrol",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "petrol",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "kereste",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "kereste",
+      "product": "koruma"
+     },
+     {
+      "from": "tarla_bugday",
+      "to": "un",
+      "product": "bugday"
+     },
+     {
+      "from": "santral",
+      "to": "un",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "un",
+      "product": "koruma"
+     },
+     {
+      "from": "maden_silika",
+      "to": "cam",
+      "product": "silika"
+     },
+     {
+      "from": "santral",
+      "to": "cam",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "cam",
+      "product": "koruma"
+     },
+     {
+      "from": "petrol",
+      "to": "plastik",
+      "product": "petrol"
+     },
+     {
+      "from": "santral",
+      "to": "plastik",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "plastik",
+      "product": "koruma"
+     },
+     {
+      "from": "tarla_pamuk",
+      "to": "tekstil",
+      "product": "pamuk"
+     },
+     {
+      "from": "santral",
+      "to": "tekstil",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "tekstil",
+      "product": "koruma"
+     },
+     {
+      "from": "un",
+      "to": "firin",
+      "product": "un"
+     },
+     {
+      "from": "santral",
+      "to": "firin",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "firin",
+      "product": "koruma"
+     },
+     {
+      "from": "ahir",
+      "to": "sise_sut",
+      "product": "sut"
+     },
+     {
+      "from": "cam",
+      "to": "sise_sut",
+      "product": "cam"
+     },
+     {
+      "from": "santral",
+      "to": "sise_sut",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "sise_sut",
+      "product": "koruma"
+     },
+     {
+      "from": "tarla_seker",
+      "to": "kola",
+      "product": "seker"
+     },
+     {
+      "from": "maden_aluminyum",
+      "to": "kola",
+      "product": "aluminyum"
+     },
+     {
+      "from": "santral",
+      "to": "kola",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "kola",
+      "product": "koruma"
+     },
+     {
+      "from": "maden_kimyasal",
+      "to": "deterjan",
+      "product": "kimyasal"
+     },
+     {
+      "from": "plastik",
+      "to": "deterjan",
+      "product": "plastik"
+     },
+     {
+      "from": "santral",
+      "to": "deterjan",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "deterjan",
+      "product": "koruma"
+     },
+     {
+      "from": "tekstil",
+      "to": "giyim",
+      "product": "tekstil"
+     },
+     {
+      "from": "santral",
+      "to": "giyim",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "giyim",
+      "product": "koruma"
+     },
+     {
+      "from": "kereste",
+      "to": "mobilya",
+      "product": "kereste"
+     },
+     {
+      "from": "tekstil",
+      "to": "mobilya",
+      "product": "tekstil"
+     },
+     {
+      "from": "santral",
+      "to": "mobilya",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "mobilya",
+      "product": "koruma"
+     },
+     {
+      "from": "tekstil",
+      "to": "moda",
+      "product": "tekstil"
+     },
+     {
+      "from": "santral",
+      "to": "moda",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "moda",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "ulasim",
+      "product": "elektrik"
+     },
+     {
+      "from": "firin",
+      "to": "otel",
+      "product": "ekmek"
+     },
+     {
+      "from": "deterjan",
+      "to": "otel",
+      "product": "deterjan"
+     },
+     {
+      "from": "santral",
+      "to": "otel",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "otel",
+      "product": "koruma"
+     },
+     {
+      "from": "maden_silika",
+      "to": "elektronik",
+      "product": "silika"
+     },
+     {
+      "from": "maden_aluminyum",
+      "to": "elektronik",
+      "product": "aluminyum"
+     },
+     {
+      "from": "santral",
+      "to": "elektronik",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "elektronik",
+      "product": "koruma"
+     },
+     {
+      "from": "elektronik",
+      "to": "bilgisayar",
+      "product": "bilesen"
+     },
+     {
+      "from": "plastik",
+      "to": "bilgisayar",
+      "product": "plastik"
+     },
+     {
+      "from": "santral",
+      "to": "bilgisayar",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "bilgisayar",
+      "product": "koruma"
+     },
+     {
+      "from": "guvenlik",
+      "to": "maden_komur",
+      "product": "koruma"
+     },
+     {
+      "from": "maden_komur",
+      "to": "santral",
+      "product": "komur"
+     },
+     {
+      "from": "guvenlik",
+      "to": "santral",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "maden_altin",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "maden_altin",
+      "product": "koruma"
+     },
+     {
+      "from": "maden_altin",
+      "to": "kuyumcu",
+      "product": "altin"
+     },
+     {
+      "from": "santral",
+      "to": "kuyumcu",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "kuyumcu",
+      "product": "koruma"
+     },
+     {
+      "from": "firin",
+      "to": "restoran",
+      "product": "ekmek"
+     },
+     {
+      "from": "sise_sut",
+      "to": "restoran",
+      "product": "sise_sut"
+     },
+     {
+      "from": "deterjan",
+      "to": "restoran",
+      "product": "deterjan"
+     },
+     {
+      "from": "santral",
+      "to": "restoran",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "restoran",
+      "product": "koruma"
+     },
+     {
+      "from": "santral",
+      "to": "eglence",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "eglence",
+      "product": "koruma"
+     },
+     {
+      "from": "kereste",
+      "to": "insaat",
+      "product": "kereste"
+     },
+     {
+      "from": "cam",
+      "to": "insaat",
+      "product": "cam"
+     },
+     {
+      "from": "santral",
+      "to": "insaat",
+      "product": "elektrik"
+     },
+     {
+      "from": "guvenlik",
+      "to": "insaat",
+      "product": "koruma"
+     }
+    ]
+   }
+  }
+ },
+ "availability_ok": {
+  "ok": true,
+  "scenarioId": "canli",
+  "blocked": []
+ },
+ "availability_blocked": {
+  "ok": false,
+  "scenarioId": null,
+  "blocked": [
+   {
+    "settingId": "gecis_destegi",
+    "option": "yok",
+    "reason": "locked"
+   }
+  ]
+ },
+ "handle": {
+  "runId": "canli-00000001",
+  "state": {
+   "runId": "canli-00000001",
+   "versions": [
+    {
+     "version": 1,
+     "fromWeek": 0,
+     "values": {
+      "gecis_destegi": "kapali"
+     }
+    }
+   ],
+   "status": "paused",
+   "week": 0,
+   "durationWeeks": 200,
+   "speed": 1,
+   "computing": false,
+   "version": 1,
+   "seedIndex": 0,
+   "values": {
+    "gecis_destegi": "kapali"
+   },
+   "scenarioId": "dayanikli_taban",
+   "name": "Deneme",
+   "cityNames": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+   ],
+   "buffering": true
+  }
+ },
+ "state_running": {
+  "runId": "canli-00000001",
+  "versions": [
+   {
+    "version": 1,
+    "fromWeek": 0,
+    "values": {
+     "gecis_destegi": "kapali"
+    }
+   }
+  ],
+  "status": "running",
+  "week": 3,
+  "durationWeeks": 200,
+  "speed": 16,
+  "computing": false,
+  "version": 1,
+  "seedIndex": 0,
+  "values": {
+   "gecis_destegi": "kapali"
+  },
+  "scenarioId": "dayanikli_taban",
+  "name": "Deneme",
+  "cityNames": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ],
+  "buffering": false,
+  "modelWeeksPerSec": 2.5
+ },
+ "state_note_version": {
+  "runId": "canli-00000001",
+  "status": "paused",
+  "week": 3,
+  "durationWeeks": 200,
+  "speed": 1,
+  "computing": false,
+  "version": 2,
+  "seedIndex": 0,
+  "values": {
+   "gecis_destegi": "kisa_sureli"
+  },
+  "scenarioId": "dayanikli_taban",
+  "name": "Deneme",
+  "cityNames": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ],
+  "buffering": false,
+  "versions": [
+   {
+    "version": 1,
+    "fromWeek": 0,
+    "values": {
+     "gecis_destegi": "kapali"
+    }
+   },
+   {
+    "version": 2,
+    "fromWeek": 3,
+    "values": {
+     "gecis_destegi": "kisa_sureli"
+    },
+    "note": "Kasa eridi, destek açtım"
+   }
+  ]
+ },
+ "state_setting_locks": {
+  "runId": "canli-00000001",
+  "status": "paused",
+  "week": 0,
+  "durationWeeks": 200,
+  "speed": 1,
+  "computing": false,
+  "version": 1,
+  "seedIndex": 0,
+  "values": {
+   "gecis_destegi": "kapali",
+   "kurulus_fonu": {
+    "acik": false,
+    "hedef": 50
+   }
+  },
+  "scenarioId": "bos_sart",
+  "name": "Deneme",
+  "cityNames": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ],
+  "buffering": true,
+  "versions": [
+   {
+    "version": 1,
+    "fromWeek": 0,
+    "values": {
+     "gecis_destegi": "kapali",
+     "kurulus_fonu": {
+      "acik": false,
+      "hedef": 50
+     }
+    }
+   }
+  ],
+  "settingLocks": [
+   {
+    "id": "gecis_destegi",
+    "reason": "no_cash_floor"
+   }
+  ]
+ },
+ "weeks": [
+  {
+   "v": 1,
+   "run_id": "canli-00000001",
+   "week": 1,
+   "version": 1,
+   "world": {
+    "served": 0.6608,
+    "employed": 0.6767,
+    "unemployed": 434.8409,
+    "unemployment_rate": 0.9984,
+    "npc_firms": 419.8654,
+    "player_firms": 122.0778,
+    "firms_total": 541.9432,
+    "failed_cum": 590.455,
+    "city_cash_total": 532.858,
+    "gini": 208.2082,
+    "money_total": 108.3455,
+    "velocity": null,
+    "loans_applied": null,
+    "loans_rejected": null,
+    "loans_granted": null,
+    "support_weekly": null,
+    "privatized_firms": null,
+    "no_founder": null,
+    "reject_pool": null,
+    "reject_reputation": null,
+    "no_buyer_cum": null,
+    "city_cash_weeks": null,
+    "price_index": null,
+    "inflation_yoy": null,
+    "policy_rate": null,
+    "minted_year": null,
+    "mint_cap": null,
+    "support_denied": null,
+    "policy_unemployment": null,
+    "city_spend_cut": null,
+    "loan_rate_avg": null,
+    "survival_52": null,
+    "wage_index": null,
+    "rent_pct": null,
+    "occupancy": null,
+    "house_index": null,
+    "deposit_rate": null,
+    "bond_rate": null,
+    "lonca_fee_avg": null,
+    "royalty_avg": null,
+    "tenants_per_house": null,
+    "house_resale_ratio": null,
+    "policy_inflation": null,
+    "minted_total": null,
+    "npc_pool": 151,
+    "npc_employed": 999,
+    "npc_broke": 15,
+    "npc_pool_cash_avg": 12.6,
+    "players_seeking": 51,
+    "players_in_ahir": 20,
+    "players_students": 6,
+    "unemployment_rate_all": 0.15,
+    "benefit_paid": 1001.0,
+    "benefit_paid_npc": null,
+    "muni_wages": 501.0,
+    "bursary_paid": 90.0,
+    "benefit_cut": 0.0,
+    "players_total": 1502,
+    "players_new": 2,
+    "players_new_total": 2,
+    "ahir_capacity": 1500,
+    "ahir_fill": 0.901,
+    "npc_firm_npc": 899,
+    "npc_firm_players": 41,
+    "hired_player": 3,
+    "hired_npc": 6,
+    "fired_player": 1,
+    "fired_npc": 4,
+    "ahir_moves": 3,
+    "ahir_backfilled": 1,
+    "inflow_blocked": 0,
+    "staff_fill": 0.801,
+    "kinds_full": 3,
+    "house_stock": 1956.0,
+    "opening_staff": 2663,
+    "npc_dependents": 0,
+    "npc_lfp": 1.0,
+    "npc_discouraged": 0,
+    "muni_npc": 0,
+    "hires": 8,
+    "separations": 4,
+    "quits_npc": 0,
+    "job_finding_rate": 0.041,
+    "unemployment_duration": 24.390243902439025,
+    "money_households": 59900.0,
+    "money_npc_firms": 30050.0,
+    "money_player_firms": 8000.0,
+    "money_city": 250500.0,
+    "money_lonca": 90000.0,
+    "money_other": 9000.0,
+    "city_in_tax": 30001.0,
+    "city_in_profit": 20000.0,
+    "city_in_rent": 17000.0,
+    "city_in_mint": 0.0,
+    "city_in_other": 4000.0,
+    "city_out_households": 33000.0,
+    "city_out_wages": 2000.0,
+    "city_out_services": 5000.0,
+    "city_out_firms": 11000.0,
+    "city_out_other": 100.0,
+    "ghost_firms": 41,
+    "ghost_closed": 0,
+    "wealth_top10": 0.601,
+    "wealth_top1": 0.201,
+    "wealth_median": 121.0,
+    "income_gini": 0.401,
+    "income_top10": 0.3,
+    "liquid_b50": 0.1,
+    "liquid_m40": 0.4,
+    "liquid_t10": 0.5,
+    "founders_applied": null,
+    "founders_rejected": null,
+    "failed_player_cum": null,
+    "failed_dao_cum": null,
+    "failed_npc_default_cum": null,
+    "failed_total_cum": null,
+    "vacancies": null,
+    "staffless_npc": null,
+    "wage_fail": null,
+    "unemp_long_share": null,
+    "hires_stable4": null
+   },
+   "events": [],
+   "diagnostics": [],
+   "cities": [
+    {
+     "index": 0,
+     "served": 0.8418034728312342,
+     "employed": 102,
+     "unemployed": 10,
+     "cash": 1002.0,
+     "cash_weeks": 2.02,
+     "firms_npc": 20,
+     "firms_player": 0,
+     "firms_total": 20,
+     "rent_pct": 0.08854508682078086,
+     "occupancy": 0.8854508682078086,
+     "tenants_per_house": 1.0854508682078086,
+     "migration_in": 0,
+     "migration_out": 1,
+     "npc_pool": 30,
+     "npc_broke": 0,
+     "players_seeking": 10,
+     "population": 502,
+     "players_in_ahir": 4
+    },
+    {
+     "index": 1,
+     "served": 0.5247795796441287,
+     "employed": 112,
+     "unemployed": 11,
+     "cash": 2002.0,
+     "cash_weeks": 2.52,
+     "firms_npc": 21,
+     "firms_player": 1,
+     "firms_total": 22,
+     "rent_pct": 0.08061948949110322,
+     "occupancy": 0.8061948949110322,
+     "tenants_per_house": 1.0061948949110322,
+     "migration_in": 1,
+     "migration_out": 0,
+     "npc_pool": 31,
+     "npc_broke": 1,
+     "players_seeking": 11,
+     "population": 512,
+     "players_in_ahir": 5
+    }
+   ],
+   "chain": {
+    "board": true,
+    "sectors": [
+     {
+      "sector": "ahir",
+      "product": "sut",
+      "firms": 5,
+      "healthy": 3,
+      "shortage": 0.07697337249918587,
+      "persist": 0.15394674499837174,
+      "cover_days": 2.0,
+      "price_trend": 0.007697337249918587,
+      "price": 1.076973372499186
+     },
+     {
+      "sector": "un",
+      "product": "un",
+      "firms": 6,
+      "healthy": 4,
+      "shortage": 0.019253380057687206,
+      "persist": 0.03850676011537441,
+      "cover_days": 3.0,
+      "price_trend": 0.0019253380057687205,
+      "price": 1.0192533800576873
+     }
+    ],
+    "nodes": [
+     {
+      "sector": "ahir",
+      "city": 0,
+      "shortage": 0.07697337249918587,
+      "price": 1.076973372499186,
+      "firms": 1,
+      "healthy": 1,
+      "demand": 100.0,
+      "output": 90.0,
+      "stock": 10.0
+     },
+     {
+      "sector": "ahir",
+      "city": 1,
+      "shortage": 0.07697337249918587,
+      "price": 1.086973372499186,
+      "firms": 1,
+      "healthy": 1,
+      "demand": 101.0,
+      "output": 91.0,
+      "stock": 10.0
+     }
+    ],
+    "scarce": [
+     {
+      "sector": "ahir",
+      "product": "sut",
+      "persist": 0.15394674499837174,
+      "shortage": 0.07697337249918587,
+      "firms": 5,
+      "healthy": 3
+     }
+    ],
+    "edges_rev": 0,
+    "edges": [
+     [
+      "un",
+      "firin",
+      "un"
+     ]
+    ]
+   },
+   "holdings": {
+    "money": {
+     "deposits_players": 901,
+     "deposits_insurance": 80,
+     "found_fund": 5000,
+     "insurance_reserve": 400,
+     "lonca_cash_net": -149,
+     "credit_out": 2000,
+     "fund_credit_out": 300,
+     "bonds_out": 40,
+     "lonca_equity": 1200
+    },
+    "groups": {
+     "player": {
+      "lonca_owner": {
+       "n": 10,
+       "cash": 1001,
+       "deposits": 0
+      },
+      "firm_owner": {
+       "n": 11,
+       "cash": 2001,
+       "deposits": 100
+      },
+      "employed_player_firm": {
+       "n": 12,
+       "cash": 3001,
+       "deposits": 200
+      },
+      "employed_npc_firm": {
+       "n": 13,
+       "cash": 4001,
+       "deposits": 300
+      },
+      "municipal": {
+       "n": 14,
+       "cash": 5001,
+       "deposits": 400
+      },
+      "ahir": {
+       "n": 15,
+       "cash": 6001,
+       "deposits": 500
+      },
+      "seeking": {
+       "n": 16,
+       "cash": 7001,
+       "deposits": 600
+      },
+      "student": {
+       "n": 17,
+       "cash": 8001,
+       "deposits": 700
+      },
+      "other": {
+       "n": 18,
+       "cash": 9001,
+       "deposits": 800
+      }
+     },
+     "npc": {
+      "employed_npc_firm": [
+       50,
+       501
+      ],
+      "employed_player_firm": [
+       51,
+       1001
+      ],
+      "municipal": [
+       52,
+       1501
+      ],
+      "pool": [
+       53,
+       2001
+      ],
+      "dependent": [
+       54,
+       2501
+      ],
+      "out": [
+       55,
+       3001
+      ],
+      "other": [
+       56,
+       3501
+      ]
+     }
+    },
+    "deposits": {
+     "by_group": {
+      "lonca_owner": 0,
+      "firm_owner": 100,
+      "employed_player_firm": 200,
+      "employed_npc_firm": 300,
+      "municipal": 400,
+      "ahir": 500,
+      "seeking": 600,
+      "student": 700,
+      "other": 800,
+      "insurance": 80
+     }
+    },
+    "loncas": [
+     {
+      "ref": "lonca0",
+      "owner": "none",
+      "members": 10,
+      "fee": 0.05,
+      "capital": 6002,
+      "deposits": 900,
+      "credit_out": 2,
+      "equity": 5002
+     },
+     {
+      "ref": "lonca1",
+      "owner": "player",
+      "members": 11,
+      "fee": 0.05,
+      "capital": 6102,
+      "deposits": 910,
+      "credit_out": 102,
+      "equity": 4952
+     },
+     {
+      "ref": "lonca2",
+      "owner": "none",
+      "members": 12,
+      "fee": 0.05,
+      "capital": 6202,
+      "deposits": 920,
+      "credit_out": 202,
+      "equity": 4902
+     },
+     {
+      "ref": "lonca3",
+      "owner": "none",
+      "members": 13,
+      "fee": 0.05,
+      "capital": 6302,
+      "deposits": 930,
+      "credit_out": 302,
+      "equity": 4852
+     },
+     {
+      "ref": "lonca4",
+      "owner": "none",
+      "members": 14,
+      "fee": 0.05,
+      "capital": 6402,
+      "deposits": 940,
+      "credit_out": 402,
+      "equity": 4802
+     },
+     {
+      "ref": "lonca5",
+      "owner": "closed",
+      "members": 15,
+      "fee": 0.05,
+      "capital": 6502,
+      "deposits": 950,
+      "credit_out": 502,
+      "equity": 4752
+     }
+    ],
+    "firms": {
+     "player_count": 14,
+     "owners": 9,
+     "multi_owners": 2,
+     "cash_top10_share": 0.32
+    },
+    "wealth": {
+     "b50": 0.05,
+     "m40": 0.25,
+     "t10": 0.7,
+     "t1": 0.201,
+     "median": 151,
+     "gini": 0.62,
+     "n": 1500
+    },
+    "flows": [
+     [
+      "players",
+      "npc_firms",
+      88000
+     ],
+     [
+      "public_firms",
+      "players",
+      51000
+     ],
+     [
+      "npc_firms",
+      "players",
+      49000
+     ],
+     [
+      "city",
+      "public_firms",
+      49000
+     ],
+     [
+      "mint",
+      "city",
+      1200
+     ],
+     [
+      "rest",
+      "rest",
+      400
+     ]
+    ]
+   },
+   "kurumlar": [
+    {
+     "sehir": 0,
+     "ithalat_hacim": 2001.0,
+     "ithalat_urunler": [
+      {
+       "urun": "sut",
+       "pay": 0.4
+      },
+      {
+       "urun": "un",
+       "pay": 0.2
+      },
+      {
+       "urun": "ekmek",
+       "pay": 0.133333
+      }
+     ],
+     "ihracat_hacim": 1501.0
+    },
+    {
+     "sehir": 1,
+     "ithalat_hacim": 2011.0,
+     "ithalat_urunler": [
+      {
+       "urun": "sut",
+       "pay": 0.4
+      },
+      {
+       "urun": "un",
+       "pay": 0.2
+      },
+      {
+       "urun": "ekmek",
+       "pay": 0.133333
+      }
+     ],
+     "ihracat_hacim": 1506.0
+    },
+    {
+     "sehir": 2,
+     "ithalat_hacim": 2021.0,
+     "ithalat_urunler": [
+      {
+       "urun": "sut",
+       "pay": 0.4
+      },
+      {
+       "urun": "un",
+       "pay": 0.2
+      },
+      {
+       "urun": "ekmek",
+       "pay": 0.133333
+      }
+     ],
+     "ihracat_hacim": 1511.0
+    },
+    {
+     "sehir": 3,
+     "ithalat_hacim": 2031.0,
+     "ithalat_urunler": [
+      {
+       "urun": "sut",
+       "pay": 0.4
+      },
+      {
+       "urun": "un",
+       "pay": 0.2
+      },
+      {
+       "urun": "ekmek",
+       "pay": 0.133333
+      }
+     ],
+     "ihracat_hacim": 1516.0
+    },
+    {
+     "sehir": 4,
+     "ithalat_hacim": 2041.0,
+     "ithalat_urunler": [
+      {
+       "urun": "sut",
+       "pay": 0.4
+      },
+      {
+       "urun": "un",
+       "pay": 0.2
+      },
+      {
+       "urun": "ekmek",
+       "pay": 0.133333
+      }
+     ],
+     "ihracat_hacim": 1521.0
+    }
+   ],
+   "ekonomi": {
+    "v": 1,
+    "tuketim": {
+     "hane": {
+      "ise": {
+       "n": 4600,
+       "karsilanma": 0.82,
+       "sepet": 290.5
+      },
+      "issiz": {
+       "n": 310,
+       "karsilanma": 0.55,
+       "sepet": 147.0
+      },
+      "npc": {
+       "ise": {
+        "n": 15200,
+        "karsilanma": 0.74,
+        "sepet": 217.0
+       },
+       "issiz": {
+        "n": 2010,
+        "karsilanma": 0.45,
+        "sepet": 87.5
+       },
+       "dis": {
+        "n": 510,
+        "karsilanma": 0.6,
+        "sepet": 175.0
+       }
+      },
+      "npc_issiz_parasiz": 120.5,
+      "sehir": [
+       {
+        "sehir": 0,
+        "ise": {
+         "n": 900,
+         "karsilanma": 0.8021,
+         "sepet": 280.77
+        },
+        "issiz": {
+         "n": 60,
+         "karsilanma": 0.5043,
+         "sepet": 140.63
+        },
+        "npc": {
+         "ise": {
+          "n": 3000,
+          "karsilanma": 0.7021,
+          "sepet": 210.42
+         },
+         "issiz": {
+          "n": 400,
+          "karsilanma": 0.4043,
+          "sepet": 84.14
+         },
+         "dis": {
+          "n": 100,
+          "karsilanma": 0.6,
+          "sepet": 175.0
+         }
+        },
+        "npc_issiz_parasiz": 10.6,
+        "harcama": {
+         "oyuncu": 20003,
+         "npc": 80003
+        }
+       },
+       {
+        "sehir": 1,
+        "ise": {
+         "n": 910,
+         "karsilanma": 0.8773,
+         "sepet": 307.09
+        },
+        "issiz": {
+         "n": 61,
+         "karsilanma": 0.6547,
+         "sepet": 161.63
+        },
+        "npc": {
+         "ise": {
+          "n": 3050,
+          "karsilanma": 0.7773,
+          "sepet": 226.24
+         },
+         "issiz": {
+          "n": 401,
+          "karsilanma": 0.5547,
+          "sepet": 89.39
+         },
+         "dis": {
+          "n": 101,
+          "karsilanma": 0.6,
+          "sepet": 175.0
+         }
+        },
+        "npc_issiz_parasiz": 33.2,
+        "harcama": {
+         "oyuncu": 20103,
+         "npc": 80503
+        }
+       },
+       {
+        "sehir": 2,
+        "ise": {
+         "n": 920,
+         "karsilanma": 0.8016,
+         "sepet": 280.56
+        },
+        "issiz": {
+         "n": 62,
+         "karsilanma": 0.5031,
+         "sepet": 140.42
+        },
+        "npc": {
+         "ise": {
+          "n": 3100,
+          "karsilanma": 0.7016,
+          "sepet": 210.35
+         },
+         "issiz": {
+          "n": 402,
+          "karsilanma": 0.4031,
+          "sepet": 84.14
+         },
+         "dis": {
+          "n": 102,
+          "karsilanma": 0.6,
+          "sepet": 175.0
+         }
+        },
+        "npc_issiz_parasiz": 10.5,
+        "harcama": {
+         "oyuncu": 20203,
+         "npc": 81003
+        }
+       },
+       {
+        "sehir": 3,
+        "ise": {
+         "n": 930,
+         "karsilanma": 0.8361,
+         "sepet": 292.67
+        },
+        "issiz": {
+         "n": 63,
+         "karsilanma": 0.5723,
+         "sepet": 150.15
+        },
+        "npc": {
+         "ise": {
+          "n": 3150,
+          "karsilanma": 0.7361,
+          "sepet": 217.56
+         },
+         "issiz": {
+          "n": 403,
+          "karsilanma": 0.4723,
+          "sepet": 86.52
+         },
+         "dis": {
+          "n": 103,
+          "karsilanma": 0.6,
+          "sepet": 175.0
+         }
+        },
+        "npc_issiz_parasiz": 20.8,
+        "harcama": {
+         "oyuncu": 20303,
+         "npc": 81503
+        }
+       },
+       {
+        "sehir": 4,
+        "ise": {
+         "n": 940,
+         "karsilanma": 0.8096,
+         "sepet": 283.36
+        },
+        "issiz": {
+         "n": 64,
+         "karsilanma": 0.5191,
+         "sepet": 142.66
+        },
+        "npc": {
+         "ise": {
+          "n": 3200,
+          "karsilanma": 0.7096,
+          "sepet": 212.03
+         },
+         "issiz": {
+          "n": 404,
+          "karsilanma": 0.4191,
+          "sepet": 84.7
+         },
+         "dis": {
+          "n": 104,
+          "karsilanma": 0.6,
+          "sepet": 175.0
+         }
+        },
+        "npc_issiz_parasiz": 12.9,
+        "harcama": {
+         "oyuncu": 20403,
+         "npc": 82003
+        }
+       }
+      ]
+     },
+     "harcama": {
+      "npc": 402503,
+      "oyuncu": 100503,
+      "toplam": 503006
+     },
+     "urunler": [
+      {
+       "urun": "sut",
+       "istek": 5000.0,
+       "karsilanmayan": 800.0,
+       "uretim": 4000.0,
+       "stok": 120.0
+      },
+      {
+       "urun": "un",
+       "istek": 4900.0,
+       "karsilanmayan": 750.0,
+       "uretim": 4000.0,
+       "stok": 121.0
+      },
+      {
+       "urun": "ekmek",
+       "istek": 4800.0,
+       "karsilanmayan": 700.0,
+       "uretim": 4000.0,
+       "stok": 122.0
+      }
+     ],
+     "ucret": {
+      "dunya": [
+       1.2,
+       1.1,
+       75.6,
+       1.5
+      ],
+      "sehir": [
+       [
+        1.2,
+        1.1,
+        75.6,
+        1.5
+       ],
+       [
+        1.21,
+        1.11,
+        76.6,
+        1.55
+       ],
+       [
+        1.22,
+        1.12,
+        77.6,
+        1.6
+       ],
+       [
+        1.23,
+        1.13,
+        78.6,
+        1.65
+       ],
+       [
+        1.24,
+        1.14,
+        79.6,
+        1.7
+       ]
+      ]
+     }
+    },
+    "isletme": {
+     "istihdam": {
+      "oyuncu": 610,
+      "npc": 1150,
+      "ozel": 1500,
+      "kamu": 260
+     },
+     "hareket": {
+      "kurulan": 2,
+      "buyuyen": 9,
+      "kuculen": 4,
+      "batan": 1
+     },
+     "sektor": [
+      {
+       "tur": "ahir",
+       "calisan": 700,
+       "firma": 30
+      },
+      {
+       "tur": "un",
+       "calisan": 600,
+       "firma": 25
+      },
+      {
+       "tur": "firin",
+       "calisan": 500,
+       "firma": 20
+      }
+     ],
+     "sektor_diger": {
+      "calisan": 0,
+      "firma": 0
+     },
+     "sehir": [
+      {
+       "sehir": 0,
+       "ozel_calisan": 300,
+       "kamu_calisan": 40,
+       "calisan_oyuncu": 120,
+       "calisan_npc": 220,
+       "isgucu_disi": 15,
+       "boy": [
+        20,
+        8,
+        3,
+        1
+       ],
+       "hareket": {
+        "kurulan": 0,
+        "buyuyen": 2,
+        "kuculen": 1,
+        "batan": 0
+       }
+      },
+      {
+       "sehir": 1,
+       "ozel_calisan": 310,
+       "kamu_calisan": 41,
+       "calisan_oyuncu": 121,
+       "calisan_npc": 229,
+       "isgucu_disi": 16,
+       "boy": [
+        21,
+        8,
+        3,
+        1
+       ],
+       "hareket": {
+        "kurulan": 1,
+        "buyuyen": 2,
+        "kuculen": 1,
+        "batan": 0
+       }
+      },
+      {
+       "sehir": 2,
+       "ozel_calisan": 320,
+       "kamu_calisan": 42,
+       "calisan_oyuncu": 122,
+       "calisan_npc": 238,
+       "isgucu_disi": 17,
+       "boy": [
+        22,
+        8,
+        3,
+        1
+       ],
+       "hareket": {
+        "kurulan": 0,
+        "buyuyen": 2,
+        "kuculen": 1,
+        "batan": 0
+       }
+      },
+      {
+       "sehir": 3,
+       "ozel_calisan": 330,
+       "kamu_calisan": 43,
+       "calisan_oyuncu": 123,
+       "calisan_npc": 247,
+       "isgucu_disi": 18,
+       "boy": [
+        23,
+        8,
+        3,
+        1
+       ],
+       "hareket": {
+        "kurulan": 1,
+        "buyuyen": 2,
+        "kuculen": 1,
+        "batan": 0
+       }
+      },
+      {
+       "sehir": 4,
+       "ozel_calisan": 340,
+       "kamu_calisan": 44,
+       "calisan_oyuncu": 124,
+       "calisan_npc": 256,
+       "isgucu_disi": 19,
+       "boy": [
+        24,
+        8,
+        3,
+        1
+       ],
+       "hareket": {
+        "kurulan": 0,
+        "buyuyen": 2,
+        "kuculen": 1,
+        "batan": 0
+       }
+      }
+     ]
+    },
+    "para": {
+     "oyuncu_n": 1500,
+     "oyuncu_ust10": 900000,
+     "oyuncu_alt90": 300000,
+     "npc_hane_nakit": 250000,
+     "npc_hane_mevduat": 400000
+    }
+   },
+   "makro": {
+    "v": 1,
+    "fiyat": {
+     "tuk": 1.042,
+     "enf": 0.0515,
+     "uretici": 1.028,
+     "ucret": 1.056,
+     "gercek_ucret": 1.013
+    },
+    "uretim": {
+     "nominal": 319894,
+     "gercek": 307000,
+     "buyume": 0.0258,
+     "verimlilik": 81.4
+    },
+    "para": {
+     "stok": 450000,
+     "korunum": 0,
+     "mali": 440000,
+     "kredi_net": 0,
+     "acilis": 10000,
+     "hiz": 0.386
+    },
+    "faiz": {
+     "politika": 0.164,
+     "mevduat": 0.08,
+     "kredi": 0.2,
+     "gercek": 0.0985
+    },
+    "marj": {
+     "npc": 0.0558,
+     "oyuncu": 0.0258
+    },
+    "konut": {
+     "kira": 1.056,
+     "kira_gelir": 0.107
+    },
+    "dagilim": {
+     "gini_nakit": 0.428,
+     "gini_gelir": 0.14,
+     "gini_servet": 0.514,
+     "yoksul": 0.572,
+     "medyan_sepet": 0.8
+    },
+    "kredi": {
+     "stok": 44200,
+     "buyume": 0.0289,
+     "temerrut": 0.0058
+    }
+   },
+   "harita": {
+    "hafta": 1,
+    "alanlar": [
+     "id",
+     "tur",
+     "sehir",
+     "calisan",
+     "lonca",
+     "sahip",
+     "dogum",
+     "durum"
+    ],
+    "turler": [
+     "un"
+    ],
+    "loncalar": [
+     "lonca0",
+     "lonca2"
+    ],
+    "sahipler": [
+     "npc",
+     "oyuncu",
+     "dao"
+    ],
+    "firmalar": [
+     [
+      "fk0",
+      0,
+      0,
+      8,
+      0,
+      0,
+      null,
+      "uretim"
+     ],
+     [
+      "fk1",
+      0,
+      1,
+      8,
+      -1,
+      1,
+      null,
+      "uretim"
+     ],
+     [
+      7,
+      0,
+      2,
+      5,
+      1,
+      2,
+      null,
+      "uretim"
+     ]
+    ]
+   }
+  },
+  {
+   "v": 1,
+   "run_id": "canli-00000001",
+   "week": 2,
+   "version": 1,
+   "world": {
+    "served": 0.6608,
+    "employed": 0.6767,
+    "unemployed": 434.8409,
+    "unemployment_rate": 0.9984,
+    "npc_firms": 419.8654,
+    "player_firms": 122.0778,
+    "firms_total": 541.9432,
+    "failed_cum": 590.455,
+    "city_cash_total": 532.858,
+    "gini": 208.2082,
+    "money_total": 108.3455,
+    "velocity": null,
+    "loans_applied": null,
+    "loans_rejected": null,
+    "loans_granted": null,
+    "support_weekly": null,
+    "privatized_firms": null,
+    "no_founder": null,
+    "reject_pool": null,
+    "reject_reputation": null,
+    "no_buyer_cum": null,
+    "city_cash_weeks": null,
+    "price_index": null,
+    "inflation_yoy": null,
+    "policy_rate": null,
+    "minted_year": null,
+    "mint_cap": null,
+    "support_denied": null,
+    "policy_unemployment": null,
+    "city_spend_cut": null,
+    "loan_rate_avg": null,
+    "survival_52": null,
+    "wage_index": null,
+    "rent_pct": null,
+    "occupancy": null,
+    "house_index": null,
+    "deposit_rate": null,
+    "bond_rate": null,
+    "lonca_fee_avg": null,
+    "royalty_avg": null,
+    "tenants_per_house": null,
+    "house_resale_ratio": null,
+    "policy_inflation": null,
+    "minted_total": null,
+    "npc_pool": 151,
+    "npc_employed": 999,
+    "npc_broke": 15,
+    "npc_pool_cash_avg": 12.6,
+    "players_seeking": 51,
+    "players_in_ahir": 20,
+    "players_students": 6,
+    "unemployment_rate_all": 0.15,
+    "benefit_paid": 1001.0,
+    "benefit_paid_npc": null,
+    "muni_wages": 501.0,
+    "bursary_paid": 90.0,
+    "benefit_cut": 0.0,
+    "players_total": 1504,
+    "players_new": 2,
+    "players_new_total": 4,
+    "ahir_capacity": 1500,
+    "ahir_fill": 0.902,
+    "npc_firm_npc": 898,
+    "npc_firm_players": 42,
+    "hired_player": 3,
+    "hired_npc": 7,
+    "fired_player": 0,
+    "fired_npc": 4,
+    "ahir_moves": 3,
+    "ahir_backfilled": 1,
+    "inflow_blocked": 0,
+    "staff_fill": 0.802,
+    "kinds_full": 3,
+    "house_stock": 1957.0,
+    "opening_staff": 2663,
+    "npc_dependents": 0,
+    "npc_lfp": 1.0,
+    "npc_discouraged": 0,
+    "muni_npc": 0,
+    "hires": 8,
+    "separations": 4,
+    "quits_npc": 0,
+    "job_finding_rate": 0.041,
+    "unemployment_duration": 24.390243902439025,
+    "money_households": 59900.0,
+    "money_npc_firms": 30050.0,
+    "money_player_firms": 8000.0,
+    "money_city": 250500.0,
+    "money_lonca": 90000.0,
+    "money_other": 9000.0,
+    "city_in_tax": 30001.0,
+    "city_in_profit": 20000.0,
+    "city_in_rent": 17000.0,
+    "city_in_mint": 0.0,
+    "city_in_other": 4000.0,
+    "city_out_households": 33000.0,
+    "city_out_wages": 2000.0,
+    "city_out_services": 5000.0,
+    "city_out_firms": 11000.0,
+    "city_out_other": 100.0,
+    "ghost_firms": 41,
+    "ghost_closed": 0,
+    "wealth_top10": 0.601,
+    "wealth_top1": 0.201,
+    "wealth_median": 121.0,
+    "income_gini": 0.401,
+    "income_top10": 0.3,
+    "liquid_b50": 0.1,
+    "liquid_m40": 0.4,
+    "liquid_t10": 0.5,
+    "founders_applied": null,
+    "founders_rejected": null,
+    "failed_player_cum": null,
+    "failed_dao_cum": null,
+    "failed_npc_default_cum": null,
+    "failed_total_cum": null,
+    "vacancies": null,
+    "staffless_npc": null,
+    "wage_fail": null,
+    "unemp_long_share": null,
+    "hires_stable4": null
+   },
+   "events": [],
+   "diagnostics": [],
+   "cities": [
+    {
+     "index": 0,
+     "served": 0.8418034728312342,
+     "employed": 102,
+     "unemployed": 10,
+     "cash": 1002.0,
+     "cash_weeks": 2.02,
+     "firms_npc": 20,
+     "firms_player": 0,
+     "firms_total": 20,
+     "rent_pct": 0.08854508682078086,
+     "occupancy": 0.8854508682078086,
+     "tenants_per_house": 1.0854508682078086,
+     "migration_in": 0,
+     "migration_out": 1,
+     "npc_pool": 30,
+     "npc_broke": 0,
+     "players_seeking": 10,
+     "population": 502,
+     "players_in_ahir": 4
+    },
+    {
+     "index": 1,
+     "served": 0.5247795796441287,
+     "employed": 112,
+     "unemployed": 11,
+     "cash": 2002.0,
+     "cash_weeks": 2.52,
+     "firms_npc": 21,
+     "firms_player": 1,
+     "firms_total": 22,
+     "rent_pct": 0.08061948949110322,
+     "occupancy": 0.8061948949110322,
+     "tenants_per_house": 1.0061948949110322,
+     "migration_in": 1,
+     "migration_out": 0,
+     "npc_pool": 31,
+     "npc_broke": 1,
+     "players_seeking": 11,
+     "population": 512,
+     "players_in_ahir": 5
+    }
+   ],
+   "chain": {
+    "board": true,
+    "sectors": [
+     {
+      "sector": "ahir",
+      "product": "sut",
+      "firms": 5,
+      "healthy": 3,
+      "shortage": 0.07697337249918587,
+      "persist": 0.15394674499837174,
+      "cover_days": 2.0,
+      "price_trend": 0.007697337249918587,
+      "price": 1.076973372499186
+     },
+     {
+      "sector": "un",
+      "product": "un",
+      "firms": 6,
+      "healthy": 4,
+      "shortage": 0.019253380057687206,
+      "persist": 0.03850676011537441,
+      "cover_days": 3.0,
+      "price_trend": 0.0019253380057687205,
+      "price": 1.0192533800576873
+     }
+    ],
+    "nodes": [
+     {
+      "sector": "ahir",
+      "city": 0,
+      "shortage": 0.07697337249918587,
+      "price": 1.076973372499186,
+      "firms": 1,
+      "healthy": 1,
+      "demand": 100.0,
+      "output": 90.0,
+      "stock": 10.0
+     },
+     {
+      "sector": "ahir",
+      "city": 1,
+      "shortage": 0.07697337249918587,
+      "price": 1.086973372499186,
+      "firms": 1,
+      "healthy": 1,
+      "demand": 101.0,
+      "output": 91.0,
+      "stock": 10.0
+     }
+    ],
+    "scarce": [
+     {
+      "sector": "ahir",
+      "product": "sut",
+      "persist": 0.15394674499837174,
+      "shortage": 0.07697337249918587,
+      "firms": 5,
+      "healthy": 3
+     }
+    ],
+    "edges_rev": 0,
+    "edges": [
+     [
+      "un",
+      "firin",
+      "un"
+     ]
+    ]
+   },
+   "holdings": {
+    "money": {
+     "deposits_players": 901,
+     "deposits_insurance": 80,
+     "found_fund": 5000,
+     "insurance_reserve": 400,
+     "lonca_cash_net": -149,
+     "credit_out": 2000,
+     "fund_credit_out": 300,
+     "bonds_out": 40,
+     "lonca_equity": 1200
+    },
+    "groups": {
+     "player": {
+      "lonca_owner": {
+       "n": 10,
+       "cash": 1001,
+       "deposits": 0
+      },
+      "firm_owner": {
+       "n": 11,
+       "cash": 2001,
+       "deposits": 100
+      },
+      "employed_player_firm": {
+       "n": 12,
+       "cash": 3001,
+       "deposits": 200
+      },
+      "employed_npc_firm": {
+       "n": 13,
+       "cash": 4001,
+       "deposits": 300
+      },
+      "municipal": {
+       "n": 14,
+       "cash": 5001,
+       "deposits": 400
+      },
+      "ahir": {
+       "n": 15,
+       "cash": 6001,
+       "deposits": 500
+      },
+      "seeking": {
+       "n": 16,
+       "cash": 7001,
+       "deposits": 600
+      },
+      "student": {
+       "n": 17,
+       "cash": 8001,
+       "deposits": 700
+      },
+      "other": {
+       "n": 18,
+       "cash": 9001,
+       "deposits": 800
+      }
+     },
+     "npc": {
+      "employed_npc_firm": [
+       50,
+       501
+      ],
+      "employed_player_firm": [
+       51,
+       1001
+      ],
+      "municipal": [
+       52,
+       1501
+      ],
+      "pool": [
+       53,
+       2001
+      ],
+      "dependent": [
+       54,
+       2501
+      ],
+      "out": [
+       55,
+       3001
+      ],
+      "other": [
+       56,
+       3501
+      ]
+     }
+    },
+    "deposits": {
+     "by_group": {
+      "lonca_owner": 0,
+      "firm_owner": 100,
+      "employed_player_firm": 200,
+      "employed_npc_firm": 300,
+      "municipal": 400,
+      "ahir": 500,
+      "seeking": 600,
+      "student": 700,
+      "other": 800,
+      "insurance": 80
+     }
+    },
+    "loncas": [
+     {
+      "ref": "lonca0",
+      "owner": "none",
+      "members": 10,
+      "fee": 0.05,
+      "capital": 6002,
+      "deposits": 900,
+      "credit_out": 2,
+      "equity": 5002
+     },
+     {
+      "ref": "lonca1",
+      "owner": "player",
+      "members": 11,
+      "fee": 0.05,
+      "capital": 6102,
+      "deposits": 910,
+      "credit_out": 102,
+      "equity": 4952
+     },
+     {
+      "ref": "lonca2",
+      "owner": "none",
+      "members": 12,
+      "fee": 0.05,
+      "capital": 6202,
+      "deposits": 920,
+      "credit_out": 202,
+      "equity": 4902
+     },
+     {
+      "ref": "lonca3",
+      "owner": "none",
+      "members": 13,
+      "fee": 0.05,
+      "capital": 6302,
+      "deposits": 930,
+      "credit_out": 302,
+      "equity": 4852
+     },
+     {
+      "ref": "lonca4",
+      "owner": "none",
+      "members": 14,
+      "fee": 0.05,
+      "capital": 6402,
+      "deposits": 940,
+      "credit_out": 402,
+      "equity": 4802
+     },
+     {
+      "ref": "lonca5",
+      "owner": "closed",
+      "members": 15,
+      "fee": 0.05,
+      "capital": 6502,
+      "deposits": 950,
+      "credit_out": 502,
+      "equity": 4752
+     }
+    ],
+    "firms": {
+     "player_count": 14,
+     "owners": 9,
+     "multi_owners": 2,
+     "cash_top10_share": 0.32
+    },
+    "wealth": {
+     "b50": 0.05,
+     "m40": 0.25,
+     "t10": 0.7,
+     "t1": 0.201,
+     "median": 151,
+     "gini": 0.62,
+     "n": 1500
+    },
+    "flows": [
+     [
+      "players",
+      "npc_firms",
+      88000
+     ],
+     [
+      "public_firms",
+      "players",
+      51000
+     ],
+     [
+      "npc_firms",
+      "players",
+      49000
+     ],
+     [
+      "city",
+      "public_firms",
+      49000
+     ],
+     [
+      "mint",
+      "city",
+      1200
+     ],
+     [
+      "rest",
+      "rest",
+      400
+     ]
+    ]
+   },
+   "kurumlar": [
+    {
+     "sehir": 0,
+     "ithalat_hacim": 2002.0,
+     "ithalat_urunler": [
+      {
+       "urun": "sut",
+       "pay": 0.4
+      },
+      {
+       "urun": "un",
+       "pay": 0.2
+      },
+      {
+       "urun": "ekmek",
+       "pay": 0.133333
+      }
+     ],
+     "ihracat_hacim": 1502.0
+    },
+    {
+     "sehir": 1,
+     "ithalat_hacim": 2012.0,
+     "ithalat_urunler": [
+      {
+       "urun": "sut",
+       "pay": 0.4
+      },
+      {
+       "urun": "un",
+       "pay": 0.2
+      },
+      {
+       "urun": "ekmek",
+       "pay": 0.133333
+      }
+     ],
+     "ihracat_hacim": 1507.0
+    },
+    {
+     "sehir": 2,
+     "ithalat_hacim": 2022.0,
+     "ithalat_urunler": [
+      {
+       "urun": "sut",
+       "pay": 0.4
+      },
+      {
+       "urun": "un",
+       "pay": 0.2
+      },
+      {
+       "urun": "ekmek",
+       "pay": 0.133333
+      }
+     ],
+     "ihracat_hacim": 1512.0
+    },
+    {
+     "sehir": 3,
+     "ithalat_hacim": 2032.0,
+     "ithalat_urunler": [
+      {
+       "urun": "sut",
+       "pay": 0.4
+      },
+      {
+       "urun": "un",
+       "pay": 0.2
+      },
+      {
+       "urun": "ekmek",
+       "pay": 0.133333
+      }
+     ],
+     "ihracat_hacim": 1517.0
+    },
+    {
+     "sehir": 4,
+     "ithalat_hacim": 2042.0,
+     "ithalat_urunler": [
+      {
+       "urun": "sut",
+       "pay": 0.4
+      },
+      {
+       "urun": "un",
+       "pay": 0.2
+      },
+      {
+       "urun": "ekmek",
+       "pay": 0.133333
+      }
+     ],
+     "ihracat_hacim": 1522.0
+    }
+   ],
+   "ekonomi": {
+    "v": 1,
+    "tuketim": {
+     "hane": {
+      "ise": {
+       "n": 4600,
+       "karsilanma": 0.82,
+       "sepet": 290.5
+      },
+      "issiz": {
+       "n": 310,
+       "karsilanma": 0.55,
+       "sepet": 147.0
+      },
+      "npc": {
+       "ise": {
+        "n": 15200,
+        "karsilanma": 0.74,
+        "sepet": 217.0
+       },
+       "issiz": {
+        "n": 2010,
+        "karsilanma": 0.45,
+        "sepet": 87.5
+       },
+       "dis": {
+        "n": 510,
+        "karsilanma": 0.6,
+        "sepet": 175.0
+       }
+      },
+      "npc_issiz_parasiz": 120.5,
+      "sehir": [
+       {
+        "sehir": 0,
+        "ise": {
+         "n": 900,
+         "karsilanma": 0.8021,
+         "sepet": 280.77
+        },
+        "issiz": {
+         "n": 60,
+         "karsilanma": 0.5043,
+         "sepet": 140.63
+        },
+        "npc": {
+         "ise": {
+          "n": 3000,
+          "karsilanma": 0.7021,
+          "sepet": 210.42
+         },
+         "issiz": {
+          "n": 400,
+          "karsilanma": 0.4043,
+          "sepet": 84.14
+         },
+         "dis": {
+          "n": 100,
+          "karsilanma": 0.6,
+          "sepet": 175.0
+         }
+        },
+        "npc_issiz_parasiz": 10.6,
+        "harcama": {
+         "oyuncu": 20003,
+         "npc": 80003
+        }
+       },
+       {
+        "sehir": 1,
+        "ise": {
+         "n": 910,
+         "karsilanma": 0.8773,
+         "sepet": 307.09
+        },
+        "issiz": {
+         "n": 61,
+         "karsilanma": 0.6547,
+         "sepet": 161.63
+        },
+        "npc": {
+         "ise": {
+          "n": 3050,
+          "karsilanma": 0.7773,
+          "sepet": 226.24
+         },
+         "issiz": {
+          "n": 401,
+          "karsilanma": 0.5547,
+          "sepet": 89.39
+         },
+         "dis": {
+          "n": 101,
+          "karsilanma": 0.6,
+          "sepet": 175.0
+         }
+        },
+        "npc_issiz_parasiz": 33.2,
+        "harcama": {
+         "oyuncu": 20103,
+         "npc": 80503
+        }
+       },
+       {
+        "sehir": 2,
+        "ise": {
+         "n": 920,
+         "karsilanma": 0.8016,
+         "sepet": 280.56
+        },
+        "issiz": {
+         "n": 62,
+         "karsilanma": 0.5031,
+         "sepet": 140.42
+        },
+        "npc": {
+         "ise": {
+          "n": 3100,
+          "karsilanma": 0.7016,
+          "sepet": 210.35
+         },
+         "issiz": {
+          "n": 402,
+          "karsilanma": 0.4031,
+          "sepet": 84.14
+         },
+         "dis": {
+          "n": 102,
+          "karsilanma": 0.6,
+          "sepet": 175.0
+         }
+        },
+        "npc_issiz_parasiz": 10.5,
+        "harcama": {
+         "oyuncu": 20203,
+         "npc": 81003
+        }
+       },
+       {
+        "sehir": 3,
+        "ise": {
+         "n": 930,
+         "karsilanma": 0.8361,
+         "sepet": 292.67
+        },
+        "issiz": {
+         "n": 63,
+         "karsilanma": 0.5723,
+         "sepet": 150.15
+        },
+        "npc": {
+         "ise": {
+          "n": 3150,
+          "karsilanma": 0.7361,
+          "sepet": 217.56
+         },
+         "issiz": {
+          "n": 403,
+          "karsilanma": 0.4723,
+          "sepet": 86.52
+         },
+         "dis": {
+          "n": 103,
+          "karsilanma": 0.6,
+          "sepet": 175.0
+         }
+        },
+        "npc_issiz_parasiz": 20.8,
+        "harcama": {
+         "oyuncu": 20303,
+         "npc": 81503
+        }
+       },
+       {
+        "sehir": 4,
+        "ise": {
+         "n": 940,
+         "karsilanma": 0.8096,
+         "sepet": 283.36
+        },
+        "issiz": {
+         "n": 64,
+         "karsilanma": 0.5191,
+         "sepet": 142.66
+        },
+        "npc": {
+         "ise": {
+          "n": 3200,
+          "karsilanma": 0.7096,
+          "sepet": 212.03
+         },
+         "issiz": {
+          "n": 404,
+          "karsilanma": 0.4191,
+          "sepet": 84.7
+         },
+         "dis": {
+          "n": 104,
+          "karsilanma": 0.6,
+          "sepet": 175.0
+         }
+        },
+        "npc_issiz_parasiz": 12.9,
+        "harcama": {
+         "oyuncu": 20403,
+         "npc": 82003
+        }
+       }
+      ]
+     },
+     "harcama": {
+      "npc": 402503,
+      "oyuncu": 100503,
+      "toplam": 503006
+     },
+     "urunler": [
+      {
+       "urun": "sut",
+       "istek": 5000.0,
+       "karsilanmayan": 800.0,
+       "uretim": 4000.0,
+       "stok": 120.0
+      },
+      {
+       "urun": "un",
+       "istek": 4900.0,
+       "karsilanmayan": 750.0,
+       "uretim": 4000.0,
+       "stok": 121.0
+      },
+      {
+       "urun": "ekmek",
+       "istek": 4800.0,
+       "karsilanmayan": 700.0,
+       "uretim": 4000.0,
+       "stok": 122.0
+      }
+     ],
+     "ucret": {
+      "dunya": [
+       1.2,
+       1.1,
+       75.6,
+       1.5
+      ],
+      "sehir": [
+       [
+        1.2,
+        1.1,
+        75.6,
+        1.5
+       ],
+       [
+        1.21,
+        1.11,
+        76.6,
+        1.55
+       ],
+       [
+        1.22,
+        1.12,
+        77.6,
+        1.6
+       ],
+       [
+        1.23,
+        1.13,
+        78.6,
+        1.65
+       ],
+       [
+        1.24,
+        1.14,
+        79.6,
+        1.7
+       ]
+      ]
+     }
+    },
+    "isletme": {
+     "istihdam": {
+      "oyuncu": 610,
+      "npc": 1150,
+      "ozel": 1500,
+      "kamu": 260
+     },
+     "hareket": {
+      "kurulan": 2,
+      "buyuyen": 9,
+      "kuculen": 4,
+      "batan": 1
+     },
+     "sektor": [
+      {
+       "tur": "ahir",
+       "calisan": 700,
+       "firma": 30
+      },
+      {
+       "tur": "un",
+       "calisan": 600,
+       "firma": 25
+      },
+      {
+       "tur": "firin",
+       "calisan": 500,
+       "firma": 20
+      }
+     ],
+     "sektor_diger": {
+      "calisan": 0,
+      "firma": 0
+     },
+     "sehir": [
+      {
+       "sehir": 0,
+       "ozel_calisan": 300,
+       "kamu_calisan": 40,
+       "calisan_oyuncu": 120,
+       "calisan_npc": 220,
+       "isgucu_disi": 15,
+       "boy": [
+        20,
+        8,
+        3,
+        1
+       ],
+       "hareket": {
+        "kurulan": 0,
+        "buyuyen": 2,
+        "kuculen": 1,
+        "batan": 0
+       }
+      },
+      {
+       "sehir": 1,
+       "ozel_calisan": 310,
+       "kamu_calisan": 41,
+       "calisan_oyuncu": 121,
+       "calisan_npc": 229,
+       "isgucu_disi": 16,
+       "boy": [
+        21,
+        8,
+        3,
+        1
+       ],
+       "hareket": {
+        "kurulan": 1,
+        "buyuyen": 2,
+        "kuculen": 1,
+        "batan": 0
+       }
+      },
+      {
+       "sehir": 2,
+       "ozel_calisan": 320,
+       "kamu_calisan": 42,
+       "calisan_oyuncu": 122,
+       "calisan_npc": 238,
+       "isgucu_disi": 17,
+       "boy": [
+        22,
+        8,
+        3,
+        1
+       ],
+       "hareket": {
+        "kurulan": 0,
+        "buyuyen": 2,
+        "kuculen": 1,
+        "batan": 0
+       }
+      },
+      {
+       "sehir": 3,
+       "ozel_calisan": 330,
+       "kamu_calisan": 43,
+       "calisan_oyuncu": 123,
+       "calisan_npc": 247,
+       "isgucu_disi": 18,
+       "boy": [
+        23,
+        8,
+        3,
+        1
+       ],
+       "hareket": {
+        "kurulan": 1,
+        "buyuyen": 2,
+        "kuculen": 1,
+        "batan": 0
+       }
+      },
+      {
+       "sehir": 4,
+       "ozel_calisan": 340,
+       "kamu_calisan": 44,
+       "calisan_oyuncu": 124,
+       "calisan_npc": 256,
+       "isgucu_disi": 19,
+       "boy": [
+        24,
+        8,
+        3,
+        1
+       ],
+       "hareket": {
+        "kurulan": 0,
+        "buyuyen": 2,
+        "kuculen": 1,
+        "batan": 0
+       }
+      }
+     ]
+    },
+    "para": {
+     "oyuncu_n": 1500,
+     "oyuncu_ust10": 900000,
+     "oyuncu_alt90": 300000,
+     "npc_hane_nakit": 250000,
+     "npc_hane_mevduat": 400000
+    }
+   },
+   "makro": {
+    "v": 1,
+    "fiyat": {
+     "tuk": 1.042,
+     "enf": 0.0515,
+     "uretici": 1.028,
+     "ucret": 1.056,
+     "gercek_ucret": 1.013
+    },
+    "uretim": {
+     "nominal": 319894,
+     "gercek": 307000,
+     "buyume": 0.0258,
+     "verimlilik": 81.4
+    },
+    "para": {
+     "stok": 450000,
+     "korunum": 0,
+     "mali": 440000,
+     "kredi_net": 0,
+     "acilis": 10000,
+     "hiz": 0.386
+    },
+    "faiz": {
+     "politika": 0.164,
+     "mevduat": 0.08,
+     "kredi": 0.2,
+     "gercek": 0.0985
+    },
+    "marj": {
+     "npc": 0.0558,
+     "oyuncu": 0.0258
+    },
+    "konut": {
+     "kira": 1.056,
+     "kira_gelir": 0.107
+    },
+    "dagilim": {
+     "gini_nakit": 0.428,
+     "gini_gelir": 0.14,
+     "gini_servet": 0.514,
+     "yoksul": 0.572,
+     "medyan_sepet": 0.8
+    },
+    "kredi": {
+     "stok": 44200,
+     "buyume": 0.0289,
+     "temerrut": 0.0058
+    }
+   }
+  }
+ ],
+ "packet": {
+  "v": 1,
+  "run_id": "canli-00000001",
+  "week": 1,
+  "version": 1,
+  "world": {
+   "served": 0.6608,
+   "employed": 0.6767,
+   "unemployed": 434.8409,
+   "unemployment_rate": 0.9984,
+   "npc_firms": 419.8654,
+   "player_firms": 122.0778,
+   "firms_total": 541.9432,
+   "failed_cum": 590.455,
+   "city_cash_total": 532.858,
+   "gini": 208.2082,
+   "money_total": 108.3455,
+   "velocity": null,
+   "loans_applied": null,
+   "loans_rejected": null,
+   "loans_granted": null,
+   "support_weekly": null,
+   "privatized_firms": null,
+   "no_founder": null,
+   "reject_pool": null,
+   "reject_reputation": null,
+   "no_buyer_cum": null,
+   "city_cash_weeks": null,
+   "price_index": null,
+   "inflation_yoy": null,
+   "policy_rate": null,
+   "minted_year": null,
+   "mint_cap": null,
+   "support_denied": null,
+   "policy_unemployment": null,
+   "city_spend_cut": null,
+   "loan_rate_avg": null,
+   "survival_52": null,
+   "wage_index": null,
+   "rent_pct": null,
+   "occupancy": null,
+   "house_index": null,
+   "deposit_rate": null,
+   "bond_rate": null,
+   "lonca_fee_avg": null,
+   "royalty_avg": null,
+   "tenants_per_house": null,
+   "house_resale_ratio": null,
+   "policy_inflation": null,
+   "minted_total": null,
+   "npc_pool": 151,
+   "npc_employed": 999,
+   "npc_broke": 15,
+   "npc_pool_cash_avg": 12.6,
+   "players_seeking": 51,
+   "players_in_ahir": 20,
+   "players_students": 6,
+   "unemployment_rate_all": 0.15,
+   "benefit_paid": 1001.0,
+   "benefit_paid_npc": null,
+   "muni_wages": 501.0,
+   "bursary_paid": 90.0,
+   "benefit_cut": 0.0,
+   "players_total": 1502,
+   "players_new": 2,
+   "players_new_total": 2,
+   "ahir_capacity": 1500,
+   "ahir_fill": 0.901,
+   "npc_firm_npc": 899,
+   "npc_firm_players": 41,
+   "hired_player": 3,
+   "hired_npc": 6,
+   "fired_player": 1,
+   "fired_npc": 4,
+   "ahir_moves": 3,
+   "ahir_backfilled": 1,
+   "inflow_blocked": 0,
+   "staff_fill": 0.801,
+   "kinds_full": 3,
+   "house_stock": 1956.0,
+   "opening_staff": 2663,
+   "npc_dependents": 0,
+   "npc_lfp": 1.0,
+   "npc_discouraged": 0,
+   "muni_npc": 0,
+   "hires": 8,
+   "separations": 4,
+   "quits_npc": 0,
+   "job_finding_rate": 0.041,
+   "unemployment_duration": 24.390243902439025,
+   "money_households": 59900.0,
+   "money_npc_firms": 30050.0,
+   "money_player_firms": 8000.0,
+   "money_city": 250500.0,
+   "money_lonca": 90000.0,
+   "money_other": 9000.0,
+   "city_in_tax": 30001.0,
+   "city_in_profit": 20000.0,
+   "city_in_rent": 17000.0,
+   "city_in_mint": 0.0,
+   "city_in_other": 4000.0,
+   "city_out_households": 33000.0,
+   "city_out_wages": 2000.0,
+   "city_out_services": 5000.0,
+   "city_out_firms": 11000.0,
+   "city_out_other": 100.0,
+   "ghost_firms": 41,
+   "ghost_closed": 0,
+   "wealth_top10": 0.601,
+   "wealth_top1": 0.201,
+   "wealth_median": 121.0,
+   "income_gini": 0.401,
+   "income_top10": 0.3,
+   "liquid_b50": 0.1,
+   "liquid_m40": 0.4,
+   "liquid_t10": 0.5,
+   "founders_applied": null,
+   "founders_rejected": null,
+   "failed_player_cum": null,
+   "failed_dao_cum": null,
+   "failed_npc_default_cum": null,
+   "failed_total_cum": null,
+   "vacancies": null,
+   "staffless_npc": null,
+   "wage_fail": null,
+   "unemp_long_share": null,
+   "hires_stable4": null
+  },
+  "events": [],
+  "diagnostics": [],
+  "cities": [
+   {
+    "index": 0,
+    "served": 0.8418034728312342,
+    "employed": 102,
+    "unemployed": 10,
+    "cash": 1002.0,
+    "cash_weeks": 2.02,
+    "firms_npc": 20,
+    "firms_player": 0,
+    "firms_total": 20,
+    "rent_pct": 0.08854508682078086,
+    "occupancy": 0.8854508682078086,
+    "tenants_per_house": 1.0854508682078086,
+    "migration_in": 0,
+    "migration_out": 1,
+    "npc_pool": 30,
+    "npc_broke": 0,
+    "players_seeking": 10,
+    "population": 502,
+    "players_in_ahir": 4
+   },
+   {
+    "index": 1,
+    "served": 0.5247795796441287,
+    "employed": 112,
+    "unemployed": 11,
+    "cash": 2002.0,
+    "cash_weeks": 2.52,
+    "firms_npc": 21,
+    "firms_player": 1,
+    "firms_total": 22,
+    "rent_pct": 0.08061948949110322,
+    "occupancy": 0.8061948949110322,
+    "tenants_per_house": 1.0061948949110322,
+    "migration_in": 1,
+    "migration_out": 0,
+    "npc_pool": 31,
+    "npc_broke": 1,
+    "players_seeking": 11,
+    "population": 512,
+    "players_in_ahir": 5
+   }
+  ],
+  "chain": {
+   "board": true,
+   "sectors": [
+    {
+     "sector": "ahir",
+     "product": "sut",
+     "firms": 5,
+     "healthy": 3,
+     "shortage": 0.07697337249918587,
+     "persist": 0.15394674499837174,
+     "cover_days": 2.0,
+     "price_trend": 0.007697337249918587,
+     "price": 1.076973372499186
+    },
+    {
+     "sector": "un",
+     "product": "un",
+     "firms": 6,
+     "healthy": 4,
+     "shortage": 0.019253380057687206,
+     "persist": 0.03850676011537441,
+     "cover_days": 3.0,
+     "price_trend": 0.0019253380057687205,
+     "price": 1.0192533800576873
+    }
+   ],
+   "nodes": [
+    {
+     "sector": "ahir",
+     "city": 0,
+     "shortage": 0.07697337249918587,
+     "price": 1.076973372499186,
+     "firms": 1,
+     "healthy": 1,
+     "demand": 100.0,
+     "output": 90.0,
+     "stock": 10.0
+    },
+    {
+     "sector": "ahir",
+     "city": 1,
+     "shortage": 0.07697337249918587,
+     "price": 1.086973372499186,
+     "firms": 1,
+     "healthy": 1,
+     "demand": 101.0,
+     "output": 91.0,
+     "stock": 10.0
+    }
+   ],
+   "scarce": [
+    {
+     "sector": "ahir",
+     "product": "sut",
+     "persist": 0.15394674499837174,
+     "shortage": 0.07697337249918587,
+     "firms": 5,
+     "healthy": 3
+    }
+   ],
+   "edges_rev": 0,
+   "edges": [
+    [
+     "un",
+     "firin",
+     "un"
+    ]
+   ]
+  },
+  "holdings": {
+   "money": {
+    "deposits_players": 901,
+    "deposits_insurance": 80,
+    "found_fund": 5000,
+    "insurance_reserve": 400,
+    "lonca_cash_net": -149,
+    "credit_out": 2000,
+    "fund_credit_out": 300,
+    "bonds_out": 40,
+    "lonca_equity": 1200
+   },
+   "groups": {
+    "player": {
+     "lonca_owner": {
+      "n": 10,
+      "cash": 1001,
+      "deposits": 0
+     },
+     "firm_owner": {
+      "n": 11,
+      "cash": 2001,
+      "deposits": 100
+     },
+     "employed_player_firm": {
+      "n": 12,
+      "cash": 3001,
+      "deposits": 200
+     },
+     "employed_npc_firm": {
+      "n": 13,
+      "cash": 4001,
+      "deposits": 300
+     },
+     "municipal": {
+      "n": 14,
+      "cash": 5001,
+      "deposits": 400
+     },
+     "ahir": {
+      "n": 15,
+      "cash": 6001,
+      "deposits": 500
+     },
+     "seeking": {
+      "n": 16,
+      "cash": 7001,
+      "deposits": 600
+     },
+     "student": {
+      "n": 17,
+      "cash": 8001,
+      "deposits": 700
+     },
+     "other": {
+      "n": 18,
+      "cash": 9001,
+      "deposits": 800
+     }
+    },
+    "npc": {
+     "employed_npc_firm": [
+      50,
+      501
+     ],
+     "employed_player_firm": [
+      51,
+      1001
+     ],
+     "municipal": [
+      52,
+      1501
+     ],
+     "pool": [
+      53,
+      2001
+     ],
+     "dependent": [
+      54,
+      2501
+     ],
+     "out": [
+      55,
+      3001
+     ],
+     "other": [
+      56,
+      3501
+     ]
+    }
+   },
+   "deposits": {
+    "by_group": {
+     "lonca_owner": 0,
+     "firm_owner": 100,
+     "employed_player_firm": 200,
+     "employed_npc_firm": 300,
+     "municipal": 400,
+     "ahir": 500,
+     "seeking": 600,
+     "student": 700,
+     "other": 800,
+     "insurance": 80
+    }
+   },
+   "loncas": [
+    {
+     "ref": "lonca0",
+     "owner": "none",
+     "members": 10,
+     "fee": 0.05,
+     "capital": 6002,
+     "deposits": 900,
+     "credit_out": 2,
+     "equity": 5002
+    },
+    {
+     "ref": "lonca1",
+     "owner": "player",
+     "members": 11,
+     "fee": 0.05,
+     "capital": 6102,
+     "deposits": 910,
+     "credit_out": 102,
+     "equity": 4952
+    },
+    {
+     "ref": "lonca2",
+     "owner": "none",
+     "members": 12,
+     "fee": 0.05,
+     "capital": 6202,
+     "deposits": 920,
+     "credit_out": 202,
+     "equity": 4902
+    },
+    {
+     "ref": "lonca3",
+     "owner": "none",
+     "members": 13,
+     "fee": 0.05,
+     "capital": 6302,
+     "deposits": 930,
+     "credit_out": 302,
+     "equity": 4852
+    },
+    {
+     "ref": "lonca4",
+     "owner": "none",
+     "members": 14,
+     "fee": 0.05,
+     "capital": 6402,
+     "deposits": 940,
+     "credit_out": 402,
+     "equity": 4802
+    },
+    {
+     "ref": "lonca5",
+     "owner": "closed",
+     "members": 15,
+     "fee": 0.05,
+     "capital": 6502,
+     "deposits": 950,
+     "credit_out": 502,
+     "equity": 4752
+    }
+   ],
+   "firms": {
+    "player_count": 14,
+    "owners": 9,
+    "multi_owners": 2,
+    "cash_top10_share": 0.32
+   },
+   "wealth": {
+    "b50": 0.05,
+    "m40": 0.25,
+    "t10": 0.7,
+    "t1": 0.201,
+    "median": 151,
+    "gini": 0.62,
+    "n": 1500
+   },
+   "flows": [
+    [
+     "players",
+     "npc_firms",
+     88000
+    ],
+    [
+     "public_firms",
+     "players",
+     51000
+    ],
+    [
+     "npc_firms",
+     "players",
+     49000
+    ],
+    [
+     "city",
+     "public_firms",
+     49000
+    ],
+    [
+     "mint",
+     "city",
+     1200
+    ],
+    [
+     "rest",
+     "rest",
+     400
+    ]
+   ]
+  },
+  "kurumlar": [
+   {
+    "sehir": 0,
+    "ithalat_hacim": 2001.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1501.0
+   },
+   {
+    "sehir": 1,
+    "ithalat_hacim": 2011.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1506.0
+   },
+   {
+    "sehir": 2,
+    "ithalat_hacim": 2021.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1511.0
+   },
+   {
+    "sehir": 3,
+    "ithalat_hacim": 2031.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1516.0
+   },
+   {
+    "sehir": 4,
+    "ithalat_hacim": 2041.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1521.0
+   }
+  ],
+  "ekonomi": {
+   "v": 1,
+   "tuketim": {
+    "hane": {
+     "ise": {
+      "n": 4600,
+      "karsilanma": 0.82,
+      "sepet": 290.5
+     },
+     "issiz": {
+      "n": 310,
+      "karsilanma": 0.55,
+      "sepet": 147.0
+     },
+     "npc": {
+      "ise": {
+       "n": 15200,
+       "karsilanma": 0.74,
+       "sepet": 217.0
+      },
+      "issiz": {
+       "n": 2010,
+       "karsilanma": 0.45,
+       "sepet": 87.5
+      },
+      "dis": {
+       "n": 510,
+       "karsilanma": 0.6,
+       "sepet": 175.0
+      }
+     },
+     "npc_issiz_parasiz": 120.5,
+     "sehir": [
+      {
+       "sehir": 0,
+       "ise": {
+        "n": 900,
+        "karsilanma": 0.8021,
+        "sepet": 280.77
+       },
+       "issiz": {
+        "n": 60,
+        "karsilanma": 0.5043,
+        "sepet": 140.63
+       },
+       "npc": {
+        "ise": {
+         "n": 3000,
+         "karsilanma": 0.7021,
+         "sepet": 210.42
+        },
+        "issiz": {
+         "n": 400,
+         "karsilanma": 0.4043,
+         "sepet": 84.14
+        },
+        "dis": {
+         "n": 100,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 10.6,
+       "harcama": {
+        "oyuncu": 20003,
+        "npc": 80003
+       }
+      },
+      {
+       "sehir": 1,
+       "ise": {
+        "n": 910,
+        "karsilanma": 0.8773,
+        "sepet": 307.09
+       },
+       "issiz": {
+        "n": 61,
+        "karsilanma": 0.6547,
+        "sepet": 161.63
+       },
+       "npc": {
+        "ise": {
+         "n": 3050,
+         "karsilanma": 0.7773,
+         "sepet": 226.24
+        },
+        "issiz": {
+         "n": 401,
+         "karsilanma": 0.5547,
+         "sepet": 89.39
+        },
+        "dis": {
+         "n": 101,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 33.2,
+       "harcama": {
+        "oyuncu": 20103,
+        "npc": 80503
+       }
+      },
+      {
+       "sehir": 2,
+       "ise": {
+        "n": 920,
+        "karsilanma": 0.8016,
+        "sepet": 280.56
+       },
+       "issiz": {
+        "n": 62,
+        "karsilanma": 0.5031,
+        "sepet": 140.42
+       },
+       "npc": {
+        "ise": {
+         "n": 3100,
+         "karsilanma": 0.7016,
+         "sepet": 210.35
+        },
+        "issiz": {
+         "n": 402,
+         "karsilanma": 0.4031,
+         "sepet": 84.14
+        },
+        "dis": {
+         "n": 102,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 10.5,
+       "harcama": {
+        "oyuncu": 20203,
+        "npc": 81003
+       }
+      },
+      {
+       "sehir": 3,
+       "ise": {
+        "n": 930,
+        "karsilanma": 0.8361,
+        "sepet": 292.67
+       },
+       "issiz": {
+        "n": 63,
+        "karsilanma": 0.5723,
+        "sepet": 150.15
+       },
+       "npc": {
+        "ise": {
+         "n": 3150,
+         "karsilanma": 0.7361,
+         "sepet": 217.56
+        },
+        "issiz": {
+         "n": 403,
+         "karsilanma": 0.4723,
+         "sepet": 86.52
+        },
+        "dis": {
+         "n": 103,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 20.8,
+       "harcama": {
+        "oyuncu": 20303,
+        "npc": 81503
+       }
+      },
+      {
+       "sehir": 4,
+       "ise": {
+        "n": 940,
+        "karsilanma": 0.8096,
+        "sepet": 283.36
+       },
+       "issiz": {
+        "n": 64,
+        "karsilanma": 0.5191,
+        "sepet": 142.66
+       },
+       "npc": {
+        "ise": {
+         "n": 3200,
+         "karsilanma": 0.7096,
+         "sepet": 212.03
+        },
+        "issiz": {
+         "n": 404,
+         "karsilanma": 0.4191,
+         "sepet": 84.7
+        },
+        "dis": {
+         "n": 104,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 12.9,
+       "harcama": {
+        "oyuncu": 20403,
+        "npc": 82003
+       }
+      }
+     ]
+    },
+    "harcama": {
+     "npc": 402503,
+     "oyuncu": 100503,
+     "toplam": 503006
+    },
+    "urunler": [
+     {
+      "urun": "sut",
+      "istek": 5000.0,
+      "karsilanmayan": 800.0,
+      "uretim": 4000.0,
+      "stok": 120.0
+     },
+     {
+      "urun": "un",
+      "istek": 4900.0,
+      "karsilanmayan": 750.0,
+      "uretim": 4000.0,
+      "stok": 121.0
+     },
+     {
+      "urun": "ekmek",
+      "istek": 4800.0,
+      "karsilanmayan": 700.0,
+      "uretim": 4000.0,
+      "stok": 122.0
+     }
+    ],
+    "ucret": {
+     "dunya": [
+      1.2,
+      1.1,
+      75.6,
+      1.5
+     ],
+     "sehir": [
+      [
+       1.2,
+       1.1,
+       75.6,
+       1.5
+      ],
+      [
+       1.21,
+       1.11,
+       76.6,
+       1.55
+      ],
+      [
+       1.22,
+       1.12,
+       77.6,
+       1.6
+      ],
+      [
+       1.23,
+       1.13,
+       78.6,
+       1.65
+      ],
+      [
+       1.24,
+       1.14,
+       79.6,
+       1.7
+      ]
+     ]
+    }
+   },
+   "isletme": {
+    "istihdam": {
+     "oyuncu": 610,
+     "npc": 1150,
+     "ozel": 1500,
+     "kamu": 260
+    },
+    "hareket": {
+     "kurulan": 2,
+     "buyuyen": 9,
+     "kuculen": 4,
+     "batan": 1
+    },
+    "sektor": [
+     {
+      "tur": "ahir",
+      "calisan": 700,
+      "firma": 30
+     },
+     {
+      "tur": "un",
+      "calisan": 600,
+      "firma": 25
+     },
+     {
+      "tur": "firin",
+      "calisan": 500,
+      "firma": 20
+     }
+    ],
+    "sektor_diger": {
+     "calisan": 0,
+     "firma": 0
+    },
+    "sehir": [
+     {
+      "sehir": 0,
+      "ozel_calisan": 300,
+      "kamu_calisan": 40,
+      "calisan_oyuncu": 120,
+      "calisan_npc": 220,
+      "isgucu_disi": 15,
+      "boy": [
+       20,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 0,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 1,
+      "ozel_calisan": 310,
+      "kamu_calisan": 41,
+      "calisan_oyuncu": 121,
+      "calisan_npc": 229,
+      "isgucu_disi": 16,
+      "boy": [
+       21,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 1,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 2,
+      "ozel_calisan": 320,
+      "kamu_calisan": 42,
+      "calisan_oyuncu": 122,
+      "calisan_npc": 238,
+      "isgucu_disi": 17,
+      "boy": [
+       22,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 0,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 3,
+      "ozel_calisan": 330,
+      "kamu_calisan": 43,
+      "calisan_oyuncu": 123,
+      "calisan_npc": 247,
+      "isgucu_disi": 18,
+      "boy": [
+       23,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 1,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 4,
+      "ozel_calisan": 340,
+      "kamu_calisan": 44,
+      "calisan_oyuncu": 124,
+      "calisan_npc": 256,
+      "isgucu_disi": 19,
+      "boy": [
+       24,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 0,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     }
+    ]
+   },
+   "para": {
+    "oyuncu_n": 1500,
+    "oyuncu_ust10": 900000,
+    "oyuncu_alt90": 300000,
+    "npc_hane_nakit": 250000,
+    "npc_hane_mevduat": 400000
+   }
+  },
+  "makro": {
+   "v": 1,
+   "fiyat": {
+    "tuk": 1.042,
+    "enf": 0.0515,
+    "uretici": 1.028,
+    "ucret": 1.056,
+    "gercek_ucret": 1.013
+   },
+   "uretim": {
+    "nominal": 319894,
+    "gercek": 307000,
+    "buyume": 0.0258,
+    "verimlilik": 81.4
+   },
+   "para": {
+    "stok": 450000,
+    "korunum": 0,
+    "mali": 440000,
+    "kredi_net": 0,
+    "acilis": 10000,
+    "hiz": 0.386
+   },
+   "faiz": {
+    "politika": 0.164,
+    "mevduat": 0.08,
+    "kredi": 0.2,
+    "gercek": 0.0985
+   },
+   "marj": {
+    "npc": 0.0558,
+    "oyuncu": 0.0258
+   },
+   "konut": {
+    "kira": 1.056,
+    "kira_gelir": 0.107
+   },
+   "dagilim": {
+    "gini_nakit": 0.428,
+    "gini_gelir": 0.14,
+    "gini_servet": 0.514,
+    "yoksul": 0.572,
+    "medyan_sepet": 0.8
+   },
+   "kredi": {
+    "stok": 44200,
+    "buyume": 0.0289,
+    "temerrut": 0.0058
+   }
+  },
+  "harita": {
+   "hafta": 1,
+   "alanlar": [
+    "id",
+    "tur",
+    "sehir",
+    "calisan",
+    "lonca",
+    "sahip",
+    "dogum",
+    "durum"
+   ],
+   "turler": [
+    "un"
+   ],
+   "loncalar": [
+    "lonca0",
+    "lonca2"
+   ],
+   "sahipler": [
+    "npc",
+    "oyuncu",
+    "dao"
+   ],
+   "firmalar": [
+    [
+     "fk0",
+     0,
+     0,
+     8,
+     0,
+     0,
+     null,
+     "uretim"
+    ],
+    [
+     "fk1",
+     0,
+     1,
+     8,
+     -1,
+     1,
+     null,
+     "uretim"
+    ],
+    [
+     7,
+     0,
+     2,
+     5,
+     1,
+     2,
+     null,
+     "uretim"
+    ]
+   ]
+  }
+ },
+ "change_rejected": {
+  "accepted": false,
+  "fields": [
+   {
+    "id": "*",
+    "reason": "invalid"
+   }
+  ]
+ },
+ "change_rejected_multi": {
+  "accepted": false,
+  "fields": [
+   {
+    "id": "dunya_tohumu",
+    "reason": "start_only"
+   },
+   {
+    "id": "dunya_sabit_kalemleri",
+    "reason": "locked"
+   }
+  ]
+ },
+ "job_request_preview_mid_run": {
+  "kind": "preview",
+  "weeks": 52,
+  "fromWeek": 40,
+  "base": {
+   "name": "Deneme",
+   "cityNames": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+   ],
+   "templateId": "dayanikli_taban",
+   "durationWeeks": 200,
+   "seedIndex": 0,
+   "values": {},
+   "schedule": [
+    {
+     "week": 10,
+     "patch": {
+      "gecis_destegi": "kisa_sureli"
+     }
+    }
+   ]
+  },
+  "draft": {
+   "name": "Deneme",
+   "cityNames": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+   ],
+   "templateId": "dayanikli_taban",
+   "durationWeeks": 200,
+   "seedIndex": 0,
+   "values": {},
+   "schedule": [
+    {
+     "week": 10,
+     "patch": {
+      "gecis_destegi": "kisa_sureli"
+     }
+    },
+    {
+     "week": 41,
+     "patch": {
+      "gecis_destegi": "kurtarma_fonuyla"
+     }
+    }
+   ]
+  }
+ },
+ "change_locked": {
+  "accepted": false,
+  "fields": [
+   {
+    "id": "dunya_sabit_kalemleri",
+    "reason": "locked"
+   }
+  ]
+ },
+ "change_ended": {
+  "accepted": false,
+  "fields": [
+   {
+    "id": "*",
+    "reason": "ended"
+   }
+  ]
+ },
+ "error_404": {
+  "error": {
+   "code": "not_found",
+   "message": "Bu koşu bulunamadı.",
+   "fields": []
+  }
+ },
+ "error_422": {
+  "error": {
+   "code": "invalid_config",
+   "message": "Koşu ayarları geçersiz.",
+   "fields": [
+    {
+     "id": "durationWeeks",
+     "reason": "invalid"
+    }
+   ]
+  }
+ },
+ "ended": {
+  "reason": "duration",
+  "week": 200
+ },
+ "state_ready": {
+  "runId": "canli-00000001",
+  "versions": [
+   {
+    "version": 1,
+    "fromWeek": 0,
+    "values": {
+     "gecis_destegi": "kapali"
+    }
+   }
+  ],
+  "status": "paused",
+  "week": 0,
+  "durationWeeks": 200,
+  "speed": 1,
+  "computing": false,
+  "version": 1,
+  "seedIndex": 0,
+  "values": {
+   "gecis_destegi": "kapali"
+  },
+  "scenarioId": "dayanikli_taban",
+  "name": "Deneme",
+  "cityNames": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ],
+  "buffering": true
+ },
+ "state_ended": {
+  "runId": "canli-00000001",
+  "versions": [
+   {
+    "version": 1,
+    "fromWeek": 0,
+    "values": {
+     "gecis_destegi": "kapali"
+    }
+   }
+  ],
+  "status": "ended",
+  "week": 200,
+  "durationWeeks": 200,
+  "speed": 16,
+  "computing": false,
+  "version": 1,
+  "seedIndex": 0,
+  "values": {
+   "gecis_destegi": "kapali"
+  },
+  "scenarioId": "dayanikli_taban",
+  "name": "Deneme",
+  "cityNames": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ],
+  "buffering": false,
+  "modelWeeksPerSec": 45.387,
+  "endedReason": "duration"
+ },
+ "state_failed": {
+  "runId": "canli-00000001",
+  "versions": [
+   {
+    "version": 1,
+    "fromWeek": 0,
+    "values": {
+     "gecis_destegi": "kapali"
+    }
+   }
+  ],
+  "status": "failed",
+  "week": 7,
+  "durationWeeks": 200,
+  "speed": 16,
+  "computing": false,
+  "version": 1,
+  "seedIndex": 0,
+  "values": {
+   "gecis_destegi": "kapali"
+  },
+  "scenarioId": "dayanikli_taban",
+  "name": "Deneme",
+  "cityNames": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ],
+  "buffering": false,
+  "modelWeeksPerSec": 45.387,
+  "error": {
+   "messageKey": "hata.model_coktu",
+   "week": 8
+  }
+ },
+ "version_event": {
+  "id": "version:2:5:gecis_destegi",
+  "week": 5,
+  "kind": "neutral",
+  "textKey": "event.version",
+  "params": {
+   "hafta": 5,
+   "mod": "live",
+   "surum": 2
+  },
+  "critical": false,
+  "sector": null,
+  "rule_ids": [
+   "gecis_destegi"
+  ],
+  "changes": [
+   {
+    "id": "gecis_destegi",
+    "from": "kapali",
+    "to": "kisa_sureli"
+   }
+  ]
+ },
+ "change_accepted": {
+  "accepted": true,
+  "runId": "canli-00000001",
+  "mode": "live",
+  "scenarioId": "dayanikli_taban",
+  "seamWeek": 5,
+  "version": 2
+ },
+ "__readme": "Python (tests/test_wire_contract.py) gerçek yanıtların BİÇİMİNİ, web (tests/oyun/sim/live/wireContract.test.ts) aynı örnekleri wire.ts ayrıştırıcılarıyla sınar. Biçim değişirse iki taraf birlikte güncellenir.",
+ "enums": {
+  "capabilityKeys": [
+   "branch",
+   "seeds",
+   "compare",
+   "library",
+   "city",
+   "chain",
+   "jobs",
+   "rebuild",
+   "harita"
+  ],
+  "changeReasons": [
+   "no_recording",
+   "locked",
+   "busy",
+   "ended",
+   "invalid",
+   "start_only",
+   "passive"
+  ],
+  "availabilityReasons": [
+   "no_recording",
+   "locked",
+   "start_only",
+   "unverified"
+  ],
+  "settingLockReasons": [
+   "no_cash_floor"
+  ],
+  "settingReasons": [
+   "locked",
+   "no_recording",
+   "start_only",
+   "passive",
+   "unverified"
+  ],
+  "applyClasses": [
+   "live",
+   "live_sync",
+   "start_only",
+   "passive",
+   "unknown"
+  ],
+  "durations": [
+   100,
+   200,
+   500,
+   520
+  ],
+  "speeds": [
+   1,
+   4,
+   16
+  ],
+  "diagnosticTextKeys": [
+   "neolmuyor.basim_siniri",
+   "neolmuyor.destek_yok",
+   "neolmuyor.faiz_dusmuyor",
+   "neolmuyor.kurulus_kredisi_yok"
+  ],
+  "drawerKinds": [
+   "city",
+   "sector",
+   "firm",
+   "lonca",
+   "urun"
+  ],
+  "drawerRefPattern": "^[a-z0-9_-]{1,40}$",
+  "controlActions": [
+   "play",
+   "pause",
+   "step",
+   "olay"
+  ]
+ },
+ "change_start_only": {
+  "accepted": false,
+  "fields": [
+   {
+    "id": "dunya_tohumu",
+    "reason": "start_only"
+   }
+  ]
+ },
+ "state_preparing": {
+  "runId": "canli-00000002",
+  "state": {
+   "runId": "canli-00000002",
+   "versions": [
+    {
+     "version": 1,
+     "fromWeek": 0,
+     "values": {
+      "gecis_destegi": "kapali"
+     }
+    }
+   ],
+   "status": "paused",
+   "week": 0,
+   "durationWeeks": 200,
+   "speed": 1,
+   "computing": false,
+   "version": 1,
+   "seedIndex": 0,
+   "values": {
+    "gecis_destegi": "kapali"
+   },
+   "scenarioId": "dayanikli_taban",
+   "name": "Deneme",
+   "cityNames": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+   ],
+   "buffering": true,
+   "preparing": {
+    "done": 0,
+    "total": 12
+   },
+   "parentRunId": "canli-00000001",
+   "forkWeek": 12
+  }
+ },
+ "runs_list": [
+  {
+   "runId": "canli-00000001",
+   "state": {
+    "runId": "canli-00000001",
+    "versions": [
+     {
+      "version": 1,
+      "fromWeek": 0,
+      "values": {
+       "gecis_destegi": "kapali"
+      }
+     }
+    ],
+    "status": "ready",
+    "week": 0,
+    "durationWeeks": 200,
+    "speed": 1,
+    "computing": false,
+    "version": 1,
+    "seedIndex": 0,
+    "values": {
+     "gecis_destegi": "kapali"
+    },
+    "scenarioId": "dayanikli_taban",
+    "name": "Deneme",
+    "cityNames": [
+     "A",
+     "B",
+     "C",
+     "D",
+     "E"
+    ],
+    "buffering": true
+   }
+  }
+ ],
+ "error_busy_preparing": {
+  "error": {
+   "code": "busy_preparing",
+   "message": "Başka bir koşu hazırlanıyor; bitmesini bekleyin.",
+   "fields": []
+  }
+ },
+ "error_too_many_runs": {
+  "error": {
+   "code": "too_many_runs",
+   "message": "Açık koşu sınırına ulaşıldı; bir koşuyu kapatın.",
+   "fields": []
+  }
+ },
+ "error_422_branch": {
+  "error": {
+   "code": "invalid_branch",
+   "message": "Dallanma isteği geçersiz.",
+   "fields": [
+    {
+     "id": "dunya_tohumu",
+     "reason": "start_only"
+    }
+   ]
+  }
+ },
+ "job_running": {
+  "jobId": "job-0a1b2c3d",
+  "kind": "preview",
+  "status": "running",
+  "progress": {
+   "done": 6,
+   "total": 104
+  },
+  "members": [
+   {
+    "label": "base",
+    "status": "running",
+    "seedIndex": 0,
+    "weeks": 3,
+    "series": {
+     "served": [
+      0.6,
+      0.61,
+      0.62
+     ],
+     "failed_cum": [
+      0.0,
+      1.0,
+      2.0
+     ],
+     "city_cash_total": [
+      1000.5,
+      1001.5,
+      1002.5
+     ],
+     "gini": [
+      0.41,
+      0.411,
+      0.412
+     ],
+     "unemployment_rate": [
+      0.05,
+      0.051000000000000004,
+      0.052000000000000005
+     ],
+     "failed_total_cum": [
+      null,
+      null,
+      null
+     ],
+     "unemployment_rate_all": [
+      0.5,
+      0.5,
+      0.5
+     ]
+    }
+   },
+   {
+    "label": "draft",
+    "status": "running",
+    "seedIndex": 0,
+    "weeks": 3,
+    "series": {
+     "served": [
+      0.6,
+      0.61,
+      0.62
+     ],
+     "failed_cum": [
+      0.0,
+      1.0,
+      2.0
+     ],
+     "city_cash_total": [
+      1000.5,
+      1001.5,
+      1002.5
+     ],
+     "gini": [
+      0.41,
+      0.411,
+      0.412
+     ],
+     "unemployment_rate": [
+      0.05,
+      0.051000000000000004,
+      0.052000000000000005
+     ],
+     "failed_total_cum": [
+      null,
+      null,
+      null
+     ],
+     "unemployment_rate_all": [
+      0.5,
+      0.5,
+      0.5
+     ]
+    }
+   }
+  ]
+ },
+ "job_done": {
+  "jobId": "job-0a1b2c3d",
+  "kind": "preview",
+  "status": "done",
+  "progress": {
+   "done": 8,
+   "total": 8
+  },
+  "members": [
+   {
+    "label": "base",
+    "status": "done",
+    "seedIndex": 0,
+    "weeks": 4,
+    "series": {
+     "served": [
+      0.6,
+      0.61,
+      0.62,
+      0.63
+     ],
+     "failed_cum": [
+      0.0,
+      1.0,
+      2.0,
+      3.0
+     ],
+     "city_cash_total": [
+      1000.5,
+      1001.5,
+      1002.5,
+      1003.5
+     ],
+     "gini": [
+      0.41,
+      0.411,
+      0.412,
+      0.413
+     ],
+     "unemployment_rate": [
+      0.05,
+      0.051000000000000004,
+      0.052000000000000005,
+      0.053000000000000005
+     ],
+     "failed_total_cum": [
+      null,
+      null,
+      null,
+      null
+     ],
+     "unemployment_rate_all": [
+      0.5,
+      0.5,
+      0.5,
+      0.5
+     ]
+    }
+   },
+   {
+    "label": "draft",
+    "status": "done",
+    "seedIndex": 0,
+    "weeks": 4,
+    "series": {
+     "served": [
+      0.6,
+      0.61,
+      0.62,
+      0.63
+     ],
+     "failed_cum": [
+      0.0,
+      1.0,
+      2.0,
+      3.0
+     ],
+     "city_cash_total": [
+      1000.5,
+      1001.5,
+      1002.5,
+      1003.5
+     ],
+     "gini": [
+      0.41,
+      0.411,
+      0.412,
+      0.413
+     ],
+     "unemployment_rate": [
+      0.05,
+      0.051000000000000004,
+      0.052000000000000005,
+      0.053000000000000005
+     ],
+     "failed_total_cum": [
+      null,
+      null,
+      null,
+      null
+     ],
+     "unemployment_rate_all": [
+      0.5,
+      0.5,
+      0.5,
+      0.5
+     ]
+    }
+   }
+  ]
+ },
+ "job_done_failed_member": {
+  "jobId": "job-0a1b2c3d",
+  "kind": "ab",
+  "status": "done",
+  "progress": {
+   "done": 6,
+   "total": 8
+  },
+  "members": [
+   {
+    "label": "a",
+    "status": "done",
+    "seedIndex": 0,
+    "weeks": 4,
+    "series": {
+     "served": [
+      0.6,
+      0.61,
+      0.62,
+      0.63
+     ],
+     "failed_cum": [
+      0.0,
+      1.0,
+      2.0,
+      3.0
+     ],
+     "city_cash_total": [
+      1000.5,
+      1001.5,
+      1002.5,
+      1003.5
+     ],
+     "gini": [
+      0.41,
+      0.411,
+      0.412,
+      0.413
+     ],
+     "unemployment_rate": [
+      0.05,
+      0.051000000000000004,
+      0.052000000000000005,
+      0.053000000000000005
+     ],
+     "failed_total_cum": [
+      null,
+      null,
+      null,
+      null
+     ],
+     "unemployment_rate_all": [
+      0.5,
+      0.5,
+      0.5,
+      0.5
+     ]
+    }
+   },
+   {
+    "label": "b",
+    "status": "failed",
+    "seedIndex": 0,
+    "weeks": 2,
+    "series": {
+     "served": [
+      0.6,
+      0.61
+     ],
+     "failed_cum": [
+      0.0,
+      1.0
+     ],
+     "city_cash_total": [
+      1000.5,
+      1001.5
+     ],
+     "gini": [
+      0.41,
+      0.411
+     ],
+     "unemployment_rate": [
+      0.05,
+      0.051000000000000004
+     ],
+     "failed_total_cum": [
+      null,
+      null
+     ],
+     "unemployment_rate_all": [
+      0.5,
+      0.5
+     ]
+    },
+    "error": "model_error"
+   }
+  ]
+ },
+ "error_job_running": {
+  "error": {
+   "code": "job_running",
+   "message": "Başka bir iş sürüyor; bitmesini ya da iptalini bekleyin.",
+   "fields": []
+  }
+ },
+ "error_404_job": {
+  "error": {
+   "code": "not_found",
+   "message": "Bu iş bulunamadı.",
+   "fields": []
+  }
+ },
+ "error_422_job": {
+  "error": {
+   "code": "invalid_job",
+   "message": "İş isteği geçersiz.",
+   "fields": [
+    {
+     "id": "a.seedIndex",
+     "reason": "invalid"
+    }
+   ]
+  }
+ },
+ "drawer_fresh": {
+  "kind": "city",
+  "ref": "1",
+  "week": 2,
+  "stale": false,
+  "title": "Şehir 2",
+  "fields": {
+   "index": 1,
+   "served": 0.5247795796441287,
+   "employed": 112,
+   "unemployed": 11,
+   "cash": 2002.0,
+   "cash_weeks": 2.52,
+   "firms_npc": 21,
+   "firms_player": 1,
+   "firms_total": 22,
+   "rent_pct": 0.08061948949110322,
+   "occupancy": 0.8061948949110322,
+   "tenants_per_house": 1.0061948949110322,
+   "migration_in": 1,
+   "migration_out": 0,
+   "players": 300,
+   "npc_pool": 31,
+   "npc_broke": 1,
+   "players_seeking": 11,
+   "population": 512,
+   "players_in_ahir": 5
+  }
+ },
+ "drawer_stale": {
+  "kind": "city",
+  "ref": "1",
+  "week": 2,
+  "stale": true,
+  "title": "Şehir 2",
+  "fields": {
+   "index": 1,
+   "served": 0.5247795796441287,
+   "employed": 112,
+   "unemployed": 11,
+   "cash": 2002.0,
+   "cash_weeks": 2.52,
+   "firms_npc": 21,
+   "firms_player": 1,
+   "firms_total": 22,
+   "rent_pct": 0.08061948949110322,
+   "occupancy": 0.8061948949110322,
+   "tenants_per_house": 1.0061948949110322,
+   "migration_in": 1,
+   "migration_out": 0,
+   "npc_pool": 31,
+   "npc_broke": 1,
+   "players_seeking": 11,
+   "population": 512,
+   "players_in_ahir": 5
+  }
+ },
+ "error_400_drawer": {
+  "error": {
+   "code": "invalid_drawer",
+   "message": "Çekmece isteği geçersiz.",
+   "fields": [
+    {
+     "id": "ref",
+     "reason": "invalid"
+    }
+   ]
+  }
+ },
+ "error_404_drawer": {
+  "error": {
+   "code": "not_found",
+   "message": "Bu kayıt bulunamadı.",
+   "fields": []
+  }
+ },
+ "dao_gozlem": {
+  "hafta": 1,
+  "ben": {
+   "sehir": 0,
+   "nakit": 101.0,
+   "mevduat": {
+    "lonca": "lonca1",
+    "tutar": 25.5
+   },
+   "is": {
+    "firma": "fk0",
+    "sektor": "un",
+    "ucret": 10.0
+   },
+   "durum": "calisan",
+   "calisilan_hafta": 0,
+   "tecrube_hafta": 0.0,
+   "terfi_esik": {
+    "kalfa": {
+     "hafta": 40.0,
+     "itibar": 4.0
+    },
+    "usta": {
+     "hafta": 150.0,
+     "itibar": 12.0
+    }
+   },
+   "itibar": 0.3,
+   "servet_dilimi": 3,
+   "unvan": "cirak",
+   "loncam": {
+    "ad": "lonca6",
+    "sermaye": 3000.0,
+    "uye_sayisi": 2,
+    "kasa": 15.5,
+    "durum": "acik",
+    "odenen_sermaye": 3000.0
+   }
+  },
+  "firmam": {
+   "ad": "s0_un7",
+   "sektor": "un",
+   "nakit": 120.5,
+   "isci": 3,
+   "kar": 4.25,
+   "yas": 2,
+   "kasa_degisim": -12.5,
+   "kasa_hafta": 2.4,
+   "lonca": "lonca0",
+   "lonca_degisebilir": true,
+   "lonca_erken_hafta": 0,
+   "uyari": [
+    "kasa_2_hafta_alti",
+    "kasa_4_hafta_alti"
+   ],
+   "kasa_pisti_hafta": 3.5,
+   "hedef": 4,
+   "kapasite": 25
+  },
+  "kurabilir": {
+   "evet": false,
+   "eksikler": [
+    "calisma"
+   ],
+   "harc": 0.0,
+   "gereken_hafta": 1
+  },
+  "sektorler": [
+   {
+    "sektor": "tarla_bugday",
+    "urun": "bugday",
+    "fiyat": 1.0,
+    "firma": 1,
+    "eksik": 0.0,
+    "disaridan": 0.0,
+    "kasa_egilim": -0.0,
+    "firma_sayisi_13hf": 0
+   },
+   {
+    "sektor": "un",
+    "urun": "un",
+    "fiyat": 1.1,
+    "firma": 2,
+    "eksik": 10.0,
+    "disaridan": 5.0,
+    "kasa_egilim": -50.0,
+    "firma_sayisi_13hf": 1
+   },
+   {
+    "sektor": "firin",
+    "urun": "ekmek",
+    "fiyat": 1.2,
+    "firma": 3,
+    "eksik": 20.0,
+    "disaridan": 10.0,
+    "kasa_egilim": -100.0,
+    "firma_sayisi_13hf": 2
+   }
+  ],
+  "loncalar": [
+   {
+    "ad": "lonca0",
+    "mevduat_faizi": 0.0,
+    "kapali": false,
+    "mevduat": 0.0,
+    "pay_orani": 0.02,
+    "kredi_verebilir": true,
+    "skor": 0.03
+   },
+   {
+    "ad": "lonca1",
+    "mevduat_faizi": 0.01,
+    "kapali": false,
+    "mevduat": 100.0,
+    "pay_orani": 0.02,
+    "kredi_verebilir": false,
+    "skor": 0.031
+   },
+   {
+    "ad": "lonca5",
+    "mevduat_faizi": 0.05,
+    "kapali": true,
+    "mevduat": 500.0,
+    "pay_orani": 0.02,
+    "kredi_verebilir": true,
+    "skor": null
+   }
+  ],
+  "sehir": {
+   "talep_karsilama": 0.7,
+   "is_arayan": 11
+  },
+  "tercih": {
+   "mevduat": {
+    "lonca": "lonca1",
+    "oran": 0.5
+   }
+  },
+  "gecmis": {
+   "dilim0": 2,
+   "firmalar": [
+    {
+     "ad": "s0_un7",
+     "sektor": "un",
+     "yas": 2,
+     "ayakta": true,
+     "neden": null,
+     "olum_haftasi": null
+    },
+    {
+     "ad": "s0_un3",
+     "sektor": "un",
+     "yas": 6,
+     "ayakta": false,
+     "neden": "diger",
+     "olum_haftasi": 9,
+     "neden_ayrinti": "kredi_odenemedi",
+     "son8_kasa_farki": -120.0,
+     "son8_ciro": 300.0,
+     "son8_ucret": 250.0,
+     "yakin_neden": "ucret_odenemedi",
+     "kok_neden": "marj"
+    }
+   ]
+  },
+  "ilanlar": [
+   {
+    "firma": "fk0",
+    "ad": "fk0",
+    "sektor": "un",
+    "acik": 2,
+    "ucret": 101.5,
+    "kasa_gucu": "orta",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "fk1",
+    "ad": "fk1",
+    "sektor": "firin",
+    "acik": 1,
+    "ucret": 84.0,
+    "kasa_gucu": "orta",
+    "maas_odeyemedi": false
+   }
+  ],
+  "olaylar": [
+   {
+    "tur": "ayrildi",
+    "hafta": 1
+   },
+   {
+    "tur": "ise_girdi",
+    "hafta": 1,
+    "firma": "fk0"
+   },
+   {
+    "tur": "cekildi",
+    "hafta": 1,
+    "miktar": 5.0
+   },
+   {
+    "tur": "goc_etti",
+    "hafta": 1,
+    "sehir": 2
+   },
+   {
+    "tur": "kurulamadi",
+    "hafta": 1,
+    "sektor": "un",
+    "neden": "sart"
+   },
+   {
+    "tur": "ahirdan_cikti",
+    "hafta": 1
+   },
+   {
+    "tur": "basvuru_kabul",
+    "hafta": 1,
+    "firma": "fk0"
+   },
+   {
+    "tur": "basvuru_red",
+    "hafta": 1,
+    "firma": "fk1",
+    "neden": "ilan_kapandi"
+   }
+  ],
+  "lonca_kur": {
+   "girisimci": [
+    "erken",
+    "inovator_degil"
+   ],
+   "medya": [
+    "erken",
+    "medya_firma"
+   ],
+   "yeniden": [
+    "yuva_yok"
+   ]
+  },
+  "lonca_kur_ayrinti": {
+   "girisimci": [
+    {
+     "id": "erken"
+    },
+    {
+     "id": "nakit",
+     "gerek": 3500.0,
+     "var": 10.0
+    },
+    {
+     "id": "kurucu_yasagi",
+     "kalan": 50.0
+    }
+   ],
+   "medya": [
+    {
+     "id": "medya_firma"
+    },
+    {
+     "id": "itibar",
+     "gerek": 8.0,
+     "var": 1.0
+    }
+   ],
+   "yeniden": [
+    {
+     "id": "yuva_yok"
+    },
+    {
+     "id": "nakit",
+     "gerek": 3000.0,
+     "var": 10.0
+    }
+   ]
+  }
+ },
+ "packet_dao": {
+  "v": 1,
+  "run_id": "canli-00000001",
+  "week": 1,
+  "version": 1,
+  "world": {
+   "served": 0.6608,
+   "employed": 0.6767,
+   "unemployed": 434.8409,
+   "unemployment_rate": 0.9984,
+   "npc_firms": 419.8654,
+   "player_firms": 122.0778,
+   "firms_total": 541.9432,
+   "failed_cum": 590.455,
+   "city_cash_total": 532.858,
+   "gini": 208.2082,
+   "money_total": 108.3455,
+   "velocity": null,
+   "loans_applied": null,
+   "loans_rejected": null,
+   "loans_granted": null,
+   "support_weekly": null,
+   "privatized_firms": null,
+   "no_founder": null,
+   "reject_pool": null,
+   "reject_reputation": null,
+   "no_buyer_cum": null,
+   "city_cash_weeks": null,
+   "price_index": null,
+   "inflation_yoy": null,
+   "policy_rate": null,
+   "minted_year": null,
+   "mint_cap": null,
+   "support_denied": null,
+   "policy_unemployment": null,
+   "city_spend_cut": null,
+   "loan_rate_avg": null,
+   "survival_52": null,
+   "wage_index": null,
+   "rent_pct": null,
+   "occupancy": null,
+   "house_index": null,
+   "deposit_rate": null,
+   "bond_rate": null,
+   "lonca_fee_avg": null,
+   "royalty_avg": null,
+   "tenants_per_house": null,
+   "house_resale_ratio": null,
+   "policy_inflation": null,
+   "minted_total": null,
+   "npc_pool": 151,
+   "npc_employed": 999,
+   "npc_broke": 15,
+   "npc_pool_cash_avg": 12.6,
+   "players_seeking": 51,
+   "players_in_ahir": 20,
+   "players_students": 6,
+   "unemployment_rate_all": 0.15,
+   "benefit_paid": 1001.0,
+   "benefit_paid_npc": null,
+   "muni_wages": 501.0,
+   "bursary_paid": 90.0,
+   "benefit_cut": 0.0,
+   "players_total": 1502,
+   "players_new": 2,
+   "players_new_total": 2,
+   "ahir_capacity": 1500,
+   "ahir_fill": 0.901,
+   "npc_firm_npc": 899,
+   "npc_firm_players": 41,
+   "hired_player": 3,
+   "hired_npc": 6,
+   "fired_player": 1,
+   "fired_npc": 4,
+   "ahir_moves": 3,
+   "ahir_backfilled": 1,
+   "inflow_blocked": 0,
+   "staff_fill": 0.801,
+   "kinds_full": 3,
+   "house_stock": 1956.0,
+   "opening_staff": 2663,
+   "npc_dependents": 0,
+   "npc_lfp": 1.0,
+   "npc_discouraged": 0,
+   "muni_npc": 0,
+   "hires": 8,
+   "separations": 4,
+   "quits_npc": 0,
+   "job_finding_rate": 0.041,
+   "unemployment_duration": 24.390243902439025,
+   "money_households": 59900.0,
+   "money_npc_firms": 30050.0,
+   "money_player_firms": 8000.0,
+   "money_city": 250500.0,
+   "money_lonca": 90000.0,
+   "money_other": 9000.0,
+   "city_in_tax": 30001.0,
+   "city_in_profit": 20000.0,
+   "city_in_rent": 17000.0,
+   "city_in_mint": 0.0,
+   "city_in_other": 4000.0,
+   "city_out_households": 33000.0,
+   "city_out_wages": 2000.0,
+   "city_out_services": 5000.0,
+   "city_out_firms": 11000.0,
+   "city_out_other": 100.0,
+   "ghost_firms": 41,
+   "ghost_closed": 0,
+   "wealth_top10": 0.601,
+   "wealth_top1": 0.201,
+   "wealth_median": 121.0,
+   "income_gini": 0.401,
+   "income_top10": 0.3,
+   "liquid_b50": 0.1,
+   "liquid_m40": 0.4,
+   "liquid_t10": 0.5,
+   "founders_applied": null,
+   "founders_rejected": null,
+   "failed_player_cum": null,
+   "failed_dao_cum": null,
+   "failed_npc_default_cum": null,
+   "failed_total_cum": null,
+   "vacancies": null,
+   "staffless_npc": null,
+   "wage_fail": null,
+   "unemp_long_share": null,
+   "hires_stable4": null
+  },
+  "events": [],
+  "diagnostics": [],
+  "cities": [
+   {
+    "index": 0,
+    "served": 0.8418034728312342,
+    "employed": 102,
+    "unemployed": 10,
+    "cash": 1002.0,
+    "cash_weeks": 2.02,
+    "firms_npc": 20,
+    "firms_player": 0,
+    "firms_total": 20,
+    "rent_pct": 0.08854508682078086,
+    "occupancy": 0.8854508682078086,
+    "tenants_per_house": 1.0854508682078086,
+    "migration_in": 0,
+    "migration_out": 1,
+    "npc_pool": 30,
+    "npc_broke": 0,
+    "players_seeking": 10,
+    "population": 502,
+    "players_in_ahir": 4
+   },
+   {
+    "index": 1,
+    "served": 0.5247795796441287,
+    "employed": 112,
+    "unemployed": 11,
+    "cash": 2002.0,
+    "cash_weeks": 2.52,
+    "firms_npc": 21,
+    "firms_player": 1,
+    "firms_total": 22,
+    "rent_pct": 0.08061948949110322,
+    "occupancy": 0.8061948949110322,
+    "tenants_per_house": 1.0061948949110322,
+    "migration_in": 1,
+    "migration_out": 0,
+    "npc_pool": 31,
+    "npc_broke": 1,
+    "players_seeking": 11,
+    "population": 512,
+    "players_in_ahir": 5
+   }
+  ],
+  "chain": {
+   "board": true,
+   "sectors": [
+    {
+     "sector": "ahir",
+     "product": "sut",
+     "firms": 5,
+     "healthy": 3,
+     "shortage": 0.07697337249918587,
+     "persist": 0.15394674499837174,
+     "cover_days": 2.0,
+     "price_trend": 0.007697337249918587,
+     "price": 1.076973372499186
+    },
+    {
+     "sector": "un",
+     "product": "un",
+     "firms": 6,
+     "healthy": 4,
+     "shortage": 0.019253380057687206,
+     "persist": 0.03850676011537441,
+     "cover_days": 3.0,
+     "price_trend": 0.0019253380057687205,
+     "price": 1.0192533800576873
+    }
+   ],
+   "nodes": [
+    {
+     "sector": "ahir",
+     "city": 0,
+     "shortage": 0.07697337249918587,
+     "price": 1.076973372499186,
+     "firms": 1,
+     "healthy": 1,
+     "demand": 100.0,
+     "output": 90.0,
+     "stock": 10.0
+    },
+    {
+     "sector": "ahir",
+     "city": 1,
+     "shortage": 0.07697337249918587,
+     "price": 1.086973372499186,
+     "firms": 1,
+     "healthy": 1,
+     "demand": 101.0,
+     "output": 91.0,
+     "stock": 10.0
+    }
+   ],
+   "scarce": [
+    {
+     "sector": "ahir",
+     "product": "sut",
+     "persist": 0.15394674499837174,
+     "shortage": 0.07697337249918587,
+     "firms": 5,
+     "healthy": 3
+    }
+   ],
+   "edges_rev": 0,
+   "edges": [
+    [
+     "un",
+     "firin",
+     "un"
+    ]
+   ]
+  },
+  "holdings": {
+   "money": {
+    "deposits_players": 901,
+    "deposits_insurance": 80,
+    "found_fund": 5000,
+    "insurance_reserve": 400,
+    "lonca_cash_net": -149,
+    "credit_out": 2000,
+    "fund_credit_out": 300,
+    "bonds_out": 40,
+    "lonca_equity": 1200
+   },
+   "groups": {
+    "player": {
+     "lonca_owner": {
+      "n": 10,
+      "cash": 1001,
+      "deposits": 0
+     },
+     "firm_owner": {
+      "n": 11,
+      "cash": 2001,
+      "deposits": 100
+     },
+     "employed_player_firm": {
+      "n": 12,
+      "cash": 3001,
+      "deposits": 200
+     },
+     "employed_npc_firm": {
+      "n": 13,
+      "cash": 4001,
+      "deposits": 300
+     },
+     "municipal": {
+      "n": 14,
+      "cash": 5001,
+      "deposits": 400
+     },
+     "ahir": {
+      "n": 15,
+      "cash": 6001,
+      "deposits": 500
+     },
+     "seeking": {
+      "n": 16,
+      "cash": 7001,
+      "deposits": 600
+     },
+     "student": {
+      "n": 17,
+      "cash": 8001,
+      "deposits": 700
+     },
+     "other": {
+      "n": 18,
+      "cash": 9001,
+      "deposits": 800
+     }
+    },
+    "npc": {
+     "employed_npc_firm": [
+      50,
+      501
+     ],
+     "employed_player_firm": [
+      51,
+      1001
+     ],
+     "municipal": [
+      52,
+      1501
+     ],
+     "pool": [
+      53,
+      2001
+     ],
+     "dependent": [
+      54,
+      2501
+     ],
+     "out": [
+      55,
+      3001
+     ],
+     "other": [
+      56,
+      3501
+     ]
+    }
+   },
+   "deposits": {
+    "by_group": {
+     "lonca_owner": 0,
+     "firm_owner": 100,
+     "employed_player_firm": 200,
+     "employed_npc_firm": 300,
+     "municipal": 400,
+     "ahir": 500,
+     "seeking": 600,
+     "student": 700,
+     "other": 800,
+     "insurance": 80
+    }
+   },
+   "loncas": [
+    {
+     "ref": "lonca0",
+     "owner": "none",
+     "members": 10,
+     "fee": 0.05,
+     "capital": 6002,
+     "deposits": 900,
+     "credit_out": 2,
+     "equity": 5002
+    },
+    {
+     "ref": "lonca1",
+     "owner": "player",
+     "members": 11,
+     "fee": 0.05,
+     "capital": 6102,
+     "deposits": 910,
+     "credit_out": 102,
+     "equity": 4952
+    },
+    {
+     "ref": "lonca2",
+     "owner": "none",
+     "members": 12,
+     "fee": 0.05,
+     "capital": 6202,
+     "deposits": 920,
+     "credit_out": 202,
+     "equity": 4902
+    },
+    {
+     "ref": "lonca3",
+     "owner": "none",
+     "members": 13,
+     "fee": 0.05,
+     "capital": 6302,
+     "deposits": 930,
+     "credit_out": 302,
+     "equity": 4852
+    },
+    {
+     "ref": "lonca4",
+     "owner": "none",
+     "members": 14,
+     "fee": 0.05,
+     "capital": 6402,
+     "deposits": 940,
+     "credit_out": 402,
+     "equity": 4802
+    },
+    {
+     "ref": "lonca5",
+     "owner": "closed",
+     "members": 15,
+     "fee": 0.05,
+     "capital": 6502,
+     "deposits": 950,
+     "credit_out": 502,
+     "equity": 4752
+    }
+   ],
+   "firms": {
+    "player_count": 14,
+    "owners": 9,
+    "multi_owners": 2,
+    "cash_top10_share": 0.32
+   },
+   "wealth": {
+    "b50": 0.05,
+    "m40": 0.25,
+    "t10": 0.7,
+    "t1": 0.201,
+    "median": 151,
+    "gini": 0.62,
+    "n": 1500
+   },
+   "flows": [
+    [
+     "players",
+     "npc_firms",
+     88000
+    ],
+    [
+     "public_firms",
+     "players",
+     51000
+    ],
+    [
+     "npc_firms",
+     "players",
+     49000
+    ],
+    [
+     "city",
+     "public_firms",
+     49000
+    ],
+    [
+     "mint",
+     "city",
+     1200
+    ],
+    [
+     "rest",
+     "rest",
+     400
+    ]
+   ]
+  },
+  "kurumlar": [
+   {
+    "sehir": 0,
+    "ithalat_hacim": 2001.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1501.0
+   },
+   {
+    "sehir": 1,
+    "ithalat_hacim": 2011.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1506.0
+   },
+   {
+    "sehir": 2,
+    "ithalat_hacim": 2021.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1511.0
+   },
+   {
+    "sehir": 3,
+    "ithalat_hacim": 2031.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1516.0
+   },
+   {
+    "sehir": 4,
+    "ithalat_hacim": 2041.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1521.0
+   }
+  ],
+  "ekonomi": {
+   "v": 1,
+   "tuketim": {
+    "hane": {
+     "ise": {
+      "n": 4600,
+      "karsilanma": 0.82,
+      "sepet": 290.5
+     },
+     "issiz": {
+      "n": 310,
+      "karsilanma": 0.55,
+      "sepet": 147.0
+     },
+     "npc": {
+      "ise": {
+       "n": 15200,
+       "karsilanma": 0.74,
+       "sepet": 217.0
+      },
+      "issiz": {
+       "n": 2010,
+       "karsilanma": 0.45,
+       "sepet": 87.5
+      },
+      "dis": {
+       "n": 510,
+       "karsilanma": 0.6,
+       "sepet": 175.0
+      }
+     },
+     "npc_issiz_parasiz": 120.5,
+     "sehir": [
+      {
+       "sehir": 0,
+       "ise": {
+        "n": 900,
+        "karsilanma": 0.8021,
+        "sepet": 280.77
+       },
+       "issiz": {
+        "n": 60,
+        "karsilanma": 0.5043,
+        "sepet": 140.63
+       },
+       "npc": {
+        "ise": {
+         "n": 3000,
+         "karsilanma": 0.7021,
+         "sepet": 210.42
+        },
+        "issiz": {
+         "n": 400,
+         "karsilanma": 0.4043,
+         "sepet": 84.14
+        },
+        "dis": {
+         "n": 100,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 10.6,
+       "harcama": {
+        "oyuncu": 20003,
+        "npc": 80003
+       }
+      },
+      {
+       "sehir": 1,
+       "ise": {
+        "n": 910,
+        "karsilanma": 0.8773,
+        "sepet": 307.09
+       },
+       "issiz": {
+        "n": 61,
+        "karsilanma": 0.6547,
+        "sepet": 161.63
+       },
+       "npc": {
+        "ise": {
+         "n": 3050,
+         "karsilanma": 0.7773,
+         "sepet": 226.24
+        },
+        "issiz": {
+         "n": 401,
+         "karsilanma": 0.5547,
+         "sepet": 89.39
+        },
+        "dis": {
+         "n": 101,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 33.2,
+       "harcama": {
+        "oyuncu": 20103,
+        "npc": 80503
+       }
+      },
+      {
+       "sehir": 2,
+       "ise": {
+        "n": 920,
+        "karsilanma": 0.8016,
+        "sepet": 280.56
+       },
+       "issiz": {
+        "n": 62,
+        "karsilanma": 0.5031,
+        "sepet": 140.42
+       },
+       "npc": {
+        "ise": {
+         "n": 3100,
+         "karsilanma": 0.7016,
+         "sepet": 210.35
+        },
+        "issiz": {
+         "n": 402,
+         "karsilanma": 0.4031,
+         "sepet": 84.14
+        },
+        "dis": {
+         "n": 102,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 10.5,
+       "harcama": {
+        "oyuncu": 20203,
+        "npc": 81003
+       }
+      },
+      {
+       "sehir": 3,
+       "ise": {
+        "n": 930,
+        "karsilanma": 0.8361,
+        "sepet": 292.67
+       },
+       "issiz": {
+        "n": 63,
+        "karsilanma": 0.5723,
+        "sepet": 150.15
+       },
+       "npc": {
+        "ise": {
+         "n": 3150,
+         "karsilanma": 0.7361,
+         "sepet": 217.56
+        },
+        "issiz": {
+         "n": 403,
+         "karsilanma": 0.4723,
+         "sepet": 86.52
+        },
+        "dis": {
+         "n": 103,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 20.8,
+       "harcama": {
+        "oyuncu": 20303,
+        "npc": 81503
+       }
+      },
+      {
+       "sehir": 4,
+       "ise": {
+        "n": 940,
+        "karsilanma": 0.8096,
+        "sepet": 283.36
+       },
+       "issiz": {
+        "n": 64,
+        "karsilanma": 0.5191,
+        "sepet": 142.66
+       },
+       "npc": {
+        "ise": {
+         "n": 3200,
+         "karsilanma": 0.7096,
+         "sepet": 212.03
+        },
+        "issiz": {
+         "n": 404,
+         "karsilanma": 0.4191,
+         "sepet": 84.7
+        },
+        "dis": {
+         "n": 104,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 12.9,
+       "harcama": {
+        "oyuncu": 20403,
+        "npc": 82003
+       }
+      }
+     ]
+    },
+    "harcama": {
+     "npc": 402503,
+     "oyuncu": 100503,
+     "toplam": 503006
+    },
+    "urunler": [
+     {
+      "urun": "sut",
+      "istek": 5000.0,
+      "karsilanmayan": 800.0,
+      "uretim": 4000.0,
+      "stok": 120.0
+     },
+     {
+      "urun": "un",
+      "istek": 4900.0,
+      "karsilanmayan": 750.0,
+      "uretim": 4000.0,
+      "stok": 121.0
+     },
+     {
+      "urun": "ekmek",
+      "istek": 4800.0,
+      "karsilanmayan": 700.0,
+      "uretim": 4000.0,
+      "stok": 122.0
+     }
+    ],
+    "ucret": {
+     "dunya": [
+      1.2,
+      1.1,
+      75.6,
+      1.5
+     ],
+     "sehir": [
+      [
+       1.2,
+       1.1,
+       75.6,
+       1.5
+      ],
+      [
+       1.21,
+       1.11,
+       76.6,
+       1.55
+      ],
+      [
+       1.22,
+       1.12,
+       77.6,
+       1.6
+      ],
+      [
+       1.23,
+       1.13,
+       78.6,
+       1.65
+      ],
+      [
+       1.24,
+       1.14,
+       79.6,
+       1.7
+      ]
+     ]
+    }
+   },
+   "isletme": {
+    "istihdam": {
+     "oyuncu": 610,
+     "npc": 1150,
+     "ozel": 1500,
+     "kamu": 260
+    },
+    "hareket": {
+     "kurulan": 2,
+     "buyuyen": 9,
+     "kuculen": 4,
+     "batan": 1
+    },
+    "sektor": [
+     {
+      "tur": "ahir",
+      "calisan": 700,
+      "firma": 30
+     },
+     {
+      "tur": "un",
+      "calisan": 600,
+      "firma": 25
+     },
+     {
+      "tur": "firin",
+      "calisan": 500,
+      "firma": 20
+     }
+    ],
+    "sektor_diger": {
+     "calisan": 0,
+     "firma": 0
+    },
+    "sehir": [
+     {
+      "sehir": 0,
+      "ozel_calisan": 300,
+      "kamu_calisan": 40,
+      "calisan_oyuncu": 120,
+      "calisan_npc": 220,
+      "isgucu_disi": 15,
+      "boy": [
+       20,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 0,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 1,
+      "ozel_calisan": 310,
+      "kamu_calisan": 41,
+      "calisan_oyuncu": 121,
+      "calisan_npc": 229,
+      "isgucu_disi": 16,
+      "boy": [
+       21,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 1,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 2,
+      "ozel_calisan": 320,
+      "kamu_calisan": 42,
+      "calisan_oyuncu": 122,
+      "calisan_npc": 238,
+      "isgucu_disi": 17,
+      "boy": [
+       22,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 0,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 3,
+      "ozel_calisan": 330,
+      "kamu_calisan": 43,
+      "calisan_oyuncu": 123,
+      "calisan_npc": 247,
+      "isgucu_disi": 18,
+      "boy": [
+       23,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 1,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 4,
+      "ozel_calisan": 340,
+      "kamu_calisan": 44,
+      "calisan_oyuncu": 124,
+      "calisan_npc": 256,
+      "isgucu_disi": 19,
+      "boy": [
+       24,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 0,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     }
+    ]
+   },
+   "para": {
+    "oyuncu_n": 1500,
+    "oyuncu_ust10": 900000,
+    "oyuncu_alt90": 300000,
+    "npc_hane_nakit": 250000,
+    "npc_hane_mevduat": 400000
+   }
+  },
+  "makro": {
+   "v": 1,
+   "fiyat": {
+    "tuk": 1.042,
+    "enf": 0.0515,
+    "uretici": 1.028,
+    "ucret": 1.056,
+    "gercek_ucret": 1.013
+   },
+   "uretim": {
+    "nominal": 319894,
+    "gercek": 307000,
+    "buyume": 0.0258,
+    "verimlilik": 81.4
+   },
+   "para": {
+    "stok": 450000,
+    "korunum": 0,
+    "mali": 440000,
+    "kredi_net": 0,
+    "acilis": 10000,
+    "hiz": 0.386
+   },
+   "faiz": {
+    "politika": 0.164,
+    "mevduat": 0.08,
+    "kredi": 0.2,
+    "gercek": 0.0985
+   },
+   "marj": {
+    "npc": 0.0558,
+    "oyuncu": 0.0258
+   },
+   "konut": {
+    "kira": 1.056,
+    "kira_gelir": 0.107
+   },
+   "dagilim": {
+    "gini_nakit": 0.428,
+    "gini_gelir": 0.14,
+    "gini_servet": 0.514,
+    "yoksul": 0.572,
+    "medyan_sepet": 0.8
+   },
+   "kredi": {
+    "stok": 44200,
+    "buyume": 0.0289,
+    "temerrut": 0.0058
+   }
+  },
+  "dao": {
+   "hafta": 1,
+   "ben": {
+    "sehir": 0,
+    "nakit": 101.0,
+    "mevduat": {
+     "lonca": "lonca1",
+     "tutar": 25.5
+    },
+    "is": {
+     "firma": "fk0",
+     "sektor": "un",
+     "ucret": 10.0
+    },
+    "durum": "calisan",
+    "calisilan_hafta": 0,
+    "tecrube_hafta": 0.0,
+    "terfi_esik": {
+     "kalfa": {
+      "hafta": 40.0,
+      "itibar": 4.0
+     },
+     "usta": {
+      "hafta": 150.0,
+      "itibar": 12.0
+     }
+    },
+    "itibar": 0.3,
+    "servet_dilimi": 3,
+    "unvan": "cirak",
+    "loncam": {
+     "ad": "lonca6",
+     "sermaye": 3000.0,
+     "uye_sayisi": 2,
+     "kasa": 15.5,
+     "durum": "acik",
+     "odenen_sermaye": 3000.0
+    }
+   },
+   "firmam": {
+    "ad": "s0_un7",
+    "sektor": "un",
+    "nakit": 120.5,
+    "isci": 3,
+    "kar": 4.25,
+    "yas": 2,
+    "kasa_degisim": -12.5,
+    "kasa_hafta": 2.4,
+    "lonca": "lonca0",
+    "lonca_degisebilir": true,
+    "lonca_erken_hafta": 0,
+    "uyari": [
+     "kasa_2_hafta_alti",
+     "kasa_4_hafta_alti"
+    ],
+    "kasa_pisti_hafta": 3.5,
+    "hedef": 4,
+    "kapasite": 25
+   },
+   "kurabilir": {
+    "evet": false,
+    "eksikler": [
+     "calisma"
+    ],
+    "harc": 0.0,
+    "gereken_hafta": 1
+   },
+   "sektorler": [
+    {
+     "sektor": "tarla_bugday",
+     "urun": "bugday",
+     "fiyat": 1.0,
+     "firma": 1,
+     "eksik": 0.0,
+     "disaridan": 0.0,
+     "kasa_egilim": -0.0,
+     "firma_sayisi_13hf": 0
+    },
+    {
+     "sektor": "un",
+     "urun": "un",
+     "fiyat": 1.1,
+     "firma": 2,
+     "eksik": 10.0,
+     "disaridan": 5.0,
+     "kasa_egilim": -50.0,
+     "firma_sayisi_13hf": 1
+    },
+    {
+     "sektor": "firin",
+     "urun": "ekmek",
+     "fiyat": 1.2,
+     "firma": 3,
+     "eksik": 20.0,
+     "disaridan": 10.0,
+     "kasa_egilim": -100.0,
+     "firma_sayisi_13hf": 2
+    }
+   ],
+   "loncalar": [
+    {
+     "ad": "lonca0",
+     "mevduat_faizi": 0.0,
+     "kapali": false,
+     "mevduat": 0.0,
+     "pay_orani": 0.02,
+     "kredi_verebilir": true,
+     "skor": 0.03
+    },
+    {
+     "ad": "lonca1",
+     "mevduat_faizi": 0.01,
+     "kapali": false,
+     "mevduat": 100.0,
+     "pay_orani": 0.02,
+     "kredi_verebilir": false,
+     "skor": 0.031
+    },
+    {
+     "ad": "lonca5",
+     "mevduat_faizi": 0.05,
+     "kapali": true,
+     "mevduat": 500.0,
+     "pay_orani": 0.02,
+     "kredi_verebilir": true,
+     "skor": null
+    }
+   ],
+   "sehir": {
+    "talep_karsilama": 0.7,
+    "is_arayan": 11
+   },
+   "tercih": {
+    "mevduat": {
+     "lonca": "lonca1",
+     "oran": 0.5
+    }
+   },
+   "gecmis": {
+    "dilim0": 2,
+    "firmalar": [
+     {
+      "ad": "s0_un7",
+      "sektor": "un",
+      "yas": 2,
+      "ayakta": true,
+      "neden": null,
+      "olum_haftasi": null
+     },
+     {
+      "ad": "s0_un3",
+      "sektor": "un",
+      "yas": 6,
+      "ayakta": false,
+      "neden": "diger",
+      "olum_haftasi": 9,
+      "neden_ayrinti": "kredi_odenemedi",
+      "son8_kasa_farki": -120.0,
+      "son8_ciro": 300.0,
+      "son8_ucret": 250.0,
+      "yakin_neden": "ucret_odenemedi",
+      "kok_neden": "marj"
+     }
+    ]
+   },
+   "ilanlar": [
+    {
+     "firma": "fk0",
+     "ad": "fk0",
+     "sektor": "un",
+     "acik": 2,
+     "ucret": 101.5,
+     "kasa_gucu": "orta",
+     "maas_odeyemedi": false
+    },
+    {
+     "firma": "fk1",
+     "ad": "fk1",
+     "sektor": "firin",
+     "acik": 1,
+     "ucret": 84.0,
+     "kasa_gucu": "orta",
+     "maas_odeyemedi": false
+    }
+   ],
+   "olaylar": [
+    {
+     "tur": "ayrildi",
+     "hafta": 1
+    },
+    {
+     "tur": "ise_girdi",
+     "hafta": 1,
+     "firma": "fk0"
+    },
+    {
+     "tur": "cekildi",
+     "hafta": 1,
+     "miktar": 5.0
+    },
+    {
+     "tur": "goc_etti",
+     "hafta": 1,
+     "sehir": 2
+    },
+    {
+     "tur": "kurulamadi",
+     "hafta": 1,
+     "sektor": "un",
+     "neden": "sart"
+    },
+    {
+     "tur": "ahirdan_cikti",
+     "hafta": 1
+    },
+    {
+     "tur": "basvuru_kabul",
+     "hafta": 1,
+     "firma": "fk0"
+    },
+    {
+     "tur": "basvuru_red",
+     "hafta": 1,
+     "firma": "fk1",
+     "neden": "ilan_kapandi"
+    }
+   ],
+   "lonca_kur": {
+    "girisimci": [
+     "erken",
+     "inovator_degil"
+    ],
+    "medya": [
+     "erken",
+     "medya_firma"
+    ],
+    "yeniden": [
+     "yuva_yok"
+    ]
+   },
+   "lonca_kur_ayrinti": {
+    "girisimci": [
+     {
+      "id": "erken"
+     },
+     {
+      "id": "nakit",
+      "gerek": 3500.0,
+      "var": 10.0
+     },
+     {
+      "id": "kurucu_yasagi",
+      "kalan": 50.0
+     }
+    ],
+    "medya": [
+     {
+      "id": "medya_firma"
+     },
+     {
+      "id": "itibar",
+      "gerek": 8.0,
+      "var": 1.0
+     }
+    ],
+    "yeniden": [
+     {
+      "id": "yuva_yok"
+     },
+     {
+      "id": "nakit",
+      "gerek": 3000.0,
+      "var": 10.0
+     }
+    ]
+   }
+  },
+  "harita": {
+   "hafta": 1,
+   "alanlar": [
+    "id",
+    "tur",
+    "sehir",
+    "calisan",
+    "lonca",
+    "sahip",
+    "dogum",
+    "durum"
+   ],
+   "turler": [
+    "un"
+   ],
+   "loncalar": [
+    "lonca0",
+    "lonca2"
+   ],
+   "sahipler": [
+    "npc",
+    "oyuncu",
+    "dao"
+   ],
+   "firmalar": [
+    [
+     "fk0",
+     0,
+     0,
+     8,
+     0,
+     0,
+     null,
+     "uretim"
+    ],
+    [
+     "fk1",
+     0,
+     1,
+     8,
+     -1,
+     1,
+     null,
+     "uretim"
+    ],
+    [
+     7,
+     0,
+     2,
+     5,
+     1,
+     2,
+     null,
+     "uretim"
+    ]
+   ]
+  }
+ },
+ "packet_harita": {
+  "v": 1,
+  "run_id": "canli-00000001",
+  "week": 10,
+  "version": 1,
+  "world": {
+   "served": 0.6608,
+   "employed": 0.6767,
+   "unemployed": 434.8409,
+   "unemployment_rate": 0.9984,
+   "npc_firms": 419.8654,
+   "player_firms": 122.0778,
+   "firms_total": 541.9432,
+   "failed_cum": 590.455,
+   "city_cash_total": 532.858,
+   "gini": 208.2082,
+   "money_total": 108.3455,
+   "velocity": null,
+   "loans_applied": null,
+   "loans_rejected": null,
+   "loans_granted": null,
+   "support_weekly": null,
+   "privatized_firms": null,
+   "no_founder": null,
+   "reject_pool": null,
+   "reject_reputation": null,
+   "no_buyer_cum": null,
+   "city_cash_weeks": null,
+   "price_index": null,
+   "inflation_yoy": null,
+   "policy_rate": null,
+   "minted_year": null,
+   "mint_cap": null,
+   "support_denied": null,
+   "policy_unemployment": null,
+   "city_spend_cut": null,
+   "loan_rate_avg": null,
+   "survival_52": null,
+   "wage_index": null,
+   "rent_pct": null,
+   "occupancy": null,
+   "house_index": null,
+   "deposit_rate": null,
+   "bond_rate": null,
+   "lonca_fee_avg": null,
+   "royalty_avg": null,
+   "tenants_per_house": null,
+   "house_resale_ratio": null,
+   "policy_inflation": null,
+   "minted_total": null,
+   "npc_pool": 151,
+   "npc_employed": 999,
+   "npc_broke": 15,
+   "npc_pool_cash_avg": 12.6,
+   "players_seeking": 51,
+   "players_in_ahir": 20,
+   "players_students": 6,
+   "unemployment_rate_all": 0.15,
+   "benefit_paid": 1001.0,
+   "benefit_paid_npc": null,
+   "muni_wages": 501.0,
+   "bursary_paid": 90.0,
+   "benefit_cut": 0.0,
+   "players_total": 1502,
+   "players_new": 2,
+   "players_new_total": 2,
+   "ahir_capacity": 1500,
+   "ahir_fill": 0.901,
+   "npc_firm_npc": 899,
+   "npc_firm_players": 41,
+   "hired_player": 3,
+   "hired_npc": 6,
+   "fired_player": 1,
+   "fired_npc": 4,
+   "ahir_moves": 3,
+   "ahir_backfilled": 1,
+   "inflow_blocked": 0,
+   "staff_fill": 0.801,
+   "kinds_full": 3,
+   "house_stock": 1956.0,
+   "opening_staff": 2663,
+   "npc_dependents": 0,
+   "npc_lfp": 1.0,
+   "npc_discouraged": 0,
+   "muni_npc": 0,
+   "hires": 8,
+   "separations": 4,
+   "quits_npc": 0,
+   "job_finding_rate": 0.041,
+   "unemployment_duration": 24.390243902439025,
+   "money_households": 59900.0,
+   "money_npc_firms": 30050.0,
+   "money_player_firms": 8000.0,
+   "money_city": 250500.0,
+   "money_lonca": 90000.0,
+   "money_other": 9000.0,
+   "city_in_tax": 30001.0,
+   "city_in_profit": 20000.0,
+   "city_in_rent": 17000.0,
+   "city_in_mint": 0.0,
+   "city_in_other": 4000.0,
+   "city_out_households": 33000.0,
+   "city_out_wages": 2000.0,
+   "city_out_services": 5000.0,
+   "city_out_firms": 11000.0,
+   "city_out_other": 100.0,
+   "ghost_firms": 41,
+   "ghost_closed": 0,
+   "wealth_top10": 0.601,
+   "wealth_top1": 0.201,
+   "wealth_median": 121.0,
+   "income_gini": 0.401,
+   "income_top10": 0.3,
+   "liquid_b50": 0.1,
+   "liquid_m40": 0.4,
+   "liquid_t10": 0.5,
+   "founders_applied": null,
+   "founders_rejected": null,
+   "failed_player_cum": null,
+   "failed_dao_cum": null,
+   "failed_npc_default_cum": null,
+   "failed_total_cum": null,
+   "vacancies": null,
+   "staffless_npc": null,
+   "wage_fail": null,
+   "unemp_long_share": null,
+   "hires_stable4": null
+  },
+  "events": [],
+  "diagnostics": [],
+  "cities": [
+   {
+    "index": 0,
+    "served": 0.8418034728312342,
+    "employed": 102,
+    "unemployed": 10,
+    "cash": 1002.0,
+    "cash_weeks": 2.02,
+    "firms_npc": 20,
+    "firms_player": 0,
+    "firms_total": 20,
+    "rent_pct": 0.08854508682078086,
+    "occupancy": 0.8854508682078086,
+    "tenants_per_house": 1.0854508682078086,
+    "migration_in": 0,
+    "migration_out": 1,
+    "npc_pool": 30,
+    "npc_broke": 0,
+    "players_seeking": 10,
+    "population": 502,
+    "players_in_ahir": 4
+   },
+   {
+    "index": 1,
+    "served": 0.5247795796441287,
+    "employed": 112,
+    "unemployed": 11,
+    "cash": 2002.0,
+    "cash_weeks": 2.52,
+    "firms_npc": 21,
+    "firms_player": 1,
+    "firms_total": 22,
+    "rent_pct": 0.08061948949110322,
+    "occupancy": 0.8061948949110322,
+    "tenants_per_house": 1.0061948949110322,
+    "migration_in": 1,
+    "migration_out": 0,
+    "npc_pool": 31,
+    "npc_broke": 1,
+    "players_seeking": 11,
+    "population": 512,
+    "players_in_ahir": 5
+   }
+  ],
+  "chain": {
+   "board": true,
+   "sectors": [
+    {
+     "sector": "ahir",
+     "product": "sut",
+     "firms": 5,
+     "healthy": 3,
+     "shortage": 0.07697337249918587,
+     "persist": 0.15394674499837174,
+     "cover_days": 2.0,
+     "price_trend": 0.007697337249918587,
+     "price": 1.076973372499186
+    },
+    {
+     "sector": "un",
+     "product": "un",
+     "firms": 6,
+     "healthy": 4,
+     "shortage": 0.019253380057687206,
+     "persist": 0.03850676011537441,
+     "cover_days": 3.0,
+     "price_trend": 0.0019253380057687205,
+     "price": 1.0192533800576873
+    }
+   ],
+   "nodes": [
+    {
+     "sector": "ahir",
+     "city": 0,
+     "shortage": 0.07697337249918587,
+     "price": 1.076973372499186,
+     "firms": 1,
+     "healthy": 1,
+     "demand": 100.0,
+     "output": 90.0,
+     "stock": 10.0
+    },
+    {
+     "sector": "ahir",
+     "city": 1,
+     "shortage": 0.07697337249918587,
+     "price": 1.086973372499186,
+     "firms": 1,
+     "healthy": 1,
+     "demand": 101.0,
+     "output": 91.0,
+     "stock": 10.0
+    }
+   ],
+   "scarce": [
+    {
+     "sector": "ahir",
+     "product": "sut",
+     "persist": 0.15394674499837174,
+     "shortage": 0.07697337249918587,
+     "firms": 5,
+     "healthy": 3
+    }
+   ],
+   "edges_rev": 0,
+   "edges": [
+    [
+     "un",
+     "firin",
+     "un"
+    ]
+   ]
+  },
+  "holdings": {
+   "money": {
+    "deposits_players": 901,
+    "deposits_insurance": 80,
+    "found_fund": 5000,
+    "insurance_reserve": 400,
+    "lonca_cash_net": -149,
+    "credit_out": 2000,
+    "fund_credit_out": 300,
+    "bonds_out": 40,
+    "lonca_equity": 1200
+   },
+   "groups": {
+    "player": {
+     "lonca_owner": {
+      "n": 10,
+      "cash": 1001,
+      "deposits": 0
+     },
+     "firm_owner": {
+      "n": 11,
+      "cash": 2001,
+      "deposits": 100
+     },
+     "employed_player_firm": {
+      "n": 12,
+      "cash": 3001,
+      "deposits": 200
+     },
+     "employed_npc_firm": {
+      "n": 13,
+      "cash": 4001,
+      "deposits": 300
+     },
+     "municipal": {
+      "n": 14,
+      "cash": 5001,
+      "deposits": 400
+     },
+     "ahir": {
+      "n": 15,
+      "cash": 6001,
+      "deposits": 500
+     },
+     "seeking": {
+      "n": 16,
+      "cash": 7001,
+      "deposits": 600
+     },
+     "student": {
+      "n": 17,
+      "cash": 8001,
+      "deposits": 700
+     },
+     "other": {
+      "n": 18,
+      "cash": 9001,
+      "deposits": 800
+     }
+    },
+    "npc": {
+     "employed_npc_firm": [
+      50,
+      501
+     ],
+     "employed_player_firm": [
+      51,
+      1001
+     ],
+     "municipal": [
+      52,
+      1501
+     ],
+     "pool": [
+      53,
+      2001
+     ],
+     "dependent": [
+      54,
+      2501
+     ],
+     "out": [
+      55,
+      3001
+     ],
+     "other": [
+      56,
+      3501
+     ]
+    }
+   },
+   "deposits": {
+    "by_group": {
+     "lonca_owner": 0,
+     "firm_owner": 100,
+     "employed_player_firm": 200,
+     "employed_npc_firm": 300,
+     "municipal": 400,
+     "ahir": 500,
+     "seeking": 600,
+     "student": 700,
+     "other": 800,
+     "insurance": 80
+    }
+   },
+   "loncas": [
+    {
+     "ref": "lonca0",
+     "owner": "none",
+     "members": 10,
+     "fee": 0.05,
+     "capital": 6002,
+     "deposits": 900,
+     "credit_out": 2,
+     "equity": 5002
+    },
+    {
+     "ref": "lonca1",
+     "owner": "player",
+     "members": 11,
+     "fee": 0.05,
+     "capital": 6102,
+     "deposits": 910,
+     "credit_out": 102,
+     "equity": 4952
+    },
+    {
+     "ref": "lonca2",
+     "owner": "none",
+     "members": 12,
+     "fee": 0.05,
+     "capital": 6202,
+     "deposits": 920,
+     "credit_out": 202,
+     "equity": 4902
+    },
+    {
+     "ref": "lonca3",
+     "owner": "none",
+     "members": 13,
+     "fee": 0.05,
+     "capital": 6302,
+     "deposits": 930,
+     "credit_out": 302,
+     "equity": 4852
+    },
+    {
+     "ref": "lonca4",
+     "owner": "none",
+     "members": 14,
+     "fee": 0.05,
+     "capital": 6402,
+     "deposits": 940,
+     "credit_out": 402,
+     "equity": 4802
+    },
+    {
+     "ref": "lonca5",
+     "owner": "closed",
+     "members": 15,
+     "fee": 0.05,
+     "capital": 6502,
+     "deposits": 950,
+     "credit_out": 502,
+     "equity": 4752
+    }
+   ],
+   "firms": {
+    "player_count": 14,
+    "owners": 9,
+    "multi_owners": 2,
+    "cash_top10_share": 0.32
+   },
+   "wealth": {
+    "b50": 0.05,
+    "m40": 0.25,
+    "t10": 0.7,
+    "t1": 0.201,
+    "median": 151,
+    "gini": 0.62,
+    "n": 1500
+   },
+   "flows": [
+    [
+     "players",
+     "npc_firms",
+     88000
+    ],
+    [
+     "public_firms",
+     "players",
+     51000
+    ],
+    [
+     "npc_firms",
+     "players",
+     49000
+    ],
+    [
+     "city",
+     "public_firms",
+     49000
+    ],
+    [
+     "mint",
+     "city",
+     1200
+    ],
+    [
+     "rest",
+     "rest",
+     400
+    ]
+   ]
+  },
+  "kurumlar": [
+   {
+    "sehir": 0,
+    "ithalat_hacim": 2010.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1510.0
+   },
+   {
+    "sehir": 1,
+    "ithalat_hacim": 2020.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1515.0
+   },
+   {
+    "sehir": 2,
+    "ithalat_hacim": 2030.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1520.0
+   },
+   {
+    "sehir": 3,
+    "ithalat_hacim": 2040.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1525.0
+   },
+   {
+    "sehir": 4,
+    "ithalat_hacim": 2050.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1530.0
+   }
+  ],
+  "ekonomi": {
+   "v": 1,
+   "tuketim": {
+    "hane": {
+     "ise": {
+      "n": 4600,
+      "karsilanma": 0.82,
+      "sepet": 290.5
+     },
+     "issiz": {
+      "n": 310,
+      "karsilanma": 0.55,
+      "sepet": 147.0
+     },
+     "npc": {
+      "ise": {
+       "n": 15200,
+       "karsilanma": 0.74,
+       "sepet": 217.0
+      },
+      "issiz": {
+       "n": 2010,
+       "karsilanma": 0.45,
+       "sepet": 87.5
+      },
+      "dis": {
+       "n": 510,
+       "karsilanma": 0.6,
+       "sepet": 175.0
+      }
+     },
+     "npc_issiz_parasiz": 120.5,
+     "sehir": [
+      {
+       "sehir": 0,
+       "ise": {
+        "n": 900,
+        "karsilanma": 0.8021,
+        "sepet": 280.77
+       },
+       "issiz": {
+        "n": 60,
+        "karsilanma": 0.5043,
+        "sepet": 140.63
+       },
+       "npc": {
+        "ise": {
+         "n": 3000,
+         "karsilanma": 0.7021,
+         "sepet": 210.42
+        },
+        "issiz": {
+         "n": 400,
+         "karsilanma": 0.4043,
+         "sepet": 84.14
+        },
+        "dis": {
+         "n": 100,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 10.6,
+       "harcama": {
+        "oyuncu": 20003,
+        "npc": 80003
+       }
+      },
+      {
+       "sehir": 1,
+       "ise": {
+        "n": 910,
+        "karsilanma": 0.8773,
+        "sepet": 307.09
+       },
+       "issiz": {
+        "n": 61,
+        "karsilanma": 0.6547,
+        "sepet": 161.63
+       },
+       "npc": {
+        "ise": {
+         "n": 3050,
+         "karsilanma": 0.7773,
+         "sepet": 226.24
+        },
+        "issiz": {
+         "n": 401,
+         "karsilanma": 0.5547,
+         "sepet": 89.39
+        },
+        "dis": {
+         "n": 101,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 33.2,
+       "harcama": {
+        "oyuncu": 20103,
+        "npc": 80503
+       }
+      },
+      {
+       "sehir": 2,
+       "ise": {
+        "n": 920,
+        "karsilanma": 0.8016,
+        "sepet": 280.56
+       },
+       "issiz": {
+        "n": 62,
+        "karsilanma": 0.5031,
+        "sepet": 140.42
+       },
+       "npc": {
+        "ise": {
+         "n": 3100,
+         "karsilanma": 0.7016,
+         "sepet": 210.35
+        },
+        "issiz": {
+         "n": 402,
+         "karsilanma": 0.4031,
+         "sepet": 84.14
+        },
+        "dis": {
+         "n": 102,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 10.5,
+       "harcama": {
+        "oyuncu": 20203,
+        "npc": 81003
+       }
+      },
+      {
+       "sehir": 3,
+       "ise": {
+        "n": 930,
+        "karsilanma": 0.8361,
+        "sepet": 292.67
+       },
+       "issiz": {
+        "n": 63,
+        "karsilanma": 0.5723,
+        "sepet": 150.15
+       },
+       "npc": {
+        "ise": {
+         "n": 3150,
+         "karsilanma": 0.7361,
+         "sepet": 217.56
+        },
+        "issiz": {
+         "n": 403,
+         "karsilanma": 0.4723,
+         "sepet": 86.52
+        },
+        "dis": {
+         "n": 103,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 20.8,
+       "harcama": {
+        "oyuncu": 20303,
+        "npc": 81503
+       }
+      },
+      {
+       "sehir": 4,
+       "ise": {
+        "n": 940,
+        "karsilanma": 0.8096,
+        "sepet": 283.36
+       },
+       "issiz": {
+        "n": 64,
+        "karsilanma": 0.5191,
+        "sepet": 142.66
+       },
+       "npc": {
+        "ise": {
+         "n": 3200,
+         "karsilanma": 0.7096,
+         "sepet": 212.03
+        },
+        "issiz": {
+         "n": 404,
+         "karsilanma": 0.4191,
+         "sepet": 84.7
+        },
+        "dis": {
+         "n": 104,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 12.9,
+       "harcama": {
+        "oyuncu": 20403,
+        "npc": 82003
+       }
+      }
+     ]
+    },
+    "harcama": {
+     "npc": 402503,
+     "oyuncu": 100503,
+     "toplam": 503006
+    },
+    "urunler": [
+     {
+      "urun": "sut",
+      "istek": 5000.0,
+      "karsilanmayan": 800.0,
+      "uretim": 4000.0,
+      "stok": 120.0
+     },
+     {
+      "urun": "un",
+      "istek": 4900.0,
+      "karsilanmayan": 750.0,
+      "uretim": 4000.0,
+      "stok": 121.0
+     },
+     {
+      "urun": "ekmek",
+      "istek": 4800.0,
+      "karsilanmayan": 700.0,
+      "uretim": 4000.0,
+      "stok": 122.0
+     }
+    ],
+    "ucret": {
+     "dunya": [
+      1.2,
+      1.1,
+      75.6,
+      1.5
+     ],
+     "sehir": [
+      [
+       1.2,
+       1.1,
+       75.6,
+       1.5
+      ],
+      [
+       1.21,
+       1.11,
+       76.6,
+       1.55
+      ],
+      [
+       1.22,
+       1.12,
+       77.6,
+       1.6
+      ],
+      [
+       1.23,
+       1.13,
+       78.6,
+       1.65
+      ],
+      [
+       1.24,
+       1.14,
+       79.6,
+       1.7
+      ]
+     ]
+    }
+   },
+   "isletme": {
+    "istihdam": {
+     "oyuncu": 610,
+     "npc": 1150,
+     "ozel": 1500,
+     "kamu": 260
+    },
+    "hareket": {
+     "kurulan": 2,
+     "buyuyen": 9,
+     "kuculen": 4,
+     "batan": 1
+    },
+    "sektor": [
+     {
+      "tur": "ahir",
+      "calisan": 700,
+      "firma": 30
+     },
+     {
+      "tur": "un",
+      "calisan": 600,
+      "firma": 25
+     },
+     {
+      "tur": "firin",
+      "calisan": 500,
+      "firma": 20
+     }
+    ],
+    "sektor_diger": {
+     "calisan": 0,
+     "firma": 0
+    },
+    "sehir": [
+     {
+      "sehir": 0,
+      "ozel_calisan": 300,
+      "kamu_calisan": 40,
+      "calisan_oyuncu": 120,
+      "calisan_npc": 220,
+      "isgucu_disi": 15,
+      "boy": [
+       20,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 0,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 1,
+      "ozel_calisan": 310,
+      "kamu_calisan": 41,
+      "calisan_oyuncu": 121,
+      "calisan_npc": 229,
+      "isgucu_disi": 16,
+      "boy": [
+       21,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 1,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 2,
+      "ozel_calisan": 320,
+      "kamu_calisan": 42,
+      "calisan_oyuncu": 122,
+      "calisan_npc": 238,
+      "isgucu_disi": 17,
+      "boy": [
+       22,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 0,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 3,
+      "ozel_calisan": 330,
+      "kamu_calisan": 43,
+      "calisan_oyuncu": 123,
+      "calisan_npc": 247,
+      "isgucu_disi": 18,
+      "boy": [
+       23,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 1,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 4,
+      "ozel_calisan": 340,
+      "kamu_calisan": 44,
+      "calisan_oyuncu": 124,
+      "calisan_npc": 256,
+      "isgucu_disi": 19,
+      "boy": [
+       24,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 0,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     }
+    ]
+   },
+   "para": {
+    "oyuncu_n": 1500,
+    "oyuncu_ust10": 900000,
+    "oyuncu_alt90": 300000,
+    "npc_hane_nakit": 250000,
+    "npc_hane_mevduat": 400000
+   }
+  },
+  "makro": {
+   "v": 1,
+   "fiyat": {
+    "tuk": 1.042,
+    "enf": 0.0515,
+    "uretici": 1.028,
+    "ucret": 1.056,
+    "gercek_ucret": 1.013
+   },
+   "uretim": {
+    "nominal": 319894,
+    "gercek": 307000,
+    "buyume": 0.0258,
+    "verimlilik": 81.4
+   },
+   "para": {
+    "stok": 450000,
+    "korunum": 0,
+    "mali": 440000,
+    "kredi_net": 0,
+    "acilis": 10000,
+    "hiz": 0.386
+   },
+   "faiz": {
+    "politika": 0.164,
+    "mevduat": 0.08,
+    "kredi": 0.2,
+    "gercek": 0.0985
+   },
+   "marj": {
+    "npc": 0.0558,
+    "oyuncu": 0.0258
+   },
+   "konut": {
+    "kira": 1.056,
+    "kira_gelir": 0.107
+   },
+   "dagilim": {
+    "gini_nakit": 0.428,
+    "gini_gelir": 0.14,
+    "gini_servet": 0.514,
+    "yoksul": 0.572,
+    "medyan_sepet": 0.8
+   },
+   "kredi": {
+    "stok": 44200,
+    "buyume": 0.0289,
+    "temerrut": 0.0058
+   }
+  },
+  "harita": {
+   "hafta": 10,
+   "alanlar": [
+    "id",
+    "tur",
+    "sehir",
+    "calisan",
+    "lonca",
+    "sahip",
+    "dogum",
+    "durum"
+   ],
+   "turler": [
+    "un"
+   ],
+   "loncalar": [
+    "lonca0",
+    "lonca2"
+   ],
+   "sahipler": [
+    "npc",
+    "oyuncu",
+    "dao"
+   ],
+   "firmalar": [
+    [
+     "fk0",
+     0,
+     0,
+     8,
+     0,
+     0,
+     null,
+     "uretim"
+    ],
+    [
+     "fk1",
+     0,
+     1,
+     8,
+     -1,
+     1,
+     null,
+     "uretim"
+    ],
+    [
+     7,
+     0,
+     2,
+     5,
+     1,
+     2,
+     null,
+     "uretim"
+    ]
+   ]
+  }
+ },
+ "packet_harita_fark": {
+  "v": 1,
+  "run_id": "canli-00000001",
+  "week": 12,
+  "version": 1,
+  "world": {
+   "served": 0.6608,
+   "employed": 0.6767,
+   "unemployed": 434.8409,
+   "unemployment_rate": 0.9984,
+   "npc_firms": 419.8654,
+   "player_firms": 122.0778,
+   "firms_total": 541.9432,
+   "failed_cum": 590.455,
+   "city_cash_total": 532.858,
+   "gini": 208.2082,
+   "money_total": 108.3455,
+   "velocity": null,
+   "loans_applied": null,
+   "loans_rejected": null,
+   "loans_granted": null,
+   "support_weekly": null,
+   "privatized_firms": null,
+   "no_founder": null,
+   "reject_pool": null,
+   "reject_reputation": null,
+   "no_buyer_cum": null,
+   "city_cash_weeks": null,
+   "price_index": null,
+   "inflation_yoy": null,
+   "policy_rate": null,
+   "minted_year": null,
+   "mint_cap": null,
+   "support_denied": null,
+   "policy_unemployment": null,
+   "city_spend_cut": null,
+   "loan_rate_avg": null,
+   "survival_52": null,
+   "wage_index": null,
+   "rent_pct": null,
+   "occupancy": null,
+   "house_index": null,
+   "deposit_rate": null,
+   "bond_rate": null,
+   "lonca_fee_avg": null,
+   "royalty_avg": null,
+   "tenants_per_house": null,
+   "house_resale_ratio": null,
+   "policy_inflation": null,
+   "minted_total": null,
+   "npc_pool": 151,
+   "npc_employed": 999,
+   "npc_broke": 15,
+   "npc_pool_cash_avg": 12.6,
+   "players_seeking": 51,
+   "players_in_ahir": 20,
+   "players_students": 6,
+   "unemployment_rate_all": 0.15,
+   "benefit_paid": 1001.0,
+   "benefit_paid_npc": null,
+   "muni_wages": 501.0,
+   "bursary_paid": 90.0,
+   "benefit_cut": 0.0,
+   "players_total": 1502,
+   "players_new": 2,
+   "players_new_total": 2,
+   "ahir_capacity": 1500,
+   "ahir_fill": 0.901,
+   "npc_firm_npc": 899,
+   "npc_firm_players": 41,
+   "hired_player": 3,
+   "hired_npc": 6,
+   "fired_player": 1,
+   "fired_npc": 4,
+   "ahir_moves": 3,
+   "ahir_backfilled": 1,
+   "inflow_blocked": 0,
+   "staff_fill": 0.801,
+   "kinds_full": 3,
+   "house_stock": 1956.0,
+   "opening_staff": 2663,
+   "npc_dependents": 0,
+   "npc_lfp": 1.0,
+   "npc_discouraged": 0,
+   "muni_npc": 0,
+   "hires": 8,
+   "separations": 4,
+   "quits_npc": 0,
+   "job_finding_rate": 0.041,
+   "unemployment_duration": 24.390243902439025,
+   "money_households": 59900.0,
+   "money_npc_firms": 30050.0,
+   "money_player_firms": 8000.0,
+   "money_city": 250500.0,
+   "money_lonca": 90000.0,
+   "money_other": 9000.0,
+   "city_in_tax": 30001.0,
+   "city_in_profit": 20000.0,
+   "city_in_rent": 17000.0,
+   "city_in_mint": 0.0,
+   "city_in_other": 4000.0,
+   "city_out_households": 33000.0,
+   "city_out_wages": 2000.0,
+   "city_out_services": 5000.0,
+   "city_out_firms": 11000.0,
+   "city_out_other": 100.0,
+   "ghost_firms": 41,
+   "ghost_closed": 0,
+   "wealth_top10": 0.601,
+   "wealth_top1": 0.201,
+   "wealth_median": 121.0,
+   "income_gini": 0.401,
+   "income_top10": 0.3,
+   "liquid_b50": 0.1,
+   "liquid_m40": 0.4,
+   "liquid_t10": 0.5,
+   "founders_applied": null,
+   "founders_rejected": null,
+   "failed_player_cum": null,
+   "failed_dao_cum": null,
+   "failed_npc_default_cum": null,
+   "failed_total_cum": null,
+   "vacancies": null,
+   "staffless_npc": null,
+   "wage_fail": null,
+   "unemp_long_share": null,
+   "hires_stable4": null
+  },
+  "events": [],
+  "diagnostics": [],
+  "cities": [
+   {
+    "index": 0,
+    "served": 0.8418034728312342,
+    "employed": 102,
+    "unemployed": 10,
+    "cash": 1002.0,
+    "cash_weeks": 2.02,
+    "firms_npc": 20,
+    "firms_player": 0,
+    "firms_total": 20,
+    "rent_pct": 0.08854508682078086,
+    "occupancy": 0.8854508682078086,
+    "tenants_per_house": 1.0854508682078086,
+    "migration_in": 0,
+    "migration_out": 1,
+    "npc_pool": 30,
+    "npc_broke": 0,
+    "players_seeking": 10,
+    "population": 502,
+    "players_in_ahir": 4
+   },
+   {
+    "index": 1,
+    "served": 0.5247795796441287,
+    "employed": 112,
+    "unemployed": 11,
+    "cash": 2002.0,
+    "cash_weeks": 2.52,
+    "firms_npc": 21,
+    "firms_player": 1,
+    "firms_total": 22,
+    "rent_pct": 0.08061948949110322,
+    "occupancy": 0.8061948949110322,
+    "tenants_per_house": 1.0061948949110322,
+    "migration_in": 1,
+    "migration_out": 0,
+    "npc_pool": 31,
+    "npc_broke": 1,
+    "players_seeking": 11,
+    "population": 512,
+    "players_in_ahir": 5
+   }
+  ],
+  "chain": {
+   "board": true,
+   "sectors": [
+    {
+     "sector": "ahir",
+     "product": "sut",
+     "firms": 5,
+     "healthy": 3,
+     "shortage": 0.07697337249918587,
+     "persist": 0.15394674499837174,
+     "cover_days": 2.0,
+     "price_trend": 0.007697337249918587,
+     "price": 1.076973372499186
+    },
+    {
+     "sector": "un",
+     "product": "un",
+     "firms": 6,
+     "healthy": 4,
+     "shortage": 0.019253380057687206,
+     "persist": 0.03850676011537441,
+     "cover_days": 3.0,
+     "price_trend": 0.0019253380057687205,
+     "price": 1.0192533800576873
+    }
+   ],
+   "nodes": [
+    {
+     "sector": "ahir",
+     "city": 0,
+     "shortage": 0.07697337249918587,
+     "price": 1.076973372499186,
+     "firms": 1,
+     "healthy": 1,
+     "demand": 100.0,
+     "output": 90.0,
+     "stock": 10.0
+    },
+    {
+     "sector": "ahir",
+     "city": 1,
+     "shortage": 0.07697337249918587,
+     "price": 1.086973372499186,
+     "firms": 1,
+     "healthy": 1,
+     "demand": 101.0,
+     "output": 91.0,
+     "stock": 10.0
+    }
+   ],
+   "scarce": [
+    {
+     "sector": "ahir",
+     "product": "sut",
+     "persist": 0.15394674499837174,
+     "shortage": 0.07697337249918587,
+     "firms": 5,
+     "healthy": 3
+    }
+   ],
+   "edges_rev": 0,
+   "edges": [
+    [
+     "un",
+     "firin",
+     "un"
+    ]
+   ]
+  },
+  "holdings": {
+   "money": {
+    "deposits_players": 901,
+    "deposits_insurance": 80,
+    "found_fund": 5000,
+    "insurance_reserve": 400,
+    "lonca_cash_net": -149,
+    "credit_out": 2000,
+    "fund_credit_out": 300,
+    "bonds_out": 40,
+    "lonca_equity": 1200
+   },
+   "groups": {
+    "player": {
+     "lonca_owner": {
+      "n": 10,
+      "cash": 1001,
+      "deposits": 0
+     },
+     "firm_owner": {
+      "n": 11,
+      "cash": 2001,
+      "deposits": 100
+     },
+     "employed_player_firm": {
+      "n": 12,
+      "cash": 3001,
+      "deposits": 200
+     },
+     "employed_npc_firm": {
+      "n": 13,
+      "cash": 4001,
+      "deposits": 300
+     },
+     "municipal": {
+      "n": 14,
+      "cash": 5001,
+      "deposits": 400
+     },
+     "ahir": {
+      "n": 15,
+      "cash": 6001,
+      "deposits": 500
+     },
+     "seeking": {
+      "n": 16,
+      "cash": 7001,
+      "deposits": 600
+     },
+     "student": {
+      "n": 17,
+      "cash": 8001,
+      "deposits": 700
+     },
+     "other": {
+      "n": 18,
+      "cash": 9001,
+      "deposits": 800
+     }
+    },
+    "npc": {
+     "employed_npc_firm": [
+      50,
+      501
+     ],
+     "employed_player_firm": [
+      51,
+      1001
+     ],
+     "municipal": [
+      52,
+      1501
+     ],
+     "pool": [
+      53,
+      2001
+     ],
+     "dependent": [
+      54,
+      2501
+     ],
+     "out": [
+      55,
+      3001
+     ],
+     "other": [
+      56,
+      3501
+     ]
+    }
+   },
+   "deposits": {
+    "by_group": {
+     "lonca_owner": 0,
+     "firm_owner": 100,
+     "employed_player_firm": 200,
+     "employed_npc_firm": 300,
+     "municipal": 400,
+     "ahir": 500,
+     "seeking": 600,
+     "student": 700,
+     "other": 800,
+     "insurance": 80
+    }
+   },
+   "loncas": [
+    {
+     "ref": "lonca0",
+     "owner": "none",
+     "members": 10,
+     "fee": 0.05,
+     "capital": 6002,
+     "deposits": 900,
+     "credit_out": 2,
+     "equity": 5002
+    },
+    {
+     "ref": "lonca1",
+     "owner": "player",
+     "members": 11,
+     "fee": 0.05,
+     "capital": 6102,
+     "deposits": 910,
+     "credit_out": 102,
+     "equity": 4952
+    },
+    {
+     "ref": "lonca2",
+     "owner": "none",
+     "members": 12,
+     "fee": 0.05,
+     "capital": 6202,
+     "deposits": 920,
+     "credit_out": 202,
+     "equity": 4902
+    },
+    {
+     "ref": "lonca3",
+     "owner": "none",
+     "members": 13,
+     "fee": 0.05,
+     "capital": 6302,
+     "deposits": 930,
+     "credit_out": 302,
+     "equity": 4852
+    },
+    {
+     "ref": "lonca4",
+     "owner": "none",
+     "members": 14,
+     "fee": 0.05,
+     "capital": 6402,
+     "deposits": 940,
+     "credit_out": 402,
+     "equity": 4802
+    },
+    {
+     "ref": "lonca5",
+     "owner": "closed",
+     "members": 15,
+     "fee": 0.05,
+     "capital": 6502,
+     "deposits": 950,
+     "credit_out": 502,
+     "equity": 4752
+    }
+   ],
+   "firms": {
+    "player_count": 14,
+    "owners": 9,
+    "multi_owners": 2,
+    "cash_top10_share": 0.32
+   },
+   "wealth": {
+    "b50": 0.05,
+    "m40": 0.25,
+    "t10": 0.7,
+    "t1": 0.201,
+    "median": 151,
+    "gini": 0.62,
+    "n": 1500
+   },
+   "flows": [
+    [
+     "players",
+     "npc_firms",
+     88000
+    ],
+    [
+     "public_firms",
+     "players",
+     51000
+    ],
+    [
+     "npc_firms",
+     "players",
+     49000
+    ],
+    [
+     "city",
+     "public_firms",
+     49000
+    ],
+    [
+     "mint",
+     "city",
+     1200
+    ],
+    [
+     "rest",
+     "rest",
+     400
+    ]
+   ]
+  },
+  "kurumlar": [
+   {
+    "sehir": 0,
+    "ithalat_hacim": 2012.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1512.0
+   },
+   {
+    "sehir": 1,
+    "ithalat_hacim": 2022.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1517.0
+   },
+   {
+    "sehir": 2,
+    "ithalat_hacim": 2032.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1522.0
+   },
+   {
+    "sehir": 3,
+    "ithalat_hacim": 2042.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1527.0
+   },
+   {
+    "sehir": 4,
+    "ithalat_hacim": 2052.0,
+    "ithalat_urunler": [
+     {
+      "urun": "sut",
+      "pay": 0.4
+     },
+     {
+      "urun": "un",
+      "pay": 0.2
+     },
+     {
+      "urun": "ekmek",
+      "pay": 0.133333
+     }
+    ],
+    "ihracat_hacim": 1532.0
+   }
+  ],
+  "ekonomi": {
+   "v": 1,
+   "tuketim": {
+    "hane": {
+     "ise": {
+      "n": 4600,
+      "karsilanma": 0.82,
+      "sepet": 290.5
+     },
+     "issiz": {
+      "n": 310,
+      "karsilanma": 0.55,
+      "sepet": 147.0
+     },
+     "npc": {
+      "ise": {
+       "n": 15200,
+       "karsilanma": 0.74,
+       "sepet": 217.0
+      },
+      "issiz": {
+       "n": 2010,
+       "karsilanma": 0.45,
+       "sepet": 87.5
+      },
+      "dis": {
+       "n": 510,
+       "karsilanma": 0.6,
+       "sepet": 175.0
+      }
+     },
+     "npc_issiz_parasiz": 120.5,
+     "sehir": [
+      {
+       "sehir": 0,
+       "ise": {
+        "n": 900,
+        "karsilanma": 0.8021,
+        "sepet": 280.77
+       },
+       "issiz": {
+        "n": 60,
+        "karsilanma": 0.5043,
+        "sepet": 140.63
+       },
+       "npc": {
+        "ise": {
+         "n": 3000,
+         "karsilanma": 0.7021,
+         "sepet": 210.42
+        },
+        "issiz": {
+         "n": 400,
+         "karsilanma": 0.4043,
+         "sepet": 84.14
+        },
+        "dis": {
+         "n": 100,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 10.6,
+       "harcama": {
+        "oyuncu": 20003,
+        "npc": 80003
+       }
+      },
+      {
+       "sehir": 1,
+       "ise": {
+        "n": 910,
+        "karsilanma": 0.8773,
+        "sepet": 307.09
+       },
+       "issiz": {
+        "n": 61,
+        "karsilanma": 0.6547,
+        "sepet": 161.63
+       },
+       "npc": {
+        "ise": {
+         "n": 3050,
+         "karsilanma": 0.7773,
+         "sepet": 226.24
+        },
+        "issiz": {
+         "n": 401,
+         "karsilanma": 0.5547,
+         "sepet": 89.39
+        },
+        "dis": {
+         "n": 101,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 33.2,
+       "harcama": {
+        "oyuncu": 20103,
+        "npc": 80503
+       }
+      },
+      {
+       "sehir": 2,
+       "ise": {
+        "n": 920,
+        "karsilanma": 0.8016,
+        "sepet": 280.56
+       },
+       "issiz": {
+        "n": 62,
+        "karsilanma": 0.5031,
+        "sepet": 140.42
+       },
+       "npc": {
+        "ise": {
+         "n": 3100,
+         "karsilanma": 0.7016,
+         "sepet": 210.35
+        },
+        "issiz": {
+         "n": 402,
+         "karsilanma": 0.4031,
+         "sepet": 84.14
+        },
+        "dis": {
+         "n": 102,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 10.5,
+       "harcama": {
+        "oyuncu": 20203,
+        "npc": 81003
+       }
+      },
+      {
+       "sehir": 3,
+       "ise": {
+        "n": 930,
+        "karsilanma": 0.8361,
+        "sepet": 292.67
+       },
+       "issiz": {
+        "n": 63,
+        "karsilanma": 0.5723,
+        "sepet": 150.15
+       },
+       "npc": {
+        "ise": {
+         "n": 3150,
+         "karsilanma": 0.7361,
+         "sepet": 217.56
+        },
+        "issiz": {
+         "n": 403,
+         "karsilanma": 0.4723,
+         "sepet": 86.52
+        },
+        "dis": {
+         "n": 103,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 20.8,
+       "harcama": {
+        "oyuncu": 20303,
+        "npc": 81503
+       }
+      },
+      {
+       "sehir": 4,
+       "ise": {
+        "n": 940,
+        "karsilanma": 0.8096,
+        "sepet": 283.36
+       },
+       "issiz": {
+        "n": 64,
+        "karsilanma": 0.5191,
+        "sepet": 142.66
+       },
+       "npc": {
+        "ise": {
+         "n": 3200,
+         "karsilanma": 0.7096,
+         "sepet": 212.03
+        },
+        "issiz": {
+         "n": 404,
+         "karsilanma": 0.4191,
+         "sepet": 84.7
+        },
+        "dis": {
+         "n": 104,
+         "karsilanma": 0.6,
+         "sepet": 175.0
+        }
+       },
+       "npc_issiz_parasiz": 12.9,
+       "harcama": {
+        "oyuncu": 20403,
+        "npc": 82003
+       }
+      }
+     ]
+    },
+    "harcama": {
+     "npc": 402503,
+     "oyuncu": 100503,
+     "toplam": 503006
+    },
+    "urunler": [
+     {
+      "urun": "sut",
+      "istek": 5000.0,
+      "karsilanmayan": 800.0,
+      "uretim": 4000.0,
+      "stok": 120.0
+     },
+     {
+      "urun": "un",
+      "istek": 4900.0,
+      "karsilanmayan": 750.0,
+      "uretim": 4000.0,
+      "stok": 121.0
+     },
+     {
+      "urun": "ekmek",
+      "istek": 4800.0,
+      "karsilanmayan": 700.0,
+      "uretim": 4000.0,
+      "stok": 122.0
+     }
+    ],
+    "ucret": {
+     "dunya": [
+      1.2,
+      1.1,
+      75.6,
+      1.5
+     ],
+     "sehir": [
+      [
+       1.2,
+       1.1,
+       75.6,
+       1.5
+      ],
+      [
+       1.21,
+       1.11,
+       76.6,
+       1.55
+      ],
+      [
+       1.22,
+       1.12,
+       77.6,
+       1.6
+      ],
+      [
+       1.23,
+       1.13,
+       78.6,
+       1.65
+      ],
+      [
+       1.24,
+       1.14,
+       79.6,
+       1.7
+      ]
+     ]
+    }
+   },
+   "isletme": {
+    "istihdam": {
+     "oyuncu": 610,
+     "npc": 1150,
+     "ozel": 1500,
+     "kamu": 260
+    },
+    "hareket": {
+     "kurulan": 2,
+     "buyuyen": 9,
+     "kuculen": 4,
+     "batan": 1
+    },
+    "sektor": [
+     {
+      "tur": "ahir",
+      "calisan": 700,
+      "firma": 30
+     },
+     {
+      "tur": "un",
+      "calisan": 600,
+      "firma": 25
+     },
+     {
+      "tur": "firin",
+      "calisan": 500,
+      "firma": 20
+     }
+    ],
+    "sektor_diger": {
+     "calisan": 0,
+     "firma": 0
+    },
+    "sehir": [
+     {
+      "sehir": 0,
+      "ozel_calisan": 300,
+      "kamu_calisan": 40,
+      "calisan_oyuncu": 120,
+      "calisan_npc": 220,
+      "isgucu_disi": 15,
+      "boy": [
+       20,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 0,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 1,
+      "ozel_calisan": 310,
+      "kamu_calisan": 41,
+      "calisan_oyuncu": 121,
+      "calisan_npc": 229,
+      "isgucu_disi": 16,
+      "boy": [
+       21,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 1,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 2,
+      "ozel_calisan": 320,
+      "kamu_calisan": 42,
+      "calisan_oyuncu": 122,
+      "calisan_npc": 238,
+      "isgucu_disi": 17,
+      "boy": [
+       22,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 0,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 3,
+      "ozel_calisan": 330,
+      "kamu_calisan": 43,
+      "calisan_oyuncu": 123,
+      "calisan_npc": 247,
+      "isgucu_disi": 18,
+      "boy": [
+       23,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 1,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     },
+     {
+      "sehir": 4,
+      "ozel_calisan": 340,
+      "kamu_calisan": 44,
+      "calisan_oyuncu": 124,
+      "calisan_npc": 256,
+      "isgucu_disi": 19,
+      "boy": [
+       24,
+       8,
+       3,
+       1
+      ],
+      "hareket": {
+       "kurulan": 0,
+       "buyuyen": 2,
+       "kuculen": 1,
+       "batan": 0
+      }
+     }
+    ]
+   },
+   "para": {
+    "oyuncu_n": 1500,
+    "oyuncu_ust10": 900000,
+    "oyuncu_alt90": 300000,
+    "npc_hane_nakit": 250000,
+    "npc_hane_mevduat": 400000
+   }
+  },
+  "makro": {
+   "v": 1,
+   "fiyat": {
+    "tuk": 1.042,
+    "enf": 0.0515,
+    "uretici": 1.028,
+    "ucret": 1.056,
+    "gercek_ucret": 1.013
+   },
+   "uretim": {
+    "nominal": 319894,
+    "gercek": 307000,
+    "buyume": 0.0258,
+    "verimlilik": 81.4
+   },
+   "para": {
+    "stok": 450000,
+    "korunum": 0,
+    "mali": 440000,
+    "kredi_net": 0,
+    "acilis": 10000,
+    "hiz": 0.386
+   },
+   "faiz": {
+    "politika": 0.164,
+    "mevduat": 0.08,
+    "kredi": 0.2,
+    "gercek": 0.0985
+   },
+   "marj": {
+    "npc": 0.0558,
+    "oyuncu": 0.0258
+   },
+   "konut": {
+    "kira": 1.056,
+    "kira_gelir": 0.107
+   },
+   "dagilim": {
+    "gini_nakit": 0.428,
+    "gini_gelir": 0.14,
+    "gini_servet": 0.514,
+    "yoksul": 0.572,
+    "medyan_sepet": 0.8
+   },
+   "kredi": {
+    "stok": 44200,
+    "buyume": 0.0289,
+    "temerrut": 0.0058
+   }
+  },
+  "haritaFark": {
+   "hafta": 12,
+   "taban": 10,
+   "degisen": [
+    [
+     "fk3",
+     3,
+     0
+    ]
+   ],
+   "yeni": [
+    [
+     "s1_firin2",
+     "firin",
+     1,
+     5,
+     "lonca2",
+     "oyuncu",
+     11,
+     "uretim"
+    ],
+    [
+     "s1_firin3",
+     "firin",
+     1,
+     5,
+     null,
+     "npc",
+     null,
+     "uretim"
+    ]
+   ],
+   "kapanan": [
+    "fk9"
+   ]
+  }
+ },
+ "state_dao": {
+  "runId": "canli-00000001",
+  "versions": [
+   {
+    "version": 1,
+    "fromWeek": 0,
+    "values": {
+     "gecis_destegi": "kapali"
+    }
+   }
+  ],
+  "status": "paused",
+  "week": 0,
+  "durationWeeks": 520,
+  "speed": 1,
+  "computing": false,
+  "version": 1,
+  "seedIndex": 0,
+  "values": {
+   "gecis_destegi": "kapali"
+  },
+  "scenarioId": "dayanikli_taban",
+  "name": "Deneme",
+  "cityNames": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ],
+  "buffering": true,
+  "mode": "dao",
+  "harita0": {
+   "hafta": 0,
+   "alanlar": [
+    "id",
+    "tur",
+    "sehir",
+    "calisan",
+    "lonca",
+    "sahip",
+    "dogum",
+    "durum"
+   ],
+   "turler": [
+    "un"
+   ],
+   "loncalar": [
+    "lonca0",
+    "lonca2"
+   ],
+   "sahipler": [
+    "npc",
+    "oyuncu",
+    "dao"
+   ],
+   "firmalar": [
+    [
+     "fk0",
+     0,
+     0,
+     8,
+     0,
+     0,
+     null,
+     "uretim"
+    ],
+    [
+     "fk1",
+     0,
+     1,
+     8,
+     -1,
+     1,
+     null,
+     "uretim"
+    ],
+    [
+     7,
+     0,
+     2,
+     5,
+     1,
+     2,
+     null,
+     "uretim"
+    ]
+   ]
+  },
+  "dao0": {
+   "hafta": 0,
+   "ben": {
+    "sehir": 0,
+    "nakit": 101.0,
+    "mevduat": {
+     "lonca": "lonca1",
+     "tutar": 25.5
+    },
+    "is": {
+     "firma": "fk0",
+     "sektor": "un",
+     "ucret": 10.0
+    },
+    "durum": "calisan",
+    "calisilan_hafta": 0,
+    "tecrube_hafta": 0.0,
+    "terfi_esik": {
+     "kalfa": {
+      "hafta": 40.0,
+      "itibar": 4.0
+     },
+     "usta": {
+      "hafta": 150.0,
+      "itibar": 12.0
+     }
+    },
+    "itibar": 0.3,
+    "servet_dilimi": 3,
+    "unvan": "cirak",
+    "loncam": {
+     "ad": "lonca6",
+     "sermaye": 3000.0,
+     "uye_sayisi": 2,
+     "kasa": 15.5,
+     "durum": "acik",
+     "odenen_sermaye": 3000.0
+    }
+   },
+   "firmam": {
+    "ad": "s0_un7",
+    "sektor": "un",
+    "nakit": 120.5,
+    "isci": 3,
+    "kar": 4.25,
+    "yas": 2,
+    "lonca": "lonca0",
+    "lonca_degisebilir": true,
+    "uyari": [
+     "kasa_2_hafta_alti",
+     "kasa_4_hafta_alti"
+    ],
+    "kasa_pisti_hafta": 3.5,
+    "hedef": 4,
+    "kapasite": 25
+   },
+   "kurabilir": {
+    "evet": false,
+    "eksikler": [
+     "calisma"
+    ],
+    "harc": 0.0,
+    "gereken_hafta": 1
+   },
+   "sektorler": [
+    {
+     "sektor": "tarla_bugday",
+     "urun": "bugday",
+     "fiyat": 1.0,
+     "firma": 1,
+     "eksik": 0.0,
+     "disaridan": 0.0,
+     "kasa_egilim": -0.0,
+     "firma_sayisi_13hf": 0
+    },
+    {
+     "sektor": "un",
+     "urun": "un",
+     "fiyat": 1.1,
+     "firma": 2,
+     "eksik": 10.0,
+     "disaridan": 5.0,
+     "kasa_egilim": -50.0,
+     "firma_sayisi_13hf": 1
+    },
+    {
+     "sektor": "firin",
+     "urun": "ekmek",
+     "fiyat": 1.2,
+     "firma": 3,
+     "eksik": 20.0,
+     "disaridan": 10.0,
+     "kasa_egilim": -100.0,
+     "firma_sayisi_13hf": 2
+    }
+   ],
+   "loncalar": [
+    {
+     "ad": "lonca0",
+     "mevduat_faizi": 0.0,
+     "kapali": false,
+     "mevduat": 0.0,
+     "pay_orani": 0.02,
+     "kredi_verebilir": true,
+     "skor": 0.03
+    },
+    {
+     "ad": "lonca1",
+     "mevduat_faizi": 0.01,
+     "kapali": false,
+     "mevduat": 100.0,
+     "pay_orani": 0.02,
+     "kredi_verebilir": false,
+     "skor": 0.031
+    },
+    {
+     "ad": "lonca5",
+     "mevduat_faizi": 0.05,
+     "kapali": true,
+     "mevduat": 500.0,
+     "pay_orani": 0.02,
+     "kredi_verebilir": true,
+     "skor": null
+    }
+   ],
+   "sehir": {
+    "talep_karsilama": 0.7,
+    "is_arayan": 11
+   },
+   "tercih": {
+    "mevduat": {
+     "lonca": "lonca1",
+     "oran": 0.5
+    }
+   },
+   "gecmis": {
+    "dilim0": 2,
+    "firmalar": [
+     {
+      "ad": "s0_un7",
+      "sektor": "un",
+      "yas": 2,
+      "ayakta": true,
+      "neden": null,
+      "olum_haftasi": null
+     },
+     {
+      "ad": "s0_un3",
+      "sektor": "un",
+      "yas": 6,
+      "ayakta": false,
+      "neden": "diger",
+      "olum_haftasi": 9,
+      "neden_ayrinti": "kredi_odenemedi",
+      "son8_kasa_farki": -120.0,
+      "son8_ciro": 300.0,
+      "son8_ucret": 250.0,
+      "yakin_neden": "ucret_odenemedi",
+      "kok_neden": "marj"
+     }
+    ]
+   },
+   "ilanlar": [
+    {
+     "firma": "fk0",
+     "ad": "fk0",
+     "sektor": "un",
+     "acik": 2,
+     "ucret": 101.5,
+     "kasa_gucu": "orta",
+     "maas_odeyemedi": false
+    },
+    {
+     "firma": "fk1",
+     "ad": "fk1",
+     "sektor": "firin",
+     "acik": 1,
+     "ucret": 84.0,
+     "kasa_gucu": "orta",
+     "maas_odeyemedi": false
+    }
+   ],
+   "olaylar": [
+    {
+     "tur": "ayrildi",
+     "hafta": 1
+    },
+    {
+     "tur": "ise_girdi",
+     "hafta": 1,
+     "firma": "fk0"
+    },
+    {
+     "tur": "cekildi",
+     "hafta": 1,
+     "miktar": 5.0
+    },
+    {
+     "tur": "goc_etti",
+     "hafta": 1,
+     "sehir": 2
+    },
+    {
+     "tur": "kurulamadi",
+     "hafta": 1,
+     "sektor": "un",
+     "neden": "sart"
+    },
+    {
+     "tur": "ahirdan_cikti",
+     "hafta": 1
+    },
+    {
+     "tur": "basvuru_kabul",
+     "hafta": 1,
+     "firma": "fk0"
+    },
+    {
+     "tur": "basvuru_red",
+     "hafta": 1,
+     "firma": "fk1",
+     "neden": "ilan_kapandi"
+    }
+   ],
+   "lonca_kur": {
+    "girisimci": [
+     "erken",
+     "inovator_degil"
+    ],
+    "medya": [
+     "erken",
+     "medya_firma"
+    ],
+    "yeniden": [
+     "yuva_yok"
+    ]
+   },
+   "lonca_kur_ayrinti": {
+    "girisimci": [
+     {
+      "id": "erken"
+     },
+     {
+      "id": "nakit",
+      "gerek": 3500.0,
+      "var": 10.0
+     },
+     {
+      "id": "kurucu_yasagi",
+      "kalan": 50.0
+     }
+    ],
+    "medya": [
+     {
+      "id": "medya_firma"
+     },
+     {
+      "id": "itibar",
+      "gerek": 8.0,
+      "var": 1.0
+     }
+    ],
+    "yeniden": [
+     {
+      "id": "yuva_yok"
+     },
+     {
+      "id": "nakit",
+      "gerek": 3000.0,
+      "var": 10.0
+     }
+    ]
+   }
+  }
+ },
+ "handle_dao": {
+  "runId": "canli-00000001",
+  "state": {
+   "runId": "canli-00000001",
+   "versions": [
+    {
+     "version": 1,
+     "fromWeek": 0,
+     "values": {
+      "gecis_destegi": "kapali"
+     }
+    }
+   ],
+   "status": "paused",
+   "week": 0,
+   "durationWeeks": 520,
+   "speed": 1,
+   "computing": false,
+   "version": 1,
+   "seedIndex": 0,
+   "values": {
+    "gecis_destegi": "kapali"
+   },
+   "scenarioId": "dayanikli_taban",
+   "name": "Deneme",
+   "cityNames": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+   ],
+   "buffering": true,
+   "mode": "dao"
+  }
+ },
+ "dunya_yayinla": {
+  "kod": "K7M2QXA",
+  "baglanti": "/d/K7M2QXA"
+ },
+ "dunya_getir": {
+  "kod": "K7M2QXA",
+  "ad": "Kıtlık",
+  "aciklama": "Zor dünya",
+  "tarif": {
+   "v": 1,
+   "templateId": "dayanikli_taban",
+   "durationWeeks": 100,
+   "seedIndex": 0,
+   "values": {}
+  },
+  "modelSurumu": "v13.3-1a2b3c4d",
+  "oynanma": 1,
+  "guncelSurum": "v13.3-1a2b3c4d"
+ },
+ "dunya_liste": [
+  {
+   "kod": "K7M2QXA",
+   "ad": "Kıtlık",
+   "aciklama": "Zor dünya",
+   "oynanma": 1,
+   "olusturma": 1794000000.5,
+   "baglanti": "/d/K7M2QXA"
+  }
+ ],
+ "dunya_skor": [
+  {
+   "ad": "Ayşe",
+   "dilim": 3,
+   "unvan": "cirak",
+   "isletme": 0,
+   "servet": 102.0
+  }
+ ],
+ "dunya_oyna": {
+  "runId": "canli-00000001"
+ },
+ "dunya_ad": {
+  "ok": true
+ },
+ "info_dunyalar_kalici": {
+  "dunyalarKalici": false
+ },
+ "state_dao_dunya": {
+  "runId": "canli-00000001",
+  "versions": [
+   {
+    "version": 1,
+    "fromWeek": 0,
+    "values": {
+     "gecis_destegi": "kapali"
+    }
+   }
+  ],
+  "status": "paused",
+  "week": 0,
+  "durationWeeks": 520,
+  "speed": 1,
+  "computing": false,
+  "version": 1,
+  "seedIndex": 0,
+  "values": {
+   "gecis_destegi": "kapali"
+  },
+  "scenarioId": "dayanikli_taban",
+  "name": "Deneme",
+  "cityNames": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ],
+  "buffering": true,
+  "mode": "dao",
+  "dunyaKodu": "K7M2QXA"
+ },
+ "drawer_firm": {
+  "kind": "firm",
+  "ref": "fk0",
+  "week": 2,
+  "stale": false,
+  "title": "Değirmen",
+  "fields": {
+   "kind": "un",
+   "sector_label": "Değirmen",
+   "city": 0,
+   "lonca": "lonca0",
+   "workers": 8,
+   "capacity": 20,
+   "cash": 502.0,
+   "ownership": "npc",
+   "privatized": false,
+   "born": null,
+   "age": null,
+   "alive": true,
+   "died": null,
+   "profit": 1.5,
+   "debt": 0.0,
+   "loan_rate": null,
+   "health": 0.9,
+   "cover_weeks": 3.0,
+   "loss_streak": 0,
+   "staffless": false,
+   "exiting": false,
+   "stock_units": 12.0,
+   "insolvent_weeks": 0,
+   "product": "un",
+   "price": 1.27,
+   "wage_avg": 14.5,
+   "sold_week": 42.0,
+   "profit_hist": [
+    1.5,
+    1.6
+   ]
+  }
+ },
+ "drawer_urun": {
+  "kind": "urun",
+  "ref": "un",
+  "week": 2,
+  "stale": false,
+  "title": "Un değirmeni",
+  "fields": {
+   "urun": "un",
+   "istek": 110.0,
+   "karsilanmayan": 12.0,
+   "uretim": 100.0,
+   "stok": 35.0,
+   "kapsama_hf": 0.8,
+   "fiyat_endeksi": 1.05,
+   "firma": 20,
+   "saglikli": 15,
+   "sehirler": [
+    {
+     "sehir": 0,
+     "talep": 20.0,
+     "uretim": 18.0,
+     "stok": 5.0,
+     "firma": 2,
+     "saglikli": 1
+    },
+    {
+     "sehir": 1,
+     "talep": 21.0,
+     "uretim": 19.0,
+     "stok": 6.0,
+     "firma": 3,
+     "saglikli": 2
+    },
+    {
+     "sehir": 2,
+     "talep": 22.0,
+     "uretim": 20.0,
+     "stok": 7.0,
+     "firma": 4,
+     "saglikli": 3
+    },
+    {
+     "sehir": 3,
+     "talep": 23.0,
+     "uretim": 21.0,
+     "stok": 8.0,
+     "firma": 5,
+     "saglikli": 4
+    },
+    {
+     "sehir": 4,
+     "talep": 24.0,
+     "uretim": 22.0,
+     "stok": 9.0,
+     "firma": 6,
+     "saglikli": 5
+    }
+   ]
+  }
+ }
+}

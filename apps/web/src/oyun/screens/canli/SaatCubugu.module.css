@@ -1,0 +1,121 @@
+.zaman {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+  max-width: 100%;
+  padding: var(--space-6) var(--space-8);
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-16);
+  background: var(--ekran-cam);
+  color: var(--ekran-yazi);
+  box-shadow: var(--shadow-modal);
+}
+
+.satir {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-6) var(--space-10);
+}
+
+.hafta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-10);
+  margin: 0;
+  padding: 0 var(--space-6);
+  font-family: var(--font-display);
+  font-size: var(--fs-16);
+}
+
+.dugmeler {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.grup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.hizlar {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.bilgi {
+  color: var(--ekran-yazi-soluk);
+  font-family: var(--font-body);
+  font-size: var(--fs-12);
+}
+
+.durum {
+  padding: 0 var(--space-6);
+  color: var(--ekran-not-yazi);
+  font-size: var(--fs-12);
+}
+
+.durum p {
+  margin: 0;
+}
+
+/*
+ * Telefon: kart iki satır. Üst satır: hafta + "Sonraki kritik olaya atla"; alt satır: Oynat, hız, Tek hafta.
+ * Sarmalayıcılar `display: contents` olur, düğmeler kartın doğrudan öğesi gibi `order` ile dizilir.
+ */
+@media (max-width: 720px) {
+  .zaman {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4) var(--space-6);
+    padding: var(--space-4) var(--space-6);
+  }
+
+  .satir,
+  .dugmeler,
+  .grupAdim {
+    display: contents;
+  }
+
+  /* Üç düğme grubu tek satıra sığsın: yatay boşluklar daralır (yükseklik 44 px dokunma hedefi korunur). */
+  .zaman button {
+    padding-inline: var(--space-8);
+    min-width: var(--size-target);
+  }
+
+  .hizlar {
+    gap: 0;
+  }
+
+  .hafta {
+    order: 0;
+    flex: 1 1 auto;
+  }
+
+  .grupAdim > :last-child {
+    order: 1;
+  }
+
+  .grup:not(.grupAdim) {
+    order: 2;
+  }
+
+  .grupAdim > :first-child {
+    order: 3;
+  }
+
+  .bilgi {
+    display: none;
+  }
+
+  .durum {
+    order: 4;
+    flex-basis: 100%;
+  }
+}

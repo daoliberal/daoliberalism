@@ -1,0 +1,225 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.tight {
+  gap: var(--space-4);
+}
+
+.label {
+  font-weight: var(--weight-bold);
+  overflow-wrap: anywhere;
+}
+
+.labelInlineField {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-8);
+  margin-inline-start: auto;
+}
+
+.labelInline {
+  font-size: var(--fs-14);
+  font-weight: var(--weight-regular);
+  color: var(--color-ink-3);
+}
+
+.label14 {
+  font-size: var(--fs-14);
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  min-height: var(--size-48);
+  /* the control, not the box, carries the horizontal padding so it fills the whole box (44px touch target) */
+  --inset: var(--space-14);
+  --bw: var(--border-1);
+  padding: 0;
+  border: var(--border-1) solid var(--color-line-strong);
+  border-radius: var(--radius-12);
+  background: var(--color-surface);
+}
+
+.box:has(:focus-visible) {
+  outline: var(--border-2) solid var(--color-brand);
+}
+
+.large {
+  --bw: var(--border-2);
+  gap: var(--space-8);
+  min-height: var(--size-control-lg);
+  border: var(--border-2) solid var(--color-ink);
+}
+
+.compact {
+  min-height: var(--size-target);
+}
+
+/* selects: C-02-Treasuries:61, C-06-CreateDAO:57 padding 0 12 */
+.boxSelect {
+  --inset: var(--space-12);
+}
+
+.gap10 {
+  gap: var(--space-10);
+}
+
+.hug {
+  align-self: flex-start;
+}
+
+.phoneField {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.phoneField .label {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.phoneField .hint,
+.phoneField .error {
+  flex-basis: 100%;
+}
+
+.phone {
+  --inset: var(--space-10);
+  --bw: var(--border-2);
+  flex: none;
+  min-height: var(--size-target);
+  border: var(--border-2) solid var(--color-ink);
+  background: transparent;
+}
+
+.phone .control {
+  flex: none;
+  width: calc(var(--size-56) + var(--inset));
+}
+
+.phone .suffix {
+  font-size: var(--fs-13);
+}
+
+.w100 {
+  flex: none;
+  width: calc(var(--size-100) + var(--inset));
+}
+
+.inlineRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.inset12 {
+  --inset: var(--space-12);
+}
+
+.invalid {
+  border-color: var(--color-caution-accent);
+}
+
+.boxArea {
+  align-items: stretch;
+}
+
+.control {
+  flex: 1 1 auto;
+  align-self: stretch;
+  min-width: 0;
+  /* extend over the border so the control's rect equals the box's outer height */
+  margin-block: calc(var(--bw) * -1);
+  padding-block: 0;
+  padding-inline: var(--inset);
+  border: 0;
+  background: transparent;
+  color: var(--color-ink);
+  font: inherit;
+  font-size: var(--fs-16);
+}
+
+.control:focus-visible {
+  outline: none;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.fs14 {
+  font-size: var(--fs-14);
+}
+
+.fs15 {
+  font-size: var(--fs-15);
+}
+
+.fs16 {
+  font-size: var(--fs-16);
+}
+
+.fs17 {
+  font-size: var(--fs-17);
+}
+
+.fs18 {
+  font-size: var(--fs-18);
+}
+
+.fs20 {
+  font-size: var(--fs-20);
+}
+
+.fs22 {
+  font-size: var(--fs-22);
+}
+
+.area {
+  margin-block: 0;
+  padding: var(--space-12) var(--space-14);
+  resize: vertical;
+}
+
+.hasSuffix .control {
+  padding-inline-end: 0;
+}
+
+.suffix {
+  flex: none;
+  padding-inline-end: var(--inset);
+  color: var(--color-ink-4);
+}
+
+.suffix.mono {
+  font-family: var(--font-mono);
+}
+
+.hint {
+  font-size: var(--fs-13);
+  color: var(--color-ink-4);
+  overflow-wrap: anywhere;
+}
+
+.hintInline {
+  font-size: var(--fs-14);
+  color: var(--color-ink-3);
+}
+
+.error {
+  margin: 0;
+  padding: var(--space-12) var(--space-14);
+  border-radius: var(--radius-12);
+  background: var(--color-caution-bg);
+  color: var(--color-caution-accent);
+  font-weight: var(--weight-bold);
+  overflow-wrap: anywhere;
+}

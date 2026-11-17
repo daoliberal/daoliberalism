@@ -1,0 +1,33 @@
+.rozet {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-8);
+  border: var(--border-1) solid var(--color-line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-muted);
+  color: var(--color-ink-2);
+  font-size: var(--fs-13);
+  font-weight: var(--weight-bold);
+}
+
+.today {
+  border-color: var(--color-brand);
+  background: var(--color-brand-tint);
+  color: var(--color-brand-strong);
+}
+
+.planned,
+.experimental {
+  border-color: var(--color-warn-dot);
+  background: var(--color-warn-bg);
+  color: var(--color-warn-fg);
+}
+
+.unmeasured {
+  border-style: dashed;
+}
+
+.passive {
+  color: var(--color-slate);
+}

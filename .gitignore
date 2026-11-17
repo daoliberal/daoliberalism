@@ -1,0 +1,52 @@
+# Yerel planlama ve beyin fırtınası dokümanları
+docs/
+
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+.env
+.env.*
+
+# Foundry
+out/
+cache/
+broadcast/
+
+# Paralel çalışma kopyaları ve subagent çalışma alanı
+.worktrees/
+.superpowers/
+
+# apps/web
+apps/web/.next
+apps/web/out
+apps/web/fidelity/out
+apps/web/test-results
+apps/web/playwright-report
+apps/web/next-env.d.ts
+apps/web/*.tsbuildinfo
+
+# K-211 v2 ham ölçüm çıktıları (yalnız özet tablolar ve rapor commitlenir)
+simulasyon/kagit-ustu/modulerlestirme/ornek-ciktilar/k211v2/
+
+# v13.0 ham ölçüm çıktıları (yalnız araçlar ve özet tablolar commitlenir)
+simulasyon/kagit-ustu/modulerlestirme/ornek-ciktilar/v13/
+
+# faiz davranışı ham ölçüm çıktıları
+simulasyon/kagit-ustu/modulerlestirme/ornek-ciktilar/faiz/
+# K-219/K-220 (kasa kuralı, kâr firmada kalır) ham ölçüm çıktıları
+simulasyon/kagit-ustu/modulerlestirme/ornek-ciktilar/kasa/
+simulasyon/kagit-ustu/modulerlestirme/ornek-ciktilar/kredi-para/
+
+# birleşik ölçüm ham çıktıları
+simulasyon/kagit-ustu/modulerlestirme/ornek-ciktilar/birlesik/
+
+# D1: arayüz sunucusunun diske yazdığı koşular (kosu.json, haftalar.jsonl, firmalar.json)
+simulasyon/arayuz/kosular/
+
+# PLAN-KREDI T8: kredi/iş piyasası/gece ölçüm ham çıktıları
+simulasyon/kagit-ustu/modulerlestirme/ornek-ciktilar/kredi-yon/
+.playwright-mcp/
+__pycache__/
+*.pyc

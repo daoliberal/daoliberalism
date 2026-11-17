@@ -1,0 +1,98 @@
+/* Frame of the owner screens: C-08-Earnings:34 */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  box-sizing: border-box;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-40) var(--gutter) var(--space-80);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-46);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-tight);
+}
+
+.lede {
+  margin: var(--space-8) 0 0;
+  max-width: var(--measure-640);
+  color: var(--color-ink-3);
+}
+
+/* summary boxes: C-08-Earnings:41-43 */
+.label {
+  color: var(--color-ink-4);
+}
+
+.panelLabel {
+  color: var(--color-panel-muted);
+}
+
+.value {
+  font-family: var(--font-mono);
+  font-size: var(--fs-36);
+  overflow-wrap: anywhere;
+}
+
+.valuePanel {
+  color: var(--color-panel-accent);
+}
+
+.sub {
+  font-size: var(--fs-14);
+  color: var(--color-ink-4);
+}
+
+.panelSub {
+  font-size: var(--fs-14);
+  color: var(--color-panel-muted);
+}
+
+/* tabs: C-08-Earnings:46 */
+.tabs {
+  display: flex;
+  gap: var(--space-4);
+  border-bottom: var(--border-1) solid var(--color-line);
+}
+
+.tab {
+  min-height: var(--size-cta-md);
+  margin-bottom: calc(-1 * var(--border-1));
+  padding: 0 var(--space-18);
+  border: 0;
+  border-bottom: var(--border-3) solid transparent;
+  background: transparent;
+  color: var(--color-ink);
+  font: inherit;
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+}
+
+.tabOn {
+  border-bottom-color: var(--color-brand);
+}
+
+/* claim bar: C-08-Earnings:70 */
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+  padding: var(--space-16) var(--space-20);
+  background: var(--color-surface-muted);
+}
+
+.barText {
+  color: var(--color-ink-3);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+

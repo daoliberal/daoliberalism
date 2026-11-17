@@ -1,0 +1,4929 @@
+{
+ "surum": 1,
+ "kaynak": {
+  "prototip": "apps/web/prototype/oyun/Main.dc.html",
+  "prototip_sha256": "265858407ba15b302ea8102949184550edbc9726e611d84861614e696a362da5",
+  "denetim": "simulasyon/tasarim/prototip-1-ayar-denetimi.md",
+  "model_adlari": "simulasyon/kagit-ustu/modulerlestirme/simkit/params.py (birleşik model, T0 sonrası)"
+ },
+ "not": "GELİŞTİRİCİ NOTU, arayüz metnine girmez (R görevleri not/model_notu alanlarını metinler.tr.json'a kopyalamaz). K2: prototip satırı -> kart kimliği eşlemi. 'kartlar' sözlüğü kart başına katman, bölüm, model anahtarları (params: kartın sahibi olduğu; gosterir: salt okunur gösterdiği) taşır. Bir kartın sahibi tek satırdır; başka satırlar 'ayni_satir' ile ona bağlanır. Bölünen bileşik kartlarda V parçaları 'v_parca_satirlari' ile gösterilir. R1a-R1c, R10 kart yapısını ve metnini buradan doldurur; yeni model adı uydurulmaz, kayıtta olmayan ad kartı pasif yapar.",
+ "sayim_notu": "Denetim 97 satır = eski katalog 88 satır + denetimin Kredi grubundaki 9 satır (#13-#21, prototipte crTypes/crCommonDefs'ten gelir). Güncel catalogSrc() 57 satırdır.",
+ "satirlar": [
+  {
+   "proto": "Yıllık basım tavanı",
+   "kaynak": "denetim",
+   "grup": "Para ve basım",
+   "sinif": "P",
+   "kartlar": [
+    "basim_tavani"
+   ],
+   "durum": "kart",
+   "gerekce": "Yıllık en çok yeni para; yanında bu yıl basılan / izin göstergesi.",
+   "no": 1,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Açılış basım muafiyeti",
+   "kaynak": "denetim",
+   "grup": "Para ve basım",
+   "sinif": "P",
+   "kartlar": [
+    "acilis_donemi"
+   ],
+   "durum": "kart",
+   "gerekce": "Uzman düzeyi; ilk 13 hafta açılış harcamaları basım sınırına takılmaz.",
+   "no": 2,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Şehir tahvili",
+   "kaynak": "denetim",
+   "grup": "Para ve basım",
+   "sinif": "P",
+   "kartlar": [
+    "sehir_tahvili"
+   ],
+   "durum": "kart",
+   "gerekce": "Aç/kapa + vade + borç üst sınırı (fields).",
+   "no": 3,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Şehirler arası kasa dengeleme",
+   "kaynak": "denetim",
+   "grup": "Para ve basım",
+   "sinif": "P",
+   "kartlar": [
+    "kasa_dengeleme"
+   ],
+   "durum": "kart",
+   "gerekce": "Zengin şehirden yoksul şehre aktarım.",
+   "no": 4,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Kredi parası",
+   "kaynak": "denetim",
+   "grup": "Para ve basım",
+   "sinif": "P",
+   "kartlar": [
+    "kredi_para"
+   ],
+   "durum": "kart",
+   "gerekce": "R10: birleşik modelde CREDIT_MONEY; kartlandı (alternatif kural, Caiani ve ark. 2016 dayanaklı).",
+   "no": 5,
+   "proto_adlari": [
+    "Kredi parası (kredide para yaratımı)"
+   ],
+   "model_notu": "Prototipin CREDIT_MINT adı modelde yok; birleşik modelde CREDIT_MONEY. Eski '%2/5/10 çöküş aynı; endeks 141 -> 200' ölçümü bu mekanizmaya ait değildir."
+  },
+  {
+   "proto": "Faiz kuralı",
+   "kaynak": "denetim",
+   "grup": "Faiz politikası",
+   "sinif": "P",
+   "kartlar": [
+    "faiz_kurali"
+   ],
+   "durum": "kart",
+   "gerekce": "Faizi sen seçmezsin, kuralını seçersin.",
+   "no": 6,
+   "proto_adlari": [],
+   "model_notu": "RATE_POLICY kapalıyken politika faizi yoktur; kredi tabanı mevduat faizi + CX_MARGIN'dir (credit_core.cx_base). Prototipin 'sabit faizde politika faizi hep tarafsız faizde kalır' ifadesi modelde doğru değil."
+  },
+  {
+   "proto": "Enflasyon hedefi ve katsayısı",
+   "kaynak": "denetim",
+   "grup": "Faiz politikası",
+   "sinif": "P",
+   "kartlar": [
+    "enflasyon_hedefi"
+   ],
+   "durum": "kart",
+   "gerekce": "Hedef + tepki gücü (zayıf/orta/güçlü).",
+   "no": 7,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Mevduat faizi tavanı",
+   "kaynak": "denetim",
+   "grup": "Faiz politikası",
+   "sinif": "P",
+   "kartlar": [
+    "mevduat_faizi_tavani"
+   ],
+   "durum": "kart",
+   "gerekce": "Uzman: tavan ölçümde etkisiz; asıl mevduat faizi piyasa göstergesi (mevduat_faizi).",
+   "no": 8,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Tarafsız faiz, taban, tavan, adım",
+   "kaynak": "denetim",
+   "grup": "Faiz politikası",
+   "sinif": "P",
+   "kartlar": [
+    "tarafsiz_faiz"
+   ],
+   "durum": "kart",
+   "gerekce": "Uzman; her değerin yanında yıllık karşılık.",
+   "no": 9,
+   "proto_adlari": [
+    "Tarafsız faiz, taban, tavan, haftalık adım"
+   ]
+  },
+  {
+   "proto": "Doğal işsizlik ve katsayısı",
+   "kaynak": "denetim",
+   "grup": "Faiz politikası",
+   "sinif": "P",
+   "kartlar": [
+    "dogal_issizlik_kurali",
+    "issizlik_ucret_tepkisi"
+   ],
+   "durum": "bolundu",
+   "gerekce": "Bileşik: P 'kuralın normal saydığı işsizlik' + V ücret denkleminin doğal işsizliği (iki ayrı normal işsizlik tutarsızlığı, denetim §2.3).",
+   "no": 10,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Kredi/mevduat oranı hedefi",
+   "kaynak": "denetim",
+   "grup": "Faiz politikası",
+   "sinif": "P",
+   "kartlar": [
+    "kredi_canliligi_hedefi"
+   ],
+   "durum": "kart",
+   "gerekce": "Uzman; tasarrufun faize duyarsızlığını yamıyor (§2.1).",
+   "no": 11,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Tahvil faizi",
+   "kaynak": "denetim",
+   "grup": "Faiz politikası",
+   "sinif": "S",
+   "kartlar": [
+    "tahvil_faizi"
+   ],
+   "durum": "kart",
+   "gerekce": "S: ayar kaldırıldı, gösterge 'Şehir tahvili faizi'; formül Dünya varsayımlarında salt okunur.",
+   "no": 12,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Kuruluş kredisi paketi",
+   "kaynak": "denetim",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [
+    "kredi_kurulus"
+   ],
+   "durum": "kart",
+   "gerekce": "Kredi türü kartı (fields).",
+   "no": 13,
+   "proto_adlari": [],
+   "model_notu": "LOAN_RATE faiz tavanıdır; RATE_POLICY kapalıyken yeni kuruluş ve köprü kredisinin faizi doğrudan LOAN_RATE'tir (LR_NEW), DAO Ar-Ge kuruluş kredisinde de faiz tabanıdır. Limit satırındaki '2 haftalık gider' modelde işletme sermayesi (2 döngü gider) birimindedir. 'Kaynak: kuruluş fonu' ayrı bir parametre değil FOUND_FUND bayrağıdır."
+  },
+  {
+   "proto": "Genç firma paketi",
+   "kaynak": "denetim",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [
+    "kredi_genc"
+   ],
+   "durum": "kart",
+   "gerekce": "Kredi türü kartı (fields).",
+   "no": 14,
+   "proto_adlari": [],
+   "model_notu": "Prototipteki kaynak seçimi (lonca havuzu / kuruluş fonu) modelde karşılıksız; limit çarpanı işletme sermayesi (2 döngü gider) üstünden."
+  },
+  {
+   "proto": "Büyüme / yatırım paketi",
+   "kaynak": "denetim",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [
+    "kredi_buyume",
+    "kredi_yatirim"
+   ],
+   "durum": "kart",
+   "gerekce": "Prototipte iki ayrı kredi türü; limitler kâr bazlı (CX_GROW_K, CX_INV_K).",
+   "no": 15,
+   "proto_adlari": [],
+   "model_notu": "CX_MIN_AGE ve CX_MIN_OREP büyüme, yatırım ve Ar-Ge kredisinin ortak şartıdır (cx_ok); CX_MIN_OREP medya kredisinde de geçer. CX_INV_K yatırım ve Ar-Ge'nin ortak limiti. LOAN_LEV (1,5 x işletme sermayesi) kâr bazlı büyüme/yatırım kredisinde kullanılmaz ama yenileme kredisi limitinde (credit_core.py renew_lend) ve fonsuz genç firma büyüme yolunda (week_people.py) hâlâ canlıdır; hiçbir kartta yok, ölü sanılmamalı."
+  },
+  {
+   "proto": "Konut ipoteği paketi",
+   "kaynak": "denetim",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [
+    "kredi_konut"
+   ],
+   "durum": "kart",
+   "gerekce": "Kredi türü kartı; sınırlar düzenleyici, marj lonca.",
+   "no": 16,
+   "proto_adlari": []
+  },
+  {
+   "proto": "NPC köprü kredisi",
+   "kaynak": "denetim",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [
+    "kredi_kopru"
+   ],
+   "durum": "kart",
+   "gerekce": "Yerleşik (kamu) firmalara köprü kredisi.",
+   "no": 17,
+   "proto_adlari": [],
+   "model_notu": "Limit '4 x 2 haftalık gider' prototip birimidir; modelde NPC_LEV x işletme sermayesi (2 döngü gider)."
+  },
+  {
+   "proto": "Sipariş defterine göre kredi",
+   "kaynak": "denetim",
+   "grup": "Kredi",
+   "sinif": "V",
+   "kartlar": [
+    "siparis_defteri_kredisi"
+   ],
+   "durum": "kart",
+   "gerekce": "V: kredi verenin makul davranışı; şablon 2'de açık.",
+   "no": 18,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Temerrüt eşiği",
+   "kaynak": "denetim",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [
+    "temerrut_esigi"
+   ],
+   "durum": "kart",
+   "gerekce": "Kaç hafta ödemeyen firma iflas eder; Ortak kredi kuralları bölümünde görünür.",
+   "no": 19,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Kuruluş fonu kaynağı",
+   "kaynak": "denetim",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Kaynak çipi: kuruluş/genç firma kredisi kartlarında FOUND_FUND'ı okur; tek kart kurulus_fonu.",
+   "no": 20,
+   "proto_adlari": [],
+   "ayni_satir": "Kuruluş fonu payı"
+  },
+  {
+   "proto": "Yeni kredi paketi (serbest tür)",
+   "kaynak": "denetim",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [
+    "kredi_varyant"
+   ],
+   "durum": "pasif",
+   "gerekce": "Serbest kredi paketi modelde yok.",
+   "no": 21,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Lonca kaldıraç sınırı",
+   "kaynak": "denetim",
+   "grup": "Bankacılık",
+   "sinif": "P",
+   "kartlar": [
+    "lonca_kaldirac_siniri"
+   ],
+   "durum": "kart",
+   "gerekce": "Bir lonca özkaynağının en çok kaç katı kredi verebilir.",
+   "no": 22,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Mevduat nakit rezervi",
+   "kaynak": "denetim",
+   "grup": "Bankacılık",
+   "sinif": "P",
+   "kartlar": [
+    "mevduat_nakit_rezervi"
+   ],
+   "durum": "kart",
+   "gerekce": "Zorunlu karşılık.",
+   "no": 23,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Faizin mevduata dağıtılan payı",
+   "kaynak": "denetim",
+   "grup": "Bankacılık",
+   "sinif": "V",
+   "kartlar": [
+    "mevduata_dagitilan_pay"
+   ],
+   "durum": "kart",
+   "gerekce": "V yatırımcı/lonca: dünya varsayımı.",
+   "no": 24,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Tahvile ayrılmayan havuz payı",
+   "kaynak": "denetim",
+   "grup": "Bankacılık",
+   "sinif": "V",
+   "kartlar": [
+    "lonca_tahvil_payi"
+   ],
+   "durum": "kart",
+   "gerekce": "V yatırımcı/lonca: 'Loncalar nakdinin en çok yarısıyla tahvil alır'.",
+   "no": 25,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Satış vergisi",
+   "kaynak": "denetim",
+   "grup": "Vergiler",
+   "sinif": "P",
+   "kartlar": [
+    "satis_vergisi"
+   ],
+   "durum": "kart",
+   "gerekce": "Satış vergisi (KDV).",
+   "no": 26,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Ücret stopajı",
+   "kaynak": "denetim",
+   "grup": "Vergiler",
+   "sinif": "P",
+   "kartlar": [
+    "ucret_stopaji"
+   ],
+   "durum": "kart",
+   "gerekce": "Mevcut MVP kimliği korunur.",
+   "no": 27,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Kurumlar vergisi",
+   "kaynak": "denetim",
+   "grup": "Vergiler",
+   "sinif": "P",
+   "kartlar": [
+    "kurumlar_vergisi"
+   ],
+   "durum": "kart",
+   "gerekce": "Mevcut MVP kimliği korunur.",
+   "no": 28,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Temettü stopajı",
+   "kaynak": "denetim",
+   "grup": "Vergiler",
+   "sinif": "P",
+   "kartlar": [
+    "temettu_stopaji"
+   ],
+   "durum": "kart",
+   "gerekce": "Kâr payından vergi.",
+   "no": 29,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Yönetici/uzman ve araştırmacı ücret vergisi",
+   "kaynak": "denetim",
+   "grup": "Vergiler",
+   "sinif": "P",
+   "kartlar": [
+    "yuksek_ucret_vergisi"
+   ],
+   "durum": "kart",
+   "gerekce": "ROLE_TAX + RES_TAX tek kart; ücret stopajının üstüne eklendiği not edilir.",
+   "no": 30,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Lonca sahibi stopajı",
+   "kaynak": "denetim",
+   "grup": "Vergiler",
+   "sinif": "P",
+   "kartlar": [
+    "lonca_sahibi_stopaji"
+   ],
+   "durum": "kart",
+   "gerekce": "Lonca kurucu payından vergi.",
+   "no": 31,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Konut işlem harcı; kira geliri vergisi",
+   "kaynak": "denetim",
+   "grup": "Vergiler",
+   "sinif": "P",
+   "kartlar": [
+    "konut_islem_harci",
+    "kira_geliri_vergisi"
+   ],
+   "durum": "kart",
+   "gerekce": "Prototipte iki ayrı satır (Konut alım harcı / Kira gelirinden vergi); kira vergisi kartında bakım payı notu.",
+   "no": 32,
+   "proto_adlari": [
+    "Kira gelirinden vergi",
+    "Konut alım harcı"
+   ]
+  },
+  {
+   "proto": "Servet vergisi",
+   "kaynak": "denetim",
+   "grup": "Vergiler",
+   "sinif": "P",
+   "kartlar": [
+    "servet_vergisi"
+   ],
+   "durum": "kart",
+   "gerekce": "Haftalık oran + yıllık karşılık; eşik salt okunur.",
+   "no": 33,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Satış vergisi bütçeyi izlesin",
+   "kaynak": "denetim",
+   "grup": "Vergiler",
+   "sinif": "P",
+   "kartlar": [
+    "butce_izleyen_kdv"
+   ],
+   "durum": "kart",
+   "gerekce": "Açık verince KDV kendiliğinden artsın.",
+   "no": 34,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Gider öncelik sırası",
+   "kaynak": "denetim",
+   "grup": "Şehir bütçesi",
+   "sinif": "P",
+   "kartlar": [
+    "gider_onceligi"
+   ],
+   "durum": "kart",
+   "gerekce": "order kartı (MINT_PRIO).",
+   "no": 35,
+   "proto_adlari": []
+  },
+  {
+   "proto": "İşsizlik ödeneği",
+   "kaynak": "denetim",
+   "grup": "Şehir bütçesi",
+   "sinif": "P",
+   "kartlar": [
+    "issizlik_odenegi"
+   ],
+   "durum": "kart",
+   "gerekce": "Oran + süre + süre sonrası oran (fields).",
+   "no": 36,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Asgari güvence (şehir ödeneği çarpanı)",
+   "kaynak": "denetim",
+   "grup": "Şehir bütçesi",
+   "sinif": "P",
+   "kartlar": [
+    "asgari_guvence"
+   ],
+   "durum": "kart",
+   "gerekce": "Lonca paketi varken şehrin ödeneği (ücretin %30'u = %50 × 0,6).",
+   "no": 37,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Belediye istihdamı tavanı",
+   "kaynak": "denetim",
+   "grup": "Şehir bütçesi",
+   "sinif": "P",
+   "kartlar": [
+    "belediye_istihdami"
+   ],
+   "durum": "kart",
+   "gerekce": "Belediye ücretlerine haftada en çok kasanın payı.",
+   "no": 38,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Kamu hizmet sözleşmesi",
+   "kaynak": "denetim",
+   "grup": "Şehir bütçesi",
+   "sinif": "P",
+   "kartlar": [
+    "kamu_hizmet_sozlesmesi"
+   ],
+   "durum": "kart",
+   "gerekce": "Altyapı açığını şehir ödesin.",
+   "no": 39,
+   "proto_adlari": [
+    "Kamu hizmet sözleşmesi (düzenlenen altyapının yapısal açığı)"
+   ]
+  },
+  {
+   "proto": "Kasa tabanı",
+   "kaynak": "denetim",
+   "grup": "Şehir bütçesi",
+   "sinif": "P",
+   "kartlar": [
+    "kasa_tabani"
+   ],
+   "durum": "kart",
+   "gerekce": "Kasa en az N haftalık zorunlu gider kadar kalsın.",
+   "no": 40,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Bütçe yüzde payları",
+   "kaynak": "denetim",
+   "grup": "Şehir bütçesi",
+   "sinif": "P",
+   "kartlar": [
+    "butce_yuzde_paylari"
+   ],
+   "durum": "pasif",
+   "gerekce": "Modelde yok; değişmez.",
+   "no": 41,
+   "proto_adlari": [
+    "Bütçe yüzde payları (pasta)"
+   ]
+  },
+  {
+   "proto": "Kamu alımı",
+   "kaynak": "denetim",
+   "grup": "Şehir bütçesi",
+   "sinif": "P",
+   "kartlar": [
+    "kamu_alimi"
+   ],
+   "durum": "pasif",
+   "gerekce": "Modelde yok (GOV_PROC taşınmadı); değişmez.",
+   "no": 42,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Kuruluş fonu payı",
+   "kaynak": "denetim",
+   "grup": "Şehir bütçesi",
+   "sinif": "P",
+   "kartlar": [
+    "kurulus_fonu"
+   ],
+   "durum": "kart",
+   "gerekce": "Kuruluş fonu; kredi kartlarındaki kaynak çipi bu karta bağlanır.",
+   "no": 43,
+   "proto_adlari": [
+    "Kuruluş fonu"
+   ]
+  },
+  {
+   "proto": "Zarar eden firmayı kurtarma",
+   "kaynak": "denetim",
+   "grup": "Kurtarma ve destek",
+   "sinif": "P",
+   "kartlar": [
+    "zarar_eden_firmayi_kurtarma"
+   ],
+   "durum": "kart",
+   "gerekce": "Kurucunun ilkesi; değişmez.",
+   "no": 44,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Geçiş desteği",
+   "kaynak": "denetim",
+   "grup": "Kurtarma ve destek",
+   "sinif": "P",
+   "kartlar": [
+    "gecis_destegi"
+   ],
+   "durum": "kart",
+   "gerekce": "Mevcut MVP kimliği korunur.",
+   "no": 45,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Haftalık destek tavanı",
+   "kaynak": "denetim",
+   "grup": "Kurtarma ve destek",
+   "sinif": "P",
+   "kartlar": [
+    "destek_tavani"
+   ],
+   "durum": "kart",
+   "gerekce": "Şehirlere nüfusla bölünür notu.",
+   "no": 46,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Özel kesim eşiği",
+   "kaynak": "denetim",
+   "grup": "Kurtarma ve destek",
+   "sinif": "P",
+   "kartlar": [
+    "destek_bitis_esigi"
+   ],
+   "durum": "kart",
+   "gerekce": "Destek ne zaman biter.",
+   "no": 47,
+   "proto_adlari": [
+    "Özel kesim eşiği (bu paya ulaşınca destek biter)"
+   ]
+  },
+  {
+   "proto": "Destek sürerken özelleştirme dursun",
+   "kaynak": "denetim",
+   "grup": "Kurtarma ve destek",
+   "sinif": "P",
+   "kartlar": [
+    "ozellestirme_durur"
+   ],
+   "durum": "kart",
+   "gerekce": "Destek sürerken özelleştirme dursun.",
+   "no": 48,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Özelleştirme",
+   "kaynak": "denetim",
+   "grup": "Kurtarma ve destek",
+   "sinif": "P",
+   "kartlar": [
+    "ozellestirme"
+   ],
+   "durum": "kart",
+   "gerekce": "Aç/kapa + zarar süresi.",
+   "no": 49,
+   "proto_adlari": []
+  },
+  {
+   "proto": "NPC kâr tamponu",
+   "kaynak": "denetim",
+   "grup": "Kurtarma ve destek",
+   "sinif": "P",
+   "kartlar": [
+    "kamu_kar_tamponu"
+   ],
+   "durum": "kart",
+   "gerekce": "Kamu firmaları kârın ne kadarını elde tutar.",
+   "no": 50,
+   "proto_adlari": [],
+   "model_notu": "Birim: NPC_KEEP x işletme sermayesi. İşletme sermayesi modelde 2 döngü gider (WORKING_CAPITAL_CYCLES = 2; 1 hafta = CYCLES_PER_WEEK = 7 döngü, yani ~2/7 hafta; sector_board.py aynı çevirmeyi kullanır). Prototipin '2 haftalık gider' ve '2 = 4 haftalık gider' örneği modelle uyuşmaz; kart metni hafta cinsinden yazmaz. Yalnız NO_BAILOUT açık ve NPC_GRACE sonrasında işler; PROFIT_KEEP açıkken PK_WEEKS tamponu geçer."
+  },
+  {
+   "proto": "Zararda önce küçül",
+   "kaynak": "denetim",
+   "grup": "Kurtarma ve destek",
+   "sinif": "V",
+   "kartlar": [
+    "zararda_once_kucul"
+   ],
+   "durum": "kart",
+   "gerekce": "V: firma davranışı; mevcut MVP kimliği korunur (layer P'den V'ye R1c çevirir); şablon 2'de açık.",
+   "no": 51,
+   "proto_adlari": [],
+   "model_notu": "SHRINK_FIRST yalnız oyuncu firmalarında değil yerleşik (NPC) firmalarda da işler (labor.py). Denetim sınıfı V; MVP kartı P ve editable:false."
+  },
+  {
+   "proto": "Altyapı idari yönetimi (batmaz)",
+   "kaynak": "denetim",
+   "grup": "Kurtarma ve destek",
+   "sinif": "P",
+   "kartlar": [
+    "altyapi_idari_yonetim"
+   ],
+   "durum": "kart",
+   "gerekce": "Altyapı firması iflasta kapanmaz.",
+   "no": 52,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Açılış geçiş süresi",
+   "kaynak": "denetim",
+   "grup": "Kurtarma ve destek",
+   "sinif": "Y",
+   "kartlar": [],
+   "durum": "gizli",
+   "gerekce": "Denetim 'Gizle': model açılış iskelesi; 'Dünya sabitleri' kartında tek satır (kilitli).",
+   "no": 53,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Girişim kapıları açık",
+   "kaynak": "denetim",
+   "grup": "Girişim",
+   "sinif": "P",
+   "kartlar": [
+    "itibar_sarti"
+   ],
+   "durum": "bolundu",
+   "gerekce": "Bileşik (R34): P 'Firma kurmak için itibar şartı'; V parçaları dört satırda: Girişimci dalgası, Genç kurucu verimi, Pazar sinyaline bakma, Yalnız kalıcı kıtlıkta girme.",
+   "no": 54,
+   "proto_adlari": [
+    "Firma kurmak için itibar şartı"
+   ],
+   "v_parca_satirlari": [
+    "Rakip kohortu",
+    "Genç kurucu verimi",
+    "Piyasa sinyali şartı",
+    "Kalıcı kıtlık yoksa oyuncu girmez"
+   ]
+  },
+  {
+   "proto": "Rakip kohortu",
+   "kaynak": "denetim",
+   "grup": "Girişim",
+   "sinif": "V",
+   "kartlar": [
+    "girisimci_dalgasi"
+   ],
+   "durum": "kart",
+   "gerekce": "V girişimci: 'Girişimci dalgası' (itibar şartı yoksa devreye girer).",
+   "no": 55,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Organik kuruluş hızı",
+   "kaynak": "denetim",
+   "grup": "Girişim",
+   "sinif": "V",
+   "kartlar": [
+    "kurma_egilimi"
+   ],
+   "durum": "kart",
+   "gerekce": "V girişimci: firma kurma eğilimi.",
+   "no": 56,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Genç kurucu verimi",
+   "kaynak": "denetim",
+   "grup": "Girişim",
+   "sinif": "V",
+   "kartlar": [
+    "genc_kurucu_verimi"
+   ],
+   "durum": "kart",
+   "gerekce": "V girişimci.",
+   "no": 57,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Kuruluş harcı",
+   "kaynak": "denetim",
+   "grup": "Girişim",
+   "sinif": "P",
+   "kartlar": [
+    "kurulus_harci"
+   ],
+   "durum": "kart",
+   "gerekce": "Firma kuruluş harcı; kredi kuruluş kartının limit satırı bunu okur.",
+   "no": 58,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Piyasa sinyali şartı",
+   "kaynak": "denetim",
+   "grup": "Girişim",
+   "sinif": "V",
+   "kartlar": [
+    "piyasa_sinyali"
+   ],
+   "durum": "kart",
+   "gerekce": "V girişimci: 'Girişimci kârsız pazara girmez'.",
+   "no": 59,
+   "proto_adlari": []
+  },
+  {
+   "proto": "İşsiz deneyimli oyuncu firma kurabilir",
+   "kaynak": "denetim",
+   "grup": "Girişim",
+   "sinif": "Y",
+   "kartlar": [],
+   "durum": "gizli",
+   "gerekce": "Denetim 'Gizle': işsiz deneyimli oyuncu firma kurabilir (model kısıtı); model işi: varsayılanı açık yap.",
+   "no": 60,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Genç firma reçetesi",
+   "kaynak": "denetim",
+   "grup": "Girişim",
+   "sinif": "P",
+   "kartlar": [
+    "genc_firma_destegi",
+    "genc_firma_davranisi"
+   ],
+   "durum": "bolundu",
+   "gerekce": "Bileşik (R34): P 'Genç firma destek programı' + V 'Destek programı açıkken genç firma' (işe alım, giriş fiyatı, ölçek).",
+   "no": 61,
+   "proto_adlari": [
+    "Genç firma destek programı",
+    "Genç firma reçetesi (dayanma kredisi, talebe bağlı işe alım, giriş fiyatı, lonca markası)"
+   ]
+  },
+  {
+   "proto": "Oyuncu firması NPC işçi alabilir",
+   "kaynak": "denetim",
+   "grup": "İşgücü",
+   "sinif": "Y",
+   "kartlar": [],
+   "durum": "gizli",
+   "gerekce": "Denetim 'Gizle, açık': NPC işçi alma kısıtı (K-77 kalıntısı); Dünya sabitleri satırı.",
+   "no": 62,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Ücretin geçim endeksine uyumu",
+   "kaynak": "denetim",
+   "grup": "İşgücü",
+   "sinif": "V",
+   "kartlar": [
+    "ucret_uyumu"
+   ],
+   "durum": "kart",
+   "gerekce": "V işçi.",
+   "no": 63,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Başlangıç parası (çırak)",
+   "kaynak": "denetim",
+   "grup": "İşgücü",
+   "sinif": "V",
+   "kartlar": [
+    "baslangic_parasi"
+   ],
+   "durum": "kart",
+   "gerekce": "V hane.",
+   "no": 64,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Göç payı",
+   "kaynak": "denetim",
+   "grup": "İşgücü",
+   "sinif": "V",
+   "kartlar": [
+    "goc"
+   ],
+   "durum": "kart",
+   "gerekce": "V hane: NPC ve oyuncu göç payı tek kart (fields).",
+   "no": 65,
+   "proto_adlari": [
+    "Göç payı (NPC; oyuncu)"
+   ]
+  },
+  {
+   "proto": "Düzenlenen sektörler",
+   "kaynak": "denetim",
+   "grup": "Fiyat ve düzenleme",
+   "sinif": "P",
+   "kartlar": [
+    "duzenlenen_sektorler"
+   ],
+   "durum": "kart",
+   "gerekce": "multi kartı (PV2_REG).",
+   "no": 66,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Haftalık en çok fiyat artışı",
+   "kaynak": "denetim",
+   "grup": "Fiyat ve düzenleme",
+   "sinif": "V",
+   "kartlar": [
+    "fiyat_artis_hizi"
+   ],
+   "durum": "kart",
+   "gerekce": "V girişimci: fiyat yapışkanlığı.",
+   "no": 67,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Hedef kâr marjı",
+   "kaynak": "denetim",
+   "grup": "Fiyat ve düzenleme",
+   "sinif": "V",
+   "kartlar": [
+    "hedef_kar_marji"
+   ],
+   "durum": "kart",
+   "gerekce": "V girişimci.",
+   "no": 68,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Kıtlıkta fiyat/kadro desteği",
+   "kaynak": "denetim",
+   "grup": "Fiyat ve düzenleme",
+   "sinif": "V",
+   "kartlar": [
+    "kitlikta_buyume"
+   ],
+   "durum": "kart",
+   "gerekce": "V yerleşik firma: PM_BOOST_MAX yalnız NPC kadrosunu büyütür (labor.py); oyuncu ekranlarına konmaz.",
+   "no": 69,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Navlun oranı",
+   "kaynak": "denetim",
+   "grup": "Fiyat ve düzenleme",
+   "sinif": "V",
+   "kartlar": [
+    "navlun"
+   ],
+   "durum": "kart",
+   "gerekce": "V dünya kalibrasyonu; Piyasa'da sabit gösterge.",
+   "no": 70,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Sektöre özel fiyat tavanı",
+   "kaynak": "denetim",
+   "grup": "Fiyat ve düzenleme",
+   "sinif": "P",
+   "kartlar": [
+    "sektor_fiyat_tavani"
+   ],
+   "durum": "pasif",
+   "gerekce": "Modelde yok (yalnız genel sınır); değişmez.",
+   "no": 71,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Fee aralığı",
+   "kaynak": "denetim",
+   "grup": "Loncalar",
+   "sinif": "P",
+   "kartlar": [
+    "lonca_aidat_araligi"
+   ],
+   "durum": "kart",
+   "gerekce": "Lonca aidatı en az–en çok.",
+   "no": 72,
+   "proto_adlari": [
+    "Fee (lonca aidatı) aralığı"
+   ]
+  },
+  {
+   "proto": "Başlangıç fee'si; adım; sıklık",
+   "kaynak": "denetim",
+   "grup": "Loncalar",
+   "sinif": "V",
+   "kartlar": [
+    "lonca_aidat_arama"
+   ],
+   "durum": "kart",
+   "gerekce": "V yatırımcı/lonca: aidat arama; sonuç Piyasa göstergesi.",
+   "no": 73,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Lonca işletme payı",
+   "kaynak": "denetim",
+   "grup": "Loncalar",
+   "sinif": "P",
+   "kartlar": [
+    "lonca_isletme_payi"
+   ],
+   "durum": "pasif",
+   "gerekce": "Modelde yok; 'Ölçülmedi: modelde karşılığı yok'.",
+   "no": 74,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Lonca değiştirme bekleme süresi",
+   "kaynak": "denetim",
+   "grup": "Loncalar",
+   "sinif": "V",
+   "kartlar": [
+    "lonca_degistirme"
+   ],
+   "durum": "kart",
+   "gerekce": "V girişimci: firma davranışı.",
+   "no": 75,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Üye üst sınırı",
+   "kaynak": "denetim",
+   "grup": "Loncalar",
+   "sinif": "P",
+   "kartlar": [
+    "lonca_uye_ust_siniri"
+   ],
+   "durum": "pasif",
+   "gerekce": "Modelde yok.",
+   "no": 76,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Sosyal paket",
+   "kaynak": "denetim",
+   "grup": "Loncalar",
+   "sinif": "P",
+   "kartlar": [
+    "lonca_sosyal_paket"
+   ],
+   "durum": "kart",
+   "gerekce": "Loncalar üyelerine ödenek ve burs sunsun.",
+   "no": 77,
+   "proto_adlari": [
+    "Sosyal paket (ödenek, burs)"
+   ]
+  },
+  {
+   "proto": "Sabit gider; batış süresi",
+   "kaynak": "denetim",
+   "grup": "Loncalar",
+   "sinif": "V",
+   "kartlar": [
+    "lonca_gideri"
+   ],
+   "durum": "kart",
+   "gerekce": "V dünya kalibrasyonu.",
+   "no": 78,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Sigorta sektörü",
+   "kaynak": "denetim",
+   "grup": "Loncalar",
+   "sinif": "Y",
+   "kartlar": [
+    "sigorta_sirketleri"
+   ],
+   "durum": "kart",
+   "gerekce": "Y: 'Sigorta şirketleri var'.",
+   "no": 79,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Sektör panosu",
+   "kaynak": "denetim",
+   "grup": "Sektör panosu",
+   "sinif": "P",
+   "kartlar": [
+    "sektor_panosu"
+   ],
+   "durum": "bolundu",
+   "gerekce": "Bileşik (R34): P 'Şehir sektör verisini yayımlasın' + V parçaları: Tedarik riski (ikinci kaynak, girdi tamponu), Kıtlıkta büyüme (pano kuralları), kıtlık eşiği.",
+   "no": 80,
+   "proto_adlari": [],
+   "v_parca_satirlari": [
+    "İkinci kaynağa zorunlu pay",
+    "Girdi tamponu",
+    "Kıtlık eşiği",
+    "Fiyat, kadro ve üretim kuralları"
+   ]
+  },
+  {
+   "proto": "Kalıcı kıtlık yoksa oyuncu girmez",
+   "kaynak": "denetim",
+   "grup": "Sektör panosu",
+   "sinif": "V",
+   "kartlar": [
+    "kalici_kitlik"
+   ],
+   "durum": "kart",
+   "gerekce": "V girişimci: 'Yalnız kalıcı kıtlıkta girme' (pano açıkken etkili); şablon 4'te kapalı.",
+   "no": 81,
+   "proto_adlari": []
+  },
+  {
+   "proto": "İkinci kaynağa zorunlu pay",
+   "kaynak": "denetim",
+   "grup": "Sektör panosu",
+   "sinif": "V",
+   "kartlar": [
+    "ikinci_kaynak"
+   ],
+   "durum": "kart",
+   "gerekce": "V girişimci: tedarik riski.",
+   "no": 82,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Girdi tamponu",
+   "kaynak": "denetim",
+   "grup": "Sektör panosu",
+   "sinif": "V",
+   "kartlar": [
+    "girdi_tamponu"
+   ],
+   "durum": "kart",
+   "gerekce": "V girişimci: tedarik riski.",
+   "no": 83,
+   "proto_adlari": [
+    "Girdi tamponu (hf)"
+   ]
+  },
+  {
+   "proto": "Kıtlık eşiği",
+   "kaynak": "denetim",
+   "grup": "Sektör panosu",
+   "sinif": "V",
+   "kartlar": [
+    "kitlik_esigi"
+   ],
+   "durum": "kart",
+   "gerekce": "V dünya kalibrasyonu.",
+   "no": 84,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Fiyat, kadro ve üretim kuralları",
+   "kaynak": "denetim",
+   "grup": "Sektör panosu",
+   "sinif": "V",
+   "kartlar": [
+    "pano_kurallari"
+   ],
+   "durum": "kart",
+   "gerekce": "V girişimci: 'Kıtlıkta büyüme'.",
+   "no": 85,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Kişi başına yatırım konutu",
+   "kaynak": "denetim",
+   "grup": "Konut ve servet",
+   "sinif": "P",
+   "kartlar": [
+    "konut_yatirim_siniri"
+   ],
+   "durum": "kart",
+   "gerekce": "Konut yatırım sınırı; modelde herkes kiracı notu.",
+   "no": 86,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Kira düzeyi (ücretin payı)",
+   "kaynak": "denetim",
+   "grup": "Konut ve servet",
+   "sinif": "S",
+   "kartlar": [
+    "kira_gostergesi"
+   ],
+   "durum": "kart",
+   "gerekce": "S: ayar kaldırıldı, gösterge 'Kira (şehir ortalaması) · doluluk'; taban kira (RENT_H) V kartı kira_tabani.",
+   "no": 87,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Servetten yıllık harcama",
+   "kaynak": "denetim",
+   "grup": "Konut ve servet",
+   "sinif": "V",
+   "kartlar": [
+    "servetten_harcama"
+   ],
+   "durum": "kart",
+   "gerekce": "V hane.",
+   "no": 88,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Harcama eğrisi eğimi",
+   "kaynak": "denetim",
+   "grup": "Konut ve servet",
+   "sinif": "V",
+   "kartlar": [
+    "harcama_egrisi"
+   ],
+   "durum": "kart",
+   "gerekce": "V hane.",
+   "no": 89,
+   "proto_adlari": []
+  },
+  {
+   "proto": "İkinci el piyasası; mevduat",
+   "kaynak": "denetim",
+   "grup": "Konut ve servet",
+   "sinif": "Y",
+   "kartlar": [
+    "ikinci_el_esya",
+    "haneler_mevduat_yatirir"
+   ],
+   "durum": "kart",
+   "gerekce": "Y: iki ilgisiz anahtar iki kart; mevduat anahtarı kilitli/gizlenebilir.",
+   "no": 90,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Ar-Ge payı (lonca programı)",
+   "kaynak": "denetim",
+   "grup": "İnovasyon ve sektörler",
+   "sinif": "P",
+   "kartlar": [
+    "lonca_arge_payi"
+   ],
+   "durum": "kart",
+   "gerekce": "Lonca gelirinin Ar-Ge payı.",
+   "no": 91,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Patent süresi",
+   "kaynak": "denetim",
+   "grup": "İnovasyon ve sektörler",
+   "sinif": "P",
+   "kartlar": [
+    "patent_suresi"
+   ],
+   "durum": "kart",
+   "gerekce": "Patent süresi; 52 hafta = 1 yıl.",
+   "no": 92,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Telif oranı tavanı; üyeye oran",
+   "kaynak": "denetim",
+   "grup": "İnovasyon ve sektörler",
+   "sinif": "P",
+   "kartlar": [
+    "telif_orani"
+   ],
+   "durum": "kart",
+   "gerekce": "İki kontrol (tavan, üyeye oran).",
+   "no": 93,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Teknoloji yayılma gecikmesi",
+   "kaynak": "denetim",
+   "grup": "İnovasyon ve sektörler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "gizli",
+   "gerekce": "Denetim 'Gizle': DIFFUSE_LAG ölü parametre (inovasyon açıkken PATENT_TERM kullanılır).",
+   "no": 94,
+   "proto_adlari": []
+  },
+  {
+   "proto": "Yeni sektör açılış eşikleri",
+   "kaynak": "denetim",
+   "grup": "İnovasyon ve sektörler",
+   "sinif": "V",
+   "kartlar": [
+    "sektor_acilis_esikleri"
+   ],
+   "durum": "kart",
+   "gerekce": "V dünya kalibrasyonu: yeni sektör açılış eşikleri.",
+   "no": 95,
+   "proto_adlari": [
+    "Yeni sektör açılış eşikleri (yazılım, donanım, moda, turizm)"
+   ]
+  },
+  {
+   "proto": "Sektörleri aç/kapa",
+   "kaynak": "denetim",
+   "grup": "İnovasyon ve sektörler",
+   "sinif": "Y",
+   "kartlar": [
+    "sektor_medya",
+    "sektor_saglik",
+    "sektor_egitim",
+    "sektor_enerji",
+    "sektor_turizm",
+    "sektor_yazilim",
+    "sektor_donanim",
+    "sektor_moda"
+   ],
+   "durum": "kart",
+   "gerekce": "Y: Dünya kuralları, her sektör tek satır açıklamalı; ulaşım için ayrı *_ON anahtarı yok.",
+   "no": 96,
+   "proto_adlari": [
+    "Sektörleri aç/kapa (medya ve reklam, sağlık, eğitim, ulaşım, enerji, turizm, yazılım, donanım, moda)"
+   ]
+  },
+  {
+   "proto": "Şehre özel kural",
+   "kaynak": "denetim",
+   "grup": "Dünya geneli",
+   "sinif": "Y",
+   "kartlar": [
+    "sehre_ozel_kural"
+   ],
+   "durum": "pasif",
+   "gerekce": "Deneysel; kurallar bugün dünya geneli.",
+   "no": 97,
+   "proto_adlari": [
+    "Şehre özel kural (şehre göre farklılaştır)"
+   ]
+  },
+  {
+   "proto": "Kira artış sınırı (kira kontrolü)",
+   "kaynak": "katalog",
+   "grup": "Düzenleme",
+   "sinif": "P",
+   "kartlar": [
+    "kira_kontrolu"
+   ],
+   "durum": "pasif",
+   "gerekce": "Deneysel; modelde yok (R33). ruleAliases onu 'Kira düzeyi'ne bağlar ama kart #87'den ayrıdır (P, kira piyasada oluşur)."
+  },
+  {
+   "proto": "Asgari ücret",
+   "kaynak": "katalog",
+   "grup": "Düzenleme",
+   "sinif": "P",
+   "kartlar": [
+    "asgari_ucret"
+   ],
+   "durum": "pasif",
+   "gerekce": "Deneysel; modelde yok (R33)."
+  },
+  {
+   "proto": "Yerli üretim programı",
+   "kaynak": "katalog",
+   "grup": "Düzenleme",
+   "sinif": "P",
+   "kartlar": [
+    "yerli_uretim_programi"
+   ],
+   "durum": "kart",
+   "gerekce": "Modelde vardı (DOMESTIC_EVERY), görünmüyordu (denetim §2.10); Kurallar › Düzenleme."
+  },
+  {
+   "proto": "Kredi › Kuruluş kredisi",
+   "kaynak": "kredi_turu",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Prototip kredi türü (crTypes: kurulus, grup A); kart denetim satırında.",
+   "ayni_satir": "Kuruluş kredisi paketi"
+  },
+  {
+   "proto": "Kredi › Genç firma kredisi",
+   "kaynak": "kredi_turu",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Prototip kredi türü (crTypes: genc, grup A); kart denetim satırında.",
+   "ayni_satir": "Genç firma paketi"
+  },
+  {
+   "proto": "Kredi › Dayanma limiti (genç firma reçetesi)",
+   "kaynak": "kredi_turu",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [
+    "kredi_dayanma"
+   ],
+   "durum": "kart",
+   "gerekce": "Prototip kredi türü (crTypes: dayanma, grup A).",
+   "model_notu": "Kapalı haldeki kural: kasa GROW_FACTOR (1,5) x işletme sermayesine (2 döngü gider) ulaşmadan işe alım yok; prototip '2 haftalık giderin 1,5 katı' diyor."
+  },
+  {
+   "proto": "Kredi › Büyüme (işletme) kredisi",
+   "kaynak": "kredi_turu",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Prototip kredi türü (crTypes: buyume, grup B); kart denetim satırında.",
+   "ayni_satir": "Büyüme / yatırım paketi"
+  },
+  {
+   "proto": "Kredi › Yatırım kredisi (kapasite, makine ve bina)",
+   "kaynak": "kredi_turu",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Prototip kredi türü (crTypes: yatirim, grup B); kart denetim satırında.",
+   "ayni_satir": "Büyüme / yatırım paketi"
+  },
+  {
+   "proto": "Kredi › Ar-Ge kredisi",
+   "kaynak": "kredi_turu",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [
+    "kredi_arge"
+   ],
+   "durum": "kart",
+   "gerekce": "Prototip kredi türü (crTypes: arge, grup B)."
+  },
+  {
+   "proto": "Kredi › Devir kredisi (özelleştirme)",
+   "kaynak": "kredi_turu",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [
+    "kredi_devir"
+   ],
+   "durum": "kart",
+   "gerekce": "Prototip kredi türü (crTypes: ozel, grup C)."
+  },
+  {
+   "proto": "Kredi › Yerleşik firmalara köprü kredisi",
+   "kaynak": "kredi_turu",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Prototip kredi türü (crTypes: kopru, grup C); kart denetim satırında.",
+   "ayni_satir": "NPC köprü kredisi"
+  },
+  {
+   "proto": "Kredi › Konut kredisi (ipotek)",
+   "kaynak": "kredi_turu",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Prototip kredi türü (crTypes: konut, grup D); kart denetim satırında.",
+   "ayni_satir": "Konut ipoteği paketi"
+  },
+  {
+   "proto": "Kredi › Medya satın alma kredisi",
+   "kaynak": "kredi_turu",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [
+    "kredi_medya"
+   ],
+   "durum": "kart",
+   "gerekce": "Prototip kredi türü (crTypes: medya, grup D)."
+  },
+  {
+   "proto": "Kredi › Ortak kredi kuralları",
+   "kaynak": "kredi_ortak",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [
+    "kredi_ortak"
+   ],
+   "durum": "kart",
+   "gerekce": "Ortak kredi kuralları (crCommonDefs): marj, faiz tabanı-tavanı, yeniden fiyatlama, ortak vade, önce ücret.",
+   "model_notu": "LOAN_RATE hem faiz tavanı hem RATE_POLICY kapalıyken yeni kuruluş/köprü kredisinin doğrudan faizi; politika kapalıyken taban mevduat faizidir. 'Önce ücret' (LOAN_FLOOR) işletme sermayesi (2 döngü gider) biriminde; ortak vade LOAN_TERM hafta cinsindendir (anapara eşit taksit)."
+  },
+  {
+   "proto": "Kredi › Ortak › Faiz tabanı",
+   "kaynak": "kredi_ortak",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "crCommonDefs satırı 'taban' (read).",
+   "ayni_satir": "Kredi › Ortak kredi kuralları"
+  },
+  {
+   "proto": "Kredi › Ortak › Kredi marjı",
+   "kaynak": "kredi_ortak",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "crCommonDefs satırı 'marj' (range).",
+   "ayni_satir": "Kredi › Ortak kredi kuralları"
+  },
+  {
+   "proto": "Kredi › Ortak › Faiz tabanı ve tavanı",
+   "kaynak": "kredi_ortak",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "crCommonDefs satırı 'lt' (dual).",
+   "ayni_satir": "Kredi › Ortak kredi kuralları"
+  },
+  {
+   "proto": "Kredi › Ortak › İtibarın faize etkisi",
+   "kaynak": "kredi_ortak",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "crCommonDefs satırı 'itibar' (read).",
+   "ayni_satir": "Kredi › Ortak kredi kuralları"
+  },
+  {
+   "proto": "Kredi › Ortak › Lonca risk payı",
+   "kaynak": "kredi_ortak",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "crCommonDefs satırı 'risk' (read).",
+   "ayni_satir": "Yatırımcılar ve loncalar › Lonca: kredi riski"
+  },
+  {
+   "proto": "Kredi › Ortak › Yeniden fiyatlama",
+   "kaynak": "kredi_ortak",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "crCommonDefs satırı 'reprice' (range).",
+   "ayni_satir": "Kredi › Ortak kredi kuralları"
+  },
+  {
+   "proto": "Kredi › Ortak › Ortak vade",
+   "kaynak": "kredi_ortak",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "crCommonDefs satırı 'vade' (range).",
+   "ayni_satir": "Kredi › Ortak kredi kuralları"
+  },
+  {
+   "proto": "Kredi › Ortak › Kaç hafta ödemeyen iflas eder (temerrüt eşiği)",
+   "kaynak": "kredi_ortak",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "crCommonDefs satırı 'temerrut' (range).",
+   "ayni_satir": "Temerrüt eşiği"
+  },
+  {
+   "proto": "Kredi › Ortak › Önce ücret",
+   "kaynak": "kredi_ortak",
+   "grup": "Kredi",
+   "sinif": "P",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "crCommonDefs satırı 'once' (range).",
+   "ayni_satir": "Kredi › Ortak kredi kuralları",
+   "model_notu": "LOAN_FLOOR x işletme sermayesi (2 döngü gider); prototipin '2 haftalık gider' birimi modelle uyuşmaz."
+  },
+  {
+   "proto": "Haneler › Gelirden harcama",
+   "kaynak": "davranis",
+   "grup": "Haneler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Harcama eğrisi eğimi (denetim #89).",
+   "proto_adlari": [
+    "Gelirden harcama",
+    "Harcama eğrisi eğimi"
+   ],
+   "ayni_satir": "Harcama eğrisi eğimi",
+   "bhv_id": "h_gelir"
+  },
+  {
+   "proto": "Haneler › Servetten harcama",
+   "kaynak": "davranis",
+   "grup": "Haneler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Servetten yıllık harcama (denetim #88).",
+   "proto_adlari": [
+    "Servetten harcama",
+    "Servetten yıllık harcama"
+   ],
+   "ayni_satir": "Servetten yıllık harcama",
+   "bhv_id": "h_servet"
+  },
+  {
+   "proto": "Haneler › Az birikimlinin harcaması",
+   "kaynak": "davranis",
+   "grup": "Haneler",
+   "sinif": "V",
+   "kartlar": [
+    "az_birikimli_harcama"
+   ],
+   "durum": "kart",
+   "gerekce": "Yeni satır (denetim §3.6): POOR_SHARE, WR_WEEKS.",
+   "proto_adlari": [
+    "Az birikimlinin harcaması"
+   ],
+   "bhv_id": "h_az"
+  },
+  {
+   "proto": "Haneler › Alışkanlık",
+   "kaynak": "davranis",
+   "grup": "Haneler",
+   "sinif": "V",
+   "kartlar": [
+    "aliskanlik_hizi"
+   ],
+   "durum": "kart",
+   "gerekce": "Yeni satır (denetim §3.6): HAB_UP, HAB_DOWN.",
+   "proto_adlari": [
+    "Alışkanlık"
+   ],
+   "bhv_id": "h_alis"
+  },
+  {
+   "proto": "Haneler › Mevduat",
+   "kaynak": "davranis",
+   "grup": "Haneler",
+   "sinif": "V",
+   "kartlar": [
+    "mevduat_elde_tutma"
+   ],
+   "durum": "kart",
+   "gerekce": "Yeni satır (denetim §3.6): DEP_KEEP_NEW, DEP_SHARE.",
+   "proto_adlari": [
+    "Mevduat"
+   ],
+   "bhv_id": "h_mevduat"
+  },
+  {
+   "proto": "Haneler › Faize tepki",
+   "kaynak": "davranis",
+   "grup": "Haneler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "r10",
+   "gerekce": "R10: bugün haneler faize tepkisiz; birleşik modelde RATE_BEHAV.",
+   "proto_adlari": [
+    "Faize tepki"
+   ],
+   "bhv_id": "h_faiz",
+   "ayni_satir": "Faize duyarlı davranış (RATE_BEHAV)"
+  },
+  {
+   "proto": "Haneler › Konut",
+   "kaynak": "davranis",
+   "grup": "Haneler",
+   "sinif": "V",
+   "kartlar": [
+    "hane_konut"
+   ],
+   "durum": "pasif",
+   "gerekce": "Bilgi satırı; parametresi yok.",
+   "proto_adlari": [
+    "Konut"
+   ],
+   "bhv_id": "h_konut"
+  },
+  {
+   "proto": "Haneler › Göç",
+   "kaynak": "davranis",
+   "grup": "Haneler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Göç payı (denetim #65).",
+   "proto_adlari": [
+    "Göç",
+    "Göç payı",
+    "Göç payı (NPC; oyuncu)"
+   ],
+   "ayni_satir": "Göç payı",
+   "bhv_id": "h_goc"
+  },
+  {
+   "proto": "Haneler › Başlangıç parası",
+   "kaynak": "davranis",
+   "grup": "Haneler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Başlangıç parası (denetim #64).",
+   "proto_adlari": [
+    "Başlangıç parası",
+    "Başlangıç parası (çırak)"
+   ],
+   "ayni_satir": "Başlangıç parası (çırak)",
+   "bhv_id": "h_bas"
+  },
+  {
+   "proto": "Girişimciler › Firma kurma eğilimi",
+   "kaynak": "davranis",
+   "grup": "Girişimciler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Organik kuruluş hızı (denetim #56).",
+   "proto_adlari": [
+    "Firma kurma eğilimi",
+    "Organik kuruluş hızı"
+   ],
+   "ayni_satir": "Organik kuruluş hızı",
+   "bhv_id": "g_egilim"
+  },
+  {
+   "proto": "Girişimciler › Girişimci dalgası",
+   "kaynak": "davranis",
+   "grup": "Girişimciler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Rakip kohortu (denetim #55; #54'ün V parçası).",
+   "proto_adlari": [
+    "Girişimci dalgası",
+    "Rakip kohortu"
+   ],
+   "ayni_satir": "Rakip kohortu",
+   "bhv_id": "g_dalga"
+  },
+  {
+   "proto": "Girişimciler › Pazar sinyaline bakma",
+   "kaynak": "davranis",
+   "grup": "Girişimciler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Piyasa sinyali şartı (denetim #59; #54'ün V parçası).",
+   "proto_adlari": [
+    "Pazar sinyaline bakma",
+    "Piyasa sinyali şartı"
+   ],
+   "ayni_satir": "Piyasa sinyali şartı",
+   "bhv_id": "g_sinyal"
+  },
+  {
+   "proto": "Girişimciler › Yalnız kalıcı kıtlıkta girme",
+   "kaynak": "davranis",
+   "grup": "Girişimciler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Kalıcı kıtlık (denetim #81).",
+   "proto_adlari": [
+    "Kalıcı kıtlık yoksa oyuncu girmez",
+    "Yalnız kalıcı kıtlıkta girme"
+   ],
+   "ayni_satir": "Kalıcı kıtlık yoksa oyuncu girmez",
+   "bhv_id": "g_kalici"
+  },
+  {
+   "proto": "Girişimciler › Genç kurucu verimi",
+   "kaynak": "davranis",
+   "grup": "Girişimciler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Genç kurucu verimi (denetim #57).",
+   "proto_adlari": [
+    "Genç kurucu verimi"
+   ],
+   "ayni_satir": "Genç kurucu verimi",
+   "bhv_id": "g_verim"
+  },
+  {
+   "proto": "Girişimciler › Fiyat koyma",
+   "kaynak": "davranis",
+   "grup": "Girişimciler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Fiyat koyma: iki kart (denetim #67 fiyat artış hızı, #68 hedef marj).",
+   "proto_adlari": [
+    "Fiyat koyma",
+    "Haftalık en çok fiyat artışı",
+    "Hedef kâr marjı"
+   ],
+   "ayni_satir": [
+    "Haftalık en çok fiyat artışı",
+    "Hedef kâr marjı"
+   ],
+   "bhv_id": "g_fiyat"
+  },
+  {
+   "proto": "Girişimciler › Kıtlıkta büyüme",
+   "kaynak": "davranis",
+   "grup": "Girişimciler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Kıtlıkta büyüme (girişimci): yalnız pano kuralları (denetim #85); PM_BOOST_MAX (#69) yerleşik firma kartıdır.",
+   "proto_adlari": [
+    "Fiyat, kadro ve üretim kuralları",
+    "Kıtlıkta büyüme",
+    "Kıtlıkta fiyat/kadro desteği"
+   ],
+   "ayni_satir": "Fiyat, kadro ve üretim kuralları",
+   "bhv_id": "g_kitlik"
+  },
+  {
+   "proto": "Girişimciler › Zararda küçülme",
+   "kaynak": "davranis",
+   "grup": "Girişimciler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Zararda küçülme (denetim #51).",
+   "proto_adlari": [
+    "Zararda küçülme",
+    "Zararda önce küçül"
+   ],
+   "ayni_satir": "Zararda önce küçül",
+   "bhv_id": "g_kucul"
+  },
+  {
+   "proto": "Girişimciler › Tedarik riski",
+   "kaynak": "davranis",
+   "grup": "Girişimciler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Tedarik riski: denetim #82 ve #83.",
+   "proto_adlari": [
+    "Girdi tamponu",
+    "Girdi tamponu (hf)",
+    "Tedarik riski",
+    "İkinci kaynağa zorunlu pay"
+   ],
+   "ayni_satir": [
+    "İkinci kaynağa zorunlu pay",
+    "Girdi tamponu"
+   ],
+   "bhv_id": "g_tedarik"
+  },
+  {
+   "proto": "Girişimciler › Lonca değiştirme",
+   "kaynak": "davranis",
+   "grup": "Girişimciler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Lonca değiştirme (denetim #75).",
+   "proto_adlari": [
+    "Lonca değiştirme",
+    "Lonca değiştirme bekleme süresi"
+   ],
+   "ayni_satir": "Lonca değiştirme bekleme süresi",
+   "bhv_id": "g_lonca"
+  },
+  {
+   "proto": "Girişimciler › Risk alma",
+   "kaynak": "davranis",
+   "grup": "Girişimciler",
+   "sinif": "V",
+   "kartlar": [
+    "girisimci_risk_tutumu"
+   ],
+   "durum": "pasif",
+   "gerekce": "Risk tutumu modelde yok.",
+   "proto_adlari": [
+    "Risk alma"
+   ],
+   "bhv_id": "g_risk"
+  },
+  {
+   "proto": "Girişimciler › Destek programı açıkken genç firma",
+   "kaynak": "davranis",
+   "grup": "Girişimciler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Genç firma davranışı (denetim #61'in V parçası).",
+   "proto_adlari": [
+    "Destek programı açıkken genç firma"
+   ],
+   "ayni_satir": "Genç firma reçetesi",
+   "bhv_id": "g_genc"
+  },
+  {
+   "proto": "İşçiler › Ücretin fiyatlara uyumu",
+   "kaynak": "davranis",
+   "grup": "İşçiler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Ücretin fiyatlara uyumu (denetim #63).",
+   "proto_adlari": [
+    "Ücretin fiyatlara uyumu",
+    "Ücretin geçim endeksine uyumu"
+   ],
+   "ayni_satir": "Ücretin geçim endeksine uyumu",
+   "bhv_id": "i_uyum"
+  },
+  {
+   "proto": "İşçiler › İşgücü kıtlığında ücret",
+   "kaynak": "davranis",
+   "grup": "İşçiler",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "İşgücü kıtlığında ücret: #10'un V parçası (LAB_U_STAR, LAB_K) + ücret yapışkanlığı (LAB_DOWN).",
+   "proto_adlari": [
+    "İşgücü kıtlığında ücret"
+   ],
+   "ayni_satir": "Doğal işsizlik ve katsayısı",
+   "bhv_id": "i_kitlik"
+  },
+  {
+   "proto": "İşçiler › İş arama",
+   "kaynak": "davranis",
+   "grup": "İşçiler",
+   "sinif": "V",
+   "kartlar": [
+    "is_arama"
+   ],
+   "durum": "pasif",
+   "gerekce": "İş arama modelde yok.",
+   "proto_adlari": [
+    "İş arama"
+   ],
+   "bhv_id": "i_arama"
+  },
+  {
+   "proto": "İşçiler › Tecrübe",
+   "kaynak": "davranis",
+   "grup": "İşçiler",
+   "sinif": "V",
+   "kartlar": [
+    "tecrube_terfisi"
+   ],
+   "durum": "kart",
+   "gerekce": "Kontenjanlı terfi (SKILL_ON), bilgi satırı.",
+   "proto_adlari": [
+    "Tecrübe"
+   ],
+   "bhv_id": "i_tecrube"
+  },
+  {
+   "proto": "Yatırımcılar ve loncalar › Konut yatırımı",
+   "kaynak": "davranis",
+   "grup": "Yatırımcılar ve loncalar",
+   "sinif": "V",
+   "kartlar": [
+    "konut_yatirim_karari"
+   ],
+   "durum": "kart",
+   "gerekce": "Yeni satır (denetim §3.6).",
+   "proto_adlari": [
+    "Konut yatırımı"
+   ],
+   "bhv_id": "y_konut"
+  },
+  {
+   "proto": "Yatırımcılar ve loncalar › Fiyat beklentisi",
+   "kaynak": "davranis",
+   "grup": "Yatırımcılar ve loncalar",
+   "sinif": "V",
+   "kartlar": [
+    "konut_fiyat_beklentisi"
+   ],
+   "durum": "kart",
+   "gerekce": "Yeni satır.",
+   "proto_adlari": [
+    "Fiyat beklentisi"
+   ],
+   "bhv_id": "y_beklenti"
+  },
+  {
+   "proto": "Yatırımcılar ve loncalar › Firma payı (DAO)",
+   "kaynak": "davranis",
+   "grup": "Yatırımcılar ve loncalar",
+   "sinif": "V",
+   "kartlar": [
+    "dao_payi_karari"
+   ],
+   "durum": "kart",
+   "gerekce": "Yeni satır.",
+   "proto_adlari": [
+    "Firma payı (DAO)"
+   ],
+   "bhv_id": "y_dao"
+  },
+  {
+   "proto": "Yatırımcılar ve loncalar › Sıkışınca satma",
+   "kaynak": "davranis",
+   "grup": "Yatırımcılar ve loncalar",
+   "sinif": "V",
+   "kartlar": [
+    "konut_satis_sikismasi"
+   ],
+   "durum": "kart",
+   "gerekce": "Yeni satır.",
+   "proto_adlari": [
+    "Sıkışınca satma"
+   ],
+   "bhv_id": "y_sikis"
+  },
+  {
+   "proto": "Yatırımcılar ve loncalar › Lonca: mevduat faizi",
+   "kaynak": "davranis",
+   "grup": "Yatırımcılar ve loncalar",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Lonca mevduat faizi payı (denetim #24).",
+   "proto_adlari": [
+    "Faizin mevduata dağıtılan payı",
+    "Lonca: mevduat faizi"
+   ],
+   "ayni_satir": "Faizin mevduata dağıtılan payı",
+   "bhv_id": "l_mevduat"
+  },
+  {
+   "proto": "Yatırımcılar ve loncalar › Lonca: tahvil",
+   "kaynak": "davranis",
+   "grup": "Yatırımcılar ve loncalar",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Lonca tahvil payı (denetim #25).",
+   "proto_adlari": [
+    "Lonca: tahvil",
+    "Tahvile ayrılmayan havuz payı"
+   ],
+   "ayni_satir": "Tahvile ayrılmayan havuz payı",
+   "bhv_id": "l_tahvil"
+  },
+  {
+   "proto": "Yatırımcılar ve loncalar › Lonca: aidat arama",
+   "kaynak": "davranis",
+   "grup": "Yatırımcılar ve loncalar",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Lonca aidat arama (denetim #73).",
+   "proto_adlari": [
+    "Başlangıç fee'si; adım; sıklık",
+    "Lonca: aidat arama"
+   ],
+   "ayni_satir": "Başlangıç fee'si; adım; sıklık",
+   "bhv_id": "l_aidat"
+  },
+  {
+   "proto": "Yatırımcılar ve loncalar › Lonca: kredi riski",
+   "kaynak": "davranis",
+   "grup": "Yatırımcılar ve loncalar",
+   "sinif": "V",
+   "kartlar": [
+    "lonca_risk_payi"
+   ],
+   "durum": "kart",
+   "gerekce": "Yeni satır: lonca risk payı (RISK_K, RISK_MAX).",
+   "proto_adlari": [
+    "Lonca: kredi riski"
+   ],
+   "bhv_id": "l_risk"
+  },
+  {
+   "proto": "Yerleşik firmalar › Kadro ve üretim",
+   "kaynak": "davranis",
+   "grup": "Yerleşik firmalar",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Kadro ve üretim: kıtlıkta büyüme kartını gösterir (denetim #69).",
+   "proto_adlari": [
+    "Kadro ve üretim"
+   ],
+   "ayni_satir": "Kıtlıkta fiyat/kadro desteği",
+   "bhv_id": "n_kadro"
+  },
+  {
+   "proto": "Yerleşik firmalar › Kredi boyutu",
+   "kaynak": "davranis",
+   "grup": "Yerleşik firmalar",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Kredi boyutu (denetim #18).",
+   "proto_adlari": [
+    "Kredi boyutu",
+    "Sipariş defterine göre kredi"
+   ],
+   "ayni_satir": "Sipariş defterine göre kredi",
+   "bhv_id": "n_kredi"
+  },
+  {
+   "proto": "Yerleşik firmalar › Batma",
+   "kaynak": "davranis",
+   "grup": "Yerleşik firmalar",
+   "sinif": "V",
+   "kartlar": [
+    "yerlesik_batma_suresi"
+   ],
+   "durum": "kart",
+   "gerekce": "Yeni satır (denetim §3.6).",
+   "proto_adlari": [
+    "Batma"
+   ],
+   "bhv_id": "n_batma"
+  },
+  {
+   "proto": "Yerleşik firmalar › Yerli üretim programı",
+   "kaynak": "davranis",
+   "grup": "Yerleşik firmalar",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Yerli üretim programı P kartına bağlantı.",
+   "proto_adlari": [
+    "Yerli üretim programı"
+   ],
+   "ayni_satir": "Yerli üretim programı",
+   "bhv_id": "n_yerli"
+  },
+  {
+   "proto": "Dünya kuralları › Sigorta şirketleri var",
+   "kaynak": "davranis",
+   "grup": "Dünya kuralları",
+   "sinif": "Y",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Sigorta sektörü (denetim #79).",
+   "proto_adlari": [
+    "Sigorta sektörü",
+    "Sigorta şirketleri var"
+   ],
+   "ayni_satir": "Sigorta sektörü",
+   "bhv_id": "w_sigorta"
+  },
+  {
+   "proto": "Dünya kuralları › Eşya ikinci el satılabilir",
+   "kaynak": "davranis",
+   "grup": "Dünya kuralları",
+   "sinif": "Y",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Eşya ikinci el (denetim #90).",
+   "proto_adlari": [
+    "Eşya ikinci el satılabilir",
+    "İkinci el piyasası",
+    "İkinci el piyasası; mevduat"
+   ],
+   "ayni_satir": "İkinci el piyasası; mevduat",
+   "bhv_id": "w_ikinciel"
+  },
+  {
+   "proto": "Dünya kuralları › Haneler loncaya mevduat yatırır",
+   "kaynak": "davranis",
+   "grup": "Dünya kuralları",
+   "sinif": "Y",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Haneler loncaya mevduat yatırır (denetim #90).",
+   "proto_adlari": [
+    "Haneler loncaya mevduat yatırır"
+   ],
+   "ayni_satir": "İkinci el piyasası; mevduat",
+   "bhv_id": "w_mevduat"
+  },
+  {
+   "proto": "Dünya kuralları › Sektörler",
+   "kaynak": "davranis",
+   "grup": "Dünya kuralları",
+   "sinif": "Y",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Sektörler (denetim #96).",
+   "proto_adlari": [
+    "Sektörler",
+    "Sektörleri aç/kapa"
+   ],
+   "ayni_satir": "Sektörleri aç/kapa",
+   "bhv_id": "w_sektor"
+  },
+  {
+   "proto": "Dünya kuralları › Yeni sektörlerin açılması",
+   "kaynak": "davranis",
+   "grup": "Dünya kuralları",
+   "sinif": "Y",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Yeni sektör açılış eşikleri (denetim #95).",
+   "proto_adlari": [
+    "Yeni sektör açılış eşikleri",
+    "Yeni sektörlerin açılması"
+   ],
+   "ayni_satir": "Yeni sektör açılış eşikleri",
+   "bhv_id": "w_acilis"
+  },
+  {
+   "proto": "Dünya kuralları › Şehre özel kural",
+   "kaynak": "davranis",
+   "grup": "Dünya kuralları",
+   "sinif": "Y",
+   "kartlar": [],
+   "durum": "pasif",
+   "gerekce": "Şehre özel kural (denetim #97).",
+   "proto_adlari": [
+    "Şehre özel kural"
+   ],
+   "ayni_satir": "Şehre özel kural",
+   "bhv_id": "w_sehre"
+  },
+  {
+   "proto": "Dünya kuralları › Dünyanın temeli",
+   "kaynak": "davranis",
+   "grup": "Dünya kuralları",
+   "sinif": "Y",
+   "kartlar": [
+    "dunya_temeli"
+   ],
+   "durum": "pasif",
+   "gerekce": "Kilitli bilgi satırı.",
+   "proto_adlari": [
+    "Dünyanın temeli"
+   ],
+   "bhv_id": "k_temel"
+  },
+  {
+   "proto": "Dünya kuralları › Oyuncu firmaları kamu işgücünden işçi alabilir",
+   "kaynak": "davranis",
+   "grup": "Dünya kuralları",
+   "sinif": "Y",
+   "kartlar": [],
+   "durum": "gizli",
+   "gerekce": "Denetim #62 (kilitli sabit).",
+   "proto_adlari": [
+    "Oyuncu firmaları kamu işgücünden işçi alabilir",
+    "Oyuncu firması NPC işçi alabilir"
+   ],
+   "ayni_satir": "Oyuncu firması NPC işçi alabilir",
+   "bhv_id": "k_npc"
+  },
+  {
+   "proto": "Dünya kuralları › İşsiz ama deneyimli oyuncu firma kurabilir",
+   "kaynak": "davranis",
+   "grup": "Dünya kuralları",
+   "sinif": "Y",
+   "kartlar": [],
+   "durum": "gizli",
+   "gerekce": "Denetim #60 (kilitli sabit).",
+   "proto_adlari": [
+    "İşsiz ama deneyimli oyuncu firma kurabilir",
+    "İşsiz deneyimli oyuncu firma kurabilir"
+   ],
+   "ayni_satir": "İşsiz deneyimli oyuncu firma kurabilir",
+   "bhv_id": "k_issiz"
+  },
+  {
+   "proto": "Dünya kuralları › Açılışın ilk 26 haftası geçiş dönemidir",
+   "kaynak": "davranis",
+   "grup": "Dünya kuralları",
+   "sinif": "Y",
+   "kartlar": [],
+   "durum": "gizli",
+   "gerekce": "Denetim #53 (kilitli sabit).",
+   "proto_adlari": [
+    "Açılış geçiş süresi",
+    "Açılışın ilk 26 haftası geçiş dönemidir"
+   ],
+   "ayni_satir": "Açılış geçiş süresi",
+   "bhv_id": "k_acilis"
+  },
+  {
+   "proto": "Dünya kalibrasyonu › Navlun oranı",
+   "kaynak": "davranis",
+   "grup": "Dünya kalibrasyonu",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Navlun oranı (denetim #70).",
+   "proto_adlari": [
+    "Navlun oranı"
+   ],
+   "ayni_satir": "Navlun oranı",
+   "bhv_id": "c_navlun"
+  },
+  {
+   "proto": "Dünya kalibrasyonu › Kıtlık eşiği",
+   "kaynak": "davranis",
+   "grup": "Dünya kalibrasyonu",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Kıtlık eşiği (denetim #84).",
+   "proto_adlari": [
+    "Kıtlık eşiği"
+   ],
+   "ayni_satir": "Kıtlık eşiği",
+   "bhv_id": "c_kitlik"
+  },
+  {
+   "proto": "Dünya kalibrasyonu › Lonca işletme gideri",
+   "kaynak": "davranis",
+   "grup": "Dünya kalibrasyonu",
+   "sinif": "V",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Lonca işletme gideri (denetim #78).",
+   "proto_adlari": [
+    "Lonca işletme gideri",
+    "Sabit gider; batış süresi"
+   ],
+   "ayni_satir": "Sabit gider; batış süresi",
+   "bhv_id": "c_lonca"
+  },
+  {
+   "proto": "Dünya kalibrasyonu › Konut kira getirisi",
+   "kaynak": "davranis",
+   "grup": "Dünya kalibrasyonu",
+   "sinif": "V",
+   "kartlar": [
+    "konut_kira_getirisi"
+   ],
+   "durum": "kart",
+   "gerekce": "Yeni satır (denetim §3.6): HOUSE_YIELD.",
+   "proto_adlari": [
+    "Konut kira getirisi"
+   ],
+   "bhv_id": "c_getiri"
+  },
+  {
+   "proto": "Dünya kalibrasyonu › Kira tabanı",
+   "kaynak": "davranis",
+   "grup": "Dünya kalibrasyonu",
+   "sinif": "V",
+   "kartlar": [
+    "kira_tabani"
+   ],
+   "durum": "kart",
+   "gerekce": "Yeni satır (denetim §3.6): RENT_H taban V.",
+   "proto_adlari": [
+    "Kira düzeyi (ücretin payı)",
+    "Kira tabanı"
+   ],
+   "bhv_id": "c_kira"
+  },
+  {
+   "proto": "Şehir kasası kuralı (K-219)",
+   "kaynak": "r10",
+   "grup": "Şehir bütçesi",
+   "sinif": "P",
+   "kartlar": [
+    "sehir_kasasi_kurali"
+   ],
+   "durum": "kart",
+   "gerekce": "R10: birleşik modelde TREASURY_RULE; kartlandı."
+  },
+  {
+   "proto": "Kâr firmada kalır (K-220)",
+   "kaynak": "r10",
+   "grup": "Şehir bütçesi",
+   "sinif": "P",
+   "kartlar": [
+    "kar_firmada_kalir"
+   ],
+   "durum": "kart",
+   "gerekce": "R10: birleşik modelde PROFIT_KEEP; kartlandı."
+  },
+  {
+   "proto": "Faize duyarlı davranış (RATE_BEHAV)",
+   "kaynak": "r10",
+   "grup": "Dünyanın insanları",
+   "sinif": "V",
+   "kartlar": [
+    "faize_duyarli_davranis"
+   ],
+   "durum": "kart",
+   "gerekce": "R10: RATE_BEHAV V kartı; yalnız Özel senaryoda açılır."
+  },
+  {
+   "proto": "Beklenen kâra bağlı girişim (ENTRY_EXP)",
+   "kaynak": "r10",
+   "grup": "Dünyanın insanları",
+   "sinif": "V",
+   "kartlar": [
+    "beklenen_kar_girisim"
+   ],
+   "durum": "kart",
+   "gerekce": "R10: ENTRY_EXP V kartı; ölçüm uyarısı taşır."
+  },
+  {
+   "proto": "Piyasa › Ücret endeksi",
+   "kaynak": "piyasa",
+   "grup": "Piyasa",
+   "sinif": "S",
+   "kartlar": [
+    "piyasa_ucret_endeksi"
+   ],
+   "durum": "kart",
+   "gerekce": "Piyasa göstergesi (mktItems: wage).",
+   "proto_adlari": [
+    "Ücret endeksi"
+   ]
+  },
+  {
+   "proto": "Piyasa › Sepet fiyat endeksi",
+   "kaynak": "piyasa",
+   "grup": "Piyasa",
+   "sinif": "S",
+   "kartlar": [
+    "piyasa_fiyat_endeksi"
+   ],
+   "durum": "kart",
+   "gerekce": "Piyasa göstergesi (mktItems: price).",
+   "proto_adlari": [
+    "Sepet fiyat endeksi"
+   ]
+  },
+  {
+   "proto": "Piyasa › Kira (çırak ücretinin %'si) · doluluk",
+   "kaynak": "piyasa",
+   "grup": "Piyasa",
+   "sinif": "S",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Piyasa göstergesi (mktItems: rent).",
+   "proto_adlari": [
+    "Kira (çırak ücretinin %'si) · doluluk",
+    "Kira düzeyi",
+    "Kira düzeyi (ücretin payı)"
+   ],
+   "ayni_satir": "Kira düzeyi (ücretin payı)"
+  },
+  {
+   "proto": "Piyasa › Konut fiyat endeksi",
+   "kaynak": "piyasa",
+   "grup": "Piyasa",
+   "sinif": "S",
+   "kartlar": [
+    "konut_fiyat_endeksi"
+   ],
+   "durum": "kart",
+   "gerekce": "Piyasa göstergesi (mktItems: house).",
+   "proto_adlari": [
+    "Konut fiyat endeksi"
+   ]
+  },
+  {
+   "proto": "Piyasa › Politika faizi",
+   "kaynak": "piyasa",
+   "grup": "Piyasa",
+   "sinif": "S",
+   "kartlar": [
+    "politika_faizi"
+   ],
+   "durum": "kart",
+   "gerekce": "Piyasa göstergesi (mktItems: rate).",
+   "proto_adlari": [
+    "Politika faizi"
+   ]
+  },
+  {
+   "proto": "Piyasa › Mevduat faizi",
+   "kaynak": "piyasa",
+   "grup": "Piyasa",
+   "sinif": "S",
+   "kartlar": [
+    "mevduat_faizi"
+   ],
+   "durum": "kart",
+   "gerekce": "Piyasa göstergesi (mktItems: dep).",
+   "proto_adlari": [
+    "Mevduat faizi"
+   ]
+  },
+  {
+   "proto": "Piyasa › Ortalama kredi faizi",
+   "kaynak": "piyasa",
+   "grup": "Piyasa",
+   "sinif": "S",
+   "kartlar": [
+    "ortalama_kredi_faizi"
+   ],
+   "durum": "kart",
+   "gerekce": "Piyasa göstergesi (mktItems: kfaiz).",
+   "proto_adlari": [
+    "Ortalama kredi faizi"
+   ]
+  },
+  {
+   "proto": "Piyasa › Şehir tahvili faizi",
+   "kaynak": "piyasa",
+   "grup": "Piyasa",
+   "sinif": "S",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Piyasa göstergesi (mktItems: bond).",
+   "proto_adlari": [
+    "Tahvil faizi",
+    "Şehir tahvili faizi"
+   ],
+   "ayni_satir": "Tahvil faizi"
+  },
+  {
+   "proto": "Piyasa › Ortalama lonca aidatı",
+   "kaynak": "piyasa",
+   "grup": "Piyasa",
+   "sinif": "S",
+   "kartlar": [
+    "ortalama_lonca_aidati"
+   ],
+   "durum": "kart",
+   "gerekce": "Piyasa göstergesi (mktItems: aidat).",
+   "proto_adlari": [
+    "Başlangıç fee'si",
+    "Fee",
+    "Ortalama lonca aidatı"
+   ]
+  },
+  {
+   "proto": "Piyasa › Ortalama telif",
+   "kaynak": "piyasa",
+   "grup": "Piyasa",
+   "sinif": "S",
+   "kartlar": [
+    "ortalama_telif"
+   ],
+   "durum": "kart",
+   "gerekce": "Piyasa göstergesi (mktItems: telif).",
+   "proto_adlari": [
+    "Ortalama telif"
+   ]
+  },
+  {
+   "proto": "Piyasa › Navlun (ortalama)",
+   "kaynak": "piyasa",
+   "grup": "Piyasa",
+   "sinif": "S",
+   "kartlar": [],
+   "durum": "kart",
+   "gerekce": "Piyasa göstergesi (mktItems: navlun).",
+   "proto_adlari": [
+    "Navlun (ortalama)",
+    "Navlun oranı"
+   ],
+   "ayni_satir": "Navlun oranı"
+  },
+  {
+   "proto": "Dünya tohumu (Tohum 1–6)",
+   "kaynak": "tohum",
+   "grup": "Başlangıç",
+   "sinif": "Y",
+   "kartlar": [
+    "dunya_tohumu"
+   ],
+   "durum": "kart",
+   "gerekce": "Mevcut MVP kimliği korunur; görünen ad 'Başlangıç dünyası' (DK-8).",
+   "proto_adlari": [
+    "Dünya tohumu",
+    "Tohum n"
+   ]
+  },
+  {
+   "proto": "Dünyanın sabit kalemleri (şehre giden)",
+   "kaynak": "sabit_kalem",
+   "grup": "Vergiler",
+   "sinif": "P",
+   "kartlar": [
+    "dunya_sabit_kalemleri"
+   ],
+   "durum": "kart",
+   "gerekce": "Denetim §2.8: HOUSE_MAINT, lonca giderleri, konut emek/arsa payı; salt okunur."
+  },
+  {
+   "proto": "Mevduat yönlendirmesi (K-221)",
+   "kaynak": "kredi",
+   "grup": "Hane",
+   "sinif": "V",
+   "kartlar": [
+    "mevduat_yonlendirme"
+   ],
+   "durum": "kart",
+   "gerekce": "PLAN-KREDI T10: Haneler yeni mevduatı kredi verebilen loncaya yatırır; batık loncadaki hesaplar taşınır."
+  },
+  {
+   "proto": "Batık lonca kapanır (K-221)",
+   "kaynak": "kredi",
+   "grup": "Bankacılık",
+   "sinif": "P",
+   "kartlar": [
+    "lonca_batik_kapanis"
+   ],
+   "durum": "kart",
+   "gerekce": "PLAN-KREDI T10: Öz kaynağı eksi lonca kapanır, hesapları kredi verebilen loncalara geçer."
+  },
+  {
+   "proto": "Kolay lonca kurulumu (K-221)",
+   "kaynak": "kredi",
+   "grup": "Loncalar",
+   "sinif": "P",
+   "kartlar": [
+    "lonca_kolay_kurulus"
+   ],
+   "durum": "kart",
+   "gerekce": "PLAN-KREDI T10: Lonca kurma ve yeniden kurma şartları düşer."
+  },
+  {
+   "proto": "Kadro talebi görür (K-222)",
+   "kaynak": "kredi",
+   "grup": "İş piyasası",
+   "sinif": "P",
+   "kartlar": [
+    "kadro_talebi_gorur"
+   ],
+   "durum": "kart",
+   "gerekce": "PLAN-KREDI T10: STAFF_DEMAND"
+  },
+  {
+   "proto": "İşe alımda kasa şartı (K-222)",
+   "kaynak": "kredi",
+   "grup": "İş piyasası",
+   "sinif": "P",
+   "kartlar": [
+    "ise_alim_kasa_sarti"
+   ],
+   "durum": "kart",
+   "gerekce": "PLAN-KREDI T10: HIRE_CASH_GATE"
+  },
+  {
+   "proto": "İşsiz deneyimli kurucu (K-187.5)",
+   "kaynak": "kredi",
+   "grup": "Girişimci",
+   "sinif": "V",
+   "kartlar": [
+    "issiz_kurucu"
+   ],
+   "durum": "kart",
+   "gerekce": "PLAN-KREDI T10: ENTRY_JOBLESS"
+  }
+ ],
+ "kartlar": {
+  "basim_tavani": {
+   "layer": "P",
+   "bolum": "para_faiz",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "MINT_YEAR"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "acilis_donemi": {
+   "layer": "P",
+   "bolum": "para_faiz",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "MINT_OPEN_WEEKS"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "sehir_tahvili": {
+   "layer": "P",
+   "bolum": "para_faiz",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "CITY_BOND",
+    "BOND_TERM",
+    "BOND_DEBT_MAX_W"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "requires": [
+    "CITY_BOND"
+   ]
+  },
+  "kasa_dengeleme": {
+   "layer": "P",
+   "bolum": "para_faiz",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "EQUALIZE"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "kredi_para": {
+   "layer": "P",
+   "bolum": "para_faiz",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "CREDIT_MONEY",
+    "CM_RESERVE",
+    "CM_BRAKE",
+    "CM_PD"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "R10 kartlar: prototipin 'Kredi parası' satırı CREDIT_MINT adıyla modelde yoktu; birleşik modelde CREDIT_MONEY (uzman alanları CM_RESERVE, CM_BRAKE, CM_PD). Prototipin '%2/5/10'da çöküş aynı; fiyat endeksi 141 -> 200' notu CREDIT_MINT deneyine ait: eski ölçüm, CREDIT_MONEY için geçerli değildir; ipucu olarak taşınmaz."
+  },
+  "faiz_kurali": {
+   "layer": "P",
+   "bolum": "para_faiz",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "RATE_POLICY"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Prototipte 'sabit faiz / politika kuralı' seçimi; RATE_POLICY bool."
+  },
+  "enflasyon_hedefi": {
+   "layer": "P",
+   "bolum": "para_faiz",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "POL_INF_TGT",
+    "POL_A_INF"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Katsayı zayıf/orta/güçlü düzeyleriyle sunulur (0,005/0,01/0,02)."
+  },
+  "dogal_issizlik_kurali": {
+   "layer": "P",
+   "bolum": "para_faiz",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "POL_U_STAR",
+    "POL_A_U"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Bölünen #10'un P parçası: 'Kuralın normal saydığı işsizlik' + 'İşsizliğe tepki'."
+  },
+  "kredi_canliligi_hedefi": {
+   "layer": "P",
+   "bolum": "para_faiz",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "POL_CD",
+    "POL_CD_STAR",
+    "POL_A_CD"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "requires": [
+    "POL_CD"
+   ],
+   "not": "GELİŞTİRİCİ NOTU: policy.py `- POL_A_CD * (cd - POL_CD_STAR)`: oran hedefin ALTINDAyken politika faizi YÜKSELİR; K-185.18 (sahip: faiz düşsün) niyetiyle çelişiyor, olası işaret hatası, model turunda düzeltilecek. Kart metni bugünkü davranışı anlatır."
+  },
+  "mevduat_faizi_tavani": {
+   "layer": "P",
+   "bolum": "para_faiz",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "DEP_RATE"
+   ],
+   "gosterir": [
+    "DEP_VAR"
+   ],
+   "mevcut": false,
+   "not": "Tavan ölçümde bağlamıyor (denetim #8); DEP_VAR yapı anahtarı kartlanmaz."
+  },
+  "tarafsiz_faiz": {
+   "layer": "P",
+   "bolum": "para_faiz",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "POL_NEUT",
+    "POL_MIN",
+    "POL_MAX",
+    "POL_STEP"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields"
+  },
+  "tahvil_faizi": {
+   "layer": "S",
+   "bolum": "piyasa",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [
+    "BOND_RATE_MULT",
+    "BOND_MARGIN"
+   ],
+   "mevcut": false,
+   "source_world_field": "bond_rate",
+   "not": "Ayar kaldırıldı (denetim #12): gösterge 'Şehir tahvili faizi'; formül parametreleri salt okunur."
+  },
+  "kredi_kurulus": {
+   "layer": "P",
+   "bolum": "kredi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "FOUND_BUF",
+    "FOUND_COLLAT",
+    "FF_FALLBACK"
+   ],
+   "gosterir": [
+    "FOUND_HARC",
+    "FOUND_FUND",
+    "RM_LO",
+    "RM_HI"
+   ],
+   "mevcut": false,
+   "tur": "fields",
+   "credit_type": "kurulus",
+   "not": "FOUND_HARC tek sahibi 'kurulus_harci' (girişim); kuruluş kredisi limit satırı harcı salt okunur gösterir. 'Kaynak' çipi FOUND_FUND'ı (kurulus_fonu kartı) okur; fon kapalıyken 'kurulus_fonu' uyarısı (W5)."
+  },
+  "kredi_genc": {
+   "layer": "P",
+   "bolum": "kredi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "YOUNG_CREDIT",
+    "YOUNG_WEEKS",
+    "YOUNG_RATE_MULT",
+    "YOUNG_GRACE",
+    "YOUNG_LIM_MULT",
+    "YOUNG_POOL_SHARE"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "requires": [
+    "YOUNG_CREDIT"
+   ],
+   "credit_type": "genc",
+   "not": "Prototipteki 'kaynak: lonca havuzu / kuruluş fonu' seçiminin modelde karşılığı yok: kuruluş fonu yalnız kuruluş kredisini (FOUND_FUND) ve genç firma dayanma limitini (YOUNG_KIT) verir; bu kartta kaynak çipi gösterilmez."
+  },
+  "kredi_dayanma": {
+   "layer": "P",
+   "bolum": "kredi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "YK_RUNWAY_WEEKS"
+   ],
+   "gosterir": [
+    "YK_GRACE",
+    "YOUNG_KIT",
+    "FOUND_FUND"
+   ],
+   "mevcut": false,
+   "tur": "fields",
+   "requires": [
+    "YOUNG_KIT"
+   ],
+   "credit_type": "dayanma",
+   "not": "Genç firma destek programının parçası; açma/kapama YOUNG_KIT ('genc_firma_destegi'), fon gerektirir."
+  },
+  "kredi_buyume": {
+   "layer": "P",
+   "bolum": "kredi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "CX_GROW_K",
+    "CX_MIN_AGE",
+    "CX_MIN_OREP"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "credit_type": "buyume",
+   "not": "CX_MIN_AGE ve CX_MIN_OREP büyüme, yatırım ve Ar-Ge kredisinin ortak şartıdır (cx_ok); CX_MIN_OREP medya kredisinde de kullanılır. Burada değiştirmek bu kredilerin hepsini değiştirir: kartlar bunu söylemeli."
+  },
+  "kredi_yatirim": {
+   "layer": "P",
+   "bolum": "kredi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "CX_INV_K"
+   ],
+   "gosterir": [
+    "CX_CAP_STEP",
+    "CX_CAP_WEEKS",
+    "CX_MIN_AGE",
+    "CX_MIN_OREP"
+   ],
+   "mevcut": false,
+   "tur": "fields",
+   "credit_type": "yatirim",
+   "not": "CX_INV_K limiti Ar-Ge kredisiyle ortak; yaş ve itibar şartı (CX_MIN_AGE, CX_MIN_OREP) büyüme kredisiyle ortak: salt okunur gösterilir."
+  },
+  "kredi_arge": {
+   "layer": "P",
+   "bolum": "kredi",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [
+    "CX_INV_K",
+    "CX_MIN_AGE",
+    "CX_MIN_OREP"
+   ],
+   "mevcut": false,
+   "credit_type": "arge",
+   "not": "Aktif kredi türü (credit_service.py: cx_lend 'arge'; DAO kuruluş kredisi tur=arge) ama Ar-Ge'ye özgü anahtarı yok: limit yatırım kredisiyle ortak (CX_INV_K), yaş ve itibar şartı büyüme/yatırım ile ortak (CX_MIN_AGE, CX_MIN_OREP). Kart salt okunur bağlı gösterimdir (düzenleme kredi_yatirim ve kredi_buyume kartlarında)."
+  },
+  "kredi_devir": {
+   "layer": "P",
+   "bolum": "kredi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "PRIV_RATE_MULT",
+    "PRIV_TERM",
+    "PRIV_GRACE",
+    "PRIV_LTV",
+    "PRIV_POOL_SHARE"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "requires": [
+    "PRIVATIZE"
+   ],
+   "credit_type": "ozel",
+   "not": "Prototip kimliği 'ozel' (Devir kredisi). 'Limit: bedelin %80'i' PRIV_LTV 0,8'e karşılık gelir."
+  },
+  "kredi_kopru": {
+   "layer": "P",
+   "bolum": "kredi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "NPC_BRIDGE",
+    "NPC_LEV"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "credit_type": "kopru",
+   "not": "Kredi boyutu satırı V kartıdır: 'siparis_defteri_kredisi'."
+  },
+  "kredi_konut": {
+   "layer": "P",
+   "bolum": "kredi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "CX_MORT_MARGIN",
+    "CX_MORT_TERM",
+    "CX_LTV",
+    "CX_DSR",
+    "CX_MORT_DEF"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "credit_type": "konut",
+   "not": "Sınırlar (kredi/değer, taksit/gelir) düzenleyici, marj lonca diye etiketlenir (denetim #16)."
+  },
+  "kredi_medya": {
+   "layer": "P",
+   "bolum": "kredi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "CX_MEDIA_TERM",
+    "CX_MEDIA_LTV"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "credit_type": "medya"
+  },
+  "kredi_ortak": {
+   "layer": "P",
+   "bolum": "kredi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "CX_MARGIN",
+    "CX_RATE_MIN",
+    "LOAN_RATE",
+    "CX_REPRICE",
+    "LOAN_TERM",
+    "LOAN_FLOOR"
+   ],
+   "gosterir": [
+    "RM_LO",
+    "RM_HI",
+    "RISK_K",
+    "RISK_MAX"
+   ],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Ortak kredi kuralları (crCommonDefs): marj, faiz tabanı-tavanı, yeniden fiyatlama (uzman), ortak vade, önce ücret (uzman). Temerrüt eşiği ayrı kart: 'temerrut_esigi'. Faiz tabanı/itibar/risk payı salt okunur satırlar."
+  },
+  "kredi_varyant": {
+   "layer": "P",
+   "bolum": "kredi",
+   "status": "passive",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Serbest kredi paketi modelde yok (denetim #21): 'Kopyala ve uyarla (deneysel)'."
+  },
+  "temerrut_esigi": {
+   "layer": "P",
+   "bolum": "kredi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "DEF_MISS"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "lonca_kaldirac_siniri": {
+   "layer": "P",
+   "bolum": "bankacilik",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "LEV_K"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "requires": [
+    "LONCA_LEVERAGE"
+   ],
+   "not": "LONCA_LEVERAGE açık/kapalı yapı anahtarıdır; kart yalnız LEV_K'yı verir (10–40)."
+  },
+  "mevduat_nakit_rezervi": {
+   "layer": "P",
+   "bolum": "bankacilik",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "DEP_RESERVE"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "CREDIT_MONEY açıkken rezerv oranı CM_RESERVE ile geçilir (params.py)."
+  },
+  "satis_vergisi": {
+   "layer": "P",
+   "bolum": "vergi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "SALES_TAX"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "ucret_stopaji": {
+   "layer": "P",
+   "bolum": "vergi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "WAGE_TAX"
+   ],
+   "gosterir": [],
+   "mevcut": true
+  },
+  "kurumlar_vergisi": {
+   "layer": "P",
+   "bolum": "vergi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "CORP_TAX"
+   ],
+   "gosterir": [],
+   "mevcut": true
+  },
+  "temettu_stopaji": {
+   "layer": "P",
+   "bolum": "vergi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "DIV_TAX"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "yuksek_ucret_vergisi": {
+   "layer": "P",
+   "bolum": "vergi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "ROLE_TAX",
+    "RES_TAX"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Ücret stopajının üstüne eklenir (denetim #30)."
+  },
+  "lonca_sahibi_stopaji": {
+   "layer": "P",
+   "bolum": "vergi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "OWNER_TAX"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "konut_islem_harci": {
+   "layer": "P",
+   "bolum": "vergi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "HOUSE_TXN"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "kira_geliri_vergisi": {
+   "layer": "P",
+   "bolum": "vergi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "RENT_TAX"
+   ],
+   "gosterir": [
+    "HOUSE_MAINT"
+   ],
+   "mevcut": false,
+   "not": "Kira gelirinin %10'u bakım payı olarak zaten şehre gider (HOUSE_MAINT)."
+  },
+  "servet_vergisi": {
+   "layer": "P",
+   "bolum": "vergi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "WEALTH_TAX"
+   ],
+   "gosterir": [
+    "WT_FLOOR"
+   ],
+   "mevcut": false,
+   "not": "Eşik (2.000 Akçe) salt okunur gösterilir."
+  },
+  "butce_izleyen_kdv": {
+   "layer": "P",
+   "bolum": "vergi",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "TAX_RULE"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "dunya_sabit_kalemleri": {
+   "layer": "P",
+   "bolum": "sabit_kalemler",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [
+    "HOUSE_MAINT"
+   ],
+   "gosterir": [
+    "LC_FIXED",
+    "LC_MEMBER",
+    "HOUSE_LABOR",
+    "HOUSE_PLOT"
+   ],
+   "mevcut": false,
+   "not": "Şehre giden gizli kalemler (denetim §2.8): salt okunur 'Dünyanın sabit kalemleri' satırları. HOUSE_MAINT'ı bu kart sahiplenir; kira_geliri_vergisi yalnız gösterir. Düzenlenebilir değil."
+  },
+  "gider_onceligi": {
+   "layer": "P",
+   "bolum": "butce",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "MINT_PRIO"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "order"
+  },
+  "issizlik_odenegi": {
+   "layer": "P",
+   "bolum": "butce",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "UNEMPLOY_BENEFIT",
+    "BENEFIT_WEEKS",
+    "BENEFIT_LONG"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields"
+  },
+  "asgari_guvence": {
+   "layer": "P",
+   "bolum": "butce",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "WELF_CITY_MULT"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "belediye_istihdami": {
+   "layer": "P",
+   "bolum": "butce",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "MUNI_SPEND"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "kamu_hizmet_sozlesmesi": {
+   "layer": "P",
+   "bolum": "butce",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "PUBSVC"
+   ],
+   "gosterir": [
+    "PUBSVC_SHARE"
+   ],
+   "mevcut": false
+  },
+  "kasa_tabani": {
+   "layer": "P",
+   "bolum": "butce",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "TRANS_FLOOR_WEEKS"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "butce_yuzde_paylari": {
+   "layer": "P",
+   "bolum": "butce",
+   "status": "passive",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Bütçe yüzde payı modeli yok; model öncelik + tavan ile işler (denetim #41)."
+  },
+  "kamu_alimi": {
+   "layer": "P",
+   "bolum": "butce",
+   "status": "passive",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "GOV_PROC modelde yok (denetim #42)."
+  },
+  "kurulus_fonu": {
+   "layer": "P",
+   "bolum": "butce",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "FOUND_FUND",
+    "FF_SHARE"
+   ],
+   "gosterir": [
+    "FF_WEEKLY",
+    "FF_FLOOR_WEEKS",
+    "FF_START"
+   ],
+   "mevcut": false,
+   "tur": "fields",
+   "requires": [
+    "FOUND_FUND"
+   ],
+   "not": "Kuruluş fonu (#20 kaynak çipi ile #43 payı tek kart). Kredi kartları fon kapalıyken buna bağlanır (W5 uyarısı)."
+  },
+  "sehir_kasasi_kurali": {
+   "layer": "P",
+   "bolum": "butce",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "TREASURY_RULE",
+    "TR_WEEKS",
+    "TR_CONV"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "R10 (K-219)."
+  },
+  "kar_firmada_kalir": {
+   "layer": "P",
+   "bolum": "butce",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "PROFIT_KEEP",
+    "PK_WEEKS"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "R10 (K-220)."
+  },
+  "zarar_eden_firmayi_kurtarma": {
+   "layer": "P",
+   "bolum": "kurtarma",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "NO_BAILOUT"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Model adı tersine çalışır: NO_BAILOUT True = 'kurtarma yok' (codec bool ters)."
+  },
+  "gecis_destegi": {
+   "layer": "P",
+   "bolum": "kurtarma",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "TRANS_SUPPORT"
+   ],
+   "gosterir": [],
+   "mevcut": true,
+   "not": "Mevcut MVP kartı: kapali/kisa_sureli/kurtarma_fonuyla = 0/1/2."
+  },
+  "destek_tavani": {
+   "layer": "P",
+   "bolum": "kurtarma",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "TRANS_CAP"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "requires": [
+    "TRANS_SUPPORT"
+   ]
+  },
+  "destek_bitis_esigi": {
+   "layer": "P",
+   "bolum": "kurtarma",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "TRANS_THRESH"
+   ],
+   "gosterir": [
+    "TRANS_FLOOR2"
+   ],
+   "mevcut": false
+  },
+  "ozellestirme_durur": {
+   "layer": "P",
+   "bolum": "kurtarma",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "TRANS_PRIV_OK"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "TRANS_PRIV_OK 0 = destek sürerken özelleştirme durur (prototip 'evet'); codec bool ters."
+  },
+  "ozellestirme": {
+   "layer": "P",
+   "bolum": "kurtarma",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "PRIVATIZE",
+    "PRIV_WEEKS"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields"
+  },
+  "kamu_kar_tamponu": {
+   "layer": "P",
+   "bolum": "kurtarma",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "NPC_KEEP"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "altyapi_idari_yonetim": {
+   "layer": "P",
+   "bolum": "kurtarma",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "INFRA_CONT"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "itibar_sarti": {
+   "layer": "P",
+   "bolum": "girisim",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "ENTRY_OPEN"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Bölünen #54'ün P parçası; 'yok' seçilince bağlı V satırları 'Girişim serbest' etiketi alır (R34). ENTRY_OPEN 0 = şart var."
+  },
+  "kurulus_harci": {
+   "layer": "P",
+   "bolum": "girisim",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "FOUND_HARC"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "genc_firma_destegi": {
+   "layer": "P",
+   "bolum": "girisim",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "YOUNG_KIT"
+   ],
+   "gosterir": [
+    "YK_GRACE",
+    "YK_REP_WEEKS",
+    "YK_RUNWAY_WEEKS"
+   ],
+   "mevcut": false,
+   "not": "Bölünen #61'in P parçası; açmak için kuruluş fonu gerekir."
+  },
+  "duzenlenen_sektorler": {
+   "layer": "P",
+   "bolum": "fiyat",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "PV2_REG"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "multi"
+  },
+  "sektor_fiyat_tavani": {
+   "layer": "P",
+   "bolum": "fiyat",
+   "status": "passive",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [
+    "PM_MAX"
+   ],
+   "mevcut": false,
+   "not": "Modelde yalnız genel çarpan sınırı (PM_MAX) var; sektör başına tavan model işi (denetim #71)."
+  },
+  "yerli_uretim_programi": {
+   "layer": "P",
+   "bolum": "fiyat",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "DOMESTIC_EVERY"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Modelde vardı, görünmüyordu (denetim §2.10): her N haftada bir kamu firması (0 = kapalı)."
+  },
+  "asgari_ucret": {
+   "layer": "P",
+   "bolum": "fiyat",
+   "status": "passive",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Asgari ücret modelde yok (revizyon-2 R33, deneysel)."
+  },
+  "lonca_aidat_araligi": {
+   "layer": "P",
+   "bolum": "loncalar",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "FEE_MIN",
+    "FEE_MAX"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields"
+  },
+  "lonca_isletme_payi": {
+   "layer": "P",
+   "bolum": "loncalar",
+   "status": "passive",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "expenseBps modelde yok; model sabit gider kullanır (denetim #74)."
+  },
+  "lonca_uye_ust_siniri": {
+   "layer": "P",
+   "bolum": "loncalar",
+   "status": "passive",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "maxAgents modelde yok (denetim #76)."
+  },
+  "lonca_sosyal_paket": {
+   "layer": "P",
+   "bolum": "loncalar",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "LONCA_WELFARE"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "sektor_panosu": {
+   "layer": "P",
+   "bolum": "pano",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "SECTOR_BOARD"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Bölünen #80'in P parçası; V parçaları ikinci_kaynak, girdi_tamponu, kitlik_esigi, pano_kurallari."
+  },
+  "konut_yatirim_siniri": {
+   "layer": "P",
+   "bolum": "konut",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "HOUSE_INV_MAX"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "kira_kontrolu": {
+   "layer": "P",
+   "bolum": "konut",
+   "status": "passive",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Kira artış sınırı modelde yok (revizyon-2 R33, deneysel); kira piyasada oluşur."
+  },
+  "lonca_arge_payi": {
+   "layer": "P",
+   "bolum": "inovasyon",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "PROG_ARGE"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "patent_suresi": {
+   "layer": "P",
+   "bolum": "inovasyon",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "PATENT_TERM"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "telif_orani": {
+   "layer": "P",
+   "bolum": "inovasyon",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "TELIF_X0",
+    "TELIF_MEMBER_RATIO"
+   ],
+   "gosterir": [
+    "TELIF_XMIN"
+   ],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Tavan düzenleyici, üyeye oran lonca kontrolü (denetim #93)."
+  },
+  "harcama_egrisi": {
+   "layer": "V",
+   "bolum": "hane",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "MPC0",
+    "MPC_SLOPE"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields"
+  },
+  "servetten_harcama": {
+   "layer": "V",
+   "bolum": "hane",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "WEALTH_DRAW_YEAR"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "goc": {
+   "layer": "V",
+   "bolum": "hane",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "MIGRATION_SHARE",
+    "PLAYER_MIGRATE_SHARE",
+    "PLAYER_MIGRATE_AFTER"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields"
+  },
+  "baslangic_parasi": {
+   "layer": "V",
+   "bolum": "hane",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "START_AKCE"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "az_birikimli_harcama": {
+   "layer": "V",
+   "bolum": "hane",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "POOR_SHARE",
+    "WR_WEEKS"
+   ],
+   "gosterir": [
+    "WR_BLEND"
+   ],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Yeni satır (denetim §3.6)."
+  },
+  "aliskanlik_hizi": {
+   "layer": "V",
+   "bolum": "hane",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "HAB_UP",
+    "HAB_DOWN"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Yeni satır (denetim §3.6)."
+  },
+  "mevduat_elde_tutma": {
+   "layer": "V",
+   "bolum": "hane",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "DEP_KEEP_NEW",
+    "DEP_SHARE"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Yeni satır (denetim §3.6)."
+  },
+  "hane_konut": {
+   "layer": "V",
+   "bolum": "hane",
+   "status": "passive",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Bilgi satırı: herkes kiracı (K-179); konut kararı için ayrı parametre yok."
+  },
+  "faize_duyarli_davranis": {
+   "layer": "V",
+   "bolum": "hane",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "RATE_BEHAV",
+    "RB_CREDIT"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "R10 (RATE_BEHAV; yalnız Özel dünya senaryosunda açılır)."
+  },
+  "girisimci_dalgasi": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "EO_COHORT",
+    "EO_COHORT_PER",
+    "EO_COHORT_W0",
+    "EO_COHORT_W1"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields"
+  },
+  "kurma_egilimi": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "EO_RATE"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "genc_kurucu_verimi": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "EO_SKILL"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "piyasa_sinyali": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "ENTRY_PM",
+    "WORTH_SHORT_X"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields"
+  },
+  "kalici_kitlik": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "SB_ENTRY_PERSIST"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Codec: açık = 0,02 (params.py:558 yorumu), kapalı = -1,0 (model varsayılanı); prototip varsayılanı 'açık'. Pano açıkken etkili."
+  },
+  "fiyat_artis_hizi": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "PV2_STEP_UP"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "hedef_kar_marji": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "PV2_M0"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "kitlikta_buyume": {
+   "layer": "V",
+   "bolum": "yerlesik",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "PM_BOOST_MAX"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "PM_BOOST_MAX yalnız yerleşik (NPC) firmaların kadro ihtiyacını kıtlık sinyaliyle büyütür (labor.py); oyuncu firmasında okunmaz. 'Girişimciler › Kıtlıkta büyüme' satırı yalnız pano kuralları kartıdır (pano_kurallari)."
+  },
+  "zararda_once_kucul": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "SHRINK_FIRST"
+   ],
+   "gosterir": [],
+   "mevcut": true,
+   "not": "Mevcut MVP kartı (layer P, group kurtarma, editable:false); denetim #51 V: R1c layer'ı V ve actor'ı girisimci yapar, kimlik korunur; düzenlenebilirlik de değişir (V yalnız Özel senaryoda düzenlenebilir). SHRINK_FIRST yerleşik firmalarda da işler."
+  },
+  "ikinci_kaynak": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "SB_SECOND"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "girdi_tamponu": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "SB_BUF_LO",
+    "SB_BUF_HI"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields"
+  },
+  "pano_kurallari": {
+   "layer": "V",
+   "bolum": "yerlesik",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "SB_GROW",
+    "SB_PREM_MAX"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Yalnız sektör panosu açıkken etkili; pano açık değilken kıtlık büyümesi ve fiyat primi yoktur. SB_GROW yalnız yerleşik firmalarda (labor.py:124, week_cycle_parts.py:143); SB_PREM_MAX bütün firmaların fiyat hedefinde (prices.py:311). Aktör yerleşik (R1c düzeltme)."
+  },
+  "lonca_degistirme": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "SWITCH_COOL"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "girisimci_risk_tutumu": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "passive",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Girişimciler arasında risk tutumu farkı modelde yok (denetim §3.2)."
+  },
+  "genc_firma_davranisi": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "YK_HIRE_MAX",
+    "YK_ENTRY_WEEKS"
+   ],
+   "gosterir": [
+    "YK_HIRE_COVER",
+    "YK_MES_FRAC"
+   ],
+   "mevcut": false,
+   "tur": "fields",
+   "requires": [
+    "YOUNG_KIT"
+   ],
+   "not": "Bölünen #61'in V parçası: destek açıkken talebe göre işe alım, giriş fiyatı, ölçek."
+  },
+  "beklenen_kar_girisim": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "ENTRY_EXP"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "R10 (ENTRY_EXP; ölçüm uyarısı taşır, yalnız Özel senaryoda açılır)."
+  },
+  "ucret_uyumu": {
+   "layer": "V",
+   "bolum": "isci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "WAGE_PASS",
+    "WAGE_CATCHUP"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields"
+  },
+  "issizlik_ucret_tepkisi": {
+   "layer": "V",
+   "bolum": "isci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "LAB_U_STAR",
+    "LAB_K",
+    "LAB_DOWN"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Bölünen #10'un V parçası (ücret denklemi doğal işsizliği 0,20); işgücü kıtlığında ücret + ücret yapışkanlığı (§3.6 yeni satırlar)."
+  },
+  "is_arama": {
+   "layer": "V",
+   "bolum": "isci",
+   "status": "passive",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "İş arama / ücret beklentisi (rezervasyon ücreti) modelde yok (denetim §3.3)."
+  },
+  "tecrube_terfisi": {
+   "layer": "V",
+   "bolum": "isci",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [
+    "SKILL_ON"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Kontenjanlı terfi; bilgi satırı, düzenlenmez."
+  },
+  "mevduata_dagitilan_pay": {
+   "layer": "V",
+   "bolum": "yatirimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "DEP_PAYOUT"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "lonca_tahvil_payi": {
+   "layer": "V",
+   "bolum": "yatirimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "BOND_POOL_SHARE"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Eski ad 'Tahvile ayrılmayan havuz payı' çift olumsuzdu (denetim #25)."
+  },
+  "lonca_aidat_arama": {
+   "layer": "V",
+   "bolum": "yatirimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "LONCA_FEE",
+    "FEE_STEP",
+    "FEE_EVERY"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields"
+  },
+  "lonca_risk_payi": {
+   "layer": "V",
+   "bolum": "yatirimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "RISK_K",
+    "RISK_MAX"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Yeni satır: lonca kredi riski payı (credit_core.py:239)."
+  },
+  "konut_yatirim_karari": {
+   "layer": "V",
+   "bolum": "yatirimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "HOUSE_RISK_PREM"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Yeni satır (denetim §3.6)."
+  },
+  "konut_fiyat_beklentisi": {
+   "layer": "V",
+   "bolum": "yatirimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "HOUSE_EXP_N",
+    "HOUSE_EXP_DAMP"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Yeni satır."
+  },
+  "dao_payi_karari": {
+   "layer": "V",
+   "bolum": "yatirimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "EQ_RISK_INV",
+    "EQ_FRAC",
+    "EQ_MAX_HOLD"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Yeni satır."
+  },
+  "konut_satis_sikismasi": {
+   "layer": "V",
+   "bolum": "yatirimci",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "HOUSE_SQUEEZE_W"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Yeni satır."
+  },
+  "siparis_defteri_kredisi": {
+   "layer": "V",
+   "bolum": "yerlesik",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "ORDER_BOOK"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Köprü kredisi boyutu: mevcut kadro / hedef kadro / hedef kadro + kıtlık sinyali (ORDER_BOOK 0/1/2)."
+  },
+  "yerlesik_batma_suresi": {
+   "layer": "V",
+   "bolum": "yerlesik",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "NPC_DIE_WEEKS"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Yeni satır (denetim §3.6)."
+  },
+  "navlun": {
+   "layer": "V",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [
+    "NAVLUN"
+   ],
+   "mevcut": false,
+   "not": "Piyasa göstergesi 'Navlun (ortalama)' aynı değeri sabit gösterir."
+  },
+  "kitlik_esigi": {
+   "layer": "V",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [
+    "SB_SCARCE"
+   ],
+   "mevcut": false
+  },
+  "lonca_gideri": {
+   "layer": "V",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [
+    "LC_FIXED",
+    "LC_MEMBER",
+    "LONCA_DEAD_WEEKS"
+   ],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Gider şehre gider (§2.8); sabit_kalemler kartı yalnız gösterir."
+  },
+  "sektor_acilis_esikleri": {
+   "layer": "V",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [
+    "SW_UNLOCK",
+    "HW_UNLOCK",
+    "MODA_UNLOCK",
+    "TOUR_UNLOCK"
+   ],
+   "mevcut": false,
+   "tur": "fields",
+   "not": "Prototip tek bir çarpan sunuyor (x0,5-x2); model dört mutlak eşik taşır. Codec: tek çarpan alanı eşikleri varsayılanlarıyla çarpar (R1c karar verir) ya da dört alan."
+  },
+  "konut_kira_getirisi": {
+   "layer": "V",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [
+    "HOUSE_YIELD"
+   ],
+   "mevcut": false,
+   "not": "Yeni satır: ek not: gerçekte yılda %3–7 (denetim §3.1)."
+  },
+  "kira_tabani": {
+   "layer": "V",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [
+    "RENT_H",
+    "HOUSE_ELAST",
+    "RM_MIN",
+    "RM_MAX",
+    "RM_RATE"
+   ],
+   "mevcut": false,
+   "not": "Kira piyasada oluşur; RENT_H yalnız açılış çıpası (#87 'taban V')."
+  },
+  "kira_gostergesi": {
+   "layer": "S",
+   "bolum": "piyasa",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [
+    "RENT_H"
+   ],
+   "mevcut": false,
+   "source_world_field": "rent_pct",
+   "not": "Kira (çırak ücretinin %'si) + doluluk (occupancy). Ayar kaldırıldı (denetim #87)."
+  },
+  "piyasa_ucret_endeksi": {
+   "layer": "S",
+   "bolum": "piyasa",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "source_world_field": "wage_index"
+  },
+  "piyasa_fiyat_endeksi": {
+   "layer": "S",
+   "bolum": "piyasa",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "source_world_field": "price_index"
+  },
+  "konut_fiyat_endeksi": {
+   "layer": "S",
+   "bolum": "piyasa",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "source_world_field": "house_index"
+  },
+  "politika_faizi": {
+   "layer": "S",
+   "bolum": "piyasa",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "source_world_field": "policy_rate"
+  },
+  "mevduat_faizi": {
+   "layer": "S",
+   "bolum": "piyasa",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "source_world_field": "deposit_rate",
+   "not": "Asıl mevduat faizi piyasa sonucudur; kuralı 'mevduat_faizi_tavani' (denetim #8)."
+  },
+  "ortalama_kredi_faizi": {
+   "layer": "S",
+   "bolum": "piyasa",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "source_world_field": "loan_rate_avg"
+  },
+  "ortalama_lonca_aidati": {
+   "layer": "S",
+   "bolum": "piyasa",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "source_world_field": "lonca_fee_avg"
+  },
+  "ortalama_telif": {
+   "layer": "S",
+   "bolum": "piyasa",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "source_world_field": "royalty_avg"
+  },
+  "dunya_tohumu": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "PM_ADJ"
+   ],
+   "gosterir": [],
+   "mevcut": true,
+   "tur": "options",
+   "not": "Mevcut MVP kartı; görünen ad 'Başlangıç dünyası' (DK-8). Seçenekler seeds.json."
+  },
+  "sigorta_sirketleri": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "INSURANCE"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "ikinci_el_esya": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "RESALE_ON"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Mücevher ve ev eşyası; konutun ikinci el piyasası ayrı ve hep açık (denetim #90)."
+  },
+  "haneler_mevduat_yatirir": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": false,
+   "params": [
+    "DEP_ON"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Kapatılırsa lonca kredisinin kaynağı kurur; kilitli/gizlenebilir (denetim #90)."
+  },
+  "sektor_medya": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "DIRECT_AD",
+    "MEDIA_LONCA"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "tur": "fields"
+  },
+  "sektor_saglik": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "HEALTH"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "sektor_egitim": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "EDUCATION"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "sektor_enerji": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "ENERGY_ON"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "sektor_turizm": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "TOUR_ON"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "sektor_yazilim": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "SOFT_ON"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "sektor_donanim": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "HW_ON"
+   ],
+   "gosterir": [],
+   "mevcut": false
+  },
+  "sektor_moda": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "active",
+   "duzenlenebilir": true,
+   "params": [
+    "MODA_ON"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Ulaşım için ayrı kart yok: TRANS_ON anahtarı var ama bugün yalnız güvenlik/koruma girdisini yönetiyor ve modül yüklenirken RECIPES'i değiştiriyor (params.py:749); oyun sırasında geçersiz kılınamaz, bu yüzden kartlanmadı."
+  },
+  "sehre_ozel_kural": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "passive",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Kurallar dünya geneli; şehre göre farklılaştırma modelde yok (denetim #97)."
+  },
+  "dunya_temeli": {
+   "layer": "Y",
+   "bolum": "dunya",
+   "status": "passive",
+   "duzenlenebilir": false,
+   "params": [],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "Kilitli bilgi satırı: 5 şehir, hafta = 7 gün, para korunumu ... (parametre değil)."
+  },
+  "mevduat_yonlendirme": {
+   "layer": "V",
+   "bolum": "hane",
+   "status": "experimental",
+   "duzenlenebilir": true,
+   "params": [
+    "DEP_ROUTE"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "PLAN-KREDI T10 (DEP_ROUTE); alt parametreler kart değildir."
+  },
+  "lonca_batik_kapanis": {
+   "layer": "P",
+   "bolum": "bankacilik",
+   "status": "experimental",
+   "duzenlenebilir": true,
+   "params": [
+    "LONCA_INSOLV_CLOSE"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "PLAN-KREDI T10 (LONCA_INSOLV_CLOSE); alt parametreler kart değildir."
+  },
+  "lonca_kolay_kurulus": {
+   "layer": "P",
+   "bolum": "loncalar",
+   "status": "experimental",
+   "duzenlenebilir": true,
+   "params": [
+    "LONCA_EASY"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "PLAN-KREDI T10 (LONCA_EASY); alt parametreler kart değildir."
+  },
+  "kadro_talebi_gorur": {
+   "layer": "P",
+   "bolum": "is_piyasasi",
+   "status": "experimental",
+   "duzenlenebilir": true,
+   "params": [
+    "STAFF_DEMAND"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "PLAN-KREDI T10 (STAFF_DEMAND); alt parametreler kart değildir."
+  },
+  "ise_alim_kasa_sarti": {
+   "layer": "P",
+   "bolum": "is_piyasasi",
+   "status": "experimental",
+   "duzenlenebilir": true,
+   "params": [
+    "HIRE_CASH_GATE"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "PLAN-KREDI T10 (HIRE_CASH_GATE); alt parametreler kart değildir."
+  },
+  "issiz_kurucu": {
+   "layer": "V",
+   "bolum": "girisimci",
+   "status": "experimental",
+   "duzenlenebilir": true,
+   "params": [
+    "ENTRY_JOBLESS"
+   ],
+   "gosterir": [],
+   "mevcut": false,
+   "not": "PLAN-KREDI T10 (ENTRY_JOBLESS); alt parametreler kart değildir."
+  }
+ },
+ "sablonlar": [
+  {
+   "proto_id": 0,
+   "proto": "Boş şart",
+   "kimlik": "bos_sart",
+   "set_anahtarlari": [],
+   "kartlar": [
+    "altyapi_idari_yonetim",
+    "gecis_destegi",
+    "kalici_kitlik",
+    "kamu_kar_tamponu",
+    "kredi_kurulus",
+    "kurulus_fonu",
+    "kurumlar_vergisi",
+    "sektor_panosu",
+    "siparis_defteri_kredisi",
+    "ucret_stopaji",
+    "zararda_once_kucul"
+   ],
+   "davranis_kartlari": [],
+   "not": "",
+   "model_degerleri": {
+    "TRANS_SUPPORT": 0,
+    "NPC_KEEP": 0.5,
+    "WAGE_TAX": 0.0,
+    "CORP_TAX": 0.0,
+    "SHRINK_FIRST": false,
+    "INFRA_CONT": false,
+    "FOUND_FUND": 0,
+    "SECTOR_BOARD": 0,
+    "ORDER_BOOK": 0,
+    "FOUND_COLLAT": false,
+    "SB_ENTRY_PERSIST": 0.02
+   },
+   "anlatim": "Tüm ayarlar varsayılanda. Üzerine kendin inşa et.",
+   "taban_notu": "Prototipin 'set: {}' tabanı katalog varsayılanıdır (kurtarma, vergi, fon, pano kapalı); birleşik modelin varsayılanları bunların çoğunun tersidir. R1b şablon değerlerini model_degerleri ile açıkça yazar; şablonda adı geçmeyen bayrak modelin varsayılanında kalmamalı."
+  },
+  {
+   "proto_id": 1,
+   "proto": "Serbest piyasa, kurtarma yok",
+   "kimlik": "serbest_piyasa",
+   "set_anahtarlari": [],
+   "kartlar": [
+    "altyapi_idari_yonetim",
+    "gecis_destegi",
+    "kalici_kitlik",
+    "kamu_kar_tamponu",
+    "kredi_kurulus",
+    "kurulus_fonu",
+    "kurumlar_vergisi",
+    "sektor_panosu",
+    "siparis_defteri_kredisi",
+    "ucret_stopaji",
+    "zararda_once_kucul"
+   ],
+   "davranis_kartlari": [],
+   "not": "",
+   "model_degerleri": {
+    "TRANS_SUPPORT": 0,
+    "NPC_KEEP": 0.5,
+    "WAGE_TAX": 0.0,
+    "CORP_TAX": 0.0,
+    "SHRINK_FIRST": false,
+    "INFRA_CONT": false,
+    "FOUND_FUND": 0,
+    "SECTOR_BOARD": 0,
+    "ORDER_BOOK": 0,
+    "FOUND_COLLAT": false,
+    "SB_ENTRY_PERSIST": 0.02
+   },
+   "anlatim": "Deney kuralları kapalı.",
+   "taban_notu": "Prototipin 'set: {}' tabanı katalog varsayılanıdır (kurtarma, vergi, fon, pano kapalı); birleşik modelin varsayılanları bunların çoğunun tersidir. R1b şablon değerlerini model_degerleri ile açıkça yazar; şablonda adı geçmeyen bayrak modelin varsayılanında kalmamalı."
+  },
+  {
+   "proto_id": 2,
+   "proto": "Dayanıklı taban",
+   "kimlik": "dayanikli_taban",
+   "set_anahtarlari": [
+    "NPC kâr tamponu",
+    "Ücret stopajı",
+    "Kurumlar vergisi",
+    "Altyapı idari yönetimi (batmaz)",
+    "Zararda önce küçül",
+    "__kopru",
+    "__collat"
+   ],
+   "kartlar": [
+    "altyapi_idari_yonetim",
+    "gecis_destegi",
+    "kalici_kitlik",
+    "kamu_kar_tamponu",
+    "kredi_kurulus",
+    "kurulus_fonu",
+    "kurumlar_vergisi",
+    "sektor_panosu",
+    "siparis_defteri_kredisi",
+    "ucret_stopaji",
+    "zararda_once_kucul"
+   ],
+   "davranis_kartlari": [
+    "siparis_defteri_kredisi",
+    "zararda_once_kucul"
+   ],
+   "not": "Mevcut kimlik korunur. Ölçülmüş MVP şablonu (templates.json; kayıtlı koşular onunla üretildi) bağlayıcı: prototipin B paketinden farkı, kuruluş fonu (FOUND_FUND) ve sektör panosu (SECTOR_BOARD) model varsayılanında (1) kalır ve SB_ENTRY_PERSIST -1,0 kalır; prototip anlatımında bu üçü kapalıdır. Diğer şablonlar (gecis_destegi, pano_destek, girisime_acik) bu tabandan türer.",
+   "model_degerleri": {
+    "TRANS_SUPPORT": 0,
+    "NPC_KEEP": 2.0,
+    "WAGE_TAX": 0.1,
+    "CORP_TAX": 0.2,
+    "SHRINK_FIRST": true,
+    "INFRA_CONT": true,
+    "FOUND_FUND": 1,
+    "SECTOR_BOARD": 1,
+    "ORDER_BOOK": 1,
+    "FOUND_COLLAT": true,
+    "SB_ENTRY_PERSIST": -1.0
+   },
+   "anlatim": "Kamu firması kâr tamponu 2×, teminatlı kuruluş kredisi, ücretten gelir vergisi %10, firma kârından vergi %20, altyapı firması iflasta kapanmaz.",
+   "taban_notu": "Prototipin 'set: {}' tabanı katalog varsayılanıdır (kurtarma, vergi, fon, pano kapalı); birleşik modelin varsayılanları bunların çoğunun tersidir. R1b şablon değerlerini model_degerleri ile açıkça yazar; şablonda adı geçmeyen bayrak modelin varsayılanında kalmamalı."
+  },
+  {
+   "proto_id": 3,
+   "proto": "Geçiş desteği",
+   "kimlik": "gecis_destegi",
+   "set_anahtarlari": [
+    "Geçiş desteği",
+    "Haftalık destek tavanı",
+    "Destek sürerken özelleştirme dursun",
+    "NPC kâr tamponu",
+    "Ücret stopajı",
+    "Kurumlar vergisi",
+    "Altyapı idari yönetimi (batmaz)",
+    "Zararda önce küçül",
+    "__kopru",
+    "__collat"
+   ],
+   "kartlar": [
+    "altyapi_idari_yonetim",
+    "destek_tavani",
+    "gecis_destegi",
+    "kalici_kitlik",
+    "kamu_kar_tamponu",
+    "kredi_kurulus",
+    "kurulus_fonu",
+    "kurumlar_vergisi",
+    "ozellestirme_durur",
+    "sektor_panosu",
+    "siparis_defteri_kredisi",
+    "ucret_stopaji",
+    "zararda_once_kucul"
+   ],
+   "davranis_kartlari": [
+    "siparis_defteri_kredisi",
+    "zararda_once_kucul"
+   ],
+   "not": "Kayıt dizinindeki 'gecis_destegi' şablonuyla aynı kimlik (tr.ts sablon.gecis_destegi.*).",
+   "model_degerleri": {
+    "TRANS_SUPPORT": 2,
+    "NPC_KEEP": 2.0,
+    "WAGE_TAX": 0.1,
+    "CORP_TAX": 0.2,
+    "SHRINK_FIRST": true,
+    "INFRA_CONT": true,
+    "FOUND_FUND": 1,
+    "SECTOR_BOARD": 1,
+    "ORDER_BOOK": 1,
+    "FOUND_COLLAT": true,
+    "SB_ENTRY_PERSIST": -1.0,
+    "TRANS_CAP": 28000.0,
+    "TRANS_PRIV_OK": 0
+   },
+   "anlatim": "Dayanıklı taban + kurtarma kanallı geçiş desteği (tavan 28 bin/hf); destek sürerken özelleştirme durur.",
+   "taban_notu": "Prototipin 'set: {}' tabanı katalog varsayılanıdır (kurtarma, vergi, fon, pano kapalı); birleşik modelin varsayılanları bunların çoğunun tersidir. R1b şablon değerlerini model_degerleri ile açıkça yazar; şablonda adı geçmeyen bayrak modelin varsayılanında kalmamalı."
+  },
+  {
+   "proto_id": 4,
+   "proto": "Sektör panosu + destek",
+   "kimlik": "pano_destek",
+   "set_anahtarlari": [
+    "Sektör panosu",
+    "Kalıcı kıtlık yoksa oyuncu girmez",
+    "Geçiş desteği",
+    "NPC kâr tamponu",
+    "Ücret stopajı",
+    "Kurumlar vergisi",
+    "Altyapı idari yönetimi (batmaz)",
+    "Zararda önce küçül",
+    "__kopru",
+    "__collat"
+   ],
+   "kartlar": [
+    "altyapi_idari_yonetim",
+    "gecis_destegi",
+    "kalici_kitlik",
+    "kamu_kar_tamponu",
+    "kredi_kurulus",
+    "kurulus_fonu",
+    "kurumlar_vergisi",
+    "sektor_panosu",
+    "siparis_defteri_kredisi",
+    "ucret_stopaji",
+    "zararda_once_kucul"
+   ],
+   "davranis_kartlari": [
+    "kalici_kitlik",
+    "siparis_defteri_kredisi",
+    "zararda_once_kucul"
+   ],
+   "not": "",
+   "model_degerleri": {
+    "TRANS_SUPPORT": 1,
+    "NPC_KEEP": 2.0,
+    "WAGE_TAX": 0.1,
+    "CORP_TAX": 0.2,
+    "SHRINK_FIRST": true,
+    "INFRA_CONT": true,
+    "FOUND_FUND": 1,
+    "SECTOR_BOARD": 1,
+    "ORDER_BOOK": 1,
+    "FOUND_COLLAT": true,
+    "SB_ENTRY_PERSIST": -1.0
+   },
+   "anlatim": "Dayanıklı taban + şehir sektör verisini yayımlar + kısa süreli geçiş desteği.",
+   "taban_notu": "Prototipin 'set: {}' tabanı katalog varsayılanıdır (kurtarma, vergi, fon, pano kapalı); birleşik modelin varsayılanları bunların çoğunun tersidir. R1b şablon değerlerini model_degerleri ile açıkça yazar; şablonda adı geçmeyen bayrak modelin varsayılanında kalmamalı."
+  },
+  {
+   "proto_id": 5,
+   "proto": "Girişime açık (deneysel)",
+   "kimlik": "girisime_acik",
+   "set_anahtarlari": [
+    "Firma kurmak için itibar şartı",
+    "NPC kâr tamponu",
+    "Ücret stopajı",
+    "Kurumlar vergisi",
+    "Altyapı idari yönetimi (batmaz)",
+    "Zararda önce küçül",
+    "__kopru",
+    "__collat"
+   ],
+   "kartlar": [
+    "altyapi_idari_yonetim",
+    "gecis_destegi",
+    "itibar_sarti",
+    "kalici_kitlik",
+    "kamu_kar_tamponu",
+    "kredi_kurulus",
+    "kurulus_fonu",
+    "kurumlar_vergisi",
+    "sektor_panosu",
+    "siparis_defteri_kredisi",
+    "ucret_stopaji",
+    "zararda_once_kucul"
+   ],
+   "davranis_kartlari": [
+    "genc_kurucu_verimi",
+    "girisimci_dalgasi",
+    "kalici_kitlik",
+    "piyasa_sinyali",
+    "siparis_defteri_kredisi",
+    "zararda_once_kucul"
+   ],
+   "not": "",
+   "model_degerleri": {
+    "TRANS_SUPPORT": 0,
+    "NPC_KEEP": 2.0,
+    "WAGE_TAX": 0.1,
+    "CORP_TAX": 0.2,
+    "SHRINK_FIRST": true,
+    "INFRA_CONT": true,
+    "FOUND_FUND": 1,
+    "SECTOR_BOARD": 1,
+    "ORDER_BOOK": 1,
+    "FOUND_COLLAT": true,
+    "SB_ENTRY_PERSIST": -1.0,
+    "ENTRY_OPEN": 1
+   },
+   "anlatim": "Dayanıklı taban + firma kurmak için itibar şartı kalkar (girişimci dalgası gelir).",
+   "taban_notu": "Prototipin 'set: {}' tabanı katalog varsayılanıdır (kurtarma, vergi, fon, pano kapalı); birleşik modelin varsayılanları bunların çoğunun tersidir. R1b şablon değerlerini model_degerleri ile açıkça yazar; şablonda adı geçmeyen bayrak modelin varsayılanında kalmamalı."
+  }
+ ],
+ "senaryolar": [
+  {
+   "proto_id": "gercekci",
+   "proto": "Gerçekçi",
+   "kimlik": "gercekci",
+   "satirlar": [],
+   "kartlar": [],
+   "not": ""
+  },
+  {
+   "proto_id": "tutumlu",
+   "proto": "Tutumlu toplum",
+   "kimlik": "tutumlu",
+   "satirlar": [
+    "h_gelir",
+    "h_az",
+    "h_mevduat"
+   ],
+   "kartlar": [
+    "az_birikimli_harcama",
+    "harcama_egrisi",
+    "mevduat_elde_tutma"
+   ],
+   "not": ""
+  },
+  {
+   "proto_id": "savurgan",
+   "proto": "Savurgan toplum",
+   "kimlik": "savurgan",
+   "satirlar": [
+    "h_gelir",
+    "h_az",
+    "h_mevduat"
+   ],
+   "kartlar": [
+    "az_birikimli_harcama",
+    "harcama_egrisi",
+    "mevduat_elde_tutma"
+   ],
+   "not": ""
+  },
+  {
+   "proto_id": "riskten",
+   "proto": "Riskten kaçan girişimciler",
+   "kimlik": "riskten",
+   "satirlar": [
+    "g_egilim",
+    "g_sinyal"
+   ],
+   "kartlar": [
+    "kurma_egilimi",
+    "piyasa_sinyali"
+   ],
+   "not": ""
+  },
+  {
+   "proto_id": "atak",
+   "proto": "Atak girişimciler",
+   "kimlik": "atak",
+   "satirlar": [
+    "g_egilim",
+    "g_sinyal"
+   ],
+   "kartlar": [
+    "kurma_egilimi",
+    "piyasa_sinyali"
+   ],
+   "not": ""
+  },
+  {
+   "proto_id": "hareketli",
+   "proto": "Hareketli işgücü",
+   "kimlik": "hareketli",
+   "satirlar": [
+    "h_goc"
+   ],
+   "kartlar": [
+    "goc"
+   ],
+   "not": ""
+  },
+  {
+   "proto_id": "yapiskan",
+   "proto": "Yapışkan ücretler",
+   "kimlik": "yapiskan",
+   "satirlar": [
+    "i_kitlik"
+   ],
+   "kartlar": [
+    "issizlik_ucret_tepkisi"
+   ],
+   "not": ""
+  },
+  {
+   "proto_id": "ozel",
+   "proto": "Özel",
+   "kimlik": "ozel",
+   "satirlar": [],
+   "kartlar": [],
+   "not": "Yalnız modelde karşılığı olan parametreler senaryo değerine çevrilir (R1c); 'Özel' kilidi açar."
+  }
+ ]
+}

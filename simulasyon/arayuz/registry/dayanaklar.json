@@ -1,0 +1,21 @@
+{
+  "oyuna_ozgu": "Bu oyuna özgü kural; hazır bir modelden alınmadı",
+  "modeller": [
+    {
+      "label": "Caiani ve ark. 2016",
+      "kaynak": "simulasyon/kagit-ustu/modulerlestirme/arastirma-abm-karsilastirma.md"
+    },
+    {
+      "label": "BAM Engine",
+      "kaynak": "simulasyon/kagit-ustu/modulerlestirme/arastirma-abm-karsilastirma.md"
+    },
+    {
+      "label": "BeforeIT",
+      "kaynak": "simulasyon/kagit-ustu/modulerlestirme/arastirma-abm-karsilastirma.md"
+    },
+    {
+      "label": "Taylor kuralı",
+      "kaynak": "simulasyon/kagit-ustu/modulerlestirme/simkit/policy.py"
+    }
+  ]
+}

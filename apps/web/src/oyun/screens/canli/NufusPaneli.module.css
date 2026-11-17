@@ -1,0 +1,18 @@
+.bolum {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-width: 0;
+}
+
+.altBaslik {
+  margin: 0;
+  font-size: var(--fs-16);
+}
+
+.tanim {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: var(--fs-13);
+  overflow-wrap: anywhere;
+}

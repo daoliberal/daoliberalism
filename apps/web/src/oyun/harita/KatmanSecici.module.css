@@ -1,0 +1,94 @@
+.kap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-8);
+}
+
+.grup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-14);
+  background: var(--ekran-cam);
+  box-shadow: var(--shadow-modal);
+}
+
+.etiket {
+  padding: 0 var(--space-8);
+  color: var(--ekran-yazi-soluk);
+  font-size: var(--fs-13);
+  font-weight: var(--weight-bold);
+}
+
+.dugme {
+  min-width: var(--size-target);
+  min-height: var(--size-target);
+  padding: 0 var(--space-12);
+  border: 0;
+  border-radius: var(--radius-12);
+  background: transparent;
+  color: var(--ekran-yazi);
+  font: inherit;
+  font-size: var(--fs-14);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+}
+
+.dugme:hover {
+  background: var(--ekran-seri);
+}
+
+.secili,
+.secili:hover {
+  background: var(--ekran-vurgu-koyu);
+  color: var(--ekran-vurgu-yazi);
+}
+
+.lejant {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-12);
+  margin: 0;
+  padding: var(--space-8) var(--space-12);
+  list-style: none;
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-14);
+  background: var(--ekran-cam);
+  color: var(--ekran-yazi);
+  font-size: var(--fs-13);
+  box-shadow: var(--shadow-modal);
+}
+
+.lejantOge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.ornek {
+  width: var(--size-14);
+  height: var(--size-14);
+  border-radius: var(--radius-4);
+  background: var(--ekran-seri);
+}
+
+.ornek[data-ton="iyi"] { background: var(--harita-ton-iyi); }
+.ornek[data-ton="orta"] { background: var(--harita-ton-orta); }
+.ornek[data-ton="dar"] { background: var(--harita-ton-dar); }
+.ornek[data-ton="dusen"] { background: var(--harita-ton-dusen); }
+.ornek[data-ton="yatay"] { background: var(--harita-ton-yatay); }
+.ornek[data-ton="artan"] { background: var(--harita-ton-artan); }
+
+@media (max-width: 720px) {
+  .kap {
+    align-items: stretch;
+  }
+
+  .etiket {
+    display: none;
+  }
+}

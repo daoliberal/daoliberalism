@@ -1,0 +1,12 @@
+/* C-02-Treasuries:30 */
+.chip {
+  min-height: var(--size-target);
+  padding: 0 var(--space-16);
+  border: var(--border-1) solid var(--color-line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+  cursor: pointer;
+}

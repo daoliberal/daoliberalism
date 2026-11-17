@@ -1,0 +1,6 @@
+# Büyük altın çıktıları git'e girmez (karar 8): yalnız SHA256SUMS.json + manifest.json.
+# Yeniden üretim: python3 tools/golden.py make <model.py> --source-commit <sha> (bkz. golden/SHA256SUMS.json _meta)
+golden/*.md
+__pycache__/
+*.pyc
+.cache/

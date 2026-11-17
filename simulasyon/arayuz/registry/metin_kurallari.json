@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "forbidden": [
+    { "id": "karar_numarasi", "pattern": "K-\\d+", "message": "Karar numarası (K-nn) kullanıcı metninde yer almaz." },
+    { "id": "bos_deger", "pattern": "^\\s*$", "message": "Boş metin olamaz." },
+    { "id": "sayi_birim_bitisik", "pattern": "\\d[A-Za-zÇĞİÖŞÜçğıöşüÂâÎîÛû]", "message": "Sayı ile birim bitişik yazılmaz; araya boşluk koy." },
+    { "id": "sayi_sabit_ek", "pattern": "\\d+\\s*['’][A-Za-zÇĞİÖŞÜçğıöşüÂâÎîÛû]+", "message": "Sayıya kesme işaretiyle ek getirilmez (te/ta/u/si/ün/in/nde...); cümleyi değiştir." },
+    { "id": "yer_tutucu_ek", "pattern": "\\}\\s*['’][A-Za-zÇĞİÖŞÜçğıöşüÂâÎîÛû]", "message": "Yer tutucudan sonra kesmeyle ek gelmez; '{n}. haftadan' gibi yaz." }
+  ]
+}

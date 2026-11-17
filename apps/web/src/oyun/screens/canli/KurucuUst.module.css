@@ -1,0 +1,64 @@
+.serit {
+  display: flex;
+  gap: var(--space-8);
+  margin: 0;
+  padding: var(--space-6);
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-16);
+  background: var(--ekran-cam);
+  box-shadow: var(--shadow-modal);
+}
+
+.olcu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: var(--space-4) var(--space-10);
+  border-radius: var(--radius-12);
+  background: var(--ekran-seri);
+}
+
+.olcu dt,
+.olcu dd {
+  margin: 0;
+}
+
+.etiket {
+  color: var(--ekran-yazi-soluk);
+  font-size: var(--fs-12);
+}
+
+.deger {
+  font-family: var(--font-display);
+  font-size: var(--fs-18);
+  font-weight: var(--weight-bold);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .serit {
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+
+  .olcu {
+    padding: var(--space-2) var(--space-6);
+  }
+
+  .etiket {
+    font-size: var(--fs-12);
+    white-space: nowrap;
+  }
+
+  .deger {
+    font-size: var(--fs-15);
+  }
+
+  /* Telefonda Kurucu: yalnız talep karşılama ve kasa (tamamı Ayrıntılar > Genel'de); DAO: mevduat Ben panelinde. */
+  .olcu[data-ust="issiz"],
+  .olcu[data-ust="gini"],
+  .olcu[data-ust="mevduat"] {
+    display: none;
+  }
+}

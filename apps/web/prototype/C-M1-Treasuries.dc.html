@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Treasuries (mobile, dark) — daoliberal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;family=Atkinson+Hyperlegible+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#6FD6C0}a:hover{color:#A8EADB}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; background: #0B1015; color: #EEF2F5; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 15px; line-height: 1.5; display: flex; flex-direction: column; overflow: hidden">
+<header style="display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid #26323C">
+<a href="C-01-Landing.dc.html" style="display: flex; align-items: center; gap: 8px; color: #EEF2F5; text-decoration: none; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 19px; flex: 1 1 auto">
+<svg width="22" height="22" viewBox="0 0 26 26" aria-hidden="true" fill="none" stroke="#6FD6C0" stroke-width="2"><circle cx="13" cy="5" r="3"></circle><circle cx="5" cy="20" r="3"></circle><circle cx="21" cy="20" r="3"></circle><path d="M11.5 7.5 6.5 17.5M14.5 7.5l5 10M8 20h10"></path></svg>daoliberal</a>
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: #3A2A0A; color: #FFD58A; font-size: 12px; font-weight: 700"><svg width="7" height="7" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#F0A626"></circle></svg>Testnet</span>
+<button aria-label="Wallet 0x91c4…a4F2" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid #26323C; background: transparent; color: #EEF2F5; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18M16 14.5h2"></path></svg></button>
+</header>
+
+<div style="flex: 1 1 auto; overflow-y: auto; padding: 18px 16px 24px; display: flex; flex-direction: column; gap: 14px">
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 30px; font-weight: 700; line-height: 1.05; letter-spacing: -0.02em">Choose the economy your agent works in</h1>
+<div style="display: flex; align-items: center; gap: 10px; background: #141C23; border: 1px solid #26323C; border-radius: 16px; padding: 10px 12px">
+<label for="m1-amt" style="font-weight: 700; flex: 1 1 auto">If a customer pays</label>
+<div style="display: flex; align-items: center; height: 44px; border: 2px solid #EEF2F5; border-radius: 12px; padding: 0 10px; gap: 6px">
+<input id="m1-amt" inputmode="decimal" value="{{amt}}" onChange="{{setAmt}}" style="width: 56px; border: 0; background: transparent; color: #EEF2F5; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px">
+<span style="font-family: 'Atkinson Hyperlegible Mono', monospace; color: #A7B3BE; font-size: 13px">ETH</span>
+</div>
+</div>
+<div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px">
+<button aria-pressed="true" style="flex: 0 0 auto; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #EEF2F5; background: #EEF2F5; color: #0B1015; font: inherit; font-size: 14px; font-weight: 700">All</button>
+<button aria-pressed="false" style="flex: 0 0 auto; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #3A4753; background: transparent; color: #EEF2F5; font: inherit; font-size: 14px">Seats open</button>
+<button aria-pressed="false" style="flex: 0 0 auto; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #3A4753; background: transparent; color: #EEF2F5; font: inherit; font-size: 14px">Hold ≤ 7 d</button>
+<button aria-pressed="false" style="flex: 0 0 auto; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid #3A4753; background: transparent; color: #EEF2F5; font: inherit; font-size: 14px">Equal split</button>
+</div>
+<p style="margin: 0; font-size: 13px; color: #A7B3BE">4 treasuries · sorted by name · no ranking</p>
+
+<sc-for list="{{ts}}" as="t" hint-placeholder-count="4">
+<article style="background: #141C23; border: 1px solid #26323C; border-radius: 20px; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px">
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 22px; font-weight: 700">{{t.name}}</h2>
+<span style="font-size: 13px; color: #A7B3BE">{{t.daos}} DAOs</span>
+</div>
+<div><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 30px; color: #6FD6C0">{{t.memEth}} ETH</span><div style="font-size: 14px; color: #B9C4CE">to members' owners, after {{t.hold}} days</div></div>
+<div style="display: flex; height: 10px; border-radius: 5px; overflow: hidden; gap: 2px"><div style="min-width: 3px; width: {{t.fee}}%; background: #EEF2F5"></div><div style="min-width: 3px; width: {{t.exp}}%; background: #7B8995"></div><div style="flex: 1 1 auto; background: #3FB79D"></div></div>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 16px; font-size: 14px">
+<div><dt style="color: #A7B3BE; font-size: 12px">Fee</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace">{{t.fee}}% · {{t.feeEth}}</dd></div>
+<div><dt style="color: #A7B3BE; font-size: 12px">Expenses</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace">{{t.exp}}% · {{t.expEth}}</dd></div>
+<div><dt style="color: #A7B3BE; font-size: 12px">Split</dt><dd style="margin: 0; font-weight: 700">{{t.split}}</dd></div>
+<div><dt style="color: #A7B3BE; font-size: 12px">Seats</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace">{{t.seats}}/{{t.max}}</dd></div>
+</dl>
+<a href="C-M2-Treasury.dc.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 999px; background: #EEF2F5; color: #0B1015; text-decoration: none; font-weight: 700">Read the rulebook</a>
+</article>
+</sc-for>
+</div>
+
+<nav aria-label="Main" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid #26323C; background: #0E151B; padding: 4px 4px 8px">
+<a href="C-M1-Treasuries.dc.html" aria-current="page" style="min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #6FD6C0; text-decoration: none; font-size: 12px; font-weight: 700"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10l9-6 9 6M5 10v9h14v-9M9 19v-5h6v5"></path></svg>Treasuries</a>
+<a href="C-05-DAOs.dc.html" style="min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #B9C4CE; text-decoration: none; font-size: 12px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M4 10h16M10 10v10"></path></svg>DAOs</a>
+<a href="C-07-Agents.dc.html" style="min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #B9C4CE; text-decoration: none; font-size: 12px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="7" width="14" height="12" rx="3"></rect><path d="M12 3v4M9 12h.01M15 12h.01"></path></svg>Agents</a>
+<a href="C-08-Earnings.dc.html" style="min-height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #B9C4CE; text-decoration: none; font-size: 12px"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M7 8h7a3 3 0 0 1 0 6H8"></path></svg>Earnings</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const amt = s.amt ?? '1.00';
+    const a = parseFloat(amt); const A = isFinite(a) && a >= 0 ? a : 0;
+    const fmt = (x) => x.toFixed(4).replace(/0{1,2}$/, '');
+    const T = [
+      { name: 'Commonwealth', fee: 5, exp: 3, hold: 7, split: 'Equal split', seats: 142, max: 500, daos: 18 },
+      { name: 'Lean Guild', fee: 1, exp: 0, hold: 14, split: 'Equal split', seats: 37, max: 100, daos: 6 },
+      { name: 'Meritline', fee: 8, exp: 4, hold: 3, split: 'Custom rule', seats: 980, max: 1000, daos: 41 },
+      { name: 'Open Field', fee: 2, exp: 2, hold: 30, split: 'Equal split', seats: 12, max: 250, daos: 3 }
+    ];
+    return {
+      amt: amt,
+      setAmt: (e) => this.setState({ amt: e.target.value }),
+      ts: T.map((t) => Object.assign({}, t, {
+        feeEth: fmt(A * t.fee / 100), expEth: fmt(A * t.exp / 100), memEth: fmt(A * (100 - t.fee - t.exp) / 100)
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

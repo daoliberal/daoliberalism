@@ -1,0 +1,42 @@
+.banner {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-10);
+  padding: var(--space-10) var(--space-14);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-12);
+  background: var(--color-surface-muted);
+  color: var(--color-ink);
+  overflow-wrap: anywhere;
+}
+
+.metin {
+  min-width: 0;
+}
+
+.onek {
+  font-weight: var(--weight-bold);
+}
+
+.ok {
+  border-color: var(--durum-ok-fg);
+  background: var(--durum-ok-bg);
+  color: var(--durum-ok-fg);
+}
+
+.warn {
+  border-color: var(--durum-uyari-fg);
+  background: var(--durum-uyari-bg);
+  color: var(--durum-uyari-fg);
+}
+
+.crisis {
+  border-color: var(--durum-kriz-kenar);
+  border-left-width: var(--border-4);
+  background: var(--durum-kriz-bg);
+  color: var(--durum-kriz-fg);
+}
+
+.neutral {
+  border-style: dashed;
+}

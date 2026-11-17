@@ -1,0 +1,48 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-13);
+  font-weight: var(--weight-bold);
+  overflow-wrap: anywhere;
+}
+
+/* C-02-Treasuries:29 */
+.warn {
+  background: var(--color-warn-bg);
+  color: var(--color-warn-fg);
+}
+
+/* C-03-Treasury:41 desktop: white surface */
+.fixed {
+  border: var(--border-1) solid var(--color-line-strong);
+  background: var(--color-surface);
+  color: var(--color-ink-5);
+}
+
+/* C-M1-Treasuries:21, C-M2-Treasury:21,28 */
+.compact {
+  padding: var(--space-3) var(--space-10);
+  font-size: var(--fs-12);
+}
+
+/* mobile "Rules fixed in Phase 1" is transparent and inherits the text size (C-M2-Treasury:28) */
+.fixed.compact {
+  background: transparent;
+  font-size: inherit;
+}
+
+.dot {
+  flex: 0 0 auto;
+  width: var(--size-8);
+  height: var(--size-8);
+  border-radius: var(--radius-pill);
+  background: var(--color-warn-dot);
+}
+
+.compact .dot {
+  width: var(--size-7);
+  height: var(--size-7);
+}

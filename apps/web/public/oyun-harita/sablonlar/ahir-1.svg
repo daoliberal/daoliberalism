@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 100">
+  <g transform="translate(15 0)">
+  <rect data-katman="duvar" x="24" y="70" width="52" height="26"/>
+  <polygon data-katman="cati" points="21,71 32,60 50,55 68,60 79,71 74,71 67,63 50,59 33,63 26,71"/>
+  <polygon data-katman="duvar2" points="27,70 33,63 50,59 67,63 73,70"/>
+  <rect data-katman="saman" x="46" y="64" width="8" height="6"/>
+  <rect data-katman="kapi" x="46" y="63" width="8" height="1.6"/>
+  <rect data-katman="kapi" x="42" y="76" width="16" height="20"/>
+  <polygon data-katman="ayrinti" points="42,76 44.4,76 58,96 55.6,96"/>
+  <polygon data-katman="ayrinti" points="58,76 55.6,76 42,96 44.4,96"/>
+  <rect data-katman="ayrinti" x="40.8" y="74.8" width="18.4" height="1.6"/>
+  <circle data-katman="saman" cx="27" cy="92" r="4"/>
+  <circle data-katman="saman" cx="34" cy="92.6" r="3.4"/>
+  </g>
+</svg>

@@ -1,0 +1,210 @@
+{
+  "not": "R2 için: aşağıdaki bayraklar params.py'de modül yüklenirken türetilmiş değerlere (RECIPES, *_ACT, SVC_KINDS, LOG_CAP, PROGRAM_INNOV) gömülür. Başlangıçta güvenlidir (simbuild.build her yapılandırmada params.py'yi yeniden yürütür) ama canlı yamada yeniden hesaplanmaz: bu kartlar `apply:\"start_only\"` sınıflanmalıdır.",
+  "start_only": [
+    {
+      "param": "ENERGY_ON",
+      "kart": "sektor_enerji",
+      "neden": "RECIPES'e elektrik girdisi yükleme anında işlenir (params.py:736)"
+    },
+    {
+      "param": "HEALTH",
+      "kart": "sektor_saglik",
+      "neden": "SVC_KINDS, NPC_EXEMPT ve RECIPES yükleme anında kurulur (params.py:741-746)"
+    },
+    {
+      "param": "EDUCATION",
+      "kart": "sektor_egitim",
+      "neden": "SVC_KINDS, NPC_EXEMPT ve RECIPES yükleme anında kurulur (params.py:741-746)"
+    },
+    {
+      "param": "RESALE_ON",
+      "kart": "ikinci_el_esya",
+      "neden": "RESALE_ACT yükleme anında türetilir (params.py:814)"
+    },
+    {
+      "param": "TOUR_ON",
+      "kart": "sektor_turizm",
+      "neden": "MO_ACT yükleme anında türetilir (params.py:823)"
+    },
+    {
+      "param": "DEP_ON",
+      "kart": "haneler_mevduat_yatirir",
+      "neden": "DV_ACT ve HI_ACT yükleme anında türetilir (params.py:824-825)"
+    },
+    {
+      "param": "MEDIA_LONCA",
+      "kart": "sektor_medya",
+      "neden": "MEDIA_ACT yükleme anında türetilir (params.py:829-830)"
+    },
+    {
+      "param": "DIRECT_AD",
+      "kart": "sektor_medya",
+      "neden": "DA_ACT yükleme anında türetilir (params.py:835)"
+    },
+    {
+      "param": "LONCA_FEE",
+      "kart": "lonca_aidat_arama",
+      "neden": "LOG_CAP yükleme anında türetilir (params.py:38)"
+    },
+    {
+      "param": "PROG_ARGE",
+      "kart": "lonca_arge_payi",
+      "neden": "PROGRAM_INNOV içe aktarımda gömülür (params.py:803, R1b notu)"
+    },
+    {
+      "param": "TREASURY_RULE",
+      "kart": "sehir_kasasi_kurali",
+      "neden": "INCOME_KINDS içe aktarımda TREASURY_RULE'dan türetilir (params.py:807-808); ledger.py bayrağı ad olarak içe aktarır"
+    },
+    {
+      "param": "PROFIT_KEEP",
+      "kart": "kar_firmada_kalir",
+      "neden": "INCOME_KINDS içe aktarımda PROFIT_KEEP'ten türetilir (params.py:807-808)"
+    },
+    {
+      "param": "PK_WEEKS",
+      "kart": "kar_firmada_kalir",
+      "neden": "PK_MULT içe aktarımda PK_WEEKS'ten türetilir (cash_core.py:9); labor.py ve week_close.py PK_MULT'u kullanır"
+    },
+    {
+      "param": "PLAYERS_PER_CITY",
+      "kart": "sehir_basina_oyuncu",
+      "neden": "oyuncular yalnız kuruluşta yaratılır (world_build.py build: `for k in range(PLAYERS_PER_CITY)`); oyun sırasında yeni oyuncu katılmaz, nüfus sonradan yeniden kurulamaz"
+    },
+    {
+      "param": "NPC_X",
+      "kart": "npc_nufusu",
+      "neden": "NPC havuzu yalnız kuruluşta kurulur (world_build.py build: `range(NPC_X + NPC_Y * PLAYERS_PER_CITY * n_cities)`); açılış kadro hedefi de bu toplamdan hesaplanır (labor.py)"
+    },
+    {
+      "param": "NPC_Y",
+      "kart": "npc_nufusu",
+      "neden": "NPC havuzu yalnız kuruluşta kurulur (world_build.py build); NPC_X ile birlikte tek toplam olarak okunur"
+    },
+    {
+      "param": "CITY_START_CASH",
+      "kart": "baslangic_sehir_kasasi",
+      "neden": "şehir kasası yalnız kuruluşta yazılır (world_build.py build: kayıtlı basım, kind baslangic_kasasi); koşu ortasında geriye dönük para yaratımı olurdu"
+    },
+    {
+      "param": "START_EMP",
+      "kart": "baslangic_istihdami",
+      "neden": "kuruluşta okunur (world_init.new_world -> labor.start_setup): hf1 kadro hedefi ve market kadrosu ölçeği W.start_scale olarak kurulur; koşu ortasında anlamı yok"
+    },
+    {
+      "param": "FIRMS_PER_1000",
+      "kart": "isletme_sayisi",
+      "neden": "şehir planı yalnız kuruluşta kurulur (world_build.city_plans/build); işletmeler sonradan yeniden planlanmaz"
+    },
+    {
+      "param": "CAP_MODE",
+      "kart": "isletme_kapasitesi",
+      "neden": "açılış kapasitesi yalnız kuruluşta yazılır (world_build.firm_capacity, labor.start_setup); koşu ortasında kapasite yatırımla büyür"
+    },
+    {
+      "param": "CAP_AUTO_SHARE",
+      "kart": "isletme_kapasitesi",
+      "neden": "otomatik kapasite hf1 kadro hedefinden kuruluşta hesaplanır (labor.start_targets, start_setup)"
+    },
+    {
+      "param": "CAP_AUTO_MIN",
+      "kart": "isletme_kapasitesi",
+      "neden": "otomatik kapasite hf1 kadro hedefinden kuruluşta hesaplanır (labor.start_targets, start_setup)"
+    },
+    {
+      "param": "MCAP_RAW",
+      "kart": "isletme_kapasitesi",
+      "neden": "elle kapasite kuruluşta yazılır (world_build.firm_capacity)"
+    },
+    {
+      "param": "MCAP_MAKE",
+      "kart": "isletme_kapasitesi",
+      "neden": "elle kapasite kuruluşta yazılır (world_build.firm_capacity)"
+    },
+    {
+      "param": "MCAP_SERV",
+      "kart": "isletme_kapasitesi",
+      "neden": "elle kapasite kuruluşta yazılır (world_build.firm_capacity)"
+    },
+    {
+      "param": "MCAP_LOG",
+      "kart": "isletme_kapasitesi",
+      "neden": "elle kapasite kuruluşta yazılır (world_build.firm_capacity)"
+    },
+    {
+      "param": "CAP_GROWTH",
+      "kart": "kapasite_buyume_tavani",
+      "neden": "açılış kapasitesi işletmeye cap0 olarak kuruluşta yazılır (labor.start_setup); tavanın tabanı koşu ortasında değişirse geriye dönük etki olurdu"
+    },
+    {
+      "param": "START_DEMAND",
+      "kart": "acilis_talebi",
+      "neden": "hf1 kadro tahmini yalnız kuruluşta ve 1. haftada okunur (labor.start_consumers, start_setup)"
+    },
+    {
+      "param": "START_STOCK_WEEKS",
+      "kart": "acilis_talebi",
+      "neden": "açılış girdi stoku yalnız 1. haftanın kadrolamasından sonra bir kez yazılır (labor.start_stock)"
+    },
+    {
+      "param": "NPC_START_CASH",
+      "kart": "npc_baslangic_nakdi",
+      "neden": "NPC nakdi yalnız kuruluşta basılır (world_build.build: kayıtlı kuruluş basımı); koşu ortasında geriye dönük para yaratımı olurdu"
+    },
+    {
+      "param": "HOUSE_MODE",
+      "kart": "acilis_konut_stoku",
+      "neden": "açılış konut stoku yalnız kuruluşta kurulur (labor.start_setup)"
+    },
+    {
+      "param": "POP_SCALE",
+      "kart": "nufus_olcegi",
+      "neden": "ölçeklenen sabitler params.py içe aktarma anında türetilir (POP_SCALE_FACTOR, TRANS_CAP, NPC_RESERVE ...); canlı yamada yeniden hesaplanmaz"
+    },
+    {
+      "param": "NPC_HOUSE",
+      "kart": "npc_hanesi",
+      "neden": "hane ağı (işgücü dışı NPC'ler, çalışan atamaları, pay oranı) yalnız kuruluşta kurulur (world_build.make_households); koşu ortasında NPC'lerin işgücünden çıkarılması geriye dönük bir nüfus değişikliği olurdu"
+    },
+    {
+      "param": "NPC_LFPR",
+      "kart": "npc_hanesi",
+      "neden": "işgücüne katılım oranı yalnız kuruluşta okunur (world_build.make_households); koşu ortasında yeniden dağıtım yapılmaz"
+    },
+    {
+      "param": "HOUSE_DEP_EQ",
+      "kart": "npc_hanesi",
+      "neden": "eşdeğerlik ağırlığı kuruluşta çalışan başına pay oranına (hfrac) çevrilir (world_build.make_households); koşu ortasında yeniden hesaplanmaz"
+    },
+    {
+      "param": "OPEN_MODE",
+      "kart": "acilis_gecisi",
+      "neden": "açılış geçişi süreleri params.py içe aktarma anında NPC_GRACE, TR_START, CAPEX_START ve SWEEP_FROM'a türetilir; canlı yamada yeniden hesaplanmaz"
+    },
+    {
+      "param": "OPEN_GRACE",
+      "kart": "acilis_gecisi",
+      "neden": "elle kipte NPC_GRACE'e içe aktarma anında türetilir; canlı yamada yeniden hesaplanmaz"
+    },
+    {
+      "param": "OPEN_TR",
+      "kart": "acilis_gecisi",
+      "neden": "elle kipte TR_START'a içe aktarma anında türetilir; canlı yamada yeniden hesaplanmaz"
+    },
+    {
+      "param": "OPEN_CAPEX",
+      "kart": "acilis_gecisi",
+      "neden": "elle kipte CAPEX_START'a içe aktarma anında türetilir; canlı yamada yeniden hesaplanmaz"
+    },
+    {
+      "param": "OPEN_SWEEP",
+      "kart": "acilis_gecisi",
+      "neden": "elle kipte SWEEP_FROM'a içe aktarma anında türetilir; canlı yamada yeniden hesaplanmaz"
+    },
+    {
+      "param": "MONEY_LOOP",
+      "kart": "para_devresi",
+      "neden": "seçim params.py içe aktarma anında TREASURY_RULE ya da PROFIT_KEEP'e türetilir (INCOME_KINDS ve ledger.py bayrağı bunlardan okunur); canlı yamada yeniden hesaplanmaz"
+    }
+  ]
+}

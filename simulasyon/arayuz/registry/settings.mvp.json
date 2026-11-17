@@ -1,0 +1,82 @@
+{
+  "settings": [
+    {
+      "id": "gecis_destegi",
+      "layer": "P",
+      "group": "kurtarma",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "options",
+      "params": ["TRANS_SUPPORT"],
+      "requires": ["TRANS_SUPPORT"],
+      "codec": { "type": "enum", "map": { "kapali": 0, "kisa_sureli": 1, "kurtarma_fonuyla": 2 } },
+      "apply": "live",
+      "decision": "K-211"
+    },
+    {
+      "id": "dunya_tohumu",
+      "layer": "Y",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "options",
+      "params": ["PM_ADJ"],
+      "requires": ["PM_ADJ"],
+      "codec": { "type": "seed" },
+      "apply": "start_only",
+      "decision": "K-110"
+    },
+    {
+      "id": "ucret_stopaji",
+      "layer": "P",
+      "group": "vergi",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": ["WAGE_TAX"],
+      "requires": ["WAGE_TAX"],
+      "codec": { "type": "number", "scale": 100, "min": 0, "max": 25, "step": 0.5, "unit": "yuzde" },
+      "apply": "live",
+      "measured_at": [10, 0],
+      "measured_weeks": 200,
+      "hint_source": "simulasyon/kagit-ustu/modulerlestirme/rapor-v13.0.md",
+      "decision": "K-189"
+    },
+    {
+      "id": "kurumlar_vergisi",
+      "layer": "P",
+      "group": "vergi",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": ["CORP_TAX"],
+      "requires": ["CORP_TAX"],
+      "codec": { "type": "number", "scale": 100, "min": 0, "max": 40, "step": 0.5, "unit": "yuzde" },
+      "apply": "live",
+      "measured_at": [20, 0],
+      "measured_weeks": 200,
+      "hint_source": "simulasyon/kagit-ustu/modulerlestirme/rapor-v13.0.md",
+      "decision": "K-188"
+    },
+    {
+      "id": "zararda_once_kucul",
+      "layer": "V",
+      "group": "kurtarma",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "toggle",
+      "params": ["SHRINK_FIRST"],
+      "requires": ["SHRINK_FIRST"],
+      "codec": { "type": "bool", "on": true, "off": false },
+      "apply": "start_only",
+      "decision": "K-191",
+      "actor": "girisimci",
+      "scenario_editable": true
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+ "settings": [
+  {
+   "id": "ahir_gecisi",
+   "layer": "P",
+   "group": "is_piyasasi",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "fields",
+   "params": [
+    "AHIR_MOVE",
+    "AHIR_MOVE_PREMIUM"
+   ],
+   "requires": [
+    "AHIR_MOVE",
+    "AHIR_MOVE_PREMIUM"
+   ],
+   "codec": {
+    "type": "fields",
+    "fields": [
+     {
+      "key": "kural",
+      "param": "AHIR_MOVE",
+      "codec": {
+       "type": "enum",
+       "map": {
+        "otomatik": 0,
+        "gonullu": 1,
+        "kapali": 2
+       }
+      }
+     },
+     {
+      "key": "prim",
+      "param": "AHIR_MOVE_PREMIUM",
+      "codec": {
+       "type": "number",
+       "scale": 100,
+       "min": 0,
+       "max": 200,
+       "step": 5,
+       "unit": "yuzde"
+      }
+     }
+    ]
+   },
+   "apply": "live",
+   "decision": "D6"
+  },
+  {
+   "id": "ise_alim_onceligi",
+   "layer": "P",
+   "group": "is_piyasasi",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "options",
+   "params": [
+    "HIRE_PRIORITY"
+   ],
+   "requires": [
+    "HIRE_PRIORITY"
+   ],
+   "codec": {
+    "type": "enum",
+    "map": {
+     "oyuncu_once": 0,
+     "esit": 1,
+     "npc_once": 2
+    }
+   },
+   "apply": "live",
+   "decision": "D6"
+  },
+  {
+   "id": "isten_cikarma_sirasi",
+   "layer": "P",
+   "group": "is_piyasasi",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "options",
+   "params": [
+    "FIRE_ORDER"
+   ],
+   "requires": [
+    "FIRE_ORDER"
+   ],
+   "codec": {
+    "type": "enum",
+    "map": {
+     "yalniz_npc": 0,
+     "son_giren": 1,
+     "dusuk_verim": 2,
+     "ayrim_yok": 3
+    }
+   },
+   "apply": "live",
+   "decision": "D6"
+  },
+  {
+   "id": "bosluk_zinciri",
+   "layer": "P",
+   "group": "is_piyasasi",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "toggle",
+   "params": [
+    "AHIR_BACKFILL"
+   ],
+   "requires": [
+    "AHIR_BACKFILL"
+   ],
+   "codec": {
+    "type": "bool",
+    "on": 1,
+    "off": 0
+   },
+   "apply": "live",
+   "decision": "D6"
+  },
+  {
+   "id": "yeni_oyuncu_katilimi",
+   "layer": "P",
+   "group": "is_piyasasi",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "fields",
+   "params": [
+    "PLAYER_INFLOW",
+    "AHIR_TARGET",
+    "PLAYER_INFLOW_RATE",
+    "PLAYER_MAX_PER_CITY"
+   ],
+   "requires": [
+    "PLAYER_INFLOW",
+    "AHIR_TARGET",
+    "PLAYER_INFLOW_RATE",
+    "PLAYER_MAX_PER_CITY"
+   ],
+   "codec": {
+    "type": "fields",
+    "fields": [
+     {
+      "key": "kural",
+      "param": "PLAYER_INFLOW",
+      "codec": {
+       "type": "enum",
+       "map": {
+        "kapali": 0,
+        "bosluk": 1,
+        "sabit": 2
+       }
+      }
+     },
+     {
+      "key": "hedef",
+      "param": "AHIR_TARGET",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 0,
+       "max": 1000,
+       "step": 50,
+       "integer": true,
+       "unit": "sayi"
+      }
+     },
+     {
+      "key": "hiz",
+      "param": "PLAYER_INFLOW_RATE",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 1,
+       "max": 100,
+       "step": 1,
+       "integer": true,
+       "unit": "sayi"
+      }
+     },
+     {
+      "key": "en_cok",
+      "param": "PLAYER_MAX_PER_CITY",
+      "codec": {
+       "type": "number",
+       "scale": 1,
+       "min": 100,
+       "max": 1000,
+       "step": 50,
+       "integer": true,
+       "unit": "sayi"
+      }
+     }
+    ]
+   },
+   "apply": "live",
+   "decision": "D6"
+  },
+  {
+   "id": "ahir_kapasitesi",
+   "layer": "P",
+   "group": "is_piyasasi",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "number",
+   "params": [
+    "CAP_AHIR"
+   ],
+   "requires": [
+    "CAP_AHIR"
+   ],
+   "codec": {
+    "type": "number",
+    "scale": 6,
+    "min": 60,
+    "max": 1200,
+    "step": 6,
+    "integer": true,
+    "unit": "sayi"
+   },
+   "apply": "start_only",
+   "decision": "D6"
+  }
+ ]
+}

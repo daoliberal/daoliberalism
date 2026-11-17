@@ -1,0 +1,150 @@
+.bolum {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  min-width: 0;
+  padding: var(--space-16);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-12);
+  background: var(--color-surface);
+}
+
+.bolumBaslik {
+  margin: 0;
+  font-size: var(--fs-18);
+}
+
+.etiket {
+  align-self: flex-start;
+  padding: var(--space-2) var(--space-8);
+  border: var(--border-1) solid var(--color-line-strong);
+  border-radius: var(--radius-pill);
+  color: var(--color-slate);
+  font-size: var(--fs-13);
+  font-weight: var(--weight-bold);
+}
+
+.metin {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.kucuk {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: var(--fs-14);
+  overflow-wrap: anywhere;
+}
+
+.altBaslik {
+  margin: 0;
+  font-size: var(--fs-16);
+  font-weight: var(--weight-bold);
+}
+
+.altGrup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  min-width: 0;
+}
+
+.girdiler {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--measure-340)), 1fr));
+  gap: var(--space-12);
+}
+
+.sonuc {
+  margin: 0;
+  padding: var(--space-10) var(--space-12);
+  border-radius: var(--radius-12);
+  background: var(--color-brand-tint);
+  font-weight: var(--weight-bold);
+}
+
+.eylem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-6);
+  margin-left: auto;
+}
+
+.eylemSatiri {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.liste {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-12);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-12);
+}
+
+.ogeAd {
+  flex: 1 1 var(--space-100);
+  overflow-wrap: anywhere;
+}
+
+.varyant {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-12);
+  border: var(--border-1) dashed var(--color-line-strong);
+  border-radius: var(--radius-12);
+}
+
+.tablo {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-14);
+}
+
+.tablo th,
+.tablo td {
+  padding: var(--space-6) var(--space-8);
+  border-bottom: var(--border-1) solid var(--color-line);
+  text-align: left;
+}
+
+.sayisal {
+  font-variant-numeric: tabular-nums;
+}
+
+.ilerleme {
+  margin: 0;
+}
+
+.uyariDugme {
+  display: block;
+  width: 100%;
+  padding: var(--space-8) var(--space-12);
+  border: var(--border-1) solid var(--color-line-strong);
+  border-radius: var(--radius-12);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.uyariDugme:focus-visible {
+  outline: var(--border-2) solid var(--color-brand-strong);
+  outline-offset: var(--space-2);
+}

@@ -1,0 +1,5 @@
+.nav {
+  font-size: var(--fs-14);
+  color: var(--color-ink-4);
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,53 @@
+/* DAO zaman kontrolleri: üst orta yuvada küçük cam kart (hafta, hız, düğmeler). Renk takma adları OyunEkrani `.kok` içinde çözülür. */
+.kontrol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 0;
+  max-width: 100%;
+  padding: var(--space-6) var(--space-8);
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-16);
+  background: var(--ekran-cam);
+  color: var(--ekran-yazi);
+  box-shadow: var(--shadow-modal);
+}
+
+.hafta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--space-2) var(--space-10);
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-16);
+}
+
+.hiz {
+  color: var(--ekran-yazi-soluk);
+  font-family: var(--font-body);
+  font-size: var(--fs-12);
+}
+
+.dugmeler {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+}
+
+.durum {
+  margin: 0;
+  color: var(--ekran-not-yazi);
+  font-size: var(--fs-12);
+}
+
+.hata {
+  margin: 0;
+  color: var(--ekran-not-yazi);
+  font-size: var(--fs-12);
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,83 @@
+{
+  "templates": [
+    {
+      "id": "gecis_destegi",
+      "values": {
+        "gecis_destegi": "kurtarma_fonuyla"
+      },
+      "measured_source": "simulasyon/kagit-ustu/modulerlestirme/rapor-v13.0.md"
+    },
+    {
+      "id": "dayanikli_taban",
+      "values": {
+        "gecis_destegi": "kapali"
+      },
+      "measured_source": "simulasyon/kagit-ustu/modulerlestirme/rapor-v13.0.md"
+    },
+    {
+      "id": "bos_sart",
+      "values": {
+        "gecis_destegi": "kapali",
+        "kamu_kar_tamponu": 0.5,
+        "ucret_stopaji": 0,
+        "kurumlar_vergisi": 0,
+        "altyapi_idari_yonetim": false,
+        "kurulus_fonu": {
+          "acik": false,
+          "hedef": 50
+        },
+        "sektor_panosu": false,
+        "kredi_kurulus": {
+          "tampon": 3,
+          "teminat": "teminatsiz",
+          "fon_yetmezse": false
+        }
+      },
+      "world_values": {
+        "zararda_once_kucul": false,
+        "siparis_defteri_kredisi": "kapali",
+        "kalici_kitlik": "acik"
+      }
+    },
+    {
+      "id": "serbest_piyasa",
+      "values": {
+        "gecis_destegi": "kapali",
+        "kamu_kar_tamponu": 0.5,
+        "ucret_stopaji": 0,
+        "kurumlar_vergisi": 0,
+        "altyapi_idari_yonetim": false,
+        "kurulus_fonu": {
+          "acik": false,
+          "hedef": 50
+        },
+        "sektor_panosu": false,
+        "kredi_kurulus": {
+          "tampon": 3,
+          "teminat": "teminatsiz",
+          "fon_yetmezse": false
+        }
+      },
+      "world_values": {
+        "zararda_once_kucul": false,
+        "siparis_defteri_kredisi": "kapali",
+        "kalici_kitlik": "acik"
+      }
+    },
+    {
+      "id": "pano_destek",
+      "values": {
+        "gecis_destegi": "kisa_sureli"
+      },
+      "measured_source": "simulasyon/kagit-ustu/modulerlestirme/rapor-K212-sektor-panosu.md"
+    },
+    {
+      "id": "girisime_acik",
+      "values": {
+        "gecis_destegi": "kapali",
+        "itibar_sarti": "yok"
+      },
+      "measured_source": "simulasyon/kagit-ustu/modulerlestirme/rapor-K213-girisim.md"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+.kaplama {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  box-sizing: border-box;
+  padding: var(--space-24);
+  overflow-y: auto;
+  background: var(--color-slate);
+}
+
+.diyalog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  box-sizing: border-box;
+  width: var(--page-narrow);
+  max-width: 100%;
+  margin: auto;
+  padding: var(--space-24);
+  border-radius: var(--radius-24);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-modal);
+}
+
+.diyalog:focus {
+  outline: none;
+}
+
+.ust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+}
+
+.alt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.baslik {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-22);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-tight);
+  overflow-wrap: anywhere;
+}
+
+/* Yüzen pencere: üst şerit ve kenarlarda şehir görünür; kaplama tıklamayı geçirir, yalnız panel tutar. */
+.yuzenKaplama {
+  /* Üst şeridin (metrikler, zaman kontrolleri, menü) altından başlar: iki satırlı zaman kartının altı (belirteç hesabı). */
+  top: calc(var(--space-140) + var(--space-16));
+  padding: 0 var(--space-16) var(--space-16);
+  overflow: visible;
+  background: transparent;
+  pointer-events: none;
+}
+
+.yuzenDiyalog {
+  max-height: 100%;
+  overflow-y: auto;
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  background: var(--ekran-cam);
+  color: var(--ekran-yazi);
+  pointer-events: auto;
+}
+
+@media (max-width: 720px) {
+  .kaplama {
+    padding: var(--space-12);
+  }
+
+  .diyalog {
+    padding: var(--space-16);
+  }
+
+  /* Yüzen kurallar yukarıdakilerden SONRA yazılır (aynı özgüllük: sonraki kazanır). */
+  .yuzenKaplama {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .yuzenDiyalog {
+    width: 100%;
+    margin: 0;
+    border-radius: var(--radius-20) var(--radius-20) 0 0;
+  }
+}

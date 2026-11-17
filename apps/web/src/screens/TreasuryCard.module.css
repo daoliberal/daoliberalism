@@ -1,0 +1,182 @@
+/* C-02-Treasuries card (:67) and C-M1-Treasuries card (:41). */
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-16);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-26);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--ls-tight-sm);
+}
+
+.meta {
+  color: var(--color-ink-4);
+  font-size: var(--fs-14);
+}
+
+.pick {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  min-height: var(--size-target);
+  color: var(--color-ink-2);
+  font-size: var(--fs-14);
+}
+
+.checkbox {
+  width: var(--size-20);
+  height: var(--size-20);
+  margin: 0;
+  accent-color: var(--color-brand);
+}
+
+.headline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-4) var(--space-12);
+}
+
+.big {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--fs-40);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--ls-tight);
+  overflow-wrap: anywhere;
+}
+
+.bigNote {
+  color: var(--color-ink-2);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-14) var(--space-24);
+  margin: 0;
+}
+
+.term {
+  color: var(--color-ink-4);
+  font-size: var(--fs-13);
+}
+
+.value,
+.valueBold,
+.seats {
+  margin: 0;
+  font-size: var(--fs-17);
+  overflow-wrap: anywhere;
+}
+
+.value {
+  font-family: var(--font-mono);
+}
+
+.valueBold {
+  font-weight: var(--weight-bold);
+}
+
+.seats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.seatCount {
+  flex: none;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.sub {
+  color: var(--color-ink-4);
+  font-size: var(--fs-14);
+}
+
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-12);
+  padding-top: var(--space-16);
+  border-top: var(--border-1) solid var(--color-line-soft);
+}
+
+.contract {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+.cta {
+  margin-left: auto;
+}
+
+/* phone card */
+.mHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.mName {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-22);
+  font-weight: var(--weight-bold);
+}
+
+.mMeta {
+  color: var(--color-ink-4);
+  font-size: var(--fs-13);
+}
+
+.mBig {
+  color: var(--color-brand);
+  font-family: var(--font-mono);
+  font-size: var(--fs-30);
+  overflow-wrap: anywhere;
+}
+
+.mBigNote {
+  color: var(--color-ink-2);
+  font-size: var(--fs-14);
+}
+
+.mFacts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8) var(--space-16);
+  margin: 0;
+  font-size: var(--fs-14);
+}
+
+.mTerm {
+  color: var(--color-ink-4);
+  font-size: var(--fs-12);
+}
+
+.mMono,
+.mBold {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.mMono {
+  font-family: var(--font-mono);
+}
+
+.mBold {
+  font-weight: var(--weight-bold);
+}

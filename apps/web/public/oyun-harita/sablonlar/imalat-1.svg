@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect data-katman="metal" x="78" y="12" width="8" height="42"/>
+  <rect data-katman="ayrinti2" x="78" y="20" width="8" height="4"/>
+  <circle data-katman="duman" cx="83" cy="8" r="5"/>
+  <rect data-katman="duvar" x="8" y="52" width="84" height="42"/>
+  <rect data-katman="duvar2" x="66" y="52" width="26" height="42"/>
+  <polygon data-katman="cati" points="8,52 8,36 36,52 36,36 64,52 64,36 92,52"/>
+  <rect data-katman="pencere" x="8" y="39" width="3.5" height="12"/>
+  <rect data-katman="pencere" x="36" y="39" width="3.5" height="12"/>
+  <rect data-katman="pencere" x="64" y="39" width="3.5" height="12"/>
+  <rect data-katman="pencere" x="14" y="60" width="10" height="9"/>
+  <rect data-katman="pencere" x="30.67" y="60" width="10" height="9"/>
+  <rect data-katman="pencere" x="47.33" y="60" width="10" height="9"/>
+  <rect data-katman="kapi" x="72" y="68" width="16" height="26"/>
+  <rect data-katman="ayrinti" x="79" y="68" width="1.6" height="26"/>
+  <rect data-katman="metal" x="2" y="94" width="96" height="2.4"/>
+</svg>

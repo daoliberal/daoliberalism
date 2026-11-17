@@ -1,0 +1,303 @@
+{
+  "settings": [
+    {
+      "id": "kadro_hizi",
+      "layer": "P",
+      "group": "is_piyasasi",
+      "level": "A",
+      "editable": true,
+      "status": "experimental",
+      "kind": "fields",
+      "params": [
+        "STAFF_ADJ",
+        "SHRINK_CAP",
+        "GROW_CAP"
+      ],
+      "requires": [
+        "STAFF_ADJ",
+        "SHRINK_CAP",
+        "GROW_CAP"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "kural",
+            "param": "STAFF_ADJ",
+            "codec": {
+              "type": "enum",
+              "map": {
+                "kapali": 0,
+                "acik": 1
+              }
+            }
+          },
+          {
+            "key": "kucul",
+            "param": "SHRINK_CAP",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 1,
+              "max": 10,
+              "step": 1,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "buyu",
+            "param": "GROW_CAP",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 1,
+              "max": 30,
+              "step": 1,
+              "unit": "yuzde"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "D10"
+    },
+    {
+      "id": "kadro_talebi_gorur",
+      "layer": "P",
+      "group": "is_piyasasi",
+      "level": "A",
+      "editable": true,
+      "status": "experimental",
+      "kind": "toggle",
+      "params": [
+        "STAFF_DEMAND"
+      ],
+      "requires": [
+        "STAFF_DEMAND"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": 1,
+        "off": 0
+      },
+      "apply": "live",
+      "decision": "K-222"
+    },
+    {
+      "id": "ise_alim_kasa_sarti",
+      "layer": "P",
+      "group": "is_piyasasi",
+      "level": "A",
+      "editable": true,
+      "status": "experimental",
+      "kind": "toggle",
+      "params": [
+        "HIRE_CASH_GATE"
+      ],
+      "requires": [
+        "HIRE_CASH_GATE"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": 1,
+        "off": 0
+      },
+      "apply": "live",
+      "decision": "K-222"
+    },
+    {
+      "id": "isci_akislari",
+      "layer": "P",
+      "group": "is_piyasasi",
+      "level": "A",
+      "editable": true,
+      "status": "experimental",
+      "kind": "fields",
+      "params": [
+        "SEP_RATE",
+        "FIND_RATE"
+      ],
+      "requires": [
+        "SEP_RATE",
+        "FIND_RATE"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "ayrilma",
+            "param": "SEP_RATE",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0,
+              "max": 2,
+              "step": 0.05,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "is_bulma",
+            "param": "FIND_RATE",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 1,
+              "max": 100,
+              "step": 0.5,
+              "unit": "yuzde"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "D10"
+    },
+    {
+      "id": "ucret_issizlik_kapsami",
+      "layer": "P",
+      "group": "is_piyasasi",
+      "level": "A",
+      "editable": true,
+      "status": "experimental",
+      "kind": "toggle",
+      "params": [
+        "WAGE_U_ALL"
+      ],
+      "requires": [
+        "WAGE_U_ALL"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": 1,
+        "off": 0
+      },
+      "apply": "live",
+      "decision": "D10"
+    },
+    {
+      "id": "kamu_istihdami_havuz",
+      "layer": "P",
+      "group": "is_piyasasi",
+      "level": "A",
+      "editable": true,
+      "status": "experimental",
+      "kind": "fields",
+      "params": [
+        "MUNI_POOL",
+        "JG_WAGE",
+        "JG_MAX"
+      ],
+      "requires": [
+        "MUNI_POOL",
+        "JG_WAGE",
+        "JG_MAX"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "kural",
+            "param": "MUNI_POOL",
+            "codec": {
+              "type": "enum",
+              "map": {
+                "kapali": 0,
+                "acik": 1
+              }
+            }
+          },
+          {
+            "key": "ucret",
+            "param": "JG_WAGE",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 50,
+              "max": 150,
+              "step": 5,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "en_cok",
+            "param": "JG_MAX",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0,
+              "max": 15,
+              "step": 1,
+              "unit": "yuzde"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "D10"
+    },
+    {
+      "id": "isgucu_disina_cikis",
+      "layer": "P",
+      "group": "is_piyasasi",
+      "level": "A",
+      "editable": true,
+      "status": "experimental",
+      "kind": "fields",
+      "params": [
+        "DISCOURAGE_WEEKS",
+        "DISC_RATE",
+        "DISC_RETURN"
+      ],
+      "requires": [
+        "DISCOURAGE_WEEKS",
+        "DISC_RATE",
+        "DISC_RETURN"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "bekleme",
+            "param": "DISCOURAGE_WEEKS",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 0,
+              "max": 104,
+              "step": 1,
+              "unit": "hafta",
+              "integer": true
+            }
+          },
+          {
+            "key": "cikis",
+            "param": "DISC_RATE",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 1,
+              "max": 50,
+              "step": 1,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "donus",
+            "param": "DISC_RETURN",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0,
+              "max": 50,
+              "step": 1,
+              "unit": "yuzde"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "D10"
+    }
+  ]
+}

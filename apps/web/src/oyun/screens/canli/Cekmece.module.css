@@ -1,0 +1,84 @@
+.govde {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  min-width: 0;
+}
+
+.not {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: var(--fs-14);
+}
+
+.eski {
+  margin: 0;
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-12);
+  background: var(--color-warn-bg);
+  color: var(--color-warn-fg);
+  font-size: var(--fs-14);
+}
+
+.alanlar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+}
+
+.alan {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-12);
+  padding: var(--space-4) 0;
+  border-bottom: var(--border-1) solid var(--color-line-soft);
+  font-size: var(--fs-14);
+}
+
+.alan dt,
+.alan dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.alan dd {
+  font-weight: var(--weight-bold);
+  text-align: right;
+}
+
+.baglantilar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.altBaslik {
+  margin: 0;
+  font-size: var(--fs-14);
+}
+
+.liste {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.baglanti {
+  min-height: var(--space-40);
+  padding: var(--space-6) var(--space-12);
+  border: var(--border-1) solid var(--color-line-strong);
+  border-radius: var(--radius-12);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font: inherit;
+  font-size: var(--fs-14);
+  cursor: pointer;
+}
+
+.baglanti:hover {
+  background: var(--color-surface-muted);
+}

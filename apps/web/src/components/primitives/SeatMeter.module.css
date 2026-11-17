@@ -1,0 +1,58 @@
+.meter {
+  appearance: none;
+  display: block;
+  flex: 1 1 auto;
+  width: 100%;
+  height: var(--size-meter);
+  border: 0;
+  border-radius: var(--radius-3);
+  background: var(--color-line-soft);
+}
+
+.meter::-webkit-meter-bar {
+  height: var(--size-meter);
+  border: 0;
+  border-radius: var(--radius-3);
+  background: var(--color-line-soft);
+}
+
+.meter::-webkit-meter-optimum-value {
+  border-radius: var(--radius-3);
+  background: var(--color-ink-2);
+}
+
+.meter::-webkit-meter-suboptimum-value {
+  border-radius: var(--radius-3);
+  background: var(--color-ink-2);
+}
+
+.meter::-webkit-meter-even-less-good-value {
+  border-radius: var(--radius-3);
+  background: var(--color-ink-2);
+}
+
+.meter::-moz-meter-bar {
+  border-radius: var(--radius-3);
+  background: var(--color-ink-2);
+}
+
+/* md: 8px / radius 4 (C-03-Treasury:68); default is 6px / radius 3 */
+.md {
+  height: var(--size-meter-md);
+  border-radius: var(--radius-4);
+}
+
+.md::-webkit-meter-bar {
+  height: var(--size-meter-md);
+  border-radius: var(--radius-4);
+}
+
+.md::-webkit-meter-optimum-value,
+.md::-webkit-meter-suboptimum-value,
+.md::-webkit-meter-even-less-good-value {
+  border-radius: var(--radius-4);
+}
+
+.md::-moz-meter-bar {
+  border-radius: var(--radius-4);
+}

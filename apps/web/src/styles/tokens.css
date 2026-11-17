@@ -1,0 +1,332 @@
+/*
+ * daoliberal design tokens: the single source of truth for every colour, type size,
+ * radius, space, size and shadow in the app. Values come from the approved prototype
+ * (apps/web/prototype/*.dc.html). Nothing outside this file may hold a raw value;
+ * tests/design-rules.test.ts and tests/tokens.test.ts enforce that.
+ *
+ * Breakpoint: the only layout breakpoint is 720px (narrow = mobile layout, dark by default).
+ * `var()` cannot be used inside @media conditions, so the number is written there as
+ * `@media (max-width: 720px)`; this comment and --bp-narrow below are its single definition.
+ *
+ * Theme: :root is the light theme. The app is light on the wide layout and dark on the narrow one,
+ * whatever the system theme says (useIsNarrow writes data-theme once the page is hydrated). Before
+ * that, the dark theme applies through `@media (max-width: 720px)` unless data-theme="light" is set,
+ * so the first paint already has the final theme (no flash for dark-mode desktop users), and through
+ * data-theme="dark". The two dark blocks must stay identical (tests check it).
+ */
+
+/* ---------- light theme + all theme-independent tokens ---------- */
+:root {
+  /* colors */
+  --color-bg: #EEF1F3;
+  --color-bg-sheet: #EEF1F3;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #F3F5F7;
+  --color-surface-selected: #F2F8F6;
+  --color-ink: #12181F;
+  --color-ink-2: #33404C;
+  --color-ink-3: #3D4954;
+  --color-ink-4: #4F5B66;
+  --color-ink-5: #33404C;
+  --color-slate: #5E6A74;
+  --color-line: #D5DBE0;
+  --color-line-strong: #C3CBD2;
+  --color-line-soft: #E2E7EB;
+  --color-brand: #0B6B5D;
+  --color-brand-strong: #074A40;
+  --color-brand-tint: #E3F0EC;
+  --color-on-brand: #FFFFFF;
+  --color-warn-bg: #FFF1D6;
+  --color-warn-fg: #7A4A00;
+  --color-warn-dot: #C77700;
+  --color-caution-bg: #FDF0E4;
+  --color-caution-fg: #6B2C05;
+  --color-caution-fg-strong: #5A2A0B;
+  --color-caution-accent: #8A3B09;
+  --color-flow-fee: #2C3640;
+  --color-flow-expense: #8D9AA6;
+  --color-flow-members: #0B6B5D;
+  --color-action: #12181F;
+  --color-on-action: #FFFFFF;
+  --color-cta: #12181F;
+  --color-on-cta: #FFFFFF;
+
+  /* always-dark panels (Join panel, selection tray): same in both themes, never redefined below */
+  --color-panel-bg: #12181F;
+  --color-panel-surface: #1C252E;
+  --color-panel-line: #2C3640;
+  --color-panel-ink: #FFFFFF;
+  --color-panel-muted: #C3CBD2;
+  --color-panel-accent: #6FD6C0;
+  --color-panel-accent-2: #3FB79D;
+  --color-panel-on-accent: #062019;
+  --color-panel-border: #4F5B66; /* calculator input border on the dark panel: C-03-Treasury:81 */
+  --color-panel-flow: #8D9AA6; /* expenses slice of the calculator bar on the dark panel: C-03-Treasury:84 */
+  --color-panel-note: #E2E7EB; /* note text on the dark panel: C-03-Treasury:92 */
+
+  /* type */
+  --font-display: "Bricolage Grotesque Variable", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  --font-mono: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-17: 17px;
+  --fs-18: 18px;
+  --fs-19: 19px;
+  --fs-20: 20px;
+  --fs-22: 22px;
+  --fs-24: 24px;
+  --fs-26: 26px;
+  --fs-27: 27px;
+  --fs-28: 28px;
+  --fs-30: 30px;
+  --fs-32: 32px;
+  --fs-34: 34px;
+  --fs-36: 36px;
+  --fs-40: 40px;
+  --fs-44: 44px;
+  --fs-46: 46px;
+  --fs-52: 52px;
+  --fs-60: 60px;
+  --lh-body: 1.5;
+  --lh-tight: 1.1;
+  --lh-display: 1.05;
+  --lh-snug: 1.02;
+  --lh-none: 1;
+  --ls-tight-lg: -0.025em;
+  --ls-tight: -0.02em;
+  --ls-tight-sm: -0.01em;
+  --ls-wide: 0.02em;
+  --ls-caps: 0.04em;
+
+  /* radius */
+  --radius-3: 3px;
+  --radius-4: 4px;
+  --radius-5: 5px;
+  --radius-6: 6px;
+  --radius-7: 7px;
+  --radius-12: 12px;
+  --radius-14: 14px;
+  --radius-16: 16px;
+  --radius-18: 18px;
+  --radius-20: 20px;
+  --radius-24: 24px;
+  --radius-28: 28px;
+  --radius-pill: 999px;
+
+  /* space (negative margins are written calc(-1 * var(--space-N))) */
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-3: 3px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-18: 18px;
+  --space-20: 20px;
+  --space-22: 22px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-72: 72px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-100: 100px;
+  --space-120: 120px;
+  --space-140: 140px;
+
+  /* layout */
+  --bp-narrow: 720px; /* documentation only: used literally in @media (max-width: 720px) */
+  --container-max: 1200px;
+  --gutter: 32px;
+  --size-target: 44px;
+  --size-control-lg: 52px;
+  --size-dot: 24px;
+  --size-bar: 14px;
+  --size-bar-sm: 10px;
+  --size-bar-lg: 12px; /* C-03-Treasury:84 */
+  --size-meter: 6px;
+  --size-meter-md: 8px; /* C-03-Treasury:68 */
+  --size-sliver: 3px;
+  --size-sliver-2: 2px; /* C-04-CreateTreasury:116 */
+  --size-tab: 52px;
+  --size-cta-md: 48px;
+  --size-cta-lg: 54px;
+  --size-icon-sm: 16px;
+  --size-icon-md: 18px;
+  --size-icon-lg: 20px;
+  --size-icon-xl: 22px;
+  --border-1: 1px;
+  --border-2: 2px;
+  --border-3: 3px;
+  --border-4: 4px;
+  --size-6: 6px;
+  --size-7: 7px; /* mobile Testnet dot: C-M1-Treasuries:21 */
+  --size-8: 8px;
+  --size-10: 10px;
+  --size-11: 11px; /* mobile lock icon: C-M2-Treasury:28 */
+  --size-12: 12px;
+  --size-14: 14px;
+  --size-20: 20px;
+  --size-22: 22px;
+  --size-24: 24px;
+  --size-26: 26px;
+  --size-28: 28px;
+  --size-30: 30px;
+  --size-32: 32px;
+  --size-36: 36px;
+  --size-40: 40px;
+  --size-44: 44px;
+  --size-48: 48px;
+  --size-52: 52px;
+  --size-54: 54px;
+  --size-56: 56px;
+  --size-60: 60px;
+  --size-72: 72px;
+  --size-76: 76px;
+  --size-84: 84px;
+  --size-88: 88px;
+  --size-90: 90px;
+  --size-100: 100px;
+  --size-180: 180px; /* side-by-side label column: C-02-Treasuries:103 */
+  --measure-sm: 400px;
+  --measure-md: 540px;
+  --measure-lg: 620px;
+  --measure-xl: 680px;
+  --measure-560: 560px;
+  --measure-600: 600px;
+  --measure-640: 640px;
+  --measure-340: 340px; /* calculator panel basis: C-03-Treasury:78 */
+  --min-200: 200px;
+  --modal-width: 580px;
+  --page-narrow: 960px;
+  /* C-04-CreateTreasury:112 live preview column basis */
+  --aside-basis: 340px;
+  /* C-06-CreateDAO:69-70 treasury card column bases */
+  --basis-140: 140px;
+  --basis-180: 180px;
+  --table-min-sm: 520px;
+  --table-min-md: 560px;
+  --table-min-lg: 760px;
+  --table-min-xl: 860px;
+
+  /* grid: smallest column of an auto-fit grid, as in minmax(min(N, 100%), 1fr) */
+  --grid-min-130: 130px;
+  --grid-min-170: 170px;
+  --grid-min-200: 200px;
+  --grid-min-220: 220px;
+  --grid-min-260: 260px;
+  --grid-min-280: 280px;
+  --grid-min-300: 300px;
+  --grid-min-320: 320px;
+  --grid-min-420: 420px;
+  --grid-min-460: 460px;
+  --grid-min-520: 520px;
+
+  /* flex-basis of wrapping rows: flex: G S <basis> in the prototype (C-05-DAOs:44-60, C-05b-DAO:38, :87) */
+  --basis-140: 140px;
+  --basis-220: 220px;
+  --basis-260: 260px;
+  --basis-280: 280px;
+  --basis-320: 320px;
+  --basis-340: 340px;
+  --basis-560: 560px;
+
+  /* icon stroke widths (unitless; svg stroke-width in prototype icons: 1.5 1.6 1.8 2 2.4) */
+  --stroke-15: 1.5;
+  --stroke-16: 1.6;
+  --stroke-18: 1.8;
+  --stroke-20: 2;
+  --stroke-24: 2.4;
+
+  /* shadow */
+  --shadow-modal: 0 24px 60px rgba(10, 16, 22, 0.35);
+}
+
+/* ---------- dark theme: values come verbatim from C-M1-Treasuries, C-M2-Treasury, C-Mobile ---------- */
+@media (max-width: 720px) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #0B1015;
+    --color-bg-sheet: #070B0E;
+    --color-surface: #141C23;
+    --color-surface-muted: #0E151B;
+    --color-surface-selected: #17332D;
+    --color-ink: #EEF2F5;
+    --color-ink-2: #B9C4CE;
+    --color-ink-3: #B9C4CE;
+    --color-ink-4: #A7B3BE;
+    --color-ink-5: #D5DCE2;
+    --color-slate: #7B8995;
+    --color-line: #26323C;
+    --color-line-strong: #3A4753;
+    --color-line-soft: #26323C;
+    --color-brand: #6FD6C0;
+    --color-brand-strong: #A8EADB;
+    --color-brand-tint: #17332D;
+    --color-on-brand: #062019;
+    --color-warn-bg: #3A2A0A;
+    --color-warn-fg: #FFD58A;
+    --color-warn-dot: #F0A626;
+    --color-flow-fee: #EEF2F5;
+    --color-flow-expense: #7B8995;
+    --color-flow-members: #3FB79D;
+    --color-action: #EEF2F5;
+    --color-on-action: #0B1015;
+    --color-cta: #6FD6C0;
+    --color-on-cta: #062019;
+    /* not-in-mobile-files */
+    --color-caution-bg: var(--color-surface);
+    --color-caution-fg: var(--color-ink-2);
+    --color-caution-fg-strong: var(--color-ink);
+    --color-caution-accent: var(--color-warn-dot);
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #0B1015;
+  --color-bg-sheet: #070B0E;
+  --color-surface: #141C23;
+  --color-surface-muted: #0E151B;
+  --color-surface-selected: #17332D;
+  --color-ink: #EEF2F5;
+  --color-ink-2: #B9C4CE;
+  --color-ink-3: #B9C4CE;
+  --color-ink-4: #A7B3BE;
+  --color-ink-5: #D5DCE2;
+  --color-slate: #7B8995;
+  --color-line: #26323C;
+  --color-line-strong: #3A4753;
+  --color-line-soft: #26323C;
+  --color-brand: #6FD6C0;
+  --color-brand-strong: #A8EADB;
+  --color-brand-tint: #17332D;
+  --color-on-brand: #062019;
+  --color-warn-bg: #3A2A0A;
+  --color-warn-fg: #FFD58A;
+  --color-warn-dot: #F0A626;
+  --color-flow-fee: #EEF2F5;
+  --color-flow-expense: #7B8995;
+  --color-flow-members: #3FB79D;
+  --color-action: #EEF2F5;
+  --color-on-action: #0B1015;
+  --color-cta: #6FD6C0;
+  --color-on-cta: #062019;
+  /* not-in-mobile-files */
+  --color-caution-bg: var(--color-surface);
+  --color-caution-fg: var(--color-ink-2);
+  --color-caution-fg-strong: var(--color-ink);
+  --color-caution-accent: var(--color-warn-dot);
+}

@@ -1,0 +1,125 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: var(--radius-pill);
+  font: inherit;
+  font-weight: var(--weight-bold);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  background: var(--color-line);
+  color: var(--color-ink-4);
+  cursor: not-allowed;
+}
+
+.primary {
+  min-height: var(--size-cta-md);
+  padding: 0 var(--space-22);
+  background: var(--color-action);
+  color: var(--color-on-action);
+}
+
+.primary:hover:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--color-on-action);
+}
+
+.secondary {
+  min-height: var(--size-cta-md);
+  padding: 0 var(--space-20);
+  border: var(--border-1) solid var(--color-line-strong);
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.secondary:hover:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--color-ink);
+}
+
+.brand {
+  min-height: var(--size-cta-md);
+  padding: 0 var(--space-22);
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+}
+
+.brand:hover:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--color-on-brand);
+}
+
+.inverse {
+  min-height: var(--size-cta-lg);
+  padding: 0 var(--space-24);
+  background: var(--color-panel-accent);
+  color: var(--color-panel-on-accent);
+  font-size: var(--fs-16);
+}
+
+.inverse:hover:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--color-panel-on-accent);
+}
+
+/* C-02-Treasuries:141 white button on the always-dark tray: panel tokens never change with the theme */
+.panelLight {
+  min-height: var(--size-target);
+  padding: 0 var(--space-18);
+  background: var(--color-panel-ink);
+  color: var(--color-panel-bg);
+}
+
+.panelLight:hover:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--color-panel-bg);
+}
+
+.toggle {
+  min-height: var(--size-40);
+  padding: 0 var(--space-16);
+  background: transparent;
+  color: var(--color-ink);
+  font-size: var(--fs-14);
+}
+
+.toggle:hover:not(:disabled):not([aria-disabled="true"]) {
+  color: var(--color-ink);
+}
+
+.toggle[aria-pressed="true"]:not(:disabled):not([aria-disabled="true"]) {
+  background: var(--color-action);
+  color: var(--color-on-action);
+}
+
+/* size overrides: declared last so they win over the variant defaults */
+.sz-sm {
+  min-height: var(--size-target);
+  padding: 0 var(--space-18);
+}
+
+.sz-md {
+  min-height: var(--size-cta-md);
+  padding: 0 var(--space-22);
+}
+
+.sz-wide {
+  min-height: var(--size-cta-md);
+  padding: 0 var(--space-24);
+}
+
+.sz-lg {
+  min-height: var(--size-52);
+  padding: 0 var(--space-24);
+  font-size: var(--fs-17);
+}
+
+/* C-09-Approval:56 Cancel: as tall as the 17px CTA beside it, but at the 16px body size */
+.sz-dialog {
+  min-height: var(--size-52);
+  padding: 0 var(--space-24);
+}
+
+.fill {
+  flex: 1 1 auto;
+}

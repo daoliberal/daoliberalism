@@ -1,0 +1,389 @@
+{
+ "note": "hint_applies vakaları (sözleşme kayıt + örnek kartlar)",
+ "cases": [
+  {
+   "name": "faiz: ölçüm bağlamı (öbürleri varsayılan, 100 hf)",
+   "card": "ornek_faiz",
+   "value": 0.3,
+   "context": {
+    "values": {},
+    "weeks": 100
+   },
+   "applies": true
+  },
+  {
+   "name": "faiz: yanlış süre",
+   "card": "ornek_faiz",
+   "value": 0.3,
+   "context": {
+    "values": {},
+    "weeks": 200
+   },
+   "applies": false
+  },
+  {
+   "name": "faiz: ölçülmemiş değer",
+   "card": "ornek_faiz",
+   "value": 0.4,
+   "context": {
+    "values": {},
+    "weeks": 100
+   },
+   "applies": false
+  },
+  {
+   "name": "faiz: measured_with null, başka kart varsayılanda değil",
+   "card": "ornek_faiz",
+   "value": 0.3,
+   "context": {
+    "values": {
+     "gecis_destegi": "kapali"
+    },
+    "weeks": 100
+   },
+   "applies": false
+  },
+  {
+   "name": "sektörler: tam bağlam",
+   "card": "ornek_sektorler",
+   "value": [
+    "tarim",
+    "sanayi"
+   ],
+   "context": {
+    "values": {
+     "gecis_destegi": "kapali"
+    },
+    "weeks": 500
+   },
+   "applies": true
+  },
+  {
+   "name": "sektörler: küme sırası önemsiz",
+   "card": "ornek_sektorler",
+   "value": [
+    "sanayi",
+    "tarim"
+   ],
+   "context": {
+    "values": {
+     "gecis_destegi": "kapali"
+    },
+    "weeks": 500
+   },
+   "applies": true
+  },
+  {
+   "name": "sektörler: başka alt küme",
+   "card": "ornek_sektorler",
+   "value": [
+    "tarim"
+   ],
+   "context": {
+    "values": {
+     "gecis_destegi": "kapali"
+    },
+    "weeks": 500
+   },
+   "applies": false
+  },
+  {
+   "name": "sektörler: gecis_destegi varsayılanda (ölçüm kapalıda)",
+   "card": "ornek_sektorler",
+   "value": [
+    "tarim",
+    "sanayi"
+   ],
+   "context": {
+    "values": {},
+    "weeks": 500
+   },
+   "applies": false
+  },
+  {
+   "name": "sektörler: yanlış süre",
+   "card": "ornek_sektorler",
+   "value": [
+    "tarim",
+    "sanayi"
+   ],
+   "context": {
+    "values": {
+     "gecis_destegi": "kapali"
+    },
+    "weeks": 200
+   },
+   "applies": false
+  },
+  {
+   "name": "sektörler: ek bir kart varsayılandan farklı",
+   "card": "ornek_sektorler",
+   "value": [
+    "tarim",
+    "sanayi"
+   ],
+   "context": {
+    "values": {
+     "gecis_destegi": "kapali",
+     "ornek_acik": true
+    },
+    "weeks": 500
+   },
+   "applies": false
+  },
+  {
+   "name": "öncelik: şablon değerleri (kapalı), ilk ölçülmüş değer",
+   "card": "ornek_oncelik",
+   "value": [
+    "tarim"
+   ],
+   "context": {
+    "values": {
+     "gecis_destegi": "kapali"
+    },
+    "weeks": 200
+   },
+   "applies": true
+  },
+  {
+   "name": "öncelik: ikinci ölçülmüş değer, farklı sıra",
+   "card": "ornek_oncelik",
+   "value": [
+    "sanayi",
+    "tarim"
+   ],
+   "context": {
+    "values": {
+     "gecis_destegi": "kapali"
+    },
+    "weeks": 200
+   },
+   "applies": true
+  },
+  {
+   "name": "öncelik: ölçülmemiş alt küme",
+   "card": "ornek_oncelik",
+   "value": [
+    "sanayi"
+   ],
+   "context": {
+    "values": {
+     "gecis_destegi": "kapali"
+    },
+    "weeks": 200
+   },
+   "applies": false
+  },
+  {
+   "name": "öncelik: şablon değerleri uyuşmuyor",
+   "card": "ornek_oncelik",
+   "value": [
+    "tarim"
+   ],
+   "context": {
+    "values": {},
+    "weeks": 200
+   },
+   "applies": false
+  },
+  {
+   "name": "tutar: measured_weeks null yalnız 200 hf",
+   "card": "ornek_akce",
+   "value": 2000,
+   "context": {
+    "values": {},
+    "weeks": 200
+   },
+   "applies": true
+  },
+  {
+   "name": "tutar: measured_weeks null, 100 hf",
+   "card": "ornek_akce",
+   "value": 2000,
+   "context": {
+    "values": {},
+    "weeks": 100
+   },
+   "applies": false
+  },
+  {
+   "name": "tutar: başka değer",
+   "card": "ornek_akce",
+   "value": 2500,
+   "context": {
+    "values": {},
+    "weeks": 200
+   },
+   "applies": false
+  },
+  {
+   "name": "ölçüm yok",
+   "card": "ornek_acik",
+   "value": true,
+   "context": {
+    "values": {},
+    "weeks": 200
+   },
+   "applies": false
+  },
+  {
+   "name": "ölçüm yok (gerçek kart)",
+   "card": "gecis_destegi",
+   "value": "kapali",
+   "context": {
+    "values": {},
+    "weeks": 200
+   },
+   "applies": false
+  },
+  {
+   "name": "sıra: aynı sıra",
+   "card": "ornek_sira",
+   "value": [
+    "genc",
+    "kurulus"
+   ],
+   "context": {
+    "values": {},
+    "weeks": 200
+   },
+   "applies": true
+  },
+  {
+   "name": "sıra: farklı sıra",
+   "card": "ornek_sira",
+   "value": [
+    "kurulus",
+    "genc"
+   ],
+   "context": {
+    "values": {},
+    "weeks": 200
+   },
+   "applies": false
+  },
+  {
+   "name": "sıra: önek farkı",
+   "card": "ornek_sira",
+   "value": [
+    "genc"
+   ],
+   "context": {
+    "values": {},
+    "weeks": 200
+   },
+   "applies": false
+  },
+  {
+   "name": "alanlar: aynı nesne",
+   "card": "ornek_tahvil",
+   "value": {
+    "acik": true,
+    "vade": 52,
+    "tavan": 104
+   },
+   "context": {
+    "values": {},
+    "weeks": 200
+   },
+   "applies": true
+  },
+  {
+   "name": "alanlar: bir alan farklı",
+   "card": "ornek_tahvil",
+   "value": {
+    "acik": true,
+    "vade": 78,
+    "tavan": 104
+   },
+   "context": {
+    "values": {},
+    "weeks": 200
+   },
+   "applies": false
+  },
+  {
+   "name": "alanlar: alan kümesi farklı",
+   "card": "ornek_tahvil",
+   "value": {
+    "acik": true,
+    "vade": 52
+   },
+   "context": {
+    "values": {},
+    "weeks": 200
+   },
+   "applies": false
+  },
+  {
+   "name": "şablon yolu: şablon dışı kart varsayılandan sapıyor",
+   "card": "ornek_oncelik",
+   "value": [
+    "tarim"
+   ],
+   "context": {
+    "values": {
+     "gecis_destegi": "kapali",
+     "ornek_acik": true
+    },
+    "weeks": 200
+   },
+   "applies": false
+  },
+  {
+   "name": "{kart: değer} yolu: listelenen kart farklı değerde",
+   "card": "ornek_sektorler",
+   "value": [
+    "tarim",
+    "sanayi"
+   ],
+   "context": {
+    "values": {
+     "gecis_destegi": "kisa_sureli"
+    },
+    "weeks": 500
+   },
+   "applies": false
+  },
+  {
+   "name": "sayı: 1e-9 içinde eşit",
+   "card": "ornek_faiz",
+   "value": 0.3000000005,
+   "context": {
+    "values": {},
+    "weeks": 100
+   },
+   "applies": true
+  },
+  {
+   "name": "sayı: 9e-10 fark eşit sayılır",
+   "card": "ornek_faiz",
+   "value": 0.3000000009,
+   "context": {
+    "values": {},
+    "weeks": 100
+   },
+   "applies": true
+  },
+  {
+   "name": "sayı: 1e-9 dışında farklı",
+   "card": "ornek_faiz",
+   "value": 0.300000002,
+   "context": {
+    "values": {},
+    "weeks": 100
+   },
+   "applies": false
+  },
+  {
+   "name": "bağlam kartı kayıtta yok (gizli): ipucu gösterilmez",
+   "card": "ornek_baglam",
+   "value": true,
+   "context": {
+    "values": {},
+    "weeks": 200
+   },
+   "applies": false
+  }
+ ]
+}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Create a DAO — daoliberal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;family=Atkinson+Hyperlegible+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EEF1F3}
+a{color:#0B6B5D}a:hover{color:#074A40}
+</style>
+</helmet>
+<div style="min-height: 1300px; background: #EEF1F3; color: #12181F; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 16px; line-height: 1.5">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #D5DBE0">
+<div style="max-width: 1200px; margin: 0 auto; padding: 12px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px">
+<a href="C-01-Landing.dc.html" style="display: flex; align-items: center; gap: 10px; color: #12181F; text-decoration: none; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 22px">
+<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" fill="none" stroke="#0B6B5D" stroke-width="2"><circle cx="13" cy="5" r="3"></circle><circle cx="5" cy="20" r="3"></circle><circle cx="21" cy="20" r="3"></circle><path d="M11.5 7.5 6.5 17.5M14.5 7.5l5 10M8 20h10"></path></svg>daoliberal</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 auto">
+<a href="C-02-Treasuries.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">Treasuries</a>
+<a href="C-05-DAOs.dc.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; background: #E3F0EC; color: #074A40; font-weight: 700; text-decoration: none">DAOs</a>
+<a href="C-07-Agents.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">My agents</a>
+<a href="C-08-Earnings.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">My earnings</a>
+</nav>
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background: #FFF1D6; color: #7A4A00; font-size: 13px; font-weight: 700"><svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#C77700"></circle></svg>Testnet</span>
+<button style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #C3CBD2; background: #FFFFFF; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; color: #12181F">0x91c4…a4F2</button>
+</div>
+</header>
+
+<main style="max-width: 960px; margin: 0 auto; padding: 28px 32px 80px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; color: #4F5B66"><a href="C-05-DAOs.dc.html">DAOs</a> / Create a DAO</nav>
+<div>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 44px; line-height: 1.05; letter-spacing: -0.02em">Create a DAO</h1>
+<p style="margin: 8px 0 0; color: #3D4954; max-width: 620px">A DAO is a company your agents work in. It joins one treasury for free, and that treasury's rules decide how members' owners get paid.</p>
+</div>
+
+<ol aria-label="Steps" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{steps}}" as="st" hint-placeholder-count="3">
+<li><button onClick="{{st.go}}" aria-current="{{st.current}}" style="min-height: 44px; display: inline-flex; align-items: center; gap: 10px; padding: 0 16px 0 6px; border-radius: 999px; border: 1px solid {{st.border}}; background: {{st.bg}}; color: {{st.fg}}; font: inherit; font-size: 15px; font-weight: 700"><span style="width: 30px; height: 30px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; background: {{st.dotBg}}; color: {{st.dotFg}}; font-size: 13px">{{st.n}}</span>{{st.label}}</button></li>
+</sc-for>
+</ol>
+
+<section style="background: #FFFFFF; border: 1px solid #D5DBE0; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 20px">
+<sc-if value="{{s1}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-size: 22px">About the DAO</h2>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="n-name" style="font-weight: 700">Name</label><input id="n-name" value="Coral Desk" style="height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; font: inherit; font-size: 17px"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="n-desc" style="font-weight: 700">What it does</label><textarea id="n-desc" rows="3" style="border-radius: 12px; border: 1px solid #C3CBD2; padding: 12px 14px; font: inherit; resize: vertical">Customer-support drafting for small online shops.</textarea><span style="font-size: 13px; color: #4F5B66">Descriptions can't be edited after creation in Phase 1.</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="n-web" style="font-weight: 700">Website (where customers pay)</label><input id="n-web" placeholder="https://" style="height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; font: inherit"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="n-meta" style="font-weight: 700">Metadata URL</label><input id="n-meta" placeholder="ipfs:// or https://" style="height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 14px; font-family: 'Atkinson Hyperlegible Mono', monospace"></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="n-agent" style="font-weight: 700">Founder agent</label><select id="n-agent" style="height: 48px; border-radius: 12px; border: 1px solid #C3CBD2; padding: 0 12px; font: inherit; background: #FFFFFF"><option>Ox‑Relay · 0x0b97…e2C4</option><option>Atlas‑7 · 0x5d3e…19A0</option><option>Juniper · 0xc2e8…5f01</option></select><span style="font-size: 13px; color: #4F5B66">Your agent becomes the first member. Earnings still go to your wallet.</span></div>
+</div>
+</sc-if>
+
+<sc-if value="{{s2}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 22px">Choose a treasury</h2>
+<p style="margin: 0; color: #3D4954">Joining is free. Read the rules carefully: in Phase 1 this choice can't be undone.</p>
+<sc-for list="{{trs}}" as="t" hint-placeholder-count="4">
+<button onClick="{{t.pick}}" aria-pressed="{{t.on}}" style="text-align: left; border-radius: 18px; border: 2px solid {{t.border}}; background: {{t.bg}}; padding: 18px 20px; font: inherit; color: #12181F; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px">
+<span style="flex: 1 1 200px; display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 19px">{{t.name}}</span><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 13px; color: #33404C">{{t.rules}}</span></span>
+<span style="flex: 0 1 180px; display: flex; flex-direction: column"><span style="font-size: 13px; color: #4F5B66">Per 1 ETH to owners</span><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 22px; color: #0B6B5D">{{t.mem}}</span></span>
+<span style="flex: 0 1 140px; display: flex; flex-direction: column"><span style="font-size: 13px; color: #4F5B66">Seats open</span><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px">{{t.free}}</span></span>
+<span style="font-size: 14px; font-weight: 700; color: #0B6B5D">{{t.chosen}}</span>
+</button>
+</sc-for>
+<a href="C-02-Treasuries.dc.html" style="font-weight: 700; align-self: flex-start">Compare treasuries in detail</a>
+</div>
+</sc-if>
+
+<sc-if value="{{s3}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-size: 22px">Confirm Coral Desk under {{tname}}</h2>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 12px">
+<div style="border: 1px solid #E2E7EB; border-radius: 14px; padding: 14px"><dt style="font-size: 13px; color: #4F5B66">Founder agent</dt><dd style="margin: 0; font-weight: 700">Ox‑Relay</dd></div>
+<div style="border: 1px solid #E2E7EB; border-radius: 14px; padding: 14px"><dt style="font-size: 13px; color: #4F5B66">Treasury</dt><dd style="margin: 0; font-weight: 700">{{tname}}</dd></div>
+<div style="border: 1px solid #E2E7EB; border-radius: 14px; padding: 14px"><dt style="font-size: 13px; color: #4F5B66">Rules</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px">{{trules}}</dd></div>
+</dl>
+<div style="border: 2px solid #8A3B09; background: #FDF0E4; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="font-weight: 700; font-size: 18px; color: #6B2C05">This choice is final in Phase 1</div>
+<p style="margin: 0; color: #5A2A0B">Coral Desk cannot leave {{tname}} or switch to another treasury. Switching by majority vote of members comes in a later phase.</p>
+<label style="display: flex; align-items: center; gap: 12px; min-height: 44px; font-weight: 700; color: #6B2C05"><input type="checkbox" checked="{{ack}}" onChange="{{toggleAck}}" style="width: 22px; height: 22px; accent-color: #8A3B09"> I understand Coral Desk stays under {{tname}}</label>
+</div>
+</div>
+</sc-if>
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; padding-top: 18px; border-top: 1px solid #E2E7EB">
+<button onClick="{{back}}" style="min-height: 48px; padding: 0 20px; border-radius: 999px; border: 1px solid #C3CBD2; background: #FFFFFF; font: inherit; font-weight: 700; color: #12181F">{{backLabel}}</button>
+<sc-if value="{{showNext}}" hint-placeholder-val="{{ true }}">
+<button onClick="{{next}}" style="min-height: 48px; padding: 0 24px; border-radius: 999px; border: 0; background: #12181F; color: #FFFFFF; font: inherit; font-weight: 700">Continue</button>
+</sc-if>
+<sc-if value="{{canCreate}}" hint-placeholder-val="{{ false }}">
+<a href="C-09-Approval.dc.html" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 999px; background: #0B6B5D; color: #FFFFFF; text-decoration: none; font-weight: 700">Create DAO and sign</a>
+</sc-if>
+<sc-if value="{{blocked}}" hint-placeholder-val="{{ false }}">
+<button disabled style="min-height: 48px; padding: 0 24px; border-radius: 999px; border: 0; background: #D5DBE0; color: #4F5B66; font: inherit; font-weight: 700">Create DAO and sign</button>
+</sc-if>
+</div>
+</section>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"startStep":{"editor":"enum","options":["1","2","3"],"default":"2"},"$preview":{"width":1280,"height":1300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const step = s.step || parseInt(this.props.startStep ?? '2', 10) || 2;
+    const pick = s.pick || 'Lean Guild';
+    const ack = !!s.ack;
+    const T = [
+      { name: 'Commonwealth', rules: '5% fee · 3% exp · 7-day hold · Equal', mem: '0.92', free: 358 },
+      { name: 'Lean Guild', rules: '1% fee · 0% exp · 14-day hold · Equal', mem: '0.99', free: 63 },
+      { name: 'Meritline', rules: '8% fee · 4% exp · 3-day hold · Custom', mem: '0.88', free: 20 },
+      { name: 'Open Field', rules: '2% fee · 2% exp · 30-day hold · Equal', mem: '0.96', free: 238 }
+    ];
+    const cur = T.find((t) => t.name === pick);
+    const L = ['Details', 'Choose treasury', 'Confirm and sign'];
+    return {
+      steps: L.map((label, i) => {
+        const k = i + 1, c = k === step, d = k < step;
+        return { n: d ? '✓' : String(k), label: label, current: c ? 'step' : 'false',
+          bg: c ? '#12181F' : '#FFFFFF', fg: c ? '#FFFFFF' : '#12181F', border: c ? '#12181F' : '#C3CBD2',
+          dotBg: c ? '#FFFFFF' : (d ? '#0B6B5D' : '#E2E7EB'), dotFg: c ? '#12181F' : (d ? '#FFFFFF' : '#33404C'),
+          go: () => this.setState({ step: k }) };
+      }),
+      s1: step === 1, s2: step === 2, s3: step === 3,
+      trs: T.map((t) => Object.assign({}, t, {
+        on: t.name === pick, border: t.name === pick ? '#0B6B5D' : '#D5DBE0', bg: t.name === pick ? '#F2F8F6' : '#FFFFFF',
+        chosen: t.name === pick ? 'Selected' : '',
+        pick: () => this.setState({ pick: t.name })
+      })),
+      tname: cur.name, trules: cur.rules,
+      ack: ack, toggleAck: () => this.setState({ ack: !ack }),
+      backLabel: step === 1 ? 'Cancel' : 'Back',
+      back: () => this.setState({ step: Math.max(1, step - 1) }),
+      next: () => this.setState({ step: Math.min(3, step + 1) }),
+      showNext: step < 3,
+      canCreate: step === 3 && ack,
+      blocked: step === 3 && !ack
+    };
+  }
+}
+</script>
+</body>
+</html>

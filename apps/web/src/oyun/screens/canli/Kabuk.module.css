@@ -1,0 +1,46 @@
+/* Kurucu şehir ekranının kabuğa özgü yerleşimi (renk takma adları OyunEkrani `.kok` içinde çözülür). */
+
+/* Koşu yok / yükleniyor / hata: tam ekran kapta ortalanır. */
+.merkez {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: var(--space-24);
+}
+
+.bekle {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: var(--ekran-yazi-soluk);
+}
+
+/* Üst orta yuva: zaman kontrolleri ve altındaki bantlar. */
+.ustOrta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  max-width: 100%;
+  min-width: 0;
+}
+
+.bantlar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: var(--measure-560);
+}
+
+.bantlar:empty {
+  display: none;
+}
+
+.ipucu {
+  width: 100%;
+}

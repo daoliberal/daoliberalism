@@ -1,0 +1,1008 @@
+{
+ "gozlem": {
+  "hafta": 2,
+  "ben": {
+   "sehir": 0,
+   "nakit": 53.347095,
+   "mevduat": {
+    "lonca": null,
+    "tutar": 0.0
+   },
+   "is": {
+    "firma": null,
+    "sektor": null,
+    "ucret": 0.0
+   },
+   "durum": "is_arayan",
+   "calisilan_hafta": 1,
+   "itibar": 0.133111,
+   "tecrube_hafta": 0.0,
+   "terfi_esik": {
+    "kalfa": {
+     "hafta": 40.0,
+     "itibar": 4.0
+    },
+    "usta": {
+     "hafta": 150.0,
+     "itibar": 12.0
+    }
+   },
+   "servet_dilimi": 1,
+   "unvan": "cirak"
+  },
+  "firmam": null,
+  "kurabilir": {
+   "evet": false,
+   "eksikler": [
+    "issiz",
+    "harc"
+   ],
+   "harc": 200.0,
+   "gereken_hafta": 1
+  },
+  "sektorler": [
+   {
+    "sektor": "guvenlik",
+    "urun": "koruma",
+    "fiyat": 0.745171,
+    "firma": 1,
+    "eksik": 110.856111,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "maden_komur",
+    "urun": "komur",
+    "fiyat": 0.489825,
+    "firma": 1,
+    "eksik": 0.385278,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "santral",
+    "urun": "elektrik",
+    "fiyat": 0.216361,
+    "firma": 1,
+    "eksik": 454.932978,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "yazilim",
+    "urun": "yazilim",
+    "fiyat": 0.5,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "tarla_bugday",
+    "urun": "bugday",
+    "fiyat": 0.59535,
+    "firma": 1,
+    "eksik": 53403.690324,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "tarla_seker",
+    "urun": "seker",
+    "fiyat": 0.697097,
+    "firma": 1,
+    "eksik": 1705.436304,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "tarla_pamuk",
+    "urun": "pamuk",
+    "fiyat": 0.507287,
+    "firma": 1,
+    "eksik": 170.422725,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "maden_silika",
+    "urun": "silika",
+    "fiyat": 0.6897,
+    "firma": 1,
+    "eksik": 1549.363195,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "maden_aluminyum",
+    "urun": "aluminyum",
+    "fiyat": 2.122154,
+    "firma": 1,
+    "eksik": 6087.509557,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "maden_kimyasal",
+    "urun": "kimyasal",
+    "fiyat": 2.126563,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "petrol",
+    "urun": "petrol",
+    "fiyat": 10.632814,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "plastik",
+    "urun": "plastik",
+    "fiyat": 0.802006,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "elektronik",
+    "urun": "bilesen",
+    "fiyat": 3.701771,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "bilgisayar",
+    "urun": "bilgisayar",
+    "fiyat": 340.933975,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "kereste",
+    "urun": "kereste",
+    "fiyat": 0.106328,
+    "firma": 0,
+    "eksik": 3.493024,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "un",
+    "urun": "un",
+    "fiyat": 2.116524,
+    "firma": 1,
+    "eksik": 1315.759102,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "cam",
+    "urun": "cam",
+    "fiyat": 2.567589,
+    "firma": 0,
+    "eksik": 5821.523885,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "tekstil",
+    "urun": "tekstil",
+    "fiyat": 1.821325,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "firin",
+    "urun": "ekmek",
+    "fiyat": 2.334916,
+    "firma": 1,
+    "eksik": 706.959423,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "sise_sut",
+    "urun": "sise_sut",
+    "fiyat": 0.80959,
+    "firma": 0,
+    "eksik": 3736.149048,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "kola",
+    "urun": "kola",
+    "fiyat": 0.597406,
+    "firma": 0,
+    "eksik": 26141.550668,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "deterjan",
+    "urun": "deterjan",
+    "fiyat": 1.415183,
+    "firma": 0,
+    "eksik": 996.39582,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "giyim",
+    "urun": "kot",
+    "fiyat": 4.223953,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "moda",
+    "urun": "moda",
+    "fiyat": 10.208186,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "mobilya",
+    "urun": "sandalye",
+    "fiyat": 5.013675,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "otel",
+    "urun": "konaklama",
+    "fiyat": 2.856596,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "ulasim",
+    "urun": "yolculuk",
+    "fiyat": 0.47599,
+    "firma": 1,
+    "eksik": 87.972865,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "maden_altin",
+    "urun": "altin",
+    "fiyat": 21.265628,
+    "firma": 0,
+    "eksik": 4.747025,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "kuyumcu",
+    "urun": "mucevher",
+    "fiyat": 58.676567,
+    "firma": 1,
+    "eksik": 376.430285,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "restoran",
+    "urun": "yemek",
+    "fiyat": 2.290321,
+    "firma": 1,
+    "eksik": 2338.56492,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "eglence",
+    "urun": "eglence",
+    "fiyat": 2.658204,
+    "firma": 1,
+    "eksik": 1050.448071,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "insaat",
+    "urun": "insaat",
+    "fiyat": 13.969152,
+    "firma": 1,
+    "eksik": 486.480699,
+    "disaridan": 0.0
+   }
+  ],
+  "loncalar": [
+   {
+    "ad": "lonca0",
+    "mevduat_faizi": 0.0,
+    "kapali": false,
+    "mevduat": 0.0
+   },
+   {
+    "ad": "lonca1",
+    "mevduat_faizi": 0.0,
+    "kapali": false,
+    "mevduat": 0.0
+   },
+   {
+    "ad": "lonca2",
+    "mevduat_faizi": 0.0,
+    "kapali": false,
+    "mevduat": 0.0
+   },
+   {
+    "ad": "lonca3",
+    "mevduat_faizi": 0.0,
+    "kapali": false,
+    "mevduat": 0.0
+   },
+   {
+    "ad": "lonca4",
+    "mevduat_faizi": 0.0,
+    "kapali": false,
+    "mevduat": 0.0
+   },
+   {
+    "ad": "lonca5",
+    "mevduat_faizi": 0.0,
+    "kapali": false,
+    "mevduat": 0.0
+   }
+  ],
+  "sehir": {
+   "talep_karsilama": 0.588685,
+   "is_arayan": 195
+  },
+  "tercih": {
+   "mevduat": null
+  },
+  "gecmis": {
+   "dilim0": 3,
+   "firmalar": []
+  },
+  "olaylar": [
+   {
+    "tur": "ahirdan_cikti",
+    "hafta": 2
+   }
+  ],
+  "ilanlar": [
+   {
+    "firma": "s0_universite0",
+    "ad": "s0_universite0",
+    "sektor": "universite",
+    "acik": 1,
+    "ucret": 131.026,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_ilac0",
+    "ad": "s0_ilac0",
+    "sektor": "ilac",
+    "acik": 1,
+    "ucret": 109.186,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_okul0",
+    "ad": "s0_okul0",
+    "sektor": "okul",
+    "acik": 1,
+    "ucret": 94.626,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_lojistik0",
+    "ad": "s0_lojistik0",
+    "sektor": "lojistik",
+    "acik": 109,
+    "ucret": 72.793,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": true
+   },
+   {
+    "firma": "s0_tarla_seker0",
+    "ad": "s0_tarla_seker0",
+    "sektor": "tarla_seker",
+    "acik": 75,
+    "ucret": 72.793,
+    "kasa_gucu": "orta",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_tarla_pamuk0",
+    "ad": "s0_tarla_pamuk0",
+    "sektor": "tarla_pamuk",
+    "acik": 19,
+    "ucret": 72.793,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_santral0",
+    "ad": "s0_santral0",
+    "sektor": "santral",
+    "acik": 11,
+    "ucret": 72.793,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_belediye0",
+    "ad": "s0_belediye0",
+    "sektor": "belediye",
+    "acik": 6,
+    "ucret": 72.793,
+    "kasa_gucu": "guclu",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_maden_komur0",
+    "ad": "s0_maden_komur0",
+    "sektor": "maden_komur",
+    "acik": 4,
+    "ucret": 72.793,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_restoran0",
+    "ad": "s0_restoran0",
+    "sektor": "restoran",
+    "acik": 3,
+    "ucret": 72.793,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_eglence0",
+    "ad": "s0_eglence0",
+    "sektor": "eglence",
+    "acik": 2,
+    "ucret": 72.793,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_insaat0",
+    "ad": "s0_insaat0",
+    "sektor": "insaat",
+    "acik": 1,
+    "ucret": 72.793,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_kuyumcu0",
+    "ad": "s0_kuyumcu0",
+    "sektor": "kuyumcu",
+    "acik": 1,
+    "ucret": 72.793,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   }
+  ]
+ },
+ "kabul_gozlemi": {
+  "hafta": 5,
+  "ben": {
+   "sehir": 0,
+   "nakit": 8.576999,
+   "mevduat": {
+    "lonca": null,
+    "tutar": 0.0
+   },
+   "is": {
+    "firma": "s0_belediye0",
+    "sektor": "belediye",
+    "ucret": 73.689
+   },
+   "durum": "calisan",
+   "calisilan_hafta": 2,
+   "itibar": 0.26578,
+   "tecrube_hafta": 0.0,
+   "terfi_esik": {
+    "kalfa": {
+     "hafta": 40.0,
+     "itibar": 4.0
+    },
+    "usta": {
+     "hafta": 150.0,
+     "itibar": 12.0
+    }
+   },
+   "servet_dilimi": 4,
+   "unvan": "cirak"
+  },
+  "firmam": null,
+  "kurabilir": {
+   "evet": false,
+   "eksikler": [
+    "harc"
+   ],
+   "harc": 200.0,
+   "gereken_hafta": 1
+  },
+  "sektorler": [
+   {
+    "sektor": "guvenlik",
+    "urun": "koruma",
+    "fiyat": 0.659279,
+    "firma": 1,
+    "eksik": 59.995943,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "maden_komur",
+    "urun": "komur",
+    "fiyat": 0.468316,
+    "firma": 1,
+    "eksik": 0.308921,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "santral",
+    "urun": "elektrik",
+    "fiyat": 0.199398,
+    "firma": 1,
+    "eksik": 348.11062,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "yazilim",
+    "urun": "yazilim",
+    "fiyat": 0.5,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "tarla_bugday",
+    "urun": "bugday",
+    "fiyat": 0.622426,
+    "firma": 1,
+    "eksik": 1217.886666,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "tarla_seker",
+    "urun": "seker",
+    "fiyat": 0.735112,
+    "firma": 1,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "tarla_pamuk",
+    "urun": "pamuk",
+    "fiyat": 0.486995,
+    "firma": 1,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "maden_silika",
+    "urun": "silika",
+    "fiyat": 0.634824,
+    "firma": 1,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "maden_aluminyum",
+    "urun": "aluminyum",
+    "fiyat": 2.252724,
+    "firma": 1,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "maden_kimyasal",
+    "urun": "kimyasal",
+    "fiyat": 2.233731,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "petrol",
+    "urun": "petrol",
+    "fiyat": 11.168656,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "plastik",
+    "urun": "plastik",
+    "fiyat": 0.853509,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "elektronik",
+    "urun": "bilesen",
+    "fiyat": 3.884079,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "bilgisayar",
+    "urun": "bilgisayar",
+    "fiyat": 346.335469,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "kereste",
+    "urun": "kereste",
+    "fiyat": 0.111687,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "un",
+    "urun": "un",
+    "fiyat": 2.200913,
+    "firma": 1,
+    "eksik": 17330.318887,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "cam",
+    "urun": "cam",
+    "fiyat": 2.661121,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "tekstil",
+    "urun": "tekstil",
+    "fiyat": 1.815272,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "firin",
+    "urun": "ekmek",
+    "fiyat": 2.720462,
+    "firma": 1,
+    "eksik": 879.639153,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "sise_sut",
+    "urun": "sise_sut",
+    "fiyat": 0.826813,
+    "firma": 0,
+    "eksik": 1768.52946,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "kola",
+    "urun": "kola",
+    "fiyat": 0.619573,
+    "firma": 0,
+    "eksik": 11376.242692,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "deterjan",
+    "urun": "deterjan",
+    "fiyat": 1.538127,
+    "firma": 0,
+    "eksik": 441.942031,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "giyim",
+    "urun": "kot",
+    "fiyat": 4.197203,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "moda",
+    "urun": "moda",
+    "fiyat": 11.036675,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "mobilya",
+    "urun": "sandalye",
+    "fiyat": 5.132883,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "otel",
+    "urun": "konaklama",
+    "fiyat": 3.11912,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "ulasim",
+    "urun": "yolculuk",
+    "fiyat": 0.421125,
+    "firma": 1,
+    "eksik": 22.245646,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "maden_altin",
+    "urun": "altin",
+    "fiyat": 22.337313,
+    "firma": 0,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "kuyumcu",
+    "urun": "mucevher",
+    "fiyat": 56.748413,
+    "firma": 1,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "restoran",
+    "urun": "yemek",
+    "fiyat": 2.316313,
+    "firma": 1,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "eglence",
+    "urun": "eglence",
+    "fiyat": 2.634053,
+    "firma": 1,
+    "eksik": 14.846753,
+    "disaridan": 0.0
+   },
+   {
+    "sektor": "insaat",
+    "urun": "insaat",
+    "fiyat": 13.604179,
+    "firma": 1,
+    "eksik": 0.0,
+    "disaridan": 0.0
+   }
+  ],
+  "loncalar": [
+   {
+    "ad": "lonca0",
+    "mevduat_faizi": 0.0,
+    "kapali": false,
+    "mevduat": 0.0
+   },
+   {
+    "ad": "lonca1",
+    "mevduat_faizi": 0.0,
+    "kapali": false,
+    "mevduat": 0.0
+   },
+   {
+    "ad": "lonca2",
+    "mevduat_faizi": 0.0,
+    "kapali": false,
+    "mevduat": 0.0
+   },
+   {
+    "ad": "lonca3",
+    "mevduat_faizi": 0.0,
+    "kapali": false,
+    "mevduat": 0.0
+   },
+   {
+    "ad": "lonca4",
+    "mevduat_faizi": 0.0,
+    "kapali": false,
+    "mevduat": 0.0
+   },
+   {
+    "ad": "lonca5",
+    "mevduat_faizi": 0.0,
+    "kapali": false,
+    "mevduat": 0.0
+   }
+  ],
+  "sehir": {
+   "talep_karsilama": 0.996299,
+   "is_arayan": 10
+  },
+  "tercih": {
+   "mevduat": null
+  },
+  "gecmis": {
+   "dilim0": 3,
+   "firmalar": []
+  },
+  "olaylar": [
+   {
+    "tur": "basvuru_kabul",
+    "hafta": 5,
+    "firma": "s0_belediye0"
+   },
+   {
+    "tur": "ise_girdi",
+    "hafta": 5,
+    "firma": "s0_belediye0"
+   }
+  ],
+  "ilanlar": [
+   {
+    "firma": "s0_universite0",
+    "ad": "s0_universite0",
+    "sektor": "universite",
+    "acik": 1,
+    "ucret": 137.13,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_hastane0",
+    "ad": "s0_hastane0",
+    "sektor": "hastane",
+    "acik": 2,
+    "ucret": 114.275,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_ilac0",
+    "ad": "s0_ilac0",
+    "sektor": "ilac",
+    "acik": 1,
+    "ucret": 114.275,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_okul0",
+    "ad": "s0_okul0",
+    "sektor": "okul",
+    "acik": 1,
+    "ucret": 99.043,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_eczane0",
+    "ad": "s0_eczane0",
+    "sektor": "eczane",
+    "acik": 2,
+    "ucret": 91.42,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   },
+   {
+    "firma": "s0_maden_silika0",
+    "ad": "s0_maden_silika0",
+    "sektor": "maden_silika",
+    "acik": 21,
+    "ucret": 76.188,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": true
+   },
+   {
+    "firma": "s0_tarla_pamuk0",
+    "ad": "s0_tarla_pamuk0",
+    "sektor": "tarla_pamuk",
+    "acik": 1,
+    "ucret": 76.188,
+    "kasa_gucu": "zayif",
+    "maas_odeyemedi": false
+   }
+  ]
+ },
+ "olaylar": [
+  {
+   "tur": "ahirdan_cikti",
+   "hafta": 2
+  },
+  {
+   "tur": "basvuru_red",
+   "hafta": 3,
+   "firma": "s1_universite0",
+   "neden": "sehir"
+  },
+  {
+   "tur": "basvuru_red",
+   "hafta": 4,
+   "firma": "s0_market0",
+   "neden": "ilan_kapandi"
+  },
+  {
+   "tur": "basvuru_kabul",
+   "hafta": 5,
+   "firma": "s0_belediye0"
+  },
+  {
+   "tur": "ise_girdi",
+   "hafta": 5,
+   "firma": "s0_belediye0"
+  },
+  {
+   "tur": "basvuru_kabul",
+   "hafta": 6,
+   "firma": "s0_hastane0"
+  },
+  {
+   "tur": "is_degistirdi",
+   "hafta": 6,
+   "eski": "s0_belediye0",
+   "yeni": "s0_hastane0"
+  },
+  {
+   "tur": "isten_cikarildi",
+   "hafta": 6,
+   "firma": "s0_hastane0",
+   "neden": "ucret_odenmedi"
+  }
+ ],
+ "ret": [
+  {
+   "karar": {
+    "tur": "ayril"
+   },
+   "kod": "karar_gecersiz",
+   "fields": [
+    {
+     "id": "tur",
+     "reason": "ahirda"
+    }
+   ]
+  },
+  {
+   "karar": {
+    "tur": "basvur",
+    "firma": "s0_universite0"
+   },
+   "kod": "karar_gecersiz",
+   "fields": [
+    {
+     "id": "tur",
+     "reason": "ahirda"
+    }
+   ]
+  },
+  {
+   "karar": {
+    "tur": "ahirdan_cik"
+   },
+   "kod": "karar_gecersiz",
+   "fields": [
+    {
+     "id": "tur",
+     "reason": "ahirda_degil"
+    }
+   ]
+  },
+  {
+   "karar": {
+    "tur": "basvur",
+    "firma": "yok_firma"
+   },
+   "kod": "karar_gecersiz",
+   "fields": [
+    "firma"
+   ]
+  },
+  {
+   "karar": {
+    "tur": "basvur",
+    "firma": "s0_belediye0"
+   },
+   "kod": "karar_gecersiz",
+   "fields": [
+    {
+     "id": "firma",
+     "reason": "ayni_firma"
+    }
+   ]
+  }
+ ]
+}

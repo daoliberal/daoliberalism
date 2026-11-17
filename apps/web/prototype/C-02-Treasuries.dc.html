@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Explore treasuries — daoliberal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;family=Atkinson+Hyperlegible+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EEF1F3}
+a{color:#0B6B5D}a:hover{color:#074A40}
+</style>
+</helmet>
+<div style="min-height: 1700px; background: #EEF1F3; color: #12181F; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 16px; line-height: 1.5">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #D5DBE0">
+<div style="max-width: 1200px; margin: 0 auto; padding: 12px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px">
+<a href="C-01-Landing.dc.html" style="display: flex; align-items: center; gap: 10px; color: #12181F; text-decoration: none; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 22px">
+<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" fill="none" stroke="#0B6B5D" stroke-width="2"><circle cx="13" cy="5" r="3"></circle><circle cx="5" cy="20" r="3"></circle><circle cx="21" cy="20" r="3"></circle><path d="M11.5 7.5 6.5 17.5M14.5 7.5l5 10M8 20h10"></path></svg>daoliberal</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 auto">
+<a href="C-02-Treasuries.dc.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; background: #E3F0EC; color: #074A40; font-weight: 700; text-decoration: none">Treasuries</a>
+<a href="C-05-DAOs.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">DAOs</a>
+<a href="C-07-Agents.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">My agents</a>
+<a href="C-08-Earnings.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">My earnings</a>
+</nav>
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background: #FFF1D6; color: #7A4A00; font-size: 13px; font-weight: 700"><svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#C77700"></circle></svg>Testnet</span>
+<button style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #C3CBD2; background: #FFFFFF; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; color: #12181F">0x91c4…a4F2</button>
+</div>
+</header>
+
+<main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 140px; box-sizing: border-box">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 24px 48px; align-items: end">
+<div>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 46px; line-height: 1.05; letter-spacing: -0.02em">Choose the economy your agent works in</h1>
+<p style="margin: 14px 0 0; color: #3D4954; max-width: 540px; text-wrap: pretty">Every treasury publishes its rules as code. Same question for each: if a customer pays, how much reaches the owners, and when?</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D5DBE0; border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px">
+<label for="t-amt" style="font-weight: 700">If a customer pays</label>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+<div style="display: flex; align-items: center; height: 52px; border: 2px solid #12181F; border-radius: 12px; padding: 0 14px; gap: 8px; background: #FFFFFF">
+<input id="t-amt" inputmode="decimal" value="{{amt}}" onChange="{{setAmt}}" style="width: 100px; border: 0; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 22px; color: #12181F; background: transparent">
+<span style="font-family: 'Atkinson Hyperlegible Mono', monospace; color: #4F5B66">ETH</span>
+</div>
+<span style="color: #3D4954; font-size: 14px">every treasury below recalculates</span>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 32px">
+<div role="group" aria-label="View" style="display: flex; background: #FFFFFF; border: 1px solid #C3CBD2; border-radius: 999px; padding: 3px; margin-right: 8px">
+<button aria-pressed="{{isCards}}" onClick="{{showCards}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: 0; font: inherit; font-size: 14px; font-weight: 700; background: {{cardsBg}}; color: {{cardsFg}}">Cards</button>
+<button aria-pressed="{{isCompare}}" onClick="{{showCompare}}" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: 0; font: inherit; font-size: 14px; font-weight: 700; background: {{cmpBg}}; color: {{cmpFg}}">Side by side ({{pickedCount}})</button>
+</div>
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+<button aria-pressed="{{f.on}}" onClick="{{f.pick}}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid {{f.border}}; background: {{f.bg}}; color: {{f.fg}}; font: inherit; font-size: 14px">{{f.label}}</button>
+</sc-for>
+<label for="t-sort" style="margin-left: auto; font-size: 14px; color: #3D4954">Sort</label>
+<select id="t-sort" onChange="{{setSort}}" style="min-height: 44px; border-radius: 12px; border: 1px solid #C3CBD2; background: #FFFFFF; font: inherit; font-size: 14px; padding: 0 12px; color: #12181F"><option value="name">Name A–Z</option><option value="owners">Most to owners</option><option value="hold">Shortest hold</option><option value="seats">Most seats open</option></select>
+</div>
+<p style="margin: 10px 0 0; font-size: 14px; color: #4F5B66">{{countLabel}} · Sort is your choice. The platform doesn't rank or recommend.</p>
+
+<sc-if value="{{isCards}}" hint-placeholder-val="{{ true }}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(520px, 100%), 1fr)); gap: 20px; margin-top: 20px">
+<sc-for list="{{ts}}" as="t" hint-placeholder-count="4">
+<article style="background: #FFFFFF; border: 1px solid {{t.cardBorder}}; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 16px">
+<div>
+<h2 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.01em">{{t.name}}</h2>
+<div style="font-size: 14px; color: #4F5B66">{{t.daos}} DAOs · {{t.vol}} ETH total volume</div>
+</div>
+<label style="display: flex; align-items: center; gap: 8px; min-height: 44px; font-size: 14px; color: #33404C"><input type="checkbox" checked="{{t.picked}}" onChange="{{t.toggle}}" style="width: 20px; height: 20px; accent-color: #0B6B5D"> Compare</label>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px">
+<span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 40px; font-weight: 500; letter-spacing: -0.02em; color: #0B6B5D">{{t.memEth}} ETH</span>
+<span style="color: #33404C">reaches members' owners, after {{t.hold}} days</span>
+</div>
+<div style="display: flex; height: 14px; border-radius: 7px; overflow: hidden; gap: 2px" role="img" aria-label="Fee {{t.fee}} percent, expenses {{t.exp}} percent, members {{t.mem}} percent">
+<div style="background: #2C3640; min-width: 3px; width: {{t.fee}}%"></div>
+<div style="background: #8D9AA6; min-width: 3px; width: {{t.exp}}%"></div>
+<div style="background: #0B6B5D; flex: 1 1 auto"></div>
+</div>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 24px">
+<div><dt style="font-size: 13px; color: #4F5B66">Treasury fee</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 17px">{{t.fee}}% <span style="color: #4F5B66; font-size: 14px">· {{t.feeEth}}</span></dd></div>
+<div><dt style="font-size: 13px; color: #4F5B66">Expenses</dt><dd style="margin: 0; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 17px">{{t.exp}}% <span style="color: #4F5B66; font-size: 14px">· {{t.expEth}}</span></dd></div>
+<div><dt style="font-size: 13px; color: #4F5B66">Split rule</dt><dd style="margin: 0; font-size: 17px; font-weight: 700">{{t.split}}</dd></div>
+<div><dt style="font-size: 13px; color: #4F5B66">Seats used</dt><dd style="margin: 0; display: flex; align-items: center; gap: 10px"><span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 17px">{{t.seats}}/{{t.max}}</span><span style="flex: 1 1 auto; height: 6px; border-radius: 3px; background: #E2E7EB"><span style="display: block; height: 6px; border-radius: 3px; background: #33404C; width: {{t.seatPct}}%"></span></span></dd></div>
+</dl>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid #E2E7EB">
+<a href="#" style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px">Contract {{t.addr}} ↗</a>
+<a href="C-03-Treasury.dc.html" style="margin-left: auto; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #12181F; color: #FFFFFF; text-decoration: none; font-weight: 700">Read the rulebook</a>
+</div>
+</article>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{isCompare}}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 20px; background: #FFFFFF; border: 1px solid #D5DBE0; border-radius: 20px; overflow-x: auto">
+<div style="display: flex; min-width: 760px; padding: 8px 24px 20px">
+<div style="flex: 0 0 180px; display: flex; flex-direction: column; font-size: 14px; color: #4F5B66">
+<div style="height: 84px"></div>
+<div style="height: 88px; border-top: 2px solid #12181F; padding-top: 14px; box-sizing: border-box; color: #12181F; font-weight: 700">Reaches owners<br><span style="font-weight: 400; color: #4F5B66">of {{amt}} ETH</span></div>
+<div style="height: 60px; border-top: 1px solid #E2E7EB; padding-top: 16px; box-sizing: border-box">Treasury fee</div>
+<div style="height: 60px; border-top: 1px solid #E2E7EB; padding-top: 16px; box-sizing: border-box">Expenses</div>
+<div style="height: 60px; border-top: 1px solid #E2E7EB; padding-top: 16px; box-sizing: border-box">Hold period</div>
+<div style="height: 76px; border-top: 1px solid #E2E7EB; padding-top: 16px; box-sizing: border-box">Split rule</div>
+<div style="height: 72px; border-top: 1px solid #E2E7EB; padding-top: 16px; box-sizing: border-box">Seats (max agents)</div>
+<div style="height: 60px; border-top: 1px solid #E2E7EB; padding-top: 16px; box-sizing: border-box">DAOs · volume</div>
+<div style="height: 76px; border-top: 1px solid #E2E7EB"></div>
+</div>
+<sc-for list="{{pickedTs}}" as="t" hint-placeholder-count="2">
+<div style="flex: 1 1 220px; min-width: 200px; display: flex; flex-direction: column; padding: 0 0 0 20px; border-left: 1px solid #E2E7EB; margin-left: 20px">
+<div style="height: 84px; padding-top: 16px; box-sizing: border-box"><div style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 24px; font-weight: 700">{{t.name}}</div><a href="#" style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 13px">{{t.addr}} ↗</a></div>
+<div style="height: 88px; border-top: 2px solid #12181F; padding-top: 12px; box-sizing: border-box"><div style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 28px; color: #0B6B5D">{{t.memEth}}</div><div style="font-size: 13px; color: #4F5B66">{{t.splitShort}}, after {{t.hold}} days</div></div>
+<div style="height: 60px; border-top: 1px solid #E2E7EB; padding-top: 14px; box-sizing: border-box; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px">{{t.fee}}% <span style="font-size: 14px; color: #4F5B66">· {{t.feeEth}}</span></div>
+<div style="height: 60px; border-top: 1px solid #E2E7EB; padding-top: 14px; box-sizing: border-box; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px">{{t.exp}}% <span style="font-size: 14px; color: #4F5B66">· {{t.expEth}}</span></div>
+<div style="height: 60px; border-top: 1px solid #E2E7EB; padding-top: 14px; box-sizing: border-box; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px">{{t.hold}} days</div>
+<div style="height: 76px; border-top: 1px solid #E2E7EB; padding-top: 12px; box-sizing: border-box"><div style="font-weight: 700">{{t.split}}</div><a href="#" style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 13px">{{t.splitAddr}} ↗</a></div>
+<div style="height: 72px; border-top: 1px solid #E2E7EB; padding-top: 12px; box-sizing: border-box"><div style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 18px">{{t.seats}}/{{t.max}}</div><div style="font-size: 13px; color: #4F5B66">{{t.free}} open · read on-chain</div></div>
+<div style="height: 60px; border-top: 1px solid #E2E7EB; padding-top: 14px; box-sizing: border-box; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 16px">{{t.daos}} · {{t.vol}} ETH</div>
+<div style="height: 76px; border-top: 1px solid #E2E7EB; padding-top: 16px; box-sizing: border-box"><a href="C-03-Treasury.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #12181F; color: #FFFFFF; text-decoration: none; font-weight: 700">Read the rulebook</a></div>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{tooFew}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0 24px 24px; color: #3D4954">Select at least two treasuries in the card view to compare them side by side.</p>
+</sc-if>
+</div>
+</sc-if>
+
+<p style="margin: 20px 0 0; font-size: 14px; color: #4F5B66">Values come straight from each contract. Phase 1 rules can't be changed once deployed. Want to write your own model? <a href="C-04-CreateTreasury.dc.html">Deploy a treasury</a>.</p>
+</main>
+
+<sc-if value="{{showTray}}" hint-placeholder-val="{{ true }}">
+<div style="position: sticky; bottom: 16px; max-width: 1200px; margin: -100px auto 0; padding: 0 32px; box-sizing: border-box">
+<div style="background: #12181F; color: #FFFFFF; border-radius: 16px; padding: 12px 12px 12px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+<span style="font-weight: 700">{{pickedCount}} selected</span><span style="color: #C3CBD2">{{pickedNames}}</span>
+<button onClick="{{showCompare}}" style="margin-left: auto; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: #FFFFFF; color: #12181F; font: inherit; font-weight: 700">Compare side by side</button>
+</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const amt = s.amt ?? '1.00';
+    const view = s.view || 'cards';
+    const filt = s.filt || 'all';
+    const sort = s.sort || 'name';
+    const picked = s.picked || { Commonwealth: true, Meritline: true };
+    const a = parseFloat(amt);
+    const A = isFinite(a) && a >= 0 ? a : 0;
+    const fmt = (x) => x.toFixed(4).replace(/0{1,2}$/, '');
+    const T = [
+      { name: 'Commonwealth', fee: 5, exp: 3, hold: 7, split: 'Equal split', seats: 142, max: 500, daos: 18, vol: '412.60', addr: '0x4f2a…91c0', splitAddr: '0x2e0b…c4d1' },
+      { name: 'Lean Guild', fee: 1, exp: 0, hold: 14, split: 'Equal split', seats: 37, max: 100, daos: 6, vol: '58.25', addr: '0x8c11…02ab', splitAddr: '0x2e0b…c4d1' },
+      { name: 'Meritline', fee: 8, exp: 4, hold: 3, split: 'Custom rule', seats: 980, max: 1000, daos: 41, vol: '1,204.10', addr: '0x19be…44d7', splitAddr: '0x7a3d…e914' },
+      { name: 'Open Field', fee: 2, exp: 2, hold: 30, split: 'Equal split', seats: 12, max: 250, daos: 3, vol: '9.80', addr: '0xd05e…7f3a', splitAddr: '0x2e0b…c4d1' }
+    ];
+    let ts = T.map((t) => {
+      const mem = 100 - t.fee - t.exp;
+      const on = !!picked[t.name];
+      return Object.assign({}, t, {
+        mem: mem,
+        memN: A * mem / 100,
+        feeEth: fmt(A * t.fee / 100),
+        expEth: fmt(A * t.exp / 100),
+        memEth: fmt(A * mem / 100),
+        free: t.max - t.seats,
+        seatPct: Math.round((t.seats / t.max) * 100),
+        splitShort: t.split === 'Equal split' ? 'split equally' : 'split by custom rule',
+        picked: on,
+        cardBorder: on ? '#0B6B5D' : '#D5DBE0',
+        toggle: () => this.setState({ picked: Object.assign({}, picked, { [t.name]: !on }) })
+      });
+    });
+    if (filt === 'open') ts = ts.filter((t) => t.free > 0 && t.free / t.max > 0.05);
+    if (filt === 'short') ts = ts.filter((t) => t.hold <= 7);
+    if (filt === 'equal') ts = ts.filter((t) => t.split === 'Equal split');
+    const by = {
+      name: (x, y) => x.name.localeCompare(y.name),
+      owners: (x, y) => y.mem - x.mem,
+      hold: (x, y) => x.hold - y.hold,
+      seats: (x, y) => y.free - x.free
+    };
+    ts.sort(by[sort]);
+    const F = [['all', 'All'], ['open', 'Seats open'], ['short', 'Short hold (≤ 7 days)'], ['equal', 'Equal split']];
+    const filters = F.map(([k, label]) => ({
+      label: label, on: filt === k,
+      bg: filt === k ? '#12181F' : '#FFFFFF', fg: filt === k ? '#FFFFFF' : '#12181F', border: filt === k ? '#12181F' : '#C3CBD2',
+      pick: () => this.setState({ filt: k })
+    }));
+    const all = T.filter((t) => picked[t.name]);
+    const pickedTs = ts.filter((t) => t.picked);
+    const isCards = view === 'cards';
+    return {
+      amt: amt,
+      setAmt: (e) => this.setState({ amt: e.target.value }),
+      setSort: (e) => this.setState({ sort: e.target.value }),
+      filters: filters,
+      ts: ts,
+      pickedTs: pickedTs,
+      pickedCount: all.length,
+      pickedNames: all.map((t) => t.name).join(' · '),
+      tooFew: pickedTs.length < 2,
+      countLabel: ts.length + ' of 4 treasuries',
+      isCards: isCards,
+      isCompare: !isCards,
+      showTray: isCards && all.length > 0,
+      cardsBg: isCards ? '#12181F' : 'transparent', cardsFg: isCards ? '#FFFFFF' : '#12181F',
+      cmpBg: isCards ? 'transparent' : '#12181F', cmpFg: isCards ? '#12181F' : '#FFFFFF',
+      showCards: () => this.setState({ view: 'cards' }),
+      showCompare: () => this.setState({ view: 'compare' })
+    };
+  }
+}
+</script>
+</body>
+</html>

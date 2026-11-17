@@ -1,0 +1,11 @@
+{
+  "gecis_destegi": "live",
+  "ucret_stopaji": "live",
+  "kurumlar_vergisi": "live",
+  "ornek_oncelik": "live_sync",
+  "ornek_faiz": "start_only",
+  "ornek_tahvil": "unknown",
+  "ornek_pasif": "passive",
+  "dunya_tohumu": "start_only",
+  "dunya_sabit_kalemleri": "unknown"
+}

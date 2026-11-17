@@ -1,0 +1,10 @@
+/* Durum takma adları: yalnız mevcut belirteçlere işaret eder (tokens.css değişmez). */
+.kok {
+  --durum-ok-fg: var(--color-brand-strong);
+  --durum-ok-bg: var(--color-brand-tint);
+  --durum-uyari-fg: var(--color-warn-fg);
+  --durum-uyari-bg: var(--color-warn-bg);
+  --durum-kriz-fg: var(--color-caution-fg-strong);
+  --durum-kriz-bg: var(--color-caution-bg);
+  --durum-kriz-kenar: var(--color-caution-accent);
+}

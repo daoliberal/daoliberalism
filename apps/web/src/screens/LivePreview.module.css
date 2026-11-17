@@ -1,0 +1,67 @@
+/* C-04-CreateTreasury:112-126: always-dark live preview */
+.caps {
+  font-size: var(--fs-13);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--ls-caps);
+  color: var(--color-panel-muted);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-22);
+  font-weight: var(--weight-bold);
+  overflow-wrap: anywhere;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-size: var(--fs-15);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-8) 0;
+  border-bottom: var(--border-1) solid var(--color-panel-line);
+}
+
+.last {
+  border-bottom: 0;
+}
+
+.term {
+  color: var(--color-panel-muted);
+}
+
+.termBold {
+  font-weight: var(--weight-bold);
+}
+
+.def {
+  margin: 0;
+  font-family: var(--font-mono);
+}
+
+.rest {
+  color: var(--color-panel-accent);
+  font-size: var(--fs-20);
+}
+
+.sentence {
+  margin: 0;
+  padding: var(--space-12) var(--space-14);
+  border-radius: var(--radius-12);
+  background: var(--color-panel-surface);
+  font-size: var(--fs-14);
+  color: var(--color-panel-note);
+  overflow-wrap: anywhere;
+}
+
+.note {
+  margin: 0;
+  font-size: var(--fs-13);
+  color: var(--color-panel-muted);
+}

@@ -1,0 +1,184 @@
+/* C-05b-DAO:34 */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  box-sizing: border-box;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-28) var(--gutter) var(--space-80);
+}
+
+/* C-05b-DAO:37 */
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-24);
+  align-items: flex-start;
+}
+
+.primary {
+  flex: 999 1 var(--basis-560);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+/* C-05b-DAO:39 */
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-52);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-none);
+  letter-spacing: var(--ls-tight);
+  overflow-wrap: anywhere;
+}
+
+.desc {
+  max-width: var(--measure-lg);
+  margin: var(--space-12) 0 0;
+  color: var(--color-ink-3);
+  font-size: var(--fs-18);
+  overflow-wrap: anywhere;
+}
+
+/* C-05b-DAO:41 */
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-28);
+  margin: var(--space-16) 0 0;
+  font-size: var(--fs-14);
+}
+
+.fact {
+  min-width: 0;
+}
+
+.fact dt {
+  color: var(--color-ink-4);
+}
+
+.fact dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* The prototype's href="#" links point nowhere (no explorer in the mock), so they are link-styled text. */
+.linkLike {
+  color: var(--color-brand);
+  text-decoration: underline;
+}
+
+/* C-05b-DAO:57 */
+.workHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-8);
+}
+
+.workTitle {
+  margin: 0;
+  font-size: var(--fs-20);
+  overflow-wrap: anywhere;
+}
+
+.workTitle a,
+.workTitle a:hover {
+  color: var(--color-ink);
+}
+
+.full {
+  font-weight: var(--weight-bold);
+}
+
+/* The treasury address next to its name: names are not identity (new element, owner approval) */
+.address {
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+  color: var(--color-ink-4);
+}
+
+/* C-05b-DAO:62 */
+.cell {
+  padding: var(--space-10) var(--space-12);
+  border-radius: var(--radius-12);
+  background: var(--color-surface-muted);
+}
+
+.cellLabel {
+  font-size: var(--fs-13);
+  color: var(--color-ink-4);
+}
+
+.cellValue {
+  font-family: var(--font-mono);
+  font-size: var(--fs-18);
+}
+
+.cellText {
+  font-size: var(--fs-18);
+  font-weight: var(--weight-bold);
+}
+
+/* C-05b-DAO:68 */
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-4) var(--space-12);
+  padding: var(--space-14) var(--space-16);
+  border-radius: var(--radius-14);
+  background: var(--color-brand-tint);
+  color: var(--color-brand-strong);
+}
+
+.flowNumber {
+  font-family: var(--font-mono);
+  font-size: var(--fs-20);
+}
+
+/* C-05b-DAO:71 */
+.phase {
+  margin: 0;
+  font-size: var(--fs-14);
+  color: var(--color-ink-3);
+}
+
+/* C-05b-DAO:74 */
+.membersTitle {
+  margin: 0 0 var(--space-8);
+  font-size: var(--fs-20);
+}
+
+.count {
+  color: var(--color-ink-4);
+  font-weight: var(--weight-medium);
+}
+
+.agentName {
+  font-weight: var(--weight-bold);
+}
+
+.tag {
+  font-size: var(--fs-13);
+  font-weight: var(--weight-regular);
+  color: var(--color-ink-4);
+}
+
+.key {
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+}
+
+.joined {
+  color: var(--color-ink-3);
+}

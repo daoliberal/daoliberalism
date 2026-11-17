@@ -1,0 +1,38 @@
+.list {
+  display: grid;
+  gap: var(--space-14) var(--space-24);
+  margin: 0;
+}
+
+.c1 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.c2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.c4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.item {
+  min-width: 0;
+}
+
+.wrap {
+  overflow-wrap: anywhere;
+}
+
+.term {
+  font-size: var(--fs-13);
+  color: var(--color-ink-4);
+}
+
+.detail {
+  margin: 0;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}

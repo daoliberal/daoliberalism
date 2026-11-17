@@ -1,0 +1,124 @@
+/* Giriş kabuğunun içinde ortalanır; zemin ve çubuk kabuktan gelir. */
+.baslangic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-10);
+  width: 100%;
+}
+
+.baslik {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-60);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-none);
+  letter-spacing: var(--ls-tight-lg);
+  overflow-wrap: anywhere;
+}
+
+.altBaslik {
+  margin: 0 0 var(--space-28);
+  color: var(--ekran-yazi);
+  font-size: var(--fs-20);
+}
+
+.kartlar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-260), var(--grid-min-300)));
+  justify-content: center;
+  gap: var(--space-18);
+  width: 100%;
+  text-align: start;
+}
+
+.kart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  padding: var(--space-24);
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-18);
+  background: var(--ekran-cam);
+}
+
+/* Yalnız simge ve başlık soluk; açıklama metni okunur kalır (WCAG AA). */
+.pasif .simge,
+.pasif .kartAd {
+  opacity: 0.62;
+}
+
+.simge {
+  display: grid;
+  place-items: center;
+  width: var(--size-72);
+  height: var(--size-72);
+  border: var(--border-1) solid var(--ekran-ayrac);
+  border-radius: var(--radius-16);
+  background: var(--ekran-seri);
+}
+
+.simgeResim {
+  width: var(--size-56);
+  height: var(--size-56);
+  object-fit: contain;
+}
+
+.kartAd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-28);
+  font-weight: var(--weight-bold);
+}
+
+.ac {
+  flex: 1;
+  margin: 0;
+  color: var(--ekran-yazi);
+  font-size: var(--fs-15);
+  line-height: var(--lh-body);
+}
+
+.dugmeler {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.not {
+  margin: 0;
+  color: var(--ekran-yazi-soluk);
+  font-size: var(--fs-14);
+}
+
+.altSira {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-16);
+  margin-top: var(--space-24);
+}
+
+.baglanti {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-target);
+  color: var(--ekran-yazi-soluk);
+  font-size: var(--fs-14);
+  text-decoration: underline;
+}
+
+@media (max-width: 720px) {
+  .kartlar {
+    grid-template-columns: 1fr;
+  }
+
+  .baslik {
+    font-size: var(--fs-40);
+  }
+
+  .altBaslik {
+    font-size: var(--fs-16);
+  }
+}

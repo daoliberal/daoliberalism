@@ -1,0 +1,132 @@
+.izgara {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: var(--space-24);
+  min-width: 0;
+}
+
+.suzgec {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.hafta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: var(--fs-14);
+}
+
+.olayDugme {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: var(--space-3);
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.olayDugme[aria-pressed="true"] {
+  font-weight: var(--weight-bold);
+}
+
+.olayDugme:focus-visible {
+  outline: var(--border-2) solid var(--color-ink);
+  outline-offset: var(--space-2);
+}
+
+.adimlar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.adim {
+  padding: var(--space-6) var(--space-10);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-12);
+  overflow-wrap: anywhere;
+}
+
+.ok {
+  color: var(--color-slate);
+}
+
+.tanilar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tani {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  padding: var(--space-10);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-12);
+  overflow-wrap: anywhere;
+}
+
+.aralik {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.aralikGirdi {
+  flex: 1 1 var(--space-120);
+  min-width: 0;
+  accent-color: var(--color-ink);
+}
+
+.kutu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-10);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-12);
+}
+
+.kutuMetin {
+  flex: 1 1 100%;
+  margin: 0;
+}
+
+.sebep {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: var(--fs-14);
+}
+
+.hata {
+  margin: 0;
+  color: var(--color-caution-fg);
+  font-size: var(--fs-14);
+}
+
+@media (max-width: 720px) {
+  .izgara {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

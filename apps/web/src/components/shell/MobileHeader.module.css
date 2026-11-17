@@ -1,0 +1,48 @@
+.root,
+.detail {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  border-bottom: var(--border-1) solid var(--color-line);
+  background: var(--color-bg);
+}
+
+/* C-M1-Treasuries:14 */
+.root {
+  gap: var(--space-10);
+  padding: var(--space-10) var(--space-16);
+}
+
+/* C-M2-Treasury:14 */
+.detail {
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-12);
+}
+
+.iconButton,
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-target);
+  height: var(--size-target);
+  color: var(--color-ink);
+}
+
+.iconButton {
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  cursor: pointer;
+}
+
+.back:hover {
+  color: var(--color-ink);
+}
+
+.title {
+  flex: 1 1 auto;
+  font-weight: var(--weight-bold);
+}

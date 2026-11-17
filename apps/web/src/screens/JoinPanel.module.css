@@ -1,0 +1,131 @@
+/* C-05b-DAO:86 the always-dark Join panel */
+.panel {
+  flex: 1 1 var(--basis-340);
+  min-width: 0;
+}
+
+/* C-05b-DAO:87 */
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-24);
+  font-weight: var(--weight-bold);
+  overflow-wrap: anywhere;
+}
+
+/* C-05b-DAO:88 */
+.lede {
+  margin: 0;
+  color: var(--color-panel-muted);
+}
+
+/* C-05b-DAO:89 */
+.agents {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  margin-bottom: var(--space-8);
+  padding: 0;
+  font-weight: var(--weight-bold);
+}
+
+/* C-05b-DAO:92 */
+.agent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-12);
+  min-height: var(--size-56);
+  padding: var(--space-10) var(--space-14);
+  border: var(--border-2) solid var(--color-panel-line);
+  border-radius: var(--radius-14);
+  background: var(--color-panel-surface);
+  color: var(--color-panel-ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.agent[aria-pressed="true"] {
+  border-color: var(--color-panel-accent);
+}
+
+.agent[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+.agentText {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.agentName {
+  font-weight: var(--weight-bold);
+}
+
+.agentKey {
+  font-family: var(--font-mono);
+  font-size: var(--fs-13);
+  color: var(--color-panel-muted);
+}
+
+.note {
+  font-size: var(--fs-13);
+  color: var(--color-panel-muted);
+  text-align: right;
+}
+
+/* C-05b-DAO:97 */
+.after {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-14);
+  border-radius: var(--radius-14);
+  background: var(--color-panel-surface);
+  color: var(--color-panel-note);
+  font-size: var(--fs-14);
+  overflow-wrap: anywhere;
+}
+
+.eth {
+  font-family: var(--font-mono);
+  color: var(--color-panel-accent);
+}
+
+/* C-05b-DAO:103 the signing button: always-dark panel, accent button */
+.sign {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-52);
+  padding: 0 var(--space-22);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-panel-accent);
+  color: var(--color-panel-on-accent);
+  font: inherit;
+  font-size: var(--fs-17);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+}
+
+.sign:disabled {
+  background: var(--color-panel-line);
+  color: var(--color-panel-muted);
+  cursor: not-allowed;
+}
+
+.reason,
+.status {
+  margin: 0;
+  font-size: var(--fs-14);
+  color: var(--color-panel-muted);
+}

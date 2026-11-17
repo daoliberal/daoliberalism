@@ -1,0 +1,65 @@
+{
+  "__readme": "Taslak (C2): ortak-baglam §2.2'den elle yazıldı. W1 gerçek registry_contract.json fikstürüne geçince bu dosya kullanılmayı bırakır.",
+  "groups": [
+    { "id": "kurtarma", "order": 1, "title": "Kurtarma" },
+    { "id": "para_faiz", "order": 2, "title": "Para ve faiz" }
+  ],
+  "templates": [
+    { "id": "dayanikli_taban", "title": "Dayanıklı taban", "values": { "gecis_destegi": "kapali" } }
+  ],
+  "scenarios": [
+    { "id": "ozel", "title": "Özel", "values": {} }
+  ],
+  "cards": [
+    {
+      "id": "gecis_destegi", "layer": "P", "group": "kurtarma", "actor": null, "level": "U", "editable": true, "status": "active",
+      "kind": "options", "params": ["TRANS_SUPPORT"], "requires": [],
+      "title": "Geçiş desteği", "what": "Kriz sırasında işsizlere verilen destek.", "changes": "Destek süresi ve kapsamı.",
+      "hint": "12 başlangıç dünyasında ölçüldü", "basis": { "label": "Ölçüm raporu", "note": "v13.0" },
+      "control": { "type": "options", "options": [{ "value": "kapali", "label": "Kapalı" }, { "value": "kisa_sureli", "label": "Kısa süreli" }] },
+      "default": "kapali", "apply": "live",
+      "measured_at": "kapali", "measured_with": { "_sablon": "dayanikli_taban" }, "measured_weeks": 200, "hint_source": "rapor/gecis.md",
+      "credit_type": null, "scenario_editable": false, "source_world_field": null
+    },
+    {
+      "id": "sehir_tahvili", "layer": "P", "group": "para_faiz", "actor": null, "level": "U", "editable": true, "status": "experimental",
+      "kind": "fields", "params": ["CITY_BOND", "BOND_TERM", "BOND_DEBT_MAX_W"], "requires": ["CITY_BOND"],
+      "title": "Şehir tahvili", "what": "Şehir kasası borçlanır.", "changes": "Vade ve borç tavanı.", "warning": "Deneysel.", "aliases": ["tahvil"],
+      "control": { "type": "fields", "fields": [
+        { "key": "acik", "label": "Açık", "control": { "type": "options", "options": [{ "value": true, "label": "Açık" }, { "value": false, "label": "Kapalı" }] } },
+        { "key": "vade", "label": "Vade", "control": { "type": "number", "min": 26, "max": 260, "step": 26, "unit": "hafta", "integer": true } },
+        { "key": "tavan", "label": "Tavan", "control": { "type": "number", "min": 26, "max": 260, "step": 26, "unit": "hafta", "integer": true } }
+      ] },
+      "default": { "acik": false, "vade": 52, "tavan": 104 }, "apply": "unknown",
+      "measured_at": null, "measured_with": null, "measured_weeks": null, "hint_source": null,
+      "credit_type": null, "scenario_editable": false, "source_world_field": null
+    },
+    {
+      "id": "kredi_sirasi", "layer": "P", "group": "para_faiz", "actor": null, "level": "U", "editable": true, "status": "active",
+      "kind": "order", "params": ["CREDIT_ORDER"], "requires": [],
+      "title": "Kredi sırası", "what": "Kredilerin dağıtım sırası.", "changes": "Öncelik.",
+      "control": { "type": "order", "items": [{ "value": "kurulus", "label": "Kuruluş" }, { "value": "genc", "label": "Genç" }, { "value": "dayanma", "label": "Dayanma" }] },
+      "default": ["kurulus", "genc", "dayanma"], "apply": "start_only",
+      "measured_at": null, "measured_with": null, "measured_weeks": null, "hint_source": null,
+      "credit_type": "kurulus", "scenario_editable": false, "source_world_field": null
+    },
+    {
+      "id": "oncelikli_sektorler", "layer": "P", "group": "para_faiz", "actor": null, "level": "U", "editable": true, "status": "passive",
+      "kind": "multi", "params": ["PRIORITY_SECTORS"], "requires": [],
+      "title": "Öncelikli sektörler", "what": "Desteklenen sektörler.", "changes": "Destek kapsamı.",
+      "control": { "type": "multi", "items": [{ "value": "tarim", "label": "Tarım" }, { "value": "sanayi", "label": "Sanayi" }] },
+      "default": ["tarim"], "apply": "passive",
+      "measured_at": ["tarim", "sanayi"], "measured_with": { "gecis_destegi": "kapali" }, "measured_weeks": 500, "hint_source": null,
+      "credit_type": null, "scenario_editable": false, "source_world_field": null
+    },
+    {
+      "id": "kurumlar_vergisi", "layer": "P", "group": "para_faiz", "actor": null, "level": "U", "editable": true, "status": "active",
+      "kind": "number", "params": ["CORP_TAX"], "requires": [],
+      "title": "Kurumlar vergisi", "what": "Şirket kazancı vergisi.", "changes": "Oran.",
+      "control": { "type": "number", "min": 0, "max": 0.5, "step": 0.05, "unit": "yuzde", "integer": false },
+      "default": 0.2, "apply": "live_sync",
+      "measured_at": null, "measured_with": null, "measured_weeks": null, "hint_source": null,
+      "credit_type": null, "scenario_editable": false, "source_world_field": "gini"
+    }
+  ]
+}

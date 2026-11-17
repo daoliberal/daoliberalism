@@ -1,0 +1,140 @@
+/* C-05-DAOs:38 */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  box-sizing: border-box;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-40) var(--gutter) var(--space-80);
+}
+
+/* C-05-DAOs:39 */
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-16);
+}
+
+/* C-05-DAOs:41 */
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-46);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-tight);
+}
+
+/* C-05-DAOs:42 */
+.lede {
+  max-width: var(--measure-600);
+  margin: var(--space-8) 0 0;
+  color: var(--color-ink-3);
+}
+
+/* C-05-DAOs:47 */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+  align-items: flex-end;
+}
+
+.search {
+  flex: 2 1 var(--basis-280);
+  min-width: 0;
+}
+
+.treasury {
+  flex: 1 1 var(--basis-220);
+  min-width: 0;
+}
+
+/* C-05-DAOs:53 */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+/* C-05-DAOs:57 */
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-16) var(--space-28);
+  padding: var(--space-20) var(--space-24);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-20);
+  background: var(--color-surface);
+}
+
+.about {
+  flex: 3 1 var(--basis-320);
+  min-width: 0;
+}
+
+/* C-05-DAOs:59 */
+.name {
+  margin: 0;
+  font-size: var(--fs-20);
+  overflow-wrap: anywhere;
+}
+
+.name a,
+.name a:hover {
+  color: var(--color-ink);
+}
+
+.desc {
+  margin: var(--space-2) 0 0;
+  color: var(--color-ink-3);
+  overflow-wrap: anywhere;
+}
+
+/* C-05-DAOs:62 */
+.rules {
+  flex: 2 1 var(--basis-260);
+  min-width: 0;
+  padding: var(--space-10) var(--space-14);
+  border-radius: var(--radius-14);
+  background: var(--color-surface-muted);
+}
+
+.label {
+  font-size: var(--fs-13);
+  color: var(--color-ink-4);
+}
+
+.treasuryName {
+  font-weight: var(--weight-bold);
+  overflow-wrap: anywhere;
+}
+
+.summary {
+  font-family: var(--font-mono);
+  font-size: var(--fs-13);
+  color: var(--color-ink-2);
+}
+
+/* C-05-DAOs:67 */
+.stats {
+  flex: 1 1 var(--basis-140);
+  display: flex;
+  gap: var(--space-24);
+}
+
+.stat {
+  font-family: var(--font-mono);
+  font-size: var(--fs-18);
+}
+
+/* C-05-DAOs:73 */
+.note {
+  margin: 0;
+  font-size: var(--fs-14);
+  color: var(--color-ink-4);
+}

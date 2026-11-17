@@ -1,0 +1,504 @@
+{
+ "comment": "Altın senaryo matrisi. tier: fast=8 hafta, mid=100, long=500. status=broken senaryolar varsayılan koşulmaz (--include-broken ile çöktüğü doğrulanır). Tüm koşular PYTHONHASHSEED=0. v12.3 matrisi (P0-7): v12.3 bayrakları tek tek (V17-V21), NO_BAILOUT=0 tek başına (V22), DBG_EVERY=1 (V23, yalnız stderr yolu: NameError tuzağı), CRED_V2=0 (V24_h100) ve CANLI EKONOMİ senaryoları (L1/L2: varsayılan ekonomi 100. haftada satışı kaybediyor; NO_BAILOUT=0 ile satış 100 hafta boyunca ~120-180 bin).",
+ "default_hashseed": 0,
+ "scenarios": [
+  {
+   "id": "G0_h8",
+   "weeks": 8,
+   "tier": "fast",
+   "note": "varsayılan, hızlı kapı"
+  },
+  {
+   "id": "G1_h100",
+   "weeks": 100,
+   "tier": "mid",
+   "note": "varsayılan, orta"
+  },
+  {
+   "id": "G2_h500",
+   "weeks": 500,
+   "tier": "long",
+   "note": "varsayılan, uzun: ekonomi tam gelişir"
+  },
+  {
+   "id": "V1_h8",
+   "weeks": 8,
+   "params": {
+    "FIRM_PRICE": 0
+   },
+   "tier": "fast",
+   "note": "firma fiyatı kapalı"
+  },
+  {
+   "id": "V1_h100",
+   "weeks": 100,
+   "params": {
+    "FIRM_PRICE": 0
+   },
+   "tier": "mid"
+  },
+  {
+   "id": "V2_h8",
+   "weeks": 8,
+   "params": {
+    "PRICE_V2": 0
+   },
+   "tier": "fast",
+   "note": "eski fiyat yolu (PRICE_V2=0; v12.3'te 'desteklenmez' adayı, taşımada aynen)"
+  },
+  {
+   "id": "V4_h8",
+   "weeks": 8,
+   "params": {
+    "CREDIT_ON": 0
+   },
+   "tier": "fast",
+   "note": "kredi/mevduat/konut yolu"
+  },
+  {
+   "id": "V4_h100",
+   "weeks": 100,
+   "params": {
+    "CREDIT_ON": 0
+   },
+   "tier": "mid"
+  },
+  {
+   "id": "V6_h8",
+   "weeks": 8,
+   "params": {
+    "LONCA_WELFARE": 0,
+    "INSURANCE": 0,
+    "CITY_BOND": 0,
+    "MONEY_CAP": 0,
+    "NO_BAILOUT": 0,
+    "RATE_POLICY": 0
+   },
+   "tier": "fast",
+   "note": "K-185 grubu kapalı"
+  },
+  {
+   "id": "V6_h100",
+   "weeks": 100,
+   "params": {
+    "LONCA_WELFARE": 0,
+    "INSURANCE": 0,
+    "CITY_BOND": 0,
+    "MONEY_CAP": 0,
+    "NO_BAILOUT": 0,
+    "RATE_POLICY": 0
+   },
+   "tier": "mid"
+  },
+  {
+   "id": "V6_h500",
+   "weeks": 500,
+   "params": {
+    "LONCA_WELFARE": 0,
+    "INSURANCE": 0,
+    "CITY_BOND": 0,
+    "MONEY_CAP": 0,
+    "NO_BAILOUT": 0,
+    "RATE_POLICY": 0
+   },
+   "tier": "long"
+  },
+  {
+   "id": "V7_h8",
+   "weeks": 8,
+   "params": {
+    "HEALTH": 0,
+    "EDUCATION": 0,
+    "CAPEX": 0,
+    "INVENTORY": 0,
+    "PRIVATIZE": 0
+   },
+   "tier": "fast",
+   "note": "hizmet/sermaye/envanter kapalı"
+  },
+  {
+   "id": "V8_h8",
+   "weeks": 8,
+   "params": {
+    "QUALITY": 0,
+    "DIRECT_AD": 0,
+    "MEDIA_LONCA": 0,
+    "INNOV_RENT": 0
+   },
+   "tier": "fast",
+   "note": "K-183 grubu kapalı"
+  },
+  {
+   "id": "V9a_h8",
+   "weeks": 8,
+   "params": {
+    "PRICE_WAGE": 15
+   },
+   "tier": "fast",
+   "note": "erken türetilen sabit: LOG_CAP (PRICE_WAGE'den)"
+  },
+  {
+   "id": "V9b_h8",
+   "weeks": 8,
+   "params": {
+    "CYCLES_PER_WEEK": 3
+   },
+   "tier": "fast",
+   "note": "erken türetilen sabit: FOUND_WORKED (CYCLES_PER_WEEK'ten)"
+  },
+  {
+   "id": "V9c_h8",
+   "weeks": 8,
+   "params": {
+    "PRICE_MARGIN": 0.4
+   },
+   "tier": "fast",
+   "note": "erken türetilen sabit: LOG_CAP (PRICE_MARGIN'den)"
+  },
+  {
+   "id": "V9d_h8",
+   "weeks": 8,
+   "params": {
+    "LONCA_FEE": 0.1
+   },
+   "tier": "fast",
+   "note": "erken türetilen sabit: LOG_CAP (LONCA_FEE'den)"
+  },
+  {
+   "id": "V10_h8",
+   "weeks": 8,
+   "cities": 3,
+   "ahir_kamu": 0,
+   "tier": "fast",
+   "note": "CLI: 3 şehir, çıraklık ocağı yok"
+  },
+  {
+   "id": "V12_h8",
+   "weeks": 8,
+   "cities": 1,
+   "tier": "fast",
+   "note": "tek şehir: şehirler arası kod (navlun) atlanır"
+  },
+  {
+   "id": "V14_h8",
+   "weeks": 8,
+   "cities": 2,
+   "tier": "fast",
+   "note": "iki şehir"
+  },
+  {
+   "id": "V13_h8",
+   "weeks": 8,
+   "params": {
+    "HOUSE_ON": 0
+   },
+   "tier": "fast",
+   "note": "konut kapalı"
+  },
+  {
+   "id": "V15_h8",
+   "weeks": 8,
+   "params": {
+    "FIRM_PRICE": 0,
+    "CREDIT_ON": 0
+   },
+   "tier": "fast",
+   "note": "bayrak kombinasyonu: fiyat+kredi kapalı"
+  },
+  {
+   "id": "V16_h8",
+   "weeks": 8,
+   "params": {
+    "LONCA_WELFARE": 0,
+    "INSURANCE": 0,
+    "CITY_BOND": 0,
+    "MONEY_CAP": 0,
+    "NO_BAILOUT": 0,
+    "RATE_POLICY": 0,
+    "HEALTH": 0,
+    "EDUCATION": 0,
+    "CAPEX": 0,
+    "INVENTORY": 0,
+    "PRIVATIZE": 0,
+    "QUALITY": 0,
+    "DIRECT_AD": 0,
+    "MEDIA_LONCA": 0,
+    "INNOV_RENT": 0,
+    "FIRM_PRICE": 0,
+    "PRICE_V2": 0,
+    "CAPEX_CAL": 0,
+    "CRED_V2": 0,
+    "PUBSVC": 0
+   },
+   "tier": "fast",
+   "note": "çürümüş olanlar (INNOV_ON, LIFE_ON) HARİÇ tüm kapatılabilir yeni bayraklar kapalı (TAX_RULE/ENTRY_JOBLESS/PV2_ACCT zaten varsayılan kapalı); P0-7'de CAPEX_CAL/CRED_V2/PUBSVC eklendi"
+  },
+  {
+   "id": "V17_h8",
+   "weeks": 8,
+   "params": {
+    "CAPEX_CAL": 0
+   },
+   "tier": "fast",
+   "note": "v12.3 K-187.2 makine/bina maliyeti eski ölçek"
+  },
+  {
+   "id": "V18_h8",
+   "weeks": 8,
+   "params": {
+    "PUBSVC": 0
+   },
+   "tier": "fast",
+   "note": "v12.3 K-187.3 kamu hizmet sözleşmesi kapalı"
+  },
+  {
+   "id": "V19_h8",
+   "weeks": 8,
+   "params": {
+    "TAX_RULE": 1
+   },
+   "tier": "fast",
+   "note": "v12.3 K-187.6 KDV oranı bütçe kuralı açık"
+  },
+  {
+   "id": "V20_h8",
+   "weeks": 8,
+   "params": {
+    "ENTRY_JOBLESS": 1
+   },
+   "tier": "fast",
+   "note": "v12.3 K-187.5 işsiz deneyimli oyuncu firma kurabilir"
+  },
+  {
+   "id": "V21_h8",
+   "weeks": 8,
+   "params": {
+    "PRICE_V2": 0,
+    "PV2_ACCT": 1
+   },
+   "tier": "fast",
+   "note": "v12.3 K-187 yalnız hesap modu (fiyatı değiştirmez); eski fiyat yoluyla birlikte"
+  },
+  {
+   "id": "V22_h8",
+   "weeks": 8,
+   "params": {
+    "NO_BAILOUT": 0
+   },
+   "tier": "fast",
+   "note": "kurtarma yasağı tek başına kapalı (V6 grubunda gizlenmişti)"
+  },
+  {
+   "id": "V23_h8",
+   "weeks": 8,
+   "params": {
+    "DBG_EVERY": 1
+   },
+   "tier": "fast",
+   "note": "hata ayıklama yolu: stdout aynı, stderr'e yazar; taşımada print/import sys NameError tuzağı"
+  },
+  {
+   "id": "V24_h100",
+   "weeks": 100,
+   "params": {
+    "CRED_V2": 0
+   },
+   "tier": "mid",
+   "note": "v12.3 K-187.4 genç firma kredisi kapalı (8 haftada etkisiz, 100'de görünür)"
+  },
+  {
+   "id": "L1_h100",
+   "weeks": 100,
+   "params": {
+    "NO_BAILOUT": 0
+   },
+   "tier": "mid",
+   "note": "CANLI EKONOMİ: kurtarma yasağı kapalı; satış 100 hafta boyunca ~120-180 bin (varsayılan ekonomi 100. haftada çöküş rejiminde)"
+  },
+  {
+   "id": "L2_h100",
+   "weeks": 100,
+   "params": {
+    "NO_BAILOUT": 0,
+    "ENTRY_JOBLESS": 1
+   },
+   "tier": "mid",
+   "note": "CANLI EKONOMİ 2: NO_BAILOUT=0 + işsiz kurucu; satış 100. haftada ~195 bin"
+  },
+  {
+   "id": "L1_h500",
+   "weeks": 500,
+   "params": {
+    "NO_BAILOUT": 0
+   },
+   "tier": "long",
+   "note": "canlı ekonomi uzun koşu (canlılık 100. haftaya kadar doğrulandı; sonrası altın sabitler)"
+  },
+  {
+   "id": "X3_h8",
+   "weeks": 8,
+   "params": {
+    "INNOV_ON": 0
+   },
+   "tier": "fast",
+   "note": "ÇÜRÜMÜŞ: KeyError 'insaat' (land); desteklenmez ilan edilmesi önerildi, sahibe soru",
+   "status": "broken"
+  },
+  {
+   "id": "X5_h8",
+   "weeks": 8,
+   "params": {
+    "LIFE_ON": 0
+   },
+   "tier": "fast",
+   "note": "ÇÜRÜMÜŞ: KeyError 'insaat'; HOUSE_ON=0 ile birlikte de çöker",
+   "status": "broken"
+  },
+  {
+   "id": "LG_h8",
+   "weeks": 8,
+   "tier": "fast",
+   "note": "v13.3: v12.3 varsayılanları (eski bayrak değerleri; v13.1, v13.2 ve v13.3'te açılan on bir bayrak da eski değerinde); orijinal model.py ile bayt bayt aynı olmalı (gate --legacy)",
+   "params": {
+    "NPC_KEEP": "0.5",
+    "FOUND_COLLAT": "0",
+    "WAGE_TAX": "0",
+    "CORP_TAX": "0",
+    "INFRA_CONT": "0",
+    "SHRINK_FIRST": "0",
+    "ORDER_BOOK": "0",
+    "TRANS_SUPPORT": "0",
+    "SECTOR_BOARD": "0",
+    "SB_ENTRY_PERSIST": "0.02",
+    "ENTRY_OPEN": "0",
+    "FOUND_FUND": "0",
+    "YOUNG_KIT": "0",
+    "DEP_ROUTE": "0",
+    "LAB_K": "0.1",
+    "LAB_DOWN": "0.3",
+    "BENEFIT_WEEKS": "9999",
+    "STAFF_DEMAND": "0",
+    "HIRE_CASH_GATE": "0",
+    "REVIVE_CAPITAL": "0",
+    "PROMO_FREE": "0",
+    "PROD_TIER": "(1.0,1.3,1.6)",
+    "ULC_BASE_AUTO": "0",
+    "FOUNDER_DEFER": "0"
+   }
+  },
+  {
+   "id": "LG_h100",
+   "weeks": 100,
+   "tier": "mid",
+   "note": "v13.3: v12.3 varsayılanları (eski bayrak değerleri; v13.1, v13.2 ve v13.3'te açılan on bir bayrak da eski değerinde); orijinal model.py ile bayt bayt aynı olmalı (gate --legacy)",
+   "params": {
+    "NPC_KEEP": "0.5",
+    "FOUND_COLLAT": "0",
+    "WAGE_TAX": "0",
+    "CORP_TAX": "0",
+    "INFRA_CONT": "0",
+    "SHRINK_FIRST": "0",
+    "ORDER_BOOK": "0",
+    "TRANS_SUPPORT": "0",
+    "SECTOR_BOARD": "0",
+    "SB_ENTRY_PERSIST": "0.02",
+    "ENTRY_OPEN": "0",
+    "FOUND_FUND": "0",
+    "YOUNG_KIT": "0",
+    "DEP_ROUTE": "0",
+    "LAB_K": "0.1",
+    "LAB_DOWN": "0.3",
+    "BENEFIT_WEEKS": "9999",
+    "STAFF_DEMAND": "0",
+    "HIRE_CASH_GATE": "0",
+    "REVIVE_CAPITAL": "0",
+    "PROMO_FREE": "0",
+    "PROD_TIER": "(1.0,1.3,1.6)",
+    "ULC_BASE_AUTO": "0",
+    "FOUNDER_DEFER": "0"
+   }
+  },
+  {
+   "id": "KR_V130_h8",
+   "weeks": 8,
+   "tier": "fast",
+   "note": "v13.3: v13.0 varsayılanları (altı kredi/işsizlik bayrağı ve v13.2'de açılan REVIVE_CAPITAL, PROMO_FREE, PROD_TIER, ULC_BASE_AUTO ve v13.3'te açılan FOUNDER_DEFER eski değerlerinde); dondurulmuş v13.0 ile sha eşit olmalı (eşdeğerlik denetimi)",
+   "params": {
+    "DEP_ROUTE": "0",
+    "LAB_K": "0.1",
+    "LAB_DOWN": "0.3",
+    "BENEFIT_WEEKS": "9999",
+    "STAFF_DEMAND": "0",
+    "HIRE_CASH_GATE": "0",
+    "REVIVE_CAPITAL": "0",
+    "PROMO_FREE": "0",
+    "PROD_TIER": "(1.0,1.3,1.6)",
+    "ULC_BASE_AUTO": "0",
+    "FOUNDER_DEFER": "0"
+   }
+  },
+  {
+   "id": "KR_V130_h100",
+   "weeks": 100,
+   "tier": "mid",
+   "note": "v13.3: v13.0 varsayılanları (altı kredi/işsizlik bayrağı ve v13.2'de açılan REVIVE_CAPITAL, PROMO_FREE, PROD_TIER, ULC_BASE_AUTO ve v13.3'te açılan FOUNDER_DEFER eski değerlerinde); dondurulmuş v13.0 ile sha eşit olmalı (eşdeğerlik denetimi)",
+   "params": {
+    "DEP_ROUTE": "0",
+    "LAB_K": "0.1",
+    "LAB_DOWN": "0.3",
+    "BENEFIT_WEEKS": "9999",
+    "STAFF_DEMAND": "0",
+    "HIRE_CASH_GATE": "0",
+    "REVIVE_CAPITAL": "0",
+    "PROMO_FREE": "0",
+    "PROD_TIER": "(1.0,1.3,1.6)",
+    "ULC_BASE_AUTO": "0",
+    "FOUNDER_DEFER": "0"
+   }
+  },
+  {
+   "id": "KR_V131_h8",
+   "weeks": 8,
+   "tier": "fast",
+   "note": "v13.3: v13.1 varsayılanları (REVIVE_CAPITAL, PROMO_FREE, PROD_TIER, ULC_BASE_AUTO ve v13.3'te açılan FOUNDER_DEFER eski değerlerinde); dondurulmuş snapshot/v13.1 ile sha eşit olmalı (eşdeğerlik denetimi)",
+   "params": {
+    "REVIVE_CAPITAL": "0",
+    "PROMO_FREE": "0",
+    "PROD_TIER": "(1.0,1.3,1.6)",
+    "ULC_BASE_AUTO": "0",
+    "FOUNDER_DEFER": "0"
+   }
+  },
+  {
+   "id": "KR_V131_h100",
+   "weeks": 100,
+   "tier": "mid",
+   "note": "v13.3: v13.1 varsayılanları (REVIVE_CAPITAL, PROMO_FREE, PROD_TIER, ULC_BASE_AUTO ve v13.3'te açılan FOUNDER_DEFER eski değerlerinde); dondurulmuş snapshot/v13.1 ile sha eşit olmalı (eşdeğerlik denetimi)",
+   "params": {
+    "REVIVE_CAPITAL": "0",
+    "PROMO_FREE": "0",
+    "PROD_TIER": "(1.0,1.3,1.6)",
+    "ULC_BASE_AUTO": "0",
+    "FOUNDER_DEFER": "0"
+   }
+  },
+  {
+   "id": "KR_V132_h8",
+   "weeks": 8,
+   "tier": "fast",
+   "note": "v13.3: v13.2 varsayılanları (FOUNDER_DEFER eski değerinde); dondurulmuş snapshot/v13.2 ile sha eşit olmalı (eşdeğerlik denetimi)",
+   "params": {
+    "FOUNDER_DEFER": "0"
+   }
+  },
+  {
+   "id": "KR_V132_h100",
+   "weeks": 100,
+   "tier": "mid",
+   "note": "v13.3: v13.2 varsayılanları (FOUNDER_DEFER eski değerinde); dondurulmuş snapshot/v13.2 ile sha eşit olmalı (eşdeğerlik denetimi)",
+   "params": {
+    "FOUNDER_DEFER": "0"
+   }
+  }
+ ]
+}

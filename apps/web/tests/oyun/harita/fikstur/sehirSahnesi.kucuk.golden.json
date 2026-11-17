@@ -1,0 +1,1025 @@
+{
+ "susler": [
+  {
+   "id": "meydan",
+   "tur": "meydan-dosemesi",
+   "x": 470,
+   "y": 224,
+   "taban": {
+    "g": 199,
+    "d": 199
+   }
+  },
+  {
+   "id": "sus-p-2_-4",
+   "tur": "agac-kumesi",
+   "x": 220,
+   "y": 128,
+   "taban": {
+    "g": 28,
+    "d": 20
+   }
+  },
+  {
+   "id": "sus-p-2_3",
+   "tur": "park",
+   "x": 720,
+   "y": 128,
+   "taban": {
+    "g": 56,
+    "d": 48
+   }
+  },
+  {
+   "id": "sus-p-1_-5",
+   "tur": "agac-kumesi",
+   "x": 156,
+   "y": 184,
+   "taban": {
+    "g": 28,
+    "d": 20
+   }
+  },
+  {
+   "id": "sus-p-1_4",
+   "tur": "agac-kumesi",
+   "x": 784,
+   "y": 184,
+   "taban": {
+    "g": 28,
+    "d": 20
+   }
+  },
+  {
+   "id": "sus-p-1_5",
+   "tur": "agac-kumesi",
+   "x": 848,
+   "y": 184,
+   "taban": {
+    "g": 28,
+    "d": 20
+   }
+  },
+  {
+   "id": "sus-p0_-5",
+   "tur": "agac-kumesi",
+   "x": 156,
+   "y": 264,
+   "taban": {
+    "g": 28,
+    "d": 20
+   }
+  },
+  {
+   "id": "sus-p1_-4",
+   "tur": "agac-kumesi",
+   "x": 220,
+   "y": 320,
+   "taban": {
+    "g": 28,
+    "d": 20
+   }
+  },
+  {
+   "id": "sus-p1_1",
+   "tur": "agac-kumesi",
+   "x": 578,
+   "y": 320,
+   "taban": {
+    "g": 28,
+    "d": 20
+   }
+  },
+  {
+   "id": "sus-p1_2",
+   "tur": "park",
+   "x": 642,
+   "y": 320,
+   "taban": {
+    "g": 56,
+    "d": 48
+   }
+  },
+  {
+   "id": "cit-0",
+   "tur": "cit",
+   "x": 820,
+   "y": 444,
+   "taban": {
+    "g": 40,
+    "d": 4
+   }
+  },
+  {
+   "id": "cit-1",
+   "tur": "cit",
+   "x": 860,
+   "y": 444,
+   "taban": {
+    "g": 40,
+    "d": 4
+   }
+  },
+  {
+   "id": "cit-2",
+   "tur": "cit",
+   "x": 900,
+   "y": 444,
+   "taban": {
+    "g": 40,
+    "d": 4
+   }
+  }
+ ],
+ "bosParseller": [
+  {
+   "id": "p-2_-6",
+   "x": 92,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_-5",
+   "x": 156,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_-4",
+   "x": 220,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_1",
+   "x": 578,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_2",
+   "x": 642,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_3",
+   "x": 720,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-1_-5",
+   "x": 156,
+   "y": 184,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-1_2",
+   "x": 642,
+   "y": 184,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-1_3",
+   "x": 720,
+   "y": 184,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-1_4",
+   "x": 784,
+   "y": 184,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-1_5",
+   "x": 848,
+   "y": 184,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p0_-6",
+   "x": 92,
+   "y": 264,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p0_-5",
+   "x": 156,
+   "y": 264,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p0_-4",
+   "x": 220,
+   "y": 264,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p0_-3",
+   "x": 298,
+   "y": 264,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_-6",
+   "x": 92,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_-5",
+   "x": 156,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_-4",
+   "x": 220,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_-3",
+   "x": 298,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_1",
+   "x": 578,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_2",
+   "x": 642,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_3",
+   "x": 720,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_4",
+   "x": 784,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_5",
+   "x": 848,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  }
+ ],
+ "sehir": 0,
+ "ad": "A",
+ "genislik": 940,
+ "yukseklik": 438,
+ "sokaklar": [
+  {
+   "id": "sokak-d0",
+   "ana": false,
+   "yon": "dikey",
+   "x": 252,
+   "y": 100,
+   "genislik": 14,
+   "yukseklik": 248
+  },
+  {
+   "id": "sokak-d1",
+   "ana": true,
+   "yon": "dikey",
+   "x": 458,
+   "y": 100,
+   "genislik": 24,
+   "yukseklik": 248
+  },
+  {
+   "id": "sokak-d2",
+   "ana": false,
+   "yon": "dikey",
+   "x": 674,
+   "y": 100,
+   "genislik": 14,
+   "yukseklik": 248
+  },
+  {
+   "id": "sokak-y0",
+   "ana": true,
+   "yon": "yatay",
+   "x": 60,
+   "y": 212,
+   "genislik": 820,
+   "yukseklik": 24
+  }
+ ],
+ "parseller": [
+  {
+   "id": "p-2_-6",
+   "x": 92,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_-5",
+   "x": 156,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_-4",
+   "x": 220,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_-3",
+   "x": 298,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_-2",
+   "x": 362,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_1",
+   "x": 578,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_2",
+   "x": 642,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_3",
+   "x": 720,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_4",
+   "x": 784,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-2_5",
+   "x": 848,
+   "y": 128,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-1_-6",
+   "x": 92,
+   "y": 184,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-1_-5",
+   "x": 156,
+   "y": 184,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-1_-4",
+   "x": 220,
+   "y": 184,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-1_-3",
+   "x": 298,
+   "y": 184,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-1_2",
+   "x": 642,
+   "y": 184,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-1_3",
+   "x": 720,
+   "y": 184,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-1_4",
+   "x": 784,
+   "y": 184,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p-1_5",
+   "x": 848,
+   "y": 184,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p0_-6",
+   "x": 92,
+   "y": 264,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p0_-5",
+   "x": 156,
+   "y": 264,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p0_-4",
+   "x": 220,
+   "y": 264,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p0_-3",
+   "x": 298,
+   "y": 264,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p0_2",
+   "x": 642,
+   "y": 264,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p0_3",
+   "x": 720,
+   "y": 264,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p0_4",
+   "x": 784,
+   "y": 264,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p0_5",
+   "x": 848,
+   "y": 264,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_-6",
+   "x": 92,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_-5",
+   "x": 156,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_-4",
+   "x": 220,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_-3",
+   "x": 298,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_-2",
+   "x": 362,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_1",
+   "x": 578,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_2",
+   "x": 642,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_3",
+   "x": 720,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_4",
+   "x": 784,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  },
+  {
+   "id": "p1_5",
+   "x": 848,
+   "y": 320,
+   "genislik": 64,
+   "yukseklik": 56,
+   "kademe": 0
+  }
+ ],
+ "binalar": [
+  {
+   "id": "lonca0",
+   "tur": "lonca",
+   "sehir": null,
+   "x": 452,
+   "y": 192.8,
+   "boyut": 1,
+   "ref": {
+    "kind": "lonca",
+    "ref": "lonca0"
+   },
+   "etiket": "lonca0",
+   "parsel": null,
+   "sablon": "lonca",
+   "taban": {
+    "g": 18,
+    "d": 16
+   }
+  },
+  {
+   "id": "lonca1",
+   "tur": "lonca",
+   "sehir": null,
+   "x": 488,
+   "y": 255.2,
+   "boyut": 3,
+   "ref": {
+    "kind": "lonca",
+    "ref": "lonca1"
+   },
+   "etiket": "lonca1",
+   "parsel": null,
+   "sablon": "lonca",
+   "taban": {
+    "g": 26,
+    "d": 20
+   }
+  },
+  {
+   "id": "lonca2",
+   "tur": "lonca",
+   "sehir": null,
+   "x": 488,
+   "y": 192.8,
+   "boyut": 3,
+   "ref": {
+    "kind": "lonca",
+    "ref": "lonca2"
+   },
+   "etiket": "lonca2",
+   "parsel": null,
+   "sablon": "lonca",
+   "taban": {
+    "g": 26,
+    "d": 20
+   }
+  },
+  {
+   "id": "f0",
+   "tur": "isletme",
+   "grup": "hizmet",
+   "sehir": 0,
+   "x": 298,
+   "y": 184,
+   "boyut": 1,
+   "ref": {
+    "kind": "firm",
+    "ref": "f0"
+   },
+   "etiket": "market",
+   "sahip": "npc",
+   "parsel": "p-1_-3",
+   "sablon": "hizmet",
+   "taban": {
+    "g": 28,
+    "d": 24
+   }
+  },
+  {
+   "id": "f1",
+   "tur": "isletme",
+   "grup": "imalat",
+   "sehir": 0,
+   "x": 784,
+   "y": 128,
+   "boyut": 2,
+   "ref": {
+    "kind": "firm",
+    "ref": "f1"
+   },
+   "etiket": "un",
+   "sahip": "npc",
+   "parsel": "p-2_4",
+   "sablon": "imalat",
+   "taban": {
+    "g": 40,
+    "d": 32
+   }
+  },
+  {
+   "id": "f2",
+   "tur": "isletme",
+   "grup": "hammadde",
+   "sehir": 0,
+   "x": 362,
+   "y": 320,
+   "boyut": 2,
+   "ref": {
+    "kind": "firm",
+    "ref": "f2"
+   },
+   "etiket": "maden_komur",
+   "sahip": "npc",
+   "parsel": "p1_-2",
+   "sablon": "hammadde",
+   "taban": {
+    "g": 38,
+    "d": 32
+   }
+  },
+  {
+   "id": "f3",
+   "tur": "isletme",
+   "grup": "lojistik",
+   "sehir": 0,
+   "x": 848,
+   "y": 128,
+   "boyut": 3,
+   "ref": {
+    "kind": "firm",
+    "ref": "f3"
+   },
+   "etiket": "lojistik",
+   "sahip": "npc",
+   "parsel": "p-2_5",
+   "sablon": "lojistik",
+   "taban": {
+    "g": 52,
+    "d": 36
+   }
+  },
+  {
+   "id": "f4",
+   "tur": "isletme",
+   "grup": "hizmet",
+   "sehir": 0,
+   "x": 642,
+   "y": 264,
+   "boyut": 3,
+   "ref": {
+    "kind": "firm",
+    "ref": "f4"
+   },
+   "etiket": "okul",
+   "sahip": "npc",
+   "parsel": "p0_2",
+   "sablon": "hizmet",
+   "taban": {
+    "g": 44,
+    "d": 36
+   }
+  },
+  {
+   "id": "f5",
+   "tur": "isletme",
+   "grup": "hizmet",
+   "sehir": 0,
+   "x": 220,
+   "y": 184,
+   "boyut": 3,
+   "ref": {
+    "kind": "firm",
+    "ref": "f5"
+   },
+   "etiket": "market",
+   "sahip": "npc",
+   "parsel": "p-1_-4",
+   "sablon": "hizmet",
+   "taban": {
+    "g": 44,
+    "d": 36
+   }
+  },
+  {
+   "id": "f6",
+   "tur": "isletme",
+   "grup": "imalat",
+   "sehir": 0,
+   "x": 362,
+   "y": 128,
+   "boyut": 3,
+   "ref": {
+    "kind": "firm",
+    "ref": "f6"
+   },
+   "etiket": "un",
+   "sahip": "npc",
+   "parsel": "p-2_-2",
+   "sablon": "imalat",
+   "taban": {
+    "g": 50,
+    "d": 38
+   }
+  },
+  {
+   "id": "f7",
+   "tur": "isletme",
+   "grup": "hammadde",
+   "sehir": 0,
+   "x": 848,
+   "y": 264,
+   "boyut": 4,
+   "ref": {
+    "kind": "firm",
+    "ref": "f7"
+   },
+   "etiket": "maden_komur",
+   "sahip": "npc",
+   "parsel": "p0_5",
+   "sablon": "hammadde",
+   "taban": {
+    "g": 56,
+    "d": 46
+   }
+  },
+  {
+   "id": "f8",
+   "tur": "isletme",
+   "grup": "lojistik",
+   "sehir": 0,
+   "x": 92,
+   "y": 184,
+   "boyut": 4,
+   "ref": {
+    "kind": "firm",
+    "ref": "f8"
+   },
+   "etiket": "lojistik",
+   "sahip": "npc",
+   "parsel": "p-1_-6",
+   "sablon": "lojistik",
+   "taban": {
+    "g": 60,
+    "d": 44
+   }
+  },
+  {
+   "id": "f9",
+   "tur": "isletme",
+   "grup": "hizmet",
+   "sehir": 0,
+   "x": 720,
+   "y": 264,
+   "boyut": 1,
+   "ref": {
+    "kind": "firm",
+    "ref": "f9"
+   },
+   "etiket": "okul",
+   "sahip": "npc",
+   "parsel": "p0_3",
+   "sablon": "hizmet",
+   "taban": {
+    "g": 28,
+    "d": 24
+   }
+  },
+  {
+   "id": "f10",
+   "tur": "isletme",
+   "grup": "hizmet",
+   "sehir": 0,
+   "x": 298,
+   "y": 128,
+   "boyut": 2,
+   "ref": {
+    "kind": "firm",
+    "ref": "f10"
+   },
+   "etiket": "market",
+   "sahip": "npc",
+   "parsel": "p-2_-3",
+   "sablon": "hizmet",
+   "taban": {
+    "g": 36,
+    "d": 30
+   }
+  },
+  {
+   "id": "f11",
+   "tur": "isletme",
+   "grup": "imalat",
+   "sehir": 0,
+   "x": 784,
+   "y": 264,
+   "boyut": 2,
+   "ref": {
+    "kind": "firm",
+    "ref": "f11"
+   },
+   "etiket": "un",
+   "sahip": "npc",
+   "parsel": "p0_4",
+   "sablon": "imalat",
+   "taban": {
+    "g": 40,
+    "d": 32
+   }
+  }
+ ],
+ "meydan": {
+  "x": 470,
+  "y": 224,
+  "yaricap": 94
+ },
+ "sehirBinasi": {
+  "id": "sehir-0",
+  "tur": "sehir",
+  "sehir": 0,
+  "x": 470,
+  "y": 50,
+  "boyut": 4,
+  "ref": {
+   "kind": "city",
+   "ref": "0"
+  },
+  "etiket": "A",
+  "parsel": null,
+  "sablon": "sehir",
+  "taban": {
+   "g": 84,
+   "d": 52
+  }
+ },
+ "ahir": {
+  "id": "ahir",
+  "tur": "ahir",
+  "sehir": null,
+  "x": 860,
+  "y": 393,
+  "boyut": 4,
+  "ref": {
+   "kind": "sector",
+   "ref": "ahir"
+  },
+  "etiket": "ahir",
+  "parsel": null,
+  "sablon": "ahir",
+  "taban": {
+   "g": 100,
+   "d": 42
+  }
+ },
+ "ben": null,
+ "katman": {
+  "tur": "yok",
+  "tonlar": [],
+  "lejant": [],
+  "rozetler": []
+ },
+ "veriYok": false,
+ "ilanVeren": [
+  "f1"
+ ]
+}

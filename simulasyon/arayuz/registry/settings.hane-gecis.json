@@ -1,0 +1,276 @@
+{
+  "settings": [
+    {
+      "id": "npc_hanesi",
+      "layer": "P",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "experimental",
+      "kind": "fields",
+      "params": [
+        "NPC_HOUSE",
+        "NPC_LFPR",
+        "HOUSE_DEP_EQ"
+      ],
+      "requires": [
+        "NPC_HOUSE",
+        "NPC_LFPR",
+        "HOUSE_DEP_EQ"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "kip",
+            "param": "NPC_HOUSE",
+            "codec": {
+              "type": "enum",
+              "map": {
+                "tek_kisi": 0,
+                "hane": 1
+              }
+            }
+          },
+          {
+            "key": "katilim",
+            "param": "NPC_LFPR",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 20,
+              "max": 100,
+              "step": 0.1,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "agirlik",
+            "param": "HOUSE_DEP_EQ",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0,
+              "max": 100,
+              "step": 5,
+              "unit": "yuzde"
+            }
+          }
+        ]
+      },
+      "apply": "start_only",
+      "decision": "D9"
+    },
+    {
+      "id": "acilis_gecisi",
+      "layer": "P",
+      "group": "dunya",
+      "level": "A",
+      "editable": true,
+      "status": "experimental",
+      "kind": "fields",
+      "params": [
+        "OPEN_MODE",
+        "OPEN_GRACE",
+        "OPEN_TR",
+        "OPEN_CAPEX",
+        "OPEN_SWEEP"
+      ],
+      "requires": [
+        "OPEN_MODE",
+        "OPEN_GRACE",
+        "OPEN_TR",
+        "OPEN_CAPEX",
+        "OPEN_SWEEP"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "kip",
+            "param": "OPEN_MODE",
+            "codec": {
+              "type": "enum",
+              "map": {
+                "gecis": 0,
+                "dengede": 1,
+                "elle": 2
+              }
+            }
+          },
+          {
+            "key": "kurtarma",
+            "param": "OPEN_GRACE",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 0,
+              "max": 104,
+              "step": 1,
+              "unit": "hafta",
+              "integer": true
+            }
+          },
+          {
+            "key": "kasa",
+            "param": "OPEN_TR",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 0,
+              "max": 104,
+              "step": 1,
+              "unit": "hafta",
+              "integer": true
+            }
+          },
+          {
+            "key": "yatirim",
+            "param": "OPEN_CAPEX",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 0,
+              "max": 104,
+              "step": 1,
+              "unit": "hafta",
+              "integer": true
+            }
+          },
+          {
+            "key": "supurme",
+            "param": "OPEN_SWEEP",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 0,
+              "max": 104,
+              "step": 1,
+              "unit": "hafta",
+              "integer": true
+            }
+          }
+        ]
+      },
+      "apply": "start_only",
+      "decision": "D9"
+    },
+    {
+      "id": "servet_kurali",
+      "layer": "P",
+      "group": "hane_geliri",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "toggle",
+      "params": [
+        "WEALTH_RULE"
+      ],
+      "requires": [
+        "WEALTH_RULE"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "start_only",
+      "decision": "D9"
+    },
+    {
+      "id": "npc_en_az_nakit",
+      "layer": "P",
+      "group": "hane_geliri",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "number",
+      "params": [
+        "NPC_MIN_BAL"
+      ],
+      "requires": [
+        "NPC_MIN_BAL"
+      ],
+      "codec": {
+        "type": "number",
+        "scale": 1,
+        "min": 0,
+        "max": 50,
+        "step": 0.5,
+        "unit": "akce"
+      },
+      "apply": "live",
+      "decision": "D9"
+    },
+    {
+      "id": "npc_havuz_vergisi",
+      "layer": "P",
+      "group": "hane_geliri",
+      "level": "A",
+      "editable": true,
+      "status": "active",
+      "kind": "fields",
+      "params": [
+        "NPC_POOL_TAX",
+        "NPC_POOL_FLOOR"
+      ],
+      "requires": [
+        "NPC_POOL_TAX",
+        "NPC_POOL_FLOOR"
+      ],
+      "codec": {
+        "type": "fields",
+        "fields": [
+          {
+            "key": "oran",
+            "param": "NPC_POOL_TAX",
+            "codec": {
+              "type": "number",
+              "scale": 100,
+              "min": 0,
+              "max": 50,
+              "step": 1,
+              "unit": "yuzde"
+            }
+          },
+          {
+            "key": "esik",
+            "param": "NPC_POOL_FLOOR",
+            "codec": {
+              "type": "number",
+              "scale": 1,
+              "min": 0,
+              "max": 4,
+              "step": 0.25,
+              "unit": "kat"
+            }
+          }
+        ]
+      },
+      "apply": "live",
+      "decision": "D9"
+    },
+    {
+      "id": "npc_asgari",
+      "layer": "P",
+      "group": "hane_geliri",
+      "level": "A",
+      "editable": true,
+      "status": "experimental",
+      "kind": "toggle",
+      "params": [
+        "NPC_ASGARI"
+      ],
+      "requires": [
+        "NPC_ASGARI"
+      ],
+      "codec": {
+        "type": "bool",
+        "on": true,
+        "off": false
+      },
+      "apply": "live",
+      "decision": "D9"
+    }
+  ]
+}

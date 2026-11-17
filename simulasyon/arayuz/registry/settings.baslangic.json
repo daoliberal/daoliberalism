@@ -1,0 +1,52 @@
+{
+ "settings": [
+  {
+   "id": "sehir_basina_oyuncu",
+   "layer": "P",
+   "group": "dunya",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "number",
+   "params": ["PLAYERS_PER_CITY"],
+   "requires": ["PLAYERS_PER_CITY"],
+   "codec": {"type": "number", "scale": 1, "min": 100, "max": 1000, "step": 50, "integer": true, "unit": "sayi"},
+   "apply": "start_only",
+   "decision": "D4"
+  },
+  {
+   "id": "npc_nufusu",
+   "layer": "P",
+   "group": "dunya",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "fields",
+   "params": ["NPC_X", "NPC_Y"],
+   "requires": ["NPC_X", "NPC_Y"],
+   "codec": {
+    "type": "fields",
+    "fields": [
+     {"key": "taban", "param": "NPC_X", "codec": {"type": "number", "scale": 1, "min": 0, "max": 3000, "step": 100, "integer": true, "unit": "sayi"}},
+     {"key": "oyuncu_basina", "param": "NPC_Y", "codec": {"type": "number", "scale": 1, "min": 0, "max": 6, "step": 0.5, "unit": "sayi"}}
+    ]
+   },
+   "apply": "start_only",
+   "decision": "D4"
+  },
+  {
+   "id": "baslangic_sehir_kasasi",
+   "layer": "P",
+   "group": "dunya",
+   "level": "A",
+   "editable": true,
+   "status": "active",
+   "kind": "number",
+   "params": ["CITY_START_CASH"],
+   "requires": ["CITY_START_CASH"],
+   "codec": {"type": "number", "scale": 1, "min": 0, "max": 2000000, "step": 10000, "integer": true, "unit": "akce"},
+   "apply": "start_only",
+   "decision": "D4"
+  }
+ ]
+}

@@ -1,0 +1,126 @@
+.kok {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  min-width: 0;
+}
+
+.liste {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.satir {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-12);
+  padding: var(--space-10) 0;
+  border-bottom: var(--border-1) solid var(--ekran-ayrac);
+}
+
+.satir dt,
+.satir dd {
+  margin: 0;
+}
+
+.etiket {
+  color: var(--ekran-yazi-soluk);
+  font-size: var(--fs-14);
+}
+
+.deger {
+  font-size: var(--fs-14);
+  font-weight: var(--weight-bold);
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.not {
+  margin: 0;
+  color: var(--ekran-yazi-soluk);
+  font-size: var(--fs-13);
+}
+
+.grafik {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.baslikSatir {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+
+.altBaslik {
+  margin: 0;
+  font-size: var(--fs-15);
+  font-weight: var(--weight-bold);
+}
+
+.tablo {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-13);
+}
+
+.tablo th,
+.tablo td {
+  padding: var(--space-6) 0;
+  border-bottom: var(--border-1) solid var(--ekran-ayrac);
+  text-align: left;
+  font-weight: var(--weight-regular);
+}
+
+.tablo thead th {
+  color: var(--ekran-yazi-soluk);
+  font-size: var(--fs-12);
+}
+
+.tablo tbody th {
+  font-weight: var(--weight-medium);
+}
+
+.sag {
+  text-align: right;
+}
+
+.sayi {
+  font-variant-numeric: tabular-nums;
+}
+
+.lonca {
+  border-top: var(--border-1) solid var(--ekran-ayrac);
+  padding: var(--space-4) 0;
+}
+
+.ozet {
+  min-height: var(--size-target);
+  display: flex;
+  align-items: center;
+  font-size: var(--fs-15);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+}
+
+.urunler {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.urun {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-12);
+  padding: var(--space-6) 0;
+  border-bottom: var(--border-1) solid var(--ekran-ayrac);
+  font-size: var(--fs-14);
+}

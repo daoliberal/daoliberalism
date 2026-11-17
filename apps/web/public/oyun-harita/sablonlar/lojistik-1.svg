@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect data-katman="metal" x="2" y="94" width="96" height="2.4"/>
+  <rect data-katman="duvar" x="8" y="48" width="84" height="46"/>
+  <rect data-katman="duvar2" x="78" y="48" width="14" height="46"/>
+  <polygon data-katman="cati" points="6,50 50,24 94,50"/>
+  <rect data-katman="cati2" x="45" y="23" width="10" height="3"/>
+  <circle data-katman="pencere" cx="50" cy="40" r="5"/>
+  <rect data-katman="kapi" x="14" y="60" width="32" height="34"/>
+  <rect data-katman="metal" x="14" y="63" width="32" height="2"/>
+  <rect data-katman="metal" x="14" y="69" width="32" height="2"/>
+  <rect data-katman="metal" x="14" y="75" width="32" height="2"/>
+  <rect data-katman="metal" x="14" y="81" width="32" height="2"/>
+  <rect data-katman="metal" x="14" y="87" width="32" height="2"/>
+  <rect data-katman="ayrinti2" x="14" y="56" width="32" height="3"/>
+  <rect data-katman="metal" x="12" y="92" width="38" height="2"/>
+  <rect data-katman="kapi" x="78" y="76" width="9" height="18"/>
+  <rect data-katman="saman" x="6" y="86" width="8" height="8"/>
+  <rect data-katman="saman" x="11" y="78" width="8" height="8"/>
+</svg>

@@ -1,0 +1,96 @@
+.ust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-10);
+}
+
+.etiket {
+  color: var(--color-ink-3);
+  font-size: var(--fs-14);
+}
+
+.bilgi {
+  margin: 0;
+  color: var(--color-ink-2);
+  font-size: var(--fs-14);
+  overflow-wrap: anywhere;
+}
+
+.grup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+.bolum {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: 0;
+}
+
+.bolumBaslik {
+  margin: 0;
+  font-size: var(--fs-16);
+}
+
+.liste {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.satir {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr) auto;
+  align-items: baseline;
+  gap: var(--space-4) var(--space-12);
+  padding: var(--space-8) 0;
+  border-top: var(--border-1) solid var(--color-line);
+  overflow-wrap: anywhere;
+}
+
+.degisen {
+  background: var(--color-brand-tint);
+}
+
+.deger {
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+}
+
+.not {
+  color: var(--color-ink-3);
+  font-size: var(--fs-13);
+  white-space: nowrap;
+}
+
+.etiketDegisen {
+  margin-left: var(--space-6);
+  padding: var(--space-2) var(--space-8);
+  border-radius: var(--radius-pill);
+  background: var(--color-brand-tint);
+  color: var(--color-brand-strong);
+  font-size: var(--fs-12);
+  font-weight: var(--weight-bold);
+}
+
+@media (max-width: 720px) {
+  .satir {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .not {
+    white-space: normal;
+  }
+}
+
+.canlilik {
+  padding: var(--space-2) var(--space-8);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-12);
+}

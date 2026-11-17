@@ -1,0 +1,24 @@
+.oge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+  min-height: var(--size-target);
+  cursor: pointer;
+}
+
+.kutu {
+  flex: none;
+  width: var(--size-20);
+  height: var(--size-20);
+  margin: 0;
+  accent-color: var(--color-brand);
+}
+
+.kutu:focus-visible {
+  outline: var(--border-2) solid var(--color-brand);
+  outline-offset: var(--border-2);
+}
+
+.kutu:disabled {
+  cursor: not-allowed;
+}

@@ -1,0 +1,65 @@
+/* Oyun sayfası site çerçevesi olmadan çizilir; diğer sayfalardaki kap ve kenar boşluğu burada aynı belirteçlerle verilir. */
+.sayfa {
+  box-sizing: border-box;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-28) var(--gutter) var(--space-80);
+}
+
+@media (max-width: 720px) {
+  .sayfa {
+    padding: var(--space-16) var(--space-16) var(--space-28);
+  }
+}
+
+/* Şehir ekranı: sayfa kabı yok, görünüm penceresini doldurur. */
+.tamEkran {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Görsel olarak gizli, erişilebilir (ekran okuyucu ve odak sırası korunur). */
+.gizli {
+  position: absolute;
+  width: var(--space-1);
+  height: var(--space-1);
+  margin: calc(-1 * var(--space-1));
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Giriş ekranları: kabuk (GirisKabi) kendi tam ekran çerçevesini çizer; kök yalnız hareket tercihini taşır. */
+.giris {
+  margin: 0;
+  padding: 0;
+}
+
+/* DK-16: "Hareketi azalt" (yerel tercih) ve sistemin hareket azaltma tercihi geçişleri ve animasyonları kapatır. */
+.sayfa[data-hareket="azalt"],
+.sayfa[data-hareket="azalt"] *,
+.tamEkran[data-hareket="azalt"],
+.tamEkran[data-hareket="azalt"] *,
+.giris[data-hareket="azalt"],
+.giris[data-hareket="azalt"] * {
+  transition: none;
+  animation: none;
+  scroll-behavior: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sayfa,
+  .sayfa *,
+  .tamEkran,
+  .tamEkran *,
+  .giris,
+  .giris * {
+    transition: none;
+    animation: none;
+    scroll-behavior: auto;
+  }
+}

@@ -1,0 +1,112 @@
+/* DAO girişi, giriş kabuğunun içinde: ortalanmış başlık, dünya kartları, Başla. */
+.kok {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-10);
+  width: 100%;
+  min-width: 0;
+}
+
+.baslik {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-40);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--ls-tight-sm);
+  overflow-wrap: anywhere;
+}
+
+.altBaslik {
+  margin: 0 0 var(--space-14);
+  color: var(--color-ink-2);
+  font-size: var(--fs-18);
+}
+
+.panel {
+  width: 100%;
+  min-width: 0;
+}
+
+.govde {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+  width: 100%;
+}
+
+.dunyalar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-260), 1fr));
+  gap: var(--space-14);
+  width: 100%;
+  max-width: var(--page-narrow);
+  margin-bottom: var(--space-12);
+  text-align: start;
+}
+
+.dunya {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-height: var(--size-target);
+  padding: var(--space-18) var(--space-20);
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-16);
+  background: var(--ekran-cam);
+  color: var(--ekran-yazi);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+.dunya[aria-pressed="true"] {
+  padding: calc(var(--space-18) - var(--border-1)) calc(var(--space-20) - var(--border-1));
+  border: var(--border-2) solid var(--ekran-vurgu);
+  background: var(--ekran-secili);
+}
+
+.dunya:disabled {
+  cursor: not-allowed;
+}
+
+.dunyaAd {
+  font-family: var(--font-display);
+  font-size: var(--fs-20);
+  font-weight: var(--weight-bold);
+}
+
+.dunyaAciklama {
+  color: var(--ekran-yazi);
+  font-size: var(--fs-14);
+  line-height: var(--lh-body);
+}
+
+.kucuk {
+  margin: 0;
+  color: var(--ekran-yazi-soluk);
+  font-size: var(--fs-14);
+  overflow-wrap: anywhere;
+}
+
+.gizli {
+  position: absolute;
+  width: var(--space-1);
+  height: var(--space-1);
+  margin: calc(-1 * var(--space-1));
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .baslik {
+    font-size: var(--fs-30);
+  }
+
+  .altBaslik {
+    font-size: var(--fs-16);
+  }
+}

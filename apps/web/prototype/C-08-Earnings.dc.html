@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>My earnings — daoliberal</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Atkinson+Hyperlegible+Next:wght@400;500;700&amp;family=Atkinson+Hyperlegible+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EEF1F3}
+a{color:#0B6B5D}a:hover{color:#074A40}
+</style>
+</helmet>
+<div style="min-height: 1400px; background: #EEF1F3; color: #12181F; font-family: 'Atkinson Hyperlegible Next', system-ui, sans-serif; font-size: 16px; line-height: 1.5">
+
+<header style="background: #FFFFFF; border-bottom: 1px solid #D5DBE0">
+<div style="max-width: 1200px; margin: 0 auto; padding: 12px 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px">
+<a href="C-01-Landing.dc.html" style="display: flex; align-items: center; gap: 10px; color: #12181F; text-decoration: none; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 22px">
+<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" fill="none" stroke="#0B6B5D" stroke-width="2"><circle cx="13" cy="5" r="3"></circle><circle cx="5" cy="20" r="3"></circle><circle cx="21" cy="20" r="3"></circle><path d="M11.5 7.5 6.5 17.5M14.5 7.5l5 10M8 20h10"></path></svg>daoliberal</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 auto">
+<a href="C-02-Treasuries.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">Treasuries</a>
+<a href="C-05-DAOs.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">DAOs</a>
+<a href="C-07-Agents.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; color: #33404C; text-decoration: none">My agents</a>
+<a href="C-08-Earnings.dc.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 999px; background: #E3F0EC; color: #074A40; font-weight: 700; text-decoration: none">My earnings</a>
+</nav>
+<span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background: #FFF1D6; color: #7A4A00; font-size: 13px; font-weight: 700"><svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><circle cx="4" cy="4" r="4" fill="#C77700"></circle></svg>Testnet</span>
+<button style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid #C3CBD2; background: #FFFFFF; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px; color: #12181F">0x91c4…a4F2</button>
+</div>
+</header>
+
+<main style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 80px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<div>
+<h1 style="margin: 0; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 46px; line-height: 1.05; letter-spacing: -0.02em">My earnings</h1>
+<p style="margin: 8px 0 0; color: #3D4954; max-width: 640px">Each order your agents work on creates a credit in ETH. A credit becomes claimable when its treasury's hold period ends.</p>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 16px">
+<div style="background: #12181F; color: #FFFFFF; border-radius: 20px; padding: 20px"><div style="color: #C3CBD2">Available now</div><div style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 36px; color: #6FD6C0">0.412 ETH</div><div style="font-size: 14px; color: #C3CBD2">3 credits</div></div>
+<div style="background: #FFFFFF; border: 1px solid #D5DBE0; border-radius: 20px; padding: 20px"><div style="color: #4F5B66">On hold</div><div style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 36px">0.287 ETH</div><div style="font-size: 14px; color: #4F5B66">next release in 2 d 04 h</div></div>
+<div style="background: #FFFFFF; border: 1px solid #D5DBE0; border-radius: 20px; padding: 20px"><div style="color: #4F5B66">Claimed so far</div><div style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 36px">1.900 ETH</div><div style="font-size: 14px; color: #4F5B66">3 claims</div></div>
+</div>
+
+<div role="tablist" aria-label="Earnings views" style="display: flex; gap: 4px; border-bottom: 1px solid #D5DBE0">
+<button role="tab" aria-selected="{{onCredits}}" onClick="{{showCredits}}" style="min-height: 48px; padding: 0 18px; border: 0; border-bottom: 3px solid {{credLine}}; background: transparent; font: inherit; font-weight: 700; color: #12181F; margin-bottom: -1px">Credits</button>
+<button role="tab" aria-selected="{{onHistory}}" onClick="{{showHistory}}" style="min-height: 48px; padding: 0 18px; border: 0; border-bottom: 3px solid {{histLine}}; background: transparent; font: inherit; font-weight: 700; color: #12181F; margin-bottom: -1px">Claim history</button>
+</div>
+
+<sc-if value="{{onCredits}}" hint-placeholder-val="{{ true }}">
+<section style="background: #FFFFFF; border: 1px solid #D5DBE0; border-radius: 20px; overflow-x: auto">
+<div style="min-width: 860px">
+<div style="display: grid; grid-template-columns: 56px minmax(0, 0.8fr) minmax(0, 1.6fr) minmax(0, 1.2fr) minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1.5fr); gap: 12px; padding: 12px 20px; font-size: 13px; color: #4F5B66; border-bottom: 1px solid #E2E7EB; align-items: center">
+<span></span><span>Order</span><span>DAO · agent</span><span>Treasury</span><span>Credited</span><span style="text-align: right">Amount</span><span>Release</span>
+</div>
+<sc-for list="{{credits}}" as="c" hint-placeholder-count="5">
+<div style="display: grid; grid-template-columns: 56px minmax(0, 0.8fr) minmax(0, 1.6fr) minmax(0, 1.2fr) minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1.5fr); gap: 12px; padding: 14px 20px; border-bottom: 1px solid #E2E7EB; align-items: center; background: {{c.rowBg}}">
+<span><sc-if value="{{c.ready}}" hint-placeholder-val="{{ true }}"><input type="checkbox" aria-label="Select order {{c.id}}" checked="{{c.sel}}" onChange="{{c.toggle}}" style="width: 22px; height: 22px; accent-color: #0B6B5D"></sc-if></span>
+<span style="font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 14px">#{{c.id}}</span>
+<span><a href="C-05b-DAO.dc.html" style="color: #12181F; font-weight: 700">{{c.dao}}</a><br><span style="font-size: 14px; color: #4F5B66">{{c.agent}}</span></span>
+<span><a href="C-03-Treasury.dc.html">{{c.tr}}</a><br><span style="font-size: 13px; color: #4F5B66">{{c.hold}}-day hold</span></span>
+<span style="font-size: 14px; color: #3D4954">{{c.date}}</span>
+<span style="text-align: right; font-family: 'Atkinson Hyperlegible Mono', monospace; font-size: 17px">{{c.amt}}</span>
+<span style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 14px; font-weight: 700; color: {{c.statusColor}}">{{c.status}}</span>
+<span style="height: 6px; border-radius: 3px; background: #E2E7EB"><span style="display: block; height: 6px; border-radius: 3px; background: {{c.barColor}}; width: {{c.pct}}%"></span></span>
+</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; background: #F3F5F7">
+<span style="color: #3D4954">{{selCount}} of 3 available credits selected · sent to <span style="font-family: 'Atkinson Hyperlegible Mono', monospace">0x91c4…a4F2</span></span>
+<a href="C-09-Approval.dc.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 999px; background: #0B6B5D; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px">Claim {{selTotal}} ETH</a>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{onHistory}}" hint-placeholder-val="{{ false }}">
+<section style="background: #FFFFFF; border: 1px solid #D5DBE0; border-radius: 20px; overflow-x: auto">
+<div style="min-width: 560px">
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 12px 20px; font-size: 13px; color: #4F5B66; border-bottom: 1px solid #E2E7EB"><span>Date</span><span>Credits</span><span style="text-align: right">Amount</span><span style="text-align: right">Transaction</span></div>
+<sc-for list="{{history}}" as="h" hint-placeholder-count="3">
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 14px 20px; border-bottom: 1px solid #E2E7EB">
+<span>{{h.date}}</span><span>{{h.n}} credits</span><span style="text-align: right; font-family: 'Atkinson Hyperlegible Mono', monospace">{{h.amt}} ETH</span><a href="#" style="text-align: right; font-family: 'Atkinson Hyperlegible Mono', monospace">{{h.tx}} ↗</a>
+</div>
+</sc-for>
+</div>
+</section>
+</sc-if>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const tab = s.tab || 'credits';
+    const sel = s.sel || { '1042': true, '0988': true, '1017': true };
+    const C = [
+      { id: '0988', dao: 'Quiet Harbor', agent: 'Atlas‑7', tr: 'Lean Guild', hold: 14, date: '1 Oct', amt: 0.124, ready: true },
+      { id: '1017', dao: 'Brightwater Research', agent: 'Juniper', tr: 'Commonwealth', hold: 7, date: '9 Oct', amt: 0.135, ready: true },
+      { id: '1042', dao: 'Fieldnotes Co-op', agent: 'Atlas‑7', tr: 'Commonwealth', hold: 7, date: '12 Oct', amt: 0.153, ready: true },
+      { id: '1101', dao: 'Fieldnotes Co-op', agent: 'Atlas‑7', tr: 'Commonwealth', hold: 7, date: '16 Oct', amt: 0.153, ready: false, left: 'in 2 d 04 h · 23 Oct', pct: 69 },
+      { id: '1110', dao: 'Quiet Harbor', agent: 'Atlas‑7', tr: 'Lean Guild', hold: 14, date: '16 Oct', amt: 0.134, ready: false, left: 'in 9 d 11 h · 30 Oct', pct: 35 }
+    ];
+    let total = 0, count = 0;
+    const credits = C.map((c) => {
+      const on = c.ready && !!sel[c.id];
+      if (on) { total += c.amt; count += 1; }
+      return Object.assign({}, c, {
+        amt: c.amt.toFixed(3),
+        sel: on,
+        rowBg: on ? '#F2F8F6' : '#FFFFFF',
+        status: c.ready ? 'Available' : c.left,
+        statusColor: c.ready ? '#0B6B5D' : '#33404C',
+        barColor: c.ready ? '#0B6B5D' : '#8D9AA6',
+        pct: c.ready ? 100 : c.pct,
+        toggle: () => this.setState({ sel: Object.assign({}, sel, { [c.id]: !sel[c.id] }) })
+      });
+    });
+    return {
+      onCredits: tab === 'credits', onHistory: tab === 'history',
+      credLine: tab === 'credits' ? '#0B6B5D' : 'transparent', histLine: tab === 'history' ? '#0B6B5D' : 'transparent',
+      showCredits: () => this.setState({ tab: 'credits' }), showHistory: () => this.setState({ tab: 'history' }),
+      credits: credits,
+      selCount: count, selTotal: total.toFixed(3),
+      history: [
+        { date: '1 Oct 2026', n: 5, amt: '0.871', tx: '0x3c9e…' },
+        { date: '12 Sep 2026', n: 4, amt: '0.640', tx: '0x81a0…' },
+        { date: '25 Aug 2026', n: 3, amt: '0.389', tx: '0xf27b…' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+/* C-02-Treasuries (desktop) and C-M1-Treasuries (phone). Prototype line numbers in comments. */
+
+/* :31 */
+.main {
+  box-sizing: border-box;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-40) var(--gutter) var(--space-140);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min-420), 100%), 1fr));
+  gap: var(--space-24) var(--space-48);
+  align-items: end;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-46);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-tight);
+  overflow-wrap: anywhere;
+}
+
+.lede {
+  max-width: var(--measure-md);
+  margin: var(--space-14) 0 0;
+  color: var(--color-ink-3);
+  text-wrap: pretty;
+}
+
+/* :38 "If a customer pays" card */
+.calc {
+  padding: var(--space-18) var(--space-20);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-16);
+  background: var(--color-surface);
+}
+
+/* :53 */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+  margin-top: var(--space-32);
+}
+
+/* segmented Cards / Side by side: its buttons are 40px tall inside a 46px group (G2 exception, see fidelity/exceptions.ts) */
+.views {
+  display: flex;
+  margin-right: var(--space-8);
+  padding: var(--space-3);
+  border: var(--border-1) solid var(--color-line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+}
+
+.sort {
+  margin-left: auto;
+}
+
+.count {
+  margin: var(--space-10) 0 0;
+  color: var(--color-ink-4);
+  font-size: var(--fs-14);
+}
+
+.list {
+  margin-top: var(--space-20);
+}
+
+/* :121 */
+.compare {
+  margin-top: var(--space-20);
+  overflow-x: auto;
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-20);
+  background: var(--color-surface);
+}
+
+.tooFew {
+  margin: 0 var(--space-24) var(--space-24);
+  color: var(--color-ink-3);
+}
+
+.footnote {
+  margin: var(--space-20) 0 0;
+  color: var(--color-ink-4);
+  font-size: var(--fs-14);
+}
+
+/* :201 selection tray: sticks to the bottom and overlaps the end of the main padding */
+.trayWrap {
+  position: sticky;
+  bottom: var(--space-16);
+  box-sizing: border-box;
+  max-width: var(--container-max);
+  margin: calc(-1 * var(--space-100)) auto 0;
+  padding: 0 var(--gutter);
+}
+
+.tray {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-12) var(--space-12) var(--space-12) var(--space-20);
+  border-radius: var(--radius-16);
+  background: var(--color-panel-bg);
+  color: var(--color-panel-ink);
+}
+
+.trayCount {
+  font-weight: var(--weight-bold);
+}
+
+.trayNames {
+  color: var(--color-panel-muted);
+}
+
+.trayAction {
+  margin-left: auto;
+}
+
+/* ---------- phone: C-M1-Treasuries:30 ---------- */
+.mMain {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-14);
+  padding: var(--space-18) var(--space-16) var(--space-24);
+  font-size: var(--fs-15);
+}
+
+.mTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-30);
+  font-weight: var(--weight-bold);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-tight);
+  overflow-wrap: anywhere;
+}
+
+.mCalc {
+  padding: var(--space-10) var(--space-12);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-16);
+  background: var(--color-surface);
+}
+
+.mChips {
+  display: flex;
+  gap: var(--space-8);
+  overflow-x: auto;
+  padding-bottom: var(--space-2);
+}
+
+.mCount {
+  margin: 0;
+  color: var(--color-ink-4);
+  font-size: var(--fs-13);
+}

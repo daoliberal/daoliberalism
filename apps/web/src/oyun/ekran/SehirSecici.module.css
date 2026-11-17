@@ -1,0 +1,105 @@
+.kok {
+  position: relative;
+}
+
+.dugme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  min-width: var(--size-180);
+  min-height: var(--size-target);
+  padding: 0 var(--space-14);
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-12);
+  background: var(--ekran-cam);
+  color: var(--ekran-yazi);
+  font: inherit;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+  box-shadow: var(--shadow-modal);
+}
+
+.dugme[aria-expanded="true"] {
+  border-color: var(--ekran-vurgu-koyu);
+}
+
+.liste {
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + var(--space-8));
+  right: 0;
+  width: var(--measure-340);
+  margin: 0;
+  padding: var(--space-8);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-14);
+  background: var(--ekran-cam);
+  box-shadow: var(--shadow-modal);
+}
+
+.liste:focus-visible {
+  outline: var(--border-2) solid var(--ekran-vurgu-koyu);
+}
+
+.oge {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2) var(--space-10);
+  align-items: center;
+  min-height: var(--size-56);
+  padding: var(--space-8) var(--space-10);
+  border: var(--border-1) solid transparent;
+  border-radius: var(--radius-12);
+  cursor: pointer;
+}
+
+.oge[aria-selected="true"] {
+  background: var(--ekran-vurgu-zemin);
+}
+
+.aktif {
+  border-color: var(--ekran-vurgu-koyu);
+  background: var(--ekran-secili);
+}
+
+.ad {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--fs-16);
+}
+
+.ozet {
+  grid-column: 1 / -1;
+  font-size: var(--fs-13);
+  color: var(--ekran-yazi-soluk);
+}
+
+.isaret {
+  padding: var(--space-2) var(--space-8);
+  border-radius: var(--radius-pill);
+  background: var(--ekran-vurgu);
+  color: var(--ekran-vurgu-yazi);
+  font-size: var(--fs-12);
+  font-weight: var(--weight-bold);
+}
+
+@media (max-width: 720px) {
+  .dugme {
+    min-width: 0;
+  }
+
+  .liste {
+    position: fixed;
+    top: var(--size-60);
+    left: var(--space-10);
+    right: var(--space-10);
+    width: auto;
+    max-width: none;
+  }
+}
