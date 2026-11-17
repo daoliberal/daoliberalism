@@ -1,0 +1,15 @@
+# Cloudflare statik varliklar basliklari (derlemede out/_headers olur).
+# Tum yollar
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Icerik karmali (degismez) dosyalar
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML: her seferinde yeniden dogrulanir (Workers varsayilani; acikca sabitlenir)
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/*/
+  Cache-Control: public, max-age=0, must-revalidate

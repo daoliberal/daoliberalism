@@ -50,3 +50,4 @@ simulasyon/kagit-ustu/modulerlestirme/ornek-ciktilar/kredi-yon/
 .playwright-mcp/
 __pycache__/
 *.pyc
+.wrangler/

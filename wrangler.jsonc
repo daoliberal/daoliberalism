@@ -1,0 +1,11 @@
+{
+  // Cloudflare Workers statik varliklar: Next statik disa aktarimi (apps/web/out) sunulur.
+  // Derleme komutu bu dosyada degil, Workers Builds panel ayarinda verilir.
+  "name": "daoliberalism",
+  "compatibility_date": "2026-11-17",
+  "assets": {
+    "directory": "./apps/web/out",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
