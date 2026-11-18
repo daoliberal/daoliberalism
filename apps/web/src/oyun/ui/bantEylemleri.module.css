@@ -1,0 +1,7 @@
+.eylemler {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin-inline-start: var(--space-10);
+  vertical-align: middle;
+}

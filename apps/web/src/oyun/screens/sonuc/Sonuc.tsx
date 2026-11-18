@@ -24,6 +24,7 @@ import { useRegistry } from "@/oyun/sim/useRegistry";
 import { useRun } from "@/oyun/sim/useRun";
 import { useSourceInfo } from "@/oyun/sim/useSourceInfo";
 import { Yukleniyor } from "@/oyun/ui/Durum";
+import { YETENEKLER } from "@/oyun/yetenekler";
 import { AbKarsilastirma } from "./AbKarsilastirma";
 import { AltiDunya } from "./AltiDunya";
 import { HedefKarnesi } from "./HedefKarnesi";
@@ -143,11 +144,11 @@ function Govde({ runId }: { runId: string }) {
       </section>
       <div className={styles.izgara}>
         <HedefKarnesi result={result} duration={state.durationWeeks} weeks={run.weeks} />
-        <AltiDunya state={state} registry={registry} isler={isler} neden={isDestek ? null : "sonuc.is.yok_yetenek"} kayit={source.kind === "replay"} />
+        {YETENEKLER.isEkranlari ? <AltiDunya state={state} registry={registry} isler={isler} neden={isDestek ? null : "sonuc.is.yok_yetenek"} kayit={source.kind === "replay"} /> : null}
       </div>
-      <AbKarsilastirma state={state} registry={registry} isler={isler} neden={abNeden} />
+      {YETENEKLER.isEkranlari ? <AbKarsilastirma state={state} registry={registry} isler={isler} neden={abNeden} /> : null}
       <SartiPaylas state={state} />
-      <Yayinla state={state} />
+      {YETENEKLER.dunyaYayinla ? <Yayinla state={state} /> : null}
     </div>
   );
 }

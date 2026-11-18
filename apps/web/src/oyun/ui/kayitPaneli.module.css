@@ -1,0 +1,61 @@
+.kok {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  min-width: 0;
+}
+
+.bolum {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-width: 0;
+}
+
+.altBaslik {
+  margin: 0;
+  font-size: var(--fs-18);
+}
+
+.metin {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.kucuk {
+  margin: 0;
+  color: var(--color-slate);
+  font-size: var(--fs-14);
+  overflow-wrap: anywhere;
+}
+
+.liste {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.satir {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-10) var(--space-12);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-12);
+  background: var(--color-surface);
+}
+
+.dugmeler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.hata {
+  margin: 0;
+  color: var(--durum-kriz-fg);
+  overflow-wrap: anywhere;
+}

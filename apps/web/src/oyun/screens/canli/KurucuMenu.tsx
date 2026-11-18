@@ -4,6 +4,7 @@ import { Button } from "@/components/primitives/Button";
 import { t } from "@/oyun/copy/t";
 import type { RunState } from "@/oyun/sim/types";
 import { TercihDugmeleri, type Tercih } from "@/oyun/screens/ortak/UstCubuk";
+import { KayitDugmesi } from "@/oyun/ui/KayitDugmesi";
 import { KosuEylemleri, type KosuEylemleriProps } from "./KosuEylemleri";
 import stil from "./KurucuMenu.module.css";
 
@@ -69,6 +70,7 @@ export function KurucuMenu({ state, ayrintilar, tercih, kosu, kosuGizli = false,
             <Button variant="secondary" size="sm" onClick={() => { setAcik(false); onKosular(); }}>
               {t("ustcubuk.kosular")}
             </Button>
+            <KayitDugmesi onAc={() => setAcik(false)} />
             {tercih ? <TercihDugmeleri tercih={tercih} /> : null}
           </div>
         ) : null}

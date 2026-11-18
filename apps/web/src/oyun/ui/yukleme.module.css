@@ -1,0 +1,17 @@
+/* Asgari yükleme ekranı: yalnız mevcut belirteçler (yeni renk yok). */
+.kok {
+  max-width: var(--measure-560);
+  padding: var(--space-14) 0;
+  color: var(--color-ink);
+}
+
+.cubuk {
+  width: 100%;
+  height: var(--space-10);
+  accent-color: var(--color-brand-strong);
+}
+
+.ayrinti {
+  color: var(--color-ink-2);
+  overflow-wrap: anywhere;
+}

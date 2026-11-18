@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import ast
+import contextlib
 import hashlib
 import json
 import os
@@ -40,8 +41,58 @@ def _child_env(model_root: str) -> dict[str, str]:
     return env
 
 
-def read_param_defaults(model_root: str) -> dict[str, Any]:
-    """`simkit.params` üst düzey JSON-serileştirilebilir sabitleri (temiz ortamlı alt süreç)."""
+_FORCE_INPROC = 0          # `inproc_baglami()` derinliği (tarayıcı çekirdeği CPython'da da alt süreçsiz çalışsın; sunucu yolunu etkilemez)
+
+
+def inproc_mode() -> bool:
+    """B2: alt süreç açılamayan ortam (Pyodide/emscripten), `OYUN_INPROC=1` ya da `inproc_baglami()` içi: model varsayılanları ve açılış hesabı süreç içinde okunur."""
+    return _FORCE_INPROC > 0 or sys.platform == "emscripten" or os.environ.get("OYUN_INPROC") == "1"
+
+
+@contextlib.contextmanager
+def inproc_baglami():
+    """Bağlam içinde `inproc_mode()` True (tek iş parçacıklı tarayıcı çekirdeği her isteği bununla sarar)."""
+    global _FORCE_INPROC
+    _FORCE_INPROC += 1
+    try:
+        yield
+    finally:
+        _FORCE_INPROC -= 1
+
+
+def _extract(p: Any) -> dict[str, Any]:
+    """`_CODE` ile aynı süzgeç (alt süreç betiği ve süreç içi yol tek tanım değil ama satır satır aynı kural; bayt eşitliği B1'de sınanır)."""
+    out: dict[str, Any] = {}
+    for k, v in vars(p).items():
+        if k.startswith("_"):
+            continue
+        if v is not None and not isinstance(v, (bool, int, float, str, tuple, list, dict, set, frozenset)):
+            continue
+        if isinstance(v, (set, frozenset)):
+            continue
+        try:
+            json.dumps(v, allow_nan=False)
+        except (TypeError, ValueError):
+            continue
+        out[k] = v
+    return out
+
+
+def read_param_defaults_inproc(model_root: str) -> dict[str, Any]:
+    """Taze bir `simbuild` kopyasının `simkit.params`ı (MODEL_PARAMS yok: `Params()`), alt süreçsiz. Ana süreç `simkit`i kalıcı içe aktarmaz
+    (kopya `sys.modules`ten geri çekilir). Sonuç JSON turundan geçirilir (alt süreç çıktısıyla aynı tür: tuple -> liste)."""
+    root = str(model_root)
+    if root not in sys.path:
+        sys.path.insert(0, root)
+    import simbuild
+    m = simbuild.build(simbuild.Params())
+    return json.loads(json.dumps(_extract(m._params), allow_nan=False))
+
+
+def read_param_defaults(model_root: str, inproc: bool | None = None) -> dict[str, Any]:
+    """`simkit.params` üst düzey JSON-serileştirilebilir sabitleri (temiz ortamlı alt süreç; `inproc` ya da `inproc_mode()` iken süreç içi)."""
+    if inproc if inproc is not None else inproc_mode():
+        return read_param_defaults_inproc(model_root)
     r = subprocess.run([sys.executable, "-P", "-c", _CODE], env=_child_env(model_root), cwd=str(model_root),
                        capture_output=True, text=True, timeout=60)
     if r.returncode != 0:

@@ -5,6 +5,7 @@ import renk from "./ekranRenkleri.module.css";
 import { OlaySeridi, type OlayKapisi, type OlayOgesi } from "./OlaySeridi";
 import { EKRAN_STILI } from "./ekranStili";
 import stil from "./OyunEkrani.module.css";
+import { BildirimYuvasi, useBildirimYuvasiVarMi } from "../ui/BildirimYuvasi";
 import { SehirSecici } from "./SehirSecici";
 import { useEkranBoyutu } from "./useEkranBoyutu";
 import { YuzenPanel } from "./YuzenPanel";
@@ -47,6 +48,11 @@ export type OyunEkraniProps = {
   onPay?: (pay: { ust: number; alt: number; sol: number; sag: number }) => void;
 };
 
+/** Yan panellerin alt kenari (CSS: `--space-140` + n x `--space-48`): sutun yuksekligi bu tabani asinca 48 px'lik basamakla yukselir. */
+const ALT_TABAN_PX = 140;
+const ALT_ADIM_PX = 48;
+const ALT_SEVIYE_EN_COK = 8;
+
 type Pay = { ust: number; alt: number; sol: number; sag: number };
 
 /**
@@ -81,10 +87,14 @@ export function OyunEkrani({
   const [altSayfaAcik, setAltSayfaAcik] = useState(false);
   const altSayfaId = useId();
   const alanRef = useRef<HTMLElement>(null);
+  const yuvaVar = useBildirimYuvasiVarMi();
+  const [altSeviye, setAltSeviye] = useState(0);
+  const yuvaVarRef = useRef(yuvaVar);
   const sonPay = useRef("");
   const sonOnPay = useRef(onPay);
   useEffect(() => {
     sonOnPay.current = onPay;
+    yuvaVarRef.current = yuvaVar;
   });
   /** Yüzen öğelerin gerçek kutularından pay ölçer. */
   const olc = useCallback(() => {
@@ -103,6 +113,9 @@ export function OyunEkrani({
       }
     }
     if (altUst !== Infinity) p.alt = Math.max(0, a.bottom - altUst);
+    // Alt sutunun (bantlar + ipucu + olay seridi) yuksekligi 140 px'i asarsa yan paneller bunun ustunde biter (B10 Ö-yeni-2): 48 px'lik basamaklar (satir ici stil yasak).
+    const seviye = !yuvaVarRef.current ? 0 : Math.min(ALT_SEVIYE_EN_COK, Math.max(0, Math.ceil((p.alt + EKRAN_STILI.payAralik - ALT_TABAN_PX) / ALT_ADIM_PX)));
+    setAltSeviye((o) => (o === seviye ? o : seviye));
     const a8 = EKRAN_STILI.payAralik;
     const sonuc: Pay = { ust: p.ust + a8, alt: p.alt > 0 ? p.alt + a8 : 0, sol: p.sol > 0 ? p.sol + a8 : 0, sag: p.sag > 0 ? p.sag + a8 : 0 };
     const anahtar = JSON.stringify(sonuc);
@@ -144,14 +157,14 @@ export function OyunEkrani({
         </div>
 
         {!telefon && solPanel ? (
-          <div className={stil.panelSol} data-pay="sol" data-daraltilmis={!solAcik}>
+          <div className={stil.panelSol} data-pay="sol" data-daraltilmis={!solAcik} data-alt-seviye={yuvaVar ? altSeviye : undefined}>
             <YuzenPanel baslik={solPanel.baslik} acik={solAcik} onAcikDegis={setSolTercih}>
               {solPanel.icerik}
             </YuzenPanel>
           </div>
         ) : null}
         {!telefon && sagPanel ? (
-          <div className={stil.panelSag} data-pay="sag">
+          <div className={stil.panelSag} data-pay="sag" data-alt-seviye={yuvaVar ? altSeviye : undefined}>
             <YuzenPanel baslik={sagPanel.baslik} onKapat={sagPanel.onKapat}>
               {sagPanel.icerik}
             </YuzenPanel>
@@ -170,6 +183,7 @@ export function OyunEkrani({
                 {t("ekran.panel_goster")}
               </button>
             ) : null}
+            <BildirimYuvasi />
             {ipucu}
             <OlaySeridi olaylar={olaylar} {...(olayKapisi ? { kapi: olayKapisi } : {})} />
           </div>

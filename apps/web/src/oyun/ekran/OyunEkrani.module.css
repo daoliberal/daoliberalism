@@ -82,6 +82,16 @@
   right: var(--space-16);
 }
 
+/* Alt sutun (bantlar + ipucu + olay seridi) 140 px'i asinca yan paneller onun ustunde biter (OyunEkrani `data-alt-seviye`, 48 px basamak). */
+.panelSol[data-alt-seviye="1"], .panelSag[data-alt-seviye="1"] { bottom: calc(var(--space-140) + var(--space-48)); }
+.panelSol[data-alt-seviye="2"], .panelSag[data-alt-seviye="2"] { bottom: calc(var(--space-140) + var(--space-48) * 2); }
+.panelSol[data-alt-seviye="3"], .panelSag[data-alt-seviye="3"] { bottom: calc(var(--space-140) + var(--space-48) * 3); }
+.panelSol[data-alt-seviye="4"], .panelSag[data-alt-seviye="4"] { bottom: calc(var(--space-140) + var(--space-48) * 4); }
+.panelSol[data-alt-seviye="5"], .panelSag[data-alt-seviye="5"] { bottom: calc(var(--space-140) + var(--space-48) * 5); }
+.panelSol[data-alt-seviye="6"], .panelSag[data-alt-seviye="6"] { bottom: calc(var(--space-140) + var(--space-48) * 6); }
+.panelSol[data-alt-seviye="7"], .panelSag[data-alt-seviye="7"] { bottom: calc(var(--space-140) + var(--space-48) * 7); }
+.panelSol[data-alt-seviye="8"], .panelSag[data-alt-seviye="8"] { bottom: calc(var(--space-140) + var(--space-48) * 8); }
+
 /* Daraltılmış sol panel yalnız başlık yüksekliğini kaplar. */
 .panelSol[data-daraltilmis="true"] {
   bottom: auto;

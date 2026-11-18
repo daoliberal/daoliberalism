@@ -1,0 +1,187 @@
+{
+ "_aciklama": "B4a tel sözleşmesi (Python <-> JS). Tür dizgeleri: int, num (int|float), str, bool, null, dict, list; `a|b` seçenek; `{..}` nesne (anahtar `?` ile biter: isteğe bağlı); `[t]` her öğesi t olan liste. Testle kilitli (`tests/test_b4a_devam.py`).",
+ "sabitler": {
+  "kadans": 13,
+  "kadans_uzun": 26,
+  "ham_esik_bayt": 314572800,
+  "paket_penceresi": 4,
+  "devam_azami_hafta": 12,
+  "yonetici_sema": 1,
+  "goruntu_sema": 2,
+  "host_sema": 1
+ },
+ "anahtar": {
+  "model_sha256": "str",
+  "pyodide": "str|null",
+  "schema": "int",
+  "host_sema": "int"
+ },
+ "goruntu_al": {
+  "hafta": "int",
+  "yayimlanan": "int",
+  "goruntu_kimligi": "str",
+  "ham": "int",
+  "sikisik": "int",
+  "parca": "int",
+  "anahtar": {
+   "model_sha256": "str",
+   "pyodide": "str|null",
+   "schema": "int",
+   "host_sema": "int"
+  },
+  "gunluk_sira": "int"
+ },
+ "yonetici": {
+  "sema": "int",
+  "goruntu_kimligi": "str",
+  "id": "str",
+  "duration": "int",
+  "world_id": "str|null",
+  "world_values": "dict|null",
+  "goals": "list|null",
+  "name": "str",
+  "city_names": "list|null",
+  "seed_index": "int",
+  "scenario_id": "str",
+  "overrides": "dict",
+  "later_overrides": [
+   "dict"
+  ],
+  "values": "dict",
+  "status": "str",
+  "speed": "int",
+  "version": "int",
+  "accepted_version": "int",
+  "version_sets": [
+   "list"
+  ],
+  "version_from": [
+   "list"
+  ],
+  "version_notes": [
+   "list"
+  ],
+  "locks": [
+   "str"
+  ],
+  "dao0": "dict|null",
+  "harita0": "dict|null",
+  "model_version": "str|null",
+  "released": "int",
+  "packet_base": "int",
+  "hist_worlds": [
+   "dict"
+  ],
+  "hist_versions": [
+   "int"
+  ],
+  "buf": [
+   "dict"
+  ],
+  "worker_week": "int",
+  "target": "int",
+  "credit": "int",
+  "vevents_due": [
+   "list"
+  ],
+  "vevents": [
+   "dict"
+  ],
+  "raw_config": "dict",
+  "schedule": [
+   "dict"
+  ],
+  "tarif_takvim": [
+   "dict"
+  ],
+  "sched_total": "int",
+  "sched_applied": "int",
+  "parent_id": "str|null",
+  "fork_week": "int|null",
+  "mode": "str",
+  "dunya_kodu": "str|null",
+  "oyuncu": "str|null",
+  "flush_one": "bool",
+  "olay": "bool",
+  "dao_sonuc": "dict|null",
+  "karar_sira": "int",
+  "harita_taban": "dict|null",
+  "gunluk_sira": "int",
+  "son_ham": "int"
+ },
+ "yonetici_not": {
+  "version_sets / version_from / version_notes": "[[surum(int), değer]] çiftleri (JSON'da tamsayı anahtar olmaz)",
+  "buf": "hesaplanmış ama henüz yayımlanmamış (lookahead) haftaların paketleri; devam bunları yeniden yayımlar",
+  "vevents_due": "[[dikiş haftası, olay]]: henüz yayımlanmamış sürüm olayları",
+  "hist_worlds / hist_versions": "tanılar için TÜM yayımlanmış haftaların `world`ü ve sürümü (520 hf ~1,5 MB)",
+  "gunluk_sira": "görüntü anına dek kabul edilen günlük girişi sayısı; günlükte `sira` > bu olanlar yeniden oynatılır",
+  "packet_base": "bilgi amaçlı: devamda paketler `paketler` pencere parametresinden kurulur, packet_base yeniden hesaplanır",
+  "status": "bilgi amaçlı: devam koşuyu her zaman `paused` kurar",
+  "son_ham": "yalnız `goruntu_al` sonucunda: bu görüntünün ham (sıkıştırılmamış) boyutu; devam sonrası kadans kararı için hatırlanır"
+ },
+ "gunluk": {
+  "karar": {
+   "sira": "int",
+   "tur": "str",
+   "dikis": "int",
+   "karar": "dict"
+  },
+  "sart": {
+   "sira": "int",
+   "tur": "str",
+   "dikis": "int",
+   "yama": "dict",
+   "not": "str|null",
+   "surum": "int"
+  }
+ },
+ "gunluk_not": "`dikis` = girişin uygulandığı an host (model) haftası: karar `dikis + 1`. haftada etkili olur; şart değişikliği dikişte (`seamWeek`) kabul edilmiştir. Oynatma, host haftası `dikis` iken girişi uygular; `sira` 1'den bitişik artar. Devam, oynatılan girişleri aynı `sira` ile yeniden `gunluk_al`a ekler: JS yazımı `sira` anahtarıyla idempotent olmalı.",
+ "tarif": {
+  "config": "dict",
+  "takvim": [
+   "dict"
+  ],
+  "parent_id": "str|null",
+  "fork_week": "int|null",
+  "dunya_kodu": "str|null",
+  "oyuncu": "str|null"
+ },
+ "devam_sonuc": {
+  "durum": "str",
+  "kosu_id": "str",
+  "hafta": "int",
+  "uygulanan": "int",
+  "kalan": "int",
+  "giris?": "dict",
+  "neden?": "str|null",
+  "fields?": "list|null",
+  "beklenen?": "int|list|null",
+  "gercek?": "int|list|null"
+ },
+ "devam_durumlari": {
+  "tamam": "hedef haftaya varıldı",
+  "reddedildi": "günlükteki karar/şart bu kez reddedildi (`giris`, `neden`, `fields`); durdu",
+  "sapma": "dikiş/sürüm/sıra uyuşmadı ya da günlük eksik; durdu",
+  "takildi": "hafta yayımlanamadı",
+  "basarisiz": "model çöktü (`neden` = hata anahtarı)"
+ },
+ "hatalar": {
+  "UyumsuzGoruntu": "görüntü başka model/Pyodide/şema/host yapısı ya da bozuk/eski biçim (`fark` = {alan: [görüntüde, şimdi]}; alanlar: model_sha256, pyodide, schema, host_sema, host_alanlari, yukleme, yonetici_sema, bicim): B4b tariften_oynat'a yönlendirir. Anahtar pickle açılmadan ÖNCE düz JSON önekten denetlenir",
+  "GoruntuHazirDegil": "şimdi görüntü alınamaz (hazırlık / bekleyen değişiklik, karar, çekmece / koşu bitti): sonraki tick'te yinele",
+  "ValueError": "geçersiz hedef, devam_cok_uzun (> 12 hf, yayımlanan haftadan ölçülür), dal_goruntu_ileride (dalda görüntü host haftası > dal haftası), eşleşmeyen görüntü-yönetici, var olan koşu kimliği",
+  "TooManyRuns": "MAX_RUNS dolu ve abonesiz koşu yok",
+  "GuvensizGoruntu": "UyumsuzGoruntu alt türü: görüntü izin listesi dışı sınıf istedi (`fark.guvensiz` = [modül, ad]); hiçbir şey çalıştırılmadı. Yerel kayıt bozuksa tariften_oynat'a yönlendir",
+  "TaninmayanLambda": "goruntu_al: dünyada bilinmeyen lambda (model değişti, tablo güncel değil). `sink` o ana dek parça almış olabilir: PARÇALARI AT, görüntü yazma",
+  "TaninmayanReferans": "goruntu_al: dünyada izin listesinde olmayan sınıf/işlev referansı (model değişti/yeni bayrak). Parçaları AT, önceki görüntüyü koru, tanı kaydı tut"
+ },
+ "akis": [
+  "yaz: her tick sonrası `goruntu_gerekli(kosu)`; True ise `goruntu_al(kosu, sink)`: parçaları + `yonetici` + meta'yı tek işlemde depola (hata olursa o ana dek gelen parçaları AT); `gunluk_al(kosu, onceki_sira)` girişlerini ve hafta paketlerini her olayda depola",
+  "devam: `devam({parcalar, yonetici}, gunluk, hedef, paketler=son<=4 paket, kosu_id=None, ilerleme=geri_cagri)`; `UyumsuzGoruntu`/`GuvensizGoruntu` ise `tariften_oynat(tarif, tam_gunluk, hedef)`. 12 hf sınırı `yayimlanan` (yonetici.released) haftasından ölçülür",
+  "dal: `devam(..., hedef=F, kosu_id=<yeni>, ebeveyn=[eski_id, F])`; görüntünün HOST haftası (`goruntu_al().hafta`, yonetici.worker_week) <= F olmalı (Kurucu'da host yayımdan ileride olabilir: gerekirse daha eski görüntü seç, yoksa `dal_goruntu_ileride`); günlükten yalnız `dikis` <= F girişleri ver; sonra `/changes` ile yama. Dalın sonradan tariften oynatılabilmesi için dal deposuna ebeveynin görüntü öncesi (`sira` <= yonetici.gunluk_sira) girişlerini de kopyala",
+  "her koşu (devam/dal/tariften dahil) yaratılınca hemen abone ol; devam edilen koşuda abonelik pencere + oynatılan haftaları yeniden oynatır (idempotent yaz)",
+  "içe aktarma: yalnız tarif + günlük; görüntü parçaları kabul edilmez (bkz. `guvenlik`)",
+  "GuvensizGoruntu / UyumsuzGoruntu{bozuk}: SÜRÜM FARKINDAN AYIR (sessiz yeniden oynatma yok): tanı kaydı tut (hata türü + `fark`; sürüm, model_sha256, görüntü haftası), kullanıcıya 'kayıt yeniden oynatılacak' + tahmini süreyi (hafta × ~1,5-6 sn) bildir; `TaninmayanReferans`/`TaninmayanLambda` (goruntu_al) görüntü yazımında olur: önceki görüntüyü KORU ve hatayı kaydet"
+ ],
+ "sonuc_not": "Günlük girişi bozuksa ya da yönetici istisnası (NotDao, DaoFinished, DaoTimeout...) olursa sonuç `reddedildi`/`sapma` olur (istisna kaçmaz; neden = istisna sınıfı). DAO koşusunda `sart` girişi `dao_kural_degistiremez` ile reddedilir (canlı rota kapısıyla aynı). Beklenmeyen istisnada yarım koşu silinir; reddedilen/sapan sonuçta koşu bellekte kalır (çağıran siler).",
+ "guvenlik": "BAĞLAYICI (B4b): dışarıdan içe aktarılan kayıtta (paylaşılan dosya, başka kullanıcı) görüntü pickle'ı ASLA açılmaz ve dışa aktarma dosyasına görüntü parçaları konmaz; yalnız tarif + günlük (JSON) kabul edilir ve `tariften_oynat` kullanılır. İzin listesi (`goruntu.IZIN`) yalnız yerel bozulmaya karşı savunmadır, keyfi kayda karşı güvence değildir. HMAC yoktur."
+}

@@ -21,6 +21,9 @@ broadcast/
 # apps/web
 apps/web/.next
 apps/web/out
+# B6: derleme zamani uretilen model paketi ve Pyodide cekirdegi (prebuild)
+apps/web/public/oyun/
+apps/web/public/pyodide/
 apps/web/fidelity/out
 apps/web/test-results
 apps/web/playwright-report

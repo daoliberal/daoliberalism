@@ -1,0 +1,4 @@
+/* Bilgilendirme sutununun (OyunApp `.bildirimler`) icinde: oyun ekranini kapatmaz, tam ekran oyunun ustunde de tiklanabilir kalir. */
+.kok {
+  max-inline-size: var(--measure-560);
+}

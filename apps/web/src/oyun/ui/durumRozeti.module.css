@@ -1,0 +1,46 @@
+/* Sol altta kucuk rozet: oyun ekranini kapatmaz, tiklamayi engellemez. */
+.rozet {
+  position: fixed;
+  inset-block-end: var(--space-10);
+  inset-inline-start: var(--space-10);
+  z-index: 1900;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-6) var(--space-12);
+  border: var(--border-1) solid var(--color-line);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-size: var(--fs-14);
+  pointer-events: none;
+}
+
+/* Bos canli bolge: gorunmez, yer kaplamaz. */
+.bos {
+  position: absolute;
+  width: var(--space-1);
+  height: var(--space-1);
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.nokta {
+  width: var(--space-8);
+  height: var(--space-8);
+  border-radius: var(--radius-pill);
+  background: var(--color-brand);
+  animation: atim 1.2s ease-in-out infinite;
+}
+
+@keyframes atim {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nokta {
+    animation: none;
+  }
+}

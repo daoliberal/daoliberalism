@@ -1,0 +1,11 @@
+/* Alt-sol sutunda ipucunun ustundeki bildirim yuvasi (B10 Y-5). Bos iken yer kaplamaz. */
+.yuva {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  align-self: stretch;
+}
+
+.yuva:empty {
+  display: none;
+}

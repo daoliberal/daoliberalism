@@ -1,4 +1,5 @@
 "use client";
+import { KayitDugmesi } from "@/oyun/ui/KayitDugmesi";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/primitives/Button";
 import { t } from "@/oyun/copy/t";
@@ -152,6 +153,7 @@ export function UstMenu({ route, tercih, kosuHazir = true, veri }: Parca & { ter
         <Button variant="secondary" size="sm" onClick={() => go({ name: "kosular" })}>
           {t("ustcubuk.kosular")}
         </Button>
+        <KayitDugmesi />
         <TercihDugmeleri tercih={tercih} />
       </nav>
       {acik === "sart" && hasRun ? <SartOkuyucu state={state} onKapat={kapat} /> : null}

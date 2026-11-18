@@ -106,4 +106,24 @@ describe("useDaoGozlem: ölü koşu", () => {
     expect(result.current.hata).toBe("kosu_yanit_vermiyor");
     expect(result.current.hazirlaniyor).toBe(false);
   });
+
+  it("hafta10_paketsiz_yenilemede_hafta0_gozlemi_(dao0)_gosterilmez_ve_GET_dao_yoklamasi_kapanmaz", async () => {
+    // B10 Y-yeni-1: yenilemeden sonra durum (hafta 10, dao0 hafta 0'dan) paketlerden once gelir; eski gozlem guncel diye gosterilmemeli.
+    const dao0 = { hafta: 0, ben: { durum: "ahir" } };
+    const sorgu = vi.fn(() => Promise.reject(new SimUnsupported("hazirlaniyor")));
+    const { result } = kur(sorgu, "running", 10, dao0);
+    await act(async () => { await vi.advanceTimersByTimeAsync(1000); });
+    expect(sorgu).toHaveBeenCalled();                  // yoklama kapanmadi
+    expect(result.current.gozlem).toBeNull();          // hafta 0 degeri gosterilmedi
+    expect(result.current.hazirlaniyor).toBe(true);
+  });
+
+  it("hafta0_dao0_hala_kullanilir_ve_yoklama_gerekmez", async () => {
+    const dao0 = { hafta: 0, ben: { durum: "ahir" } };
+    const sorgu = vi.fn(() => Promise.reject(new SimUnsupported("hazirlaniyor")));
+    const { result } = kur(sorgu, "paused", 0, dao0);
+    await act(async () => { await vi.advanceTimersByTimeAsync(3000); });
+    expect(sorgu).not.toHaveBeenCalled();
+    expect(result.current.gozlem).toBe(dao0);
+  });
 });

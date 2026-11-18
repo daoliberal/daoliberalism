@@ -4,6 +4,7 @@ import { Button } from "@/components/primitives/Button";
 import { Field } from "@/components/primitives/Field";
 import { t, type CopyKey } from "@/oyun/copy/t";
 import { KOSU_AD_UZUNLUK, type SavedRun } from "@/oyun/sim/library";
+import { YETENEKLER } from "@/oyun/yetenekler";
 import styles from "./Kosular.module.css";
 
 /** Başlangıç zamanı (gün ve saat): aynı adlı iki koşu kartta ayırt edilir. */
@@ -56,12 +57,12 @@ export function KosuKarti({ run, aktif, bekliyor, karsilastirNeden, onAc, onAd, 
       <div className={styles.dugmeler}>
         <Button variant="primary" size="sm" disabled={bekliyor || uzun} aria-describedby={uzun ? `${uid}-uzun` : undefined} aria-label={eylem("kosular.ac")} onClick={onAc}>{t("kosular.ac")}</Button>
         <Button variant="secondary" size="sm" aria-label={eylem("kosular.yeniden_adlandir")} onClick={() => setAdlandir(run.name.slice(0, KOSU_AD_UZUNLUK))}>{t("kosular.yeniden_adlandir")}</Button>
-        <Button variant="secondary" size="sm" disabled={bekliyor || uzun || karsilastirNeden !== null} aria-label={eylem("kosular.karsilastir")} aria-describedby={karsilastirNeden !== null ? `${uid}-neden` : undefined} onClick={onKarsilastir}>{t("kosular.karsilastir")}</Button>
+        {YETENEKLER.isEkranlari ? <Button variant="secondary" size="sm" disabled={bekliyor || uzun || karsilastirNeden !== null} aria-label={eylem("kosular.karsilastir")} aria-describedby={karsilastirNeden !== null ? `${uid}-neden` : undefined} onClick={onKarsilastir}>{t("kosular.karsilastir")}</Button> : null}
         <Button variant="secondary" size="sm" aria-label={eylem("kosular.sarti_kopyala")} onClick={onKopya}>{t("kosular.sarti_kopyala")}</Button>
         <Button variant="secondary" size="sm" aria-label={eylem("kosular.disa_aktar")} onClick={onDisa}>{t("kosular.disa_aktar")}</Button>
         <Button variant="secondary" size="sm" aria-label={eylem("kosular.sil")} onClick={onSil}>{t("kosular.sil")}</Button>
       </div>
-      {karsilastirNeden !== null ? <p id={`${uid}-neden`} className={styles.kucuk}>{t(karsilastirNeden)}</p> : null}
+      {YETENEKLER.isEkranlari && karsilastirNeden !== null ? <p id={`${uid}-neden`} className={styles.kucuk}>{t(karsilastirNeden)}</p> : null}
     </li>
   );
 }

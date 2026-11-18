@@ -35,7 +35,8 @@ export function useDaoGozlem(runId: string, state: RunState | null, weeks: WeekP
   const calisiyor = state?.status === "running";
   /** Hafta 0'da duruyor: ilk paket oyuncu oynat'a basmadan yayımlanmaz, "hazirlaniyor" meşrudur. */
   const duruyor = hafta === 0 && !calisiyor && state?.preparing === undefined && state?.computing !== true;
-  const dao0Var = weeks.length === 0 && state?.dao0 != null;
+  // `dao0` HAFTA 0 gozlemidir: yalniz hafta 0'da gecerli. Yenilemeden sonra durum (hafta N>0) paketlerden once gelir; o pencerede dao0 guncel diye gosterilmez, `GET /dao` yoklamasi surer.
+  const dao0Var = weeks.length === 0 && hafta === 0 && state?.dao0 != null;
   const hazirlikSuruyor = state?.preparing !== undefined || state?.computing === true;
   const [vazgecildi, setVazgecildi] = useState<string | null>(null);
 
@@ -93,7 +94,7 @@ export function useDaoGozlem(runId: string, state: RunState | null, weeks: WeekP
 
   if (paketten !== null) return { gozlem: paketten, hazirlaniyor: false, hata: null };
   const okunanBu = okunan !== null && okunan.runId === runId ? okunan.gozlem : null;
-  const bu = okunanBu ?? (weeks.length === 0 ? state?.dao0 ?? null : null);          // haftalık paket yokken: ready ile gelen hafta 0 gözlemi (harita0 deseni)
+  const bu = okunanBu ?? (weeks.length === 0 && hafta === 0 ? state?.dao0 ?? null : null);          // haftalık paket yokken ve hafta 0'dayken: ready ile gelen hafta 0 gözlemi (harita0 deseni)
   if (bu === null && olu) return { gozlem: null, hazirlaniyor: false, hata: "kosu_coktu" };
   if (bu === null && vazgecildi === runId) return { gozlem: null, hazirlaniyor: false, hata: "kosu_yanit_vermiyor" };
   return { gozlem: bu, hazirlaniyor: bu === null && bekliyor, hata: bu === null ? hata : null };

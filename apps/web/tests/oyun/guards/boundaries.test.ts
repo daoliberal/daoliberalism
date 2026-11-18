@@ -12,9 +12,12 @@ const ALLOWED = [
   /^react$/,
   /^react\//,
   /^next\//,
-  /^pixi\.js$/,
+  /^pixi\.js(\/unsafe-eval)?$/,
   /^@pixi\/react$/,
 ];
+
+/** `react-dom` YALNIZ portal kullanan dosyalarda (B10: bildirim bantlari OyunEkrani yuvasina `createPortal` ile tasinir). */
+const REACT_DOM_DOSYALARI = [path.join(OYUN, "OyunApp.tsx")];
 
 export function specifiers(fileName: string, text: string): string[] {
   const sf = ts.createSourceFile(fileName, text, ts.ScriptTarget.Latest, true, fileName.endsWith(".ts") ? ts.ScriptKind.TS : ts.ScriptKind.TSX);
@@ -56,7 +59,7 @@ describe("sınırlar", () => {
         if (s.startsWith(".")) {
           const target = path.resolve(path.dirname(f), s);
           if (!target.startsWith(OYUN)) bad.push(`${f}: ${s}`);
-        } else if (!ALLOWED.some((re) => re.test(s))) bad.push(`${f}: ${s}`);
+        } else if (s === "react-dom" ? !REACT_DOM_DOSYALARI.includes(f) : !ALLOWED.some((re) => re.test(s))) bad.push(`${f}: ${s}`);
       }
     expect(bad).toEqual([]);
   });

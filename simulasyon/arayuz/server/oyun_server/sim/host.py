@@ -65,8 +65,9 @@ def guncel_surum(model_root: str, version: str) -> str:
 class ModelHost:
     def __init__(self, model_root: str, overrides: dict[str, Any], weeks: int = 200, n_cities: int = 5,
                  live_keys: Any = None, csv_dir: str | None = None, max_population: int | None = None,
-                 flow_hook: bool = True):
+                 flow_hook: bool = True, hafiza: bool = False):
         self.closed = False
+        self._hafiza = bool(hafiza)                        # B3: yalnız tarayıcı kipi (`InProcClient`): her hafta adımından sonra modelin OKUNMAYAN geçmişi bırakılır (`_kirp`); sunucu kipinde False
         self._live_keys = frozenset(live_keys) if live_keys is not None else load_live_keys()
         self._initial = dict(overrides)
         self.weeks = weeks
@@ -141,7 +142,31 @@ class ModelHost:
         row = dict(self._W.wk_csv[-1])
         self._last_row = dict(row)
         self._track_profit()
+        if self._hafiza:
+            self._kirp()
         return row
+
+    def _kirp(self) -> None:
+        """B3 (yalnız `hafiza`): hafta adımı bittikten sonra modelin oyun sırasında GERİ OKUMADIĞI geçmişi bırakır. Model çıktısı değişmez (kanıt: B3 raporu, alan alan okuma/yazma
+        satırları; gate golden'ları ve 104 hf oyun paketleri SHA aynı). Yalnız bellek: Pyodide'de yığın geri verilmez, bu yüzden büyüyen geçmiş durdurulur.
+        - `L.events` (Ledger.events): satırları yalnız o haftanın diliminde okunur (`week_open.py:149` `W.ev0 = len(L.events)`, `firm_log.py:213`, `week_metrics.py:258`); eski haftaları yalnız koşu sonu raporu okur (`report.py:183`), oyun onu çağırmaz.
+          Liste boşalınca sonraki haftanın `W.ev0` 0 olur (aynı dilim).
+        - `W.weekly[-1]["events"]`: aynı satırların dilim kopyası (`week_metrics.py:258`); `weekly` kayıtlarının öbür alanları (`series`...) okunmaya devam eder, yalnız `events` boşalır.
+        - `W.wk_csv`: ölçüm satırı listesi; model yalnız eklenen son satırı okur (`measure.py:157`), tamamını `measure_finish` okur (çağrılmaz); host son satırı `step()`te kopyalar.
+        - akış kancası dosyaları (`w.csv.sx` / `.st`): model her hafta sonuna ekler (`measure.py:90-108`), geri okumaz; Pyodide'de bellek dosya sistemi yığındadır. Hafta başına keser."""
+        W = self._W
+        L = W.L
+        del L.events[:]
+        if W.weekly:
+            W.weekly[-1]["events"] = []
+        del W.wk_csv[:-1]
+        try:
+            for ad in os.listdir(self._csv_dir):
+                if ad.startswith("w.csv."):
+                    with open(os.path.join(self._csv_dir, ad), "w"):
+                        pass
+        except OSError:
+            pass                                          # dosya kesilemezse yalnız bellek tasarrufu kaybolur; koşu sürer
 
     PROFIT_HIST_WEEKS = 12
 

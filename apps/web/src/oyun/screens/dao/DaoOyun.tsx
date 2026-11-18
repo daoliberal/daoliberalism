@@ -113,7 +113,9 @@ export function DaoOyun({ runId, tercih }: { runId: string; tercih?: Tercih }) {
   }, [benSehir, replace, route, runId]);
 
   const harita0 = state?.harita0;
-  const harita = useMemo(() => sonHarita(weeks) ?? harita0 ?? (weeks.length === 0 ? { hafta: 0, firmalar: [] } : null), [weeks, harita0]);
+  // `harita0` hafta 0 haritasidir: yenilemeden sonra (hafta N>0, paket yok) guncel diye gosterilmez (B10 Y-yeni-1).
+  const hafta0da = (state?.week ?? 0) === 0;
+  const harita = useMemo(() => sonHarita(weeks) ?? (hafta0da ? (harita0 ?? (weeks.length === 0 ? { hafta: 0, firmalar: [] } : null)) : null), [weeks, harita0, hafta0da]);
   const onceki = useMemo(() => oncekiPaket(weeks, cur), [weeks, cur]);
   const ben = useMemo(() => daoHaritaBeni(gozlem), [gozlem]);
   const hazir = state !== null;
@@ -127,8 +129,9 @@ export function DaoOyun({ runId, tercih }: { runId: string; tercih?: Tercih }) {
   const oyuncuParsel = useOyuncuParseli(runId, gozlem?.firmam?.ad ?? kurucuFirma);
   const yerKlasik = useKaliciYerlesim(runId, "klasik", sehirNo);
   const yerIzo = useKaliciYerlesim(runId, "izo", sehirNo);
+  // Harita yokken (yenileme: hafta N>0, paket henuz yok) sahne KURULMAZ: bos firma listesiyle kurulursa kalici yerlesim tablosu (K9) silinir ve bos tablo yazilir (B10 Y-r2-1).
   const sahne = useMemo(
-    () => (hazir ? sehirSahnesi(cur, harita, { runId, sehirAdlari, sehir: sehirNo, katman, oncekiPaket: onceki, ben, parselSecilebilir: true, yerlesim: yerKlasik.onceki(), sabitlemeler: oyuncuParsel.sabitlemeler.klasik, ...(ilanVeren ? { ilanVeren } : {}) }) : null),
+    () => (hazir && harita !== null ? sehirSahnesi(cur, harita, { runId, sehirAdlari, sehir: sehirNo, katman, oncekiPaket: onceki, ben, parselSecilebilir: true, yerlesim: yerKlasik.onceki(), sabitlemeler: oyuncuParsel.sabitlemeler.klasik, ...(ilanVeren ? { ilanVeren } : {}) }) : null),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [hazir, cur, harita, runId, sehirAdlari, sehirNo, katman, onceki, ben, ilanVeren, yerKlasik.anahtar, oyuncuParsel.sabitlemeler.klasik],
   );
@@ -138,7 +141,7 @@ export function DaoOyun({ runId, tercih }: { runId: string; tercih?: Tercih }) {
   const gecis = useHaritaGecisleri(gorunum.mod === "izo" ? harita : null, olaylar, runId);
   const durumlar = useGorselDurumlari(harita, gecis);
   const izoKaynak = useMemo(
-    () => (hazir && gorunum.mod === "izo" ? sehirSahnesi(cur, harita, { runId, sehirAdlari, sehir: sehirNo, katman, oncekiPaket: onceki, ben, parselSecilebilir: true, izo: true, yerlesim: yerIzo.onceki(), sabitlemeler: oyuncuParsel.sabitlemeler.izo, ...(ilanVeren ? { ilanVeren } : {}) }) : null),
+    () => (hazir && harita !== null && gorunum.mod === "izo" ? sehirSahnesi(cur, harita, { runId, sehirAdlari, sehir: sehirNo, katman, oncekiPaket: onceki, ben, parselSecilebilir: true, izo: true, yerlesim: yerIzo.onceki(), sabitlemeler: oyuncuParsel.sabitlemeler.izo, ...(ilanVeren ? { ilanVeren } : {}) }) : null),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [hazir, gorunum.mod, cur, harita, runId, sehirAdlari, sehirNo, katman, onceki, ben, ilanVeren, yerIzo.anahtar, oyuncuParsel.sabitlemeler.izo],
   );

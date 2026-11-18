@@ -6,7 +6,7 @@ const config = [
   ...nextVitals,
   ...nextTs,
   {
-    ignores: [".next/**", "out/**", "node_modules/**", "prototype/**", "next-env.d.ts", "playwright-report/**", "test-results/**", "fidelity/out/**"],
+    ignores: [".next/**", "out/**", "node_modules/**", "prototype/**", "next-env.d.ts", "playwright-report/**", "test-results/**", "fidelity/out/**", "public/pyodide/**", "public/oyun/**", ".wrangler/**"],
   },
   {
     // Design rules: no inline styles, no raw HTML injection.

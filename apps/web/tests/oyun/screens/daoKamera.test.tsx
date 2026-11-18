@@ -111,7 +111,7 @@ describe("DAO: görünüm modu ve etkin sahne (izometrik)", () => {
     cleanup();
     izoKur.mockClear();
     await izoAc();
-    expect(izoKur).toHaveBeenCalled();
+    await vi.waitFor(() => expect(izoKur).toHaveBeenCalled()); // sahne harita paketiyle kurulur (Y-r2-1)
     await act(async () => { await new Promise((r) => setTimeout(r, 400)); }); // gözlem ve kare sınırı otursun
     const n = izoKur.mock.calls.length;
     const once = tuval.son.sahne;

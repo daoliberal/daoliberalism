@@ -544,7 +544,7 @@ describe("DAO şehir ekranı: oyun sonucu penceresi", () => {
     expect(tab.getByText("Ayakta")).toBeInTheDocument();
     expect(tab.getByText("40 hafta")).toBeInTheDocument();
     // şehir ekranı yerinde (tablo hâlâ DOM'da), oynatma kapalı
-    expect(screen.getByRole("region", { name: /\(liste\)$/ })).toBeInTheDocument();
+    expect(await screen.findByRole("region", { name: /\(liste\)$/ })).toBeInTheDocument(); // sahne harita paketiyle kurulur (Y-r2-1): paket gelene dek bekleme
     expect(screen.getByRole("button", { name: "1 hafta" })).toBeDisabled();
     fireEvent.click(d.getByRole("button", { name: t("dao.sonuc.kapat") }));
     expect(screen.queryByRole("dialog")).toBeNull();

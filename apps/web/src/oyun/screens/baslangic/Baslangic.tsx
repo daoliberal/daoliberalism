@@ -10,6 +10,9 @@ import { cx } from "@/components/primitives/cx";
 import { turGoruldu } from "@/oyun/screens/rehber/rehberDurumu";
 import { loadLibrary } from "@/oyun/sim/library";
 import { useSimSource } from "@/oyun/sim/SimSourceContext";
+import { BantEylemleri } from "@/oyun/ui/BantEylemleri";
+import { KayitDugmesi } from "@/oyun/ui/KayitDugmesi";
+import { ACIK_DEPO, YETENEKLER } from "@/oyun/yetenekler";
 import styles from "./Baslangic.module.css";
 
 /** Kart simgesi: haritanın gerçek bina çizimi (yüklenene dek boş kutu); süstür. */
@@ -116,8 +119,18 @@ export function Baslangic() {
             {t("baslangic.kosular")}
           </Button>
         ) : null}
+        <KayitDugmesi />
         {stilBaglantisi ? <a href="#/stil" className={styles.baglanti}>{t("baslangic.stil")}</a> : null}
       </div>
+      {/* Tarayici kipi: acik kod bilgi satiri (sunucu/onizleme derlemesinde cizilmez). */}
+      {YETENEKLER.yerelKayit ? (
+        <p className={styles.not}>
+          {t("acikkod.satir")}
+          <BantEylemleri>
+            <a href={ACIK_DEPO} target="_blank" rel="noopener noreferrer" className={styles.baglanti}>{t("acikkod.baglanti")}</a>
+          </BantEylemleri>
+        </p>
+      ) : null}
     </section>
   );
 }

@@ -56,6 +56,7 @@ SPEEDS = (1, 4, 16)
 LIVE_APPLY = config.LIVE_APPLY       # koşu ortasında yamalanabilir `apply` sınıfları
 STATE_MIN_GAP = 0.5            # önemsiz state olayları arası en az süre (<= 2/sn)
 PUMP_PERIOD = 0.02
+COOP_WAIT_CAP_S = 20.0         # tarayıcı (işbirlikçi) kipi: gönderilmiş bir değişikliğin onayını bekleme döngüsünün üst sınırı (aşılırsa `busy`; Worker sonsuza dek donmaz)
 DRAWER_WAIT_S = 20.0           # çekmece yanıtı için işçiyi bekleme üst sınırı (işçi adım arasında okur; sonra paket görünümü)
 ERR_CRASH = "hata.model_coktu"
 MAX_NAME_LEN = 64
@@ -230,6 +231,9 @@ class _Run:
         self.model_version: str | None = None
         self.released = 0
         self.packets: list[dict] = []
+        self.packet_base = 0                       # B3: pencere (tarayıcı kipi) dışına atılan paket sayısı; `packets[0]` = `packet_base + 1`. hafta (sunucuda hep 0)
+        self.hist_worlds: list[dict] = []          # B3: tanılar için TÜM yayımlanan haftaların `world`ü (yalnız pencere açıkken; paket kırpılsa da tanı tam geçmişi okur)
+        self.hist_versions: list[int] = []
         self.buf: dict[int, dict] = {}
         self.arrival: dict[int, float] = {}
         self.worker_week = 0
@@ -273,14 +277,21 @@ class _Run:
         self.olay = False                          # DAO `olay` eylemi: yayımlanan pakette olay çıkana dek oynat
         self.firm_buf: dict[int, list] = {}        # D2: işçiden gelen, henüz yayımlanmamış haftaların firma anlık görüntüleri
         self.last_firms: tuple[int, list] | None = None
+        self.gunluk: list[dict] = []               # B4a (yalnız `gunluk_kayit`): kabul edilen oyuncu/DAO kararları ve şart değişiklikleri, kabul sırasıyla (yeniden oynatma günlüğü; bellek-içi, JS depoya yazar)
+        self.gunluk_sira = 0                       # B4a: günlük giriş sayacı (görüntüyle birlikte yazılır; devam ederken numaralama sürer)
+        self.tarif_takvim: list[dict] = []         # B4a: koşunun KURULUŞ takvimi (`create` schedule'ı; canlı kabul edilenler `schedule`a eklenir ama burada yoktur: onlar günlükte)
         self.harita_taban: dict | None = None      # Kurucu: `haritaFark`ın göreli olduğu son tam `harita` haftasının çözülmüş satırları (yalnız bellekte; diske ve durum yüküne girmez)
 
 
 class RunManager:
+    gunluk_kayit: bool = False                     # B4a: tarayıcı çekirdeği açar; kabul edilen karar/değişiklik `run.gunluk`a girer (sunucu kipinde hiç kayıt yok)
+    packet_keep: int | None = None                 # B3: tarayıcı kipinde `run.packets` yalnız son bu kadar haftayı tutar (None = hepsi: sunucu)
+
     def __init__(self, registry: Registry, worker_factory: Callable[[dict], Any],
                  clock: Callable[[], float] = time.monotonic, cfg: Any = config, runs_dir: Any = None,
                  on_dao_end: Callable[[str, dict | None, dict], None] | None = None):
         self.registry, self.factory, self._clock, self.cfg = registry, worker_factory, clock, cfg
+        self._arsiv: dict = {}                         # B3: köprüden gelen eski hafta paketleri `{(koşu, hafta): paket}`; yalnız tek çağrı süresince dolu (`TarayiciCekirdegi`)
         self._on_dao_end = on_dao_end                  # DAO koşusu süresini doldurunca (run_id, dao_sonuc, run_meta); kilit dışında, `_do_reap` kuyruğuyla
         self._dao_end: list[tuple[str, dict | None, dict]] = []
         self._disk = DiskStore(runs_dir)               # D1: koşular diske yazılır (`runs_dir` None ise yazılmaz)
@@ -291,6 +302,7 @@ class RunManager:
         self._reap: list[tuple[Any, float, bool]] = []
         self._stop = threading.Event()
         self._thread: threading.Thread | None = None
+        self.cooperative = False                       # B2: tarayıcı kipi (tek iş parçacığı). True iken `done.wait(t)` yerine `_wait` işbirlikçi döngüsü koşar (bkz. `_wait`, `tick`)
         # Karar dosyası bir kez okunur (her tick'te değil): sunucu ve işçi koşu boyunca aynı değerlerle çalışır.
         self._lookahead_n = self._read_lookahead()
         self.live_keys = self._read_live_keys()      # kayıt kartlarından (DK-17), BİR kez; işçiye spec ile gider
@@ -392,7 +404,7 @@ class RunManager:
             raise RunConfigError(bad)
 
     def create(self, config_: dict, schedule: list | None = None, fast_forward_to: int | None = None,
-               parent: tuple[str, int] | None = None, dunya: tuple[str, str] | None = None) -> dict:
+               parent: tuple[str, int] | None = None, dunya: tuple[str, str] | None = None, run_id: str | None = None) -> dict:
         """Yeni koşu. `schedule` = `[{week, patch}]` (hafta 0 yamaları kuruluşa katılır; ötekiler işçide `week` hesaplandıktan
         sonra uygulanır), `fast_forward_to` = pacer'sız hesaplanacak hafta (`<= süre`), `parent` = (ebeveyn kimliği, dal haftası;
         çıkarılmaz), `dunya` = (dünya kodu, oyuncu kimliği; yalnız DAO). Hata: `RunConfigError`, `BusyPreparing`, `TooManyRuns`."""
@@ -435,7 +447,7 @@ class RunManager:
         for n, e in enumerate(rest):
             res = resolve(self.registry, e["patch"])
             sched_spec.append({"week": e["week"], "overrides": dict(res.params), "version": n + 2})
-        run_id = "canli-" + uuid.uuid4().hex[:8]
+        run_id = run_id or "canli-" + uuid.uuid4().hex[:8]                 # B4a: `run_id` yalnız yeniden oynatma/devam (tarayıcı çekirdeği) verir: JS depodaki koşu kimliği korunur
         spec = {"run_id": run_id, "overrides": overrides, "weeks": cfg_run["duration"], "schedule": sched_spec,
                 "host": os.environ.get("OYUN_HOST") or "model", "live_keys": sorted(self.live_keys),
                 "firms": True}                                 # T10: harita için her canlı koşuda (diske yazım ayrıca `_disk.root`a bağlı)
@@ -458,6 +470,7 @@ class RunManager:
             run.locks = context_locks(self.registry, overrides)
             run.raw_config = copy.deepcopy(config_)
             run.schedule = [{"week": e["week"], "patch": copy.deepcopy(e["patch"])} for e in sched_in]
+            run.tarif_takvim = copy.deepcopy(run.schedule)
             if parent:
                 run.parent_id, run.fork_week = parent
             for n, e in enumerate(rest):                           # sürümler baştan bilinir (2, 3, ...)
@@ -596,10 +609,19 @@ class RunManager:
         with self._lock:
             run = self._get(run_id)
             lo, hi = max(1, int(a)), min(run.released, int(b))
-            return run.packets[lo - 1:hi] if lo <= hi else []
+            if lo > hi:
+                return []
+            base = run.packet_base
+            old = [self._arsiv[(run.id, w)] for w in range(lo, min(hi, base) + 1) if (run.id, w) in self._arsiv] if base else []
+            if hi <= base:
+                return old
+            return old + run.packets[max(lo, base + 1) - 1 - base:hi - base]
 
     def _packet_at(self, run: _Run, week: int) -> dict | None:
-        return run.packets[week - 1] if 1 <= week <= len(run.packets) else None      # yayımlanmamış (lookahead) hafta görünmez
+        base = run.packet_base                                                         # B3: pencere dışı hafta yalnız köprüden gelmişse (`_arsiv`) görünür
+        if base and 1 <= week <= base:
+            return self._arsiv.get((run.id, week))
+        return run.packets[week - 1 - base] if 1 <= week <= base + len(run.packets) else None      # yayımlanmamış (lookahead) hafta görünmez
 
     def drawer(self, run_id: str, kind: str, ref: str, week: int | None = None, wait_s: float = DRAWER_WAIT_S) -> dict:
         """Çekmece (S5): koşuyu İLERLETMEZ, `W`'yi değiştirmez. İşçi yalnız en son hesaplanan haftanın dünyasını tutar:
@@ -626,7 +648,7 @@ class RunManager:
                     req = None
         res = None
         if req is not None:
-            if req.done.wait(wait_s):
+            if self._wait(req.done, wait_s):
                 res = req.result
             else:
                 with self._lock:
@@ -692,7 +714,7 @@ class RunManager:
         if req is None:
             self._do_reap()
             raise DaoFinished(run_id)
-        if not req.done.wait(wait_s):
+        if not self._wait(req.done, wait_s):
             with self._lock:
                 run.karar_reqs.pop(rid, None)
             raise DaoTimeout(run_id)
@@ -749,7 +771,10 @@ class RunManager:
             return None
 
     def apply_change(self, run_id: str, patch: Any, note: str | None = None, timeout: float | None = None) -> dict:
-        """Gelecek haftalara değişiklik. `ChangeResult` sözlüğü döner (`accepted`...)."""
+        """Gelecek haftalara değişiklik. `ChangeResult` sözlüğü döner (`accepted`...).
+        Not (tarayıcı kipi): bekleme üst sınırı (`COOP_WAIT_CAP_S`) aşılırsa `busy` döner ama değişiklik işçiye GÖNDERİLMİŞTİR; onay sonradan gelirse
+        değişiklik uygulanmış olur (istemci `busy` görmüştür) ve `run.pending` onaya dek sonraki değişiklikleri `busy` ile engeller. Süreç içi işçide
+        `send` anında işlendiği için pratikte oluşmaz; yanıt gelmeyen işçi için bir güvenlik sınırıdır."""
         with self._lock:
             run = self._get(run_id)
             if run.status in ("ended", "failed") or run.worker_week >= run.duration:
@@ -770,15 +795,46 @@ class RunManager:
             run.pending, run.computing = pc, True
             self._emit_state(run, self._clock(), True)
             limit = timeout if timeout is not None else max(3.0, 3.0 * (self._p50(run) or 0.0))
-        if not pc.done.wait(limit):
+        if not self._wait(pc.done, limit):
             with self._lock:
                 if not pc.sent and run.pending is pc:             # gönderilmedi: geri çek (işçiye hiç gitmez)
                     run.pending, run.computing = None, False
                     self._emit_state(run, self._clock(), True)
                     return copy.deepcopy(_BUSY)
-            while not pc.done.wait(0.25):                          # gönderildi: onay/çöküş/silme bitirir
-                pass
+            end = time.monotonic() + COOP_WAIT_CAP_S
+            while not self._wait(pc.done, 0.25):                   # gönderildi: onay/çöküş/silme bitirir
+                if self.cooperative and time.monotonic() >= end:   # tarayıcı kipi: tek iş parçacığı, sınırsız döngü Worker'ı dondurur
+                    return copy.deepcopy(_BUSY)
         return pc.result or copy.deepcopy(_ENDED)
+
+    # ---- B2: işbirlikçi bekleme ve tarayıcı zamanlayıcısı -----------------------------------------------
+    def _wait(self, ev: threading.Event, t: float) -> bool:
+        """`ev` kurulana ya da `t` sn dolana dek bekler; kurulduysa True. Sunucu kipinde bugünkü `Event.wait`. Tarayıcı kipinde (tek iş parçacığı)
+        uyumak yanıtı getirmez: bekleme sırasında `pump_once` komut gönderimini ve olay işlemeyi yürütür. HAFTA HESAPLAMAZ (hafta adımı yalnız
+        JS zamanlayıcısının `tick()`inde atılır): 3-6 sn'lik bir adım bekleme içinde başlamaz."""
+        if not self.cooperative:
+            return ev.wait(t)
+        end = time.monotonic() + max(0.0, t)
+        while not ev.is_set():
+            if time.monotonic() >= end:
+                break
+            self.pump_once()
+        return ev.is_set()
+
+    def pump_once(self) -> None:
+        """Bir pump turu: olay işleme (`_drain`) + gönderim/yayım (`_tick`). İstemci `send`/`events` içinde hafta hesaplamaz (bkz. `tarayici/istemci.py`)."""
+        self.pump()
+
+    def tick(self) -> None:
+        """Tarayıcı kipi: JS zamanlayıcısı çağırır. Pump (gönderim, yayım), her canlı koşuda en çok BİR hafta adımı, sonra olayları işleyen ikinci pump."""
+        self.pump()
+        with self._lock:
+            workers = [r.worker for r in self._runs.values() if r.worker is not None]
+        for w in workers:
+            adv = getattr(w, "advance_once", None)
+            if adv is not None:
+                adv()
+        self.pump()
 
     # ---- iş parçacığı -------------------------------------------------------------------------------------------
     def start_thread(self) -> None:
@@ -979,8 +1035,16 @@ class RunManager:
     def _karar_kaydet(self, run: _Run, hafta: int, info: tuple[dict, dict]) -> None:
         """Kilit altında: işçinin onayladığı kararı `kararlar.jsonl`ye ekler (yeniden oynatma bu kayıttan: koşuyu bayt bayt yeniden üretir)."""
         sira, run.karar_sira = run.karar_sira, run.karar_sira + 1
+        self._gunluk_ekle(run, {"tur": "karar", "dikis": hafta - 1, "karar": copy.deepcopy(info[0])})      # dikiş = kararın verildiği an host haftası (uygulama haftası - 1)
         if run.disk is not None:
             run.disk.append_karar({"uygulama_haftasi": hafta, "sira": sira, "karar": info[0], "durum": info[1]})
+
+    def _gunluk_ekle(self, run: _Run, giris: dict) -> None:
+        """Kilit altında: yeniden oynatma günlüğüne bir giriş (`sira` 1'den artar, görüntüden bağımsız sürer). Yalnız `gunluk_kayit` (tarayıcı çekirdeği)."""
+        if not self.gunluk_kayit:
+            return
+        run.gunluk_sira += 1
+        run.gunluk.append({"sira": run.gunluk_sira, **giris})
 
     def _add_version(self, run: _Run, version: int, seam: int, ui_patch: dict, note: str | None = None) -> None:
         """Sürüm kaydı + sürüm olayı (hafta `seam` yayımlanınca akışa girer). Canlı kabulde ve ön yüklü takvimde ortak."""
@@ -1016,6 +1080,7 @@ class RunManager:
             if run.version == 1:
                 run.values = dict(run.version_sets[1])
             run.schedule.append({"week": 0, "patch": copy.deepcopy(pc.ui_patch)})
+            self._gunluk_ekle(run, {"tur": "sart", "dikis": 0, "yama": copy.deepcopy(pc.ui_patch), "not": pc.note, "surum": 1})
             self._disk_meta(run)
             self._finish_pending(run, {"accepted": True, "runId": run.id, "mode": "live",
                                        "scenarioId": run.scenario_id, "seamWeek": 0, "version": 1})
@@ -1024,6 +1089,7 @@ class RunManager:
         version = ev.get("version") if type(ev.get("version")) is int else pc.version
         self._add_version(run, version, seam, pc.ui_patch, pc.note)
         run.schedule.append({"week": seam, "patch": copy.deepcopy(pc.ui_patch)})
+        self._gunluk_ekle(run, {"tur": "sart", "dikis": seam, "yama": copy.deepcopy(pc.ui_patch), "not": pc.note, "surum": version})
         self._disk_meta(run)
         self._flush_vevents(run)
         self._finish_pending(run, {"accepted": True, "runId": run.id, "mode": "live", "scenarioId": run.scenario_id,
@@ -1055,8 +1121,8 @@ class RunManager:
             if run.status == "failed":
                 return
         stuck = float(getattr(self.cfg, "STUCK_S", 30.0))
-        if (pc is not None and pc.sent and now - pc.sent_at > stuck) or \
-                (run.owed_since is not None and now - run.owed_since > stuck):
+        if getattr(run.worker, "stuck_check", True) and ((pc is not None and pc.sent and now - pc.sent_at > stuck) or
+                                                         (run.owed_since is not None and now - run.owed_since > stuck)):
             self._fail(run, run.worker_week + 1, now)            # işçi canlı ama yanıtsız
             return
         if run.prep is not None:                                   # hızlı ileri sarma: pacer yok, bitince tek seferde yayımla
@@ -1143,8 +1209,11 @@ class RunManager:
     def _diagnostics(self, run: _Run, pkt: dict) -> list[dict]:
         """`pkt` `run.packets`'e eklendikten sonra çağrılır (son öğe). Hata koşuyu düşürmez (tanı yardımcıdır)."""
         try:
-            worlds = [p["world"] for p in run.packets]
-            versions = [p["version"] for p in run.packets]
+            if self.packet_keep is None:
+                worlds = [p["world"] for p in run.packets]
+                versions = [p["version"] for p in run.packets]
+            else:                                                  # B3: paketler kırpılır; tanı tam geçmişi (aynı `world` nesneleri) buradan okur
+                worlds, versions = run.hist_worlds, run.hist_versions
             return diagnostics.evaluate_run(worlds, versions, run.version_sets, self.registry)
         except Exception:                                          # noqa: BLE001
             traceback.print_exc(file=sys.stderr)
@@ -1155,6 +1224,9 @@ class RunManager:
         run.flush_one = False
         run.arrival.pop(w, None)
         run.packets.append(pkt)
+        if self.packet_keep is not None:
+            run.hist_worlds.append(pkt["world"])
+            run.hist_versions.append(pkt["version"])
         run.released = w
         pv = pkt["version"]
         if pv != run.version:                                      # sürüm/değerler yayımlanan pakete uyar
@@ -1164,6 +1236,10 @@ class RunManager:
         self._emit(run, "week", pkt)
         self._flush_vevents(run)
         self._disk_week(run, pkt)
+        if self.packet_keep is not None and run.subs and len(run.packets) > self.packet_keep:      # B3: yalnız en az bir abone paketi aldıysa kırp (JS/IndexedDB tutar); abonesizken paketler birikir, abone gelince `subscribe` hepsini oynatır
+            drop = len(run.packets) - self.packet_keep
+            del run.packets[:drop]
+            run.packet_base += drop
         if w >= run.duration:
             run.status, run.buffering, run.credit, run.olay = "ended", False, 0, False
             if run.mode == "dao":                                  # sonuç işçi kapanmadan (`_retire`) ve `kosu.json` son yazımından önce kaydedilir

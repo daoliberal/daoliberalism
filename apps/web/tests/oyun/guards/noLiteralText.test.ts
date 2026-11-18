@@ -83,9 +83,16 @@ describe("noLiteralText kural kendi sınaması", () => {
 describe("src/oyun merkezi metin", () => {
   it("copy_disinda_sabit_metin_yok", () => {
     const root = path.resolve(__dirname, "../../../src/oyun");
-    const files = walk(root).filter((f) => /\.tsx?$/.test(f) && !f.startsWith(path.join(root, "copy") + path.sep));
+    // `tarayici/olcumKancasi.ts`: olcum betigindeki Python kaynak metni (`BELLEK_PY`, kullaniciya gosterilmez; B9 olcum kancasi, varsayilan kapali).
+    // Istisna YALNIZ o bildirimin bulgusu icindir: dosyada baska bulgu cikarsa asagidaki denetim kirilir.
+    const istisna = path.join(root, "tarayici", "olcumKancasi.ts");
+    const files = walk(root).filter((f) => /\.tsx?$/.test(f) && f !== istisna && !f.startsWith(path.join(root, "copy") + path.sep));
     expect(files.length).toBeGreaterThan(0);
     const all = files.flatMap((f) => scanLiteralText(f, fs.readFileSync(f, "utf8")));
     expect(all).toEqual([]);
+    const kaynak = fs.readFileSync(istisna, "utf8");
+    const pySatiri = kaynak.slice(0, kaynak.indexOf("const BELLEK_PY")).split("\n").length;
+    const bulgular = scanLiteralText(istisna, kaynak).filter((b) => !b.endsWith(`:${pySatiri} Türkçe/cümle dizesi`));
+    expect(bulgular).toEqual([]);
   });
 });

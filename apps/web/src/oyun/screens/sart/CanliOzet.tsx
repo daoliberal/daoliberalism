@@ -13,6 +13,7 @@ import { useSourceInfo } from "@/oyun/sim/useSourceInfo";
 import { Banner } from "@/oyun/ui/Banner";
 import { LineChart } from "@/oyun/ui/LineChart";
 import { degerMetni } from "./sartMantik";
+import { YETENEKLER } from "@/oyun/yetenekler";
 import styles from "./SartOzel.module.css";
 
 export const ONIZLEME_HAFTA = 52;
@@ -257,7 +258,7 @@ export function CanliOzet({ registry, draft, farklar, durationWeeks, onizleme }:
         </ul>
       )}
       <p className={styles.kucuk}>{t("sart.ozet.tahmin_yok")}</p>
-      {onizleme ? (
+      {!YETENEKLER.isEkranlari ? null : onizleme ? (
         <OnizlemeBolumu baglam={onizleme} farklar={farklar} />
       ) : (
         <Stack gap="8">

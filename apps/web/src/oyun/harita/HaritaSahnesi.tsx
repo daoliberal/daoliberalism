@@ -1,4 +1,6 @@
 "use client";
+// B7 (CSP): Pixi shader uniform senkronu `new Function` ile uretilir; bu paket onu `unsafe-eval` GEREKTIRMEYEN esdegerle degistirir (CSP `script-src` icinde `unsafe-eval` yok).
+import "pixi.js/unsafe-eval";
 import { Application } from "@pixi/react";
 import { Color, Container, Graphics, Sprite, Text, type Application as PixiApp, type FederatedPointerEvent, type Texture } from "pixi.js";
 import { useEffect, useId, useMemo, useRef, useState } from "react";

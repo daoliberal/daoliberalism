@@ -12,6 +12,7 @@ import { useSourceInfo } from "@/oyun/sim/useSourceInfo";
 import { Banner } from "@/oyun/ui/Banner";
 import { Hata, Yukleniyor } from "@/oyun/ui/Durum";
 import { Sekmeler, sekmeKimligi, sekmePaneliKimligi } from "@/oyun/ui/Sekmeler";
+import { YETENEKLER } from "@/oyun/yetenekler";
 import { Dunyalarim } from "./Dunyalarim";
 import styles from "./DaoEkrani.module.css";
 import giris from "./DaoGiris.module.css";
@@ -84,7 +85,7 @@ export function DaoGiris() {
       </div>
     );
   }
-  const sekmeli = canli && typeof source.dunyalarim === "function";
+  const sekmeli = YETENEKLER.paylasilanDunyalar && canli && typeof source.dunyalarim === "function";
   return (
     <div className={giris.kok}>
       <h2 className={giris.baslik}>{t("dao.giris.baslik")}</h2>

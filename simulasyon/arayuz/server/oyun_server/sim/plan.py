@@ -53,7 +53,26 @@ sys.stdout.write(json.dumps(m._modules["simkit.labor"].start_report(W), allow_na
 """
 
 
-def _run(model_root: str, overrides: dict[str, Any]) -> dict[str, Any]:
+def _run_inproc(model_root: str, overrides: dict[str, Any]) -> dict[str, Any]:
+    """B2: `_CODE` ile aynı hesap süreç içinde (tarayıcıda alt süreç yok). Hata ayıklama bayrakları geçici temizlenir; `simbuild.build` kendi kopyasını kurar."""
+    from .host import _scrubbed_env
+    root = str(model_root)
+    if root not in sys.path:
+        sys.path.insert(0, root)
+    import simbuild
+    ov = ast.literal_eval(repr(dict(overrides)))                  # alt sürecin argv yolu gibi: değer biçimi aynı
+    m = simbuild.build(simbuild.Params(**ov))
+    with _scrubbed_env():
+        W = m.new_world(200, 5, True)
+        m._modules["simkit.engine"].start_world(W)
+        rep = m._modules["simkit.labor"].start_report(W)
+    return json.loads(json.dumps(rep, allow_nan=False))
+
+
+def _run(model_root: str, overrides: dict[str, Any], inproc: bool | None = None) -> dict[str, Any]:
+    from ..registry import defaults as _defaults
+    if inproc if inproc is not None else _defaults.inproc_mode():
+        return _run_inproc(model_root, overrides)
     env = {k: os.environ[k] for k in _ENV_KEEP if k in os.environ}
     env["PYTHONPATH"] = str(model_root)           # MODEL_PARAMS / WEEKLY_CSV bilerek yok: ayarlar yalnız Params ile gider
     env["PYTHONHASHSEED"] = "0"

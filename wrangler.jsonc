@@ -1,6 +1,11 @@
 {
   // Cloudflare Workers statik varliklar: Next statik disa aktarimi (apps/web/out) sunulur.
-  // Derleme komutu bu dosyada degil, Workers Builds panel ayarinda verilir.
+  // Derleme komutu bu dosyada degil, Workers Builds panel ayarinda verilir:
+  //   root dizin:      depo koku (bu dosya kokte; kokte package.json yok, bu yuzden --filter kullanilir)
+  //   build komutu:    pnpm --filter web build && pnpm --filter web denetle:cikti --bayrakli-bekle
+  //   build degiskeni: NEXT_PUBLIC_OYUN_KAYNAK=tarayici   (build degiskeni olmali, runtime degil)
+  //   deploy komutu:   npx wrangler@4.163.0 deploy   (surum sabit: Workers Builds surumu kokteki package.json'dan okur, kokte yok)
+  // Bayrak eksikse derleme (WORKERS_CI=1) ve denetle:cikti --bayrakli-bekle hata verir; sessiz onizleme yayini cikmaz.
   "name": "daoliberalism",
   "compatibility_date": "2026-11-17",
   "assets": {

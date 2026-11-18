@@ -60,18 +60,19 @@ def make_host(spec: dict[str, Any]):
         if nufus.needs_split(overrides):          # D4: kesirli NPC_Y modelde sessizce kesilir; aynı toplamla NPC_X'e bölünür
             from ..registry import defaults
             overrides = nufus.to_model(overrides, defaults.read_param_defaults(root))
-        return ModelHost(root, overrides, weeks, live_keys=spec.get("live_keys"), csv_dir=csv_dir)
+        return ModelHost(root, overrides, weeks, live_keys=spec.get("live_keys"), csv_dir=csv_dir, hafiza=spec.get("hafiza") is True)    # B3: yalnız tarayıcı kipi (`InProcClient`) açar; sunucu kipinde anahtar yok
     raise ValueError("bilinmeyen host: %r" % (kind,))
 
 
-class Session:
-    """cmds: komut sözlükleri kuyruğu (`None` = girdi sonu). emit: olay yazıcı. Dönüşte süreç/iş parçacığı biter."""
+class SessionCore:
+    """B2: bloklamayan oturum çekirdeği. `handle(cmd)` bir komutu hemen işler (hafta HESAPLAMAZ), `advance()` en çok bir hafta atar.
+    Kuyruk ve iş parçacığı yok: tarayıcıda (Pyodide) JS zamanlayıcısı `advance()`i, sunucuda `Session.run` aynı çekirdeği kuyrukla sarar."""
 
-    def __init__(self, cmds: "queue.Queue", emit: Callable[[dict], None],
-                 host_factory: Callable[[dict], Any] = make_host,
+    def __init__(self, emit: Callable[[dict], None], host_factory: Callable[[dict], Any] = make_host,
                  before_step: Callable[[], None] | None = None):
-        self.cmds, self.emit, self.host_factory, self.before_step = cmds, emit, host_factory, before_step
+        self.emit, self.host_factory, self.before_step = emit, host_factory, before_step
         self.host = None
+        self.init_cmd: dict | None = None
         self.target = 0
         self.version = 0
         self.schedule: list[dict] = []
@@ -86,7 +87,7 @@ class Session:
         self.emit({"ev": "failed", "week": week, "error": "%s: %s" % (type(e).__name__, e)})
         return True
 
-    def _handle(self, cmd: Any) -> bool:
+    def handle(self, cmd: Any) -> bool:
         """True = bitir."""
         if not isinstance(cmd, dict):
             return self._bad()
@@ -103,6 +104,7 @@ class Session:
             if not self._schedule_ok(sched):
                 return self._bad()
             self.schedule = [dict(e) for e in sched]
+            self.init_cmd = dict(cmd)                                  # B1: anlık görüntü (`snapshot.dump_session`) tarifi buradan alır
             self.firms_on = cmd.get("firms") is True                  # yalnız canlı koşu ister (jobs işçileri firma anlık görüntüsü üretmez)
             try:
                 self.host = self.host_factory(cmd)
@@ -232,10 +234,81 @@ class Session:
             self.emit({"ev": "patched", "from_week": self.host.week, "version": self.version, "scheduled": True})
         return False
 
+    def idle(self) -> bool:
+        """Hesaplanacak hafta yok (host yok ya da hedefe varıldı)."""
+        return self.host is None or self.host.week >= self.target
+
+    def advance(self) -> bool:
+        """Vadesi gelen takvim yamalarını uygular, hedefe varılmadıysa TEK hafta adımı atar (olay yayımlar). True = oturum bitti/düştü.
+        Bekleyen komutlara bakmaz: komutlar `handle` ile adımlar arasında işlenir (Session.run kuyruktan, tarayıcı çekirdeği `send` anında)."""
+        if self.host is None:
+            return False
+        if self.idle():
+            # Boştayken de vadesi gelen takvim yamaları uygulanır (ör. dal W'de duraklamış): adım arası olmadığından
+            # sonuç yeniden kurmayla aynıdır; sonraki canlı yama doğru sürüm sırasıyla ardına eklenir.
+            return self._apply_due()
+        if self.before_step is not None:
+            self.before_step()
+        if self._apply_due():
+            return True
+        wk = self.host.week + 1
+        try:
+            row = self.host.step()
+        except Exception as e:
+            self._fail(wk, e)
+            return True
+        facts = getattr(self.host, "facts", None)
+        if callable(facts):                                  # tanı olguları (model satırında olmayanlar), satıra eklenir
+            row = {**row, **facts()}
+        ev = {"ev": "week", "week": wk, "version": self.version, "row": row}
+        snap = getattr(self.host, "snapshot", None)
+        if callable(snap):                                   # S5: şehir satırları ve zincir (`cities`, `chain`)
+            try:
+                ev.update(snap())
+            except Exception:                                # noqa: BLE001  bu bloklar yardımcıdır: hata koşuyu düşürmez
+                traceback.print_exc(file=sys.stderr)
+        gozlem = getattr(self.host, "dao_gozlem", None)
+        if callable(gozlem):                                 # T6a: DAO gözlemi (HUMAN_ON kapalıysa None: anahtar yok); yardımcıdır, hata koşuyu düşürmez
+            try:
+                dao = gozlem()
+                if dao is not None:
+                    ev["dao"] = dao
+            except Exception:                                # noqa: BLE001
+                traceback.print_exc(file=sys.stderr)
+        firms = getattr(self.host, "firm_rows", None)
+        if self.firms_on and callable(firms) and _firms_due(wk, self.host.weeks, "dao" in ev):
+            try:                                             # D2: firma düzeyi anlık görüntü HAFTA OLAYINA gömülür (ayrı olay yok: sıra yarışı olamaz)
+                ev["firms"] = firms()
+            except Exception:                                # noqa: BLE001  yardımcıdır: hata koşuyu düşürmez
+                traceback.print_exc(file=sys.stderr)
+        self.emit(ev)
+        if self.ff_total and wk % 10 == 0 and wk < self.ff_total:
+            self.emit({"ev": "progress", "week": wk, "total": self.ff_total})
+        return False
+
+    def close(self) -> None:
+        if self.host is not None:
+            try:
+                self.host.close()
+            except Exception:
+                pass
+
+
+class Session(SessionCore):
+    """cmds: komut sözlükleri kuyruğu (`None` = girdi sonu). emit: olay yazıcı. Dönüşte süreç/iş parçacığı biter. Çekirdek `SessionCore`, burası kuyrukla sarar."""
+
+    def __init__(self, cmds: "queue.Queue", emit: Callable[[dict], None],
+                 host_factory: Callable[[dict], Any] = make_host,
+                 before_step: Callable[[], None] | None = None):
+        super().__init__(emit, host_factory, before_step)
+        self.cmds = cmds
+
+    _handle = SessionCore.handle
+
     def run(self) -> None:
         try:
             while True:
-                idle = self.host is None or self.host.week >= self.target
+                idle = self.idle()
                 # Boştayken de vadesi gelen takvim yamaları uygulanır (ör. dal W'de duraklamış): adım arası olmadığından
                 # sonuç yeniden kurmayla aynıdır; sonraki canlı yama doğru sürüm sırasıyla ardına eklenir.
                 if idle and self.host is not None and self._apply_due():
@@ -247,52 +320,13 @@ class Session:
                 if cmd is None:
                     return
                 if cmd is not queue.Empty:
-                    if self._handle(cmd):
+                    if self.handle(cmd):
                         return
                     continue
-                if self.before_step is not None:
-                    self.before_step()
-                if self._apply_due():
+                if self.advance():
                     return
-                wk = self.host.week + 1
-                try:
-                    row = self.host.step()
-                except Exception as e:
-                    self._fail(wk, e)
-                    return
-                facts = getattr(self.host, "facts", None)
-                if callable(facts):                                  # tanı olguları (model satırında olmayanlar), satıra eklenir
-                    row = {**row, **facts()}
-                ev = {"ev": "week", "week": wk, "version": self.version, "row": row}
-                snap = getattr(self.host, "snapshot", None)
-                if callable(snap):                                   # S5: şehir satırları ve zincir (`cities`, `chain`)
-                    try:
-                        ev.update(snap())
-                    except Exception:                                # noqa: BLE001  bu bloklar yardımcıdır: hata koşuyu düşürmez
-                        traceback.print_exc(file=sys.stderr)
-                gozlem = getattr(self.host, "dao_gozlem", None)
-                if callable(gozlem):                                 # T6a: DAO gözlemi (HUMAN_ON kapalıysa None: anahtar yok); yardımcıdır, hata koşuyu düşürmez
-                    try:
-                        dao = gozlem()
-                        if dao is not None:
-                            ev["dao"] = dao
-                    except Exception:                                # noqa: BLE001
-                        traceback.print_exc(file=sys.stderr)
-                firms = getattr(self.host, "firm_rows", None)
-                if self.firms_on and callable(firms) and _firms_due(wk, self.host.weeks, "dao" in ev):
-                    try:                                             # D2: firma düzeyi anlık görüntü HAFTA OLAYINA gömülür (ayrı olay yok: sıra yarışı olamaz)
-                        ev["firms"] = firms()
-                    except Exception:                                # noqa: BLE001  yardımcıdır: hata koşuyu düşürmez
-                        traceback.print_exc(file=sys.stderr)
-                self.emit(ev)
-                if self.ff_total and wk % 10 == 0 and wk < self.ff_total:
-                    self.emit({"ev": "progress", "week": wk, "total": self.ff_total})
         finally:
-            if self.host is not None:
-                try:
-                    self.host.close()
-                except Exception:
-                    pass
+            self.close()
 
 
 def _firms_due(wk: int, weeks: int, dao: bool) -> bool:
