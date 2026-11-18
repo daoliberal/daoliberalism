@@ -42,9 +42,11 @@ describe("ekran stilleri", () => {
     expect(EKRAN_STILI.kirilma.dar).toBe(1280);
   });
 
-  it("sehir_listesi_ust_serit_alt_sayfanin_ustunde", () => {
+  it("telefon_tam_ekran_sayfa_ust_seridin_ustunde_ve_sabit", () => {
+    // G4 (bilinçli değişiklik): telefonda panel/pencere tam ekran sabit katmandır ve üst şeridin de üstündedir.
     const z = (f: string, sinif: string): number => Number(new RegExp(`\\.${sinif}\\s*\\{[^}]*z-index:\\s*(\\d+)`).exec(css(f))![1]);
-    expect(z("OyunEkrani.module.css", "ustSerit")).toBeGreaterThan(z("AltSayfa.module.css", "sayfa"));
+    expect(z("AltSayfa.module.css", "sayfa")).toBeGreaterThan(z("OyunEkrani.module.css", "ustSerit"));
+    expect(/\.sayfa\s*\{[^}]*position:\s*fixed/.test(css("AltSayfa.module.css"))).toBe(true);
   });
 
   it("kaplama_tiklamayi_tuvale_birakir_paneller_yakalar", () => {

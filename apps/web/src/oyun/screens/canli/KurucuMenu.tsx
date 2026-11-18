@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { Button } from "@/components/primitives/Button";
+import { MenuIcon } from "@/components/primitives/icons";
+import { IkonDugmesi } from "@/oyun/ui/IkonDugmesi";
 import { t } from "@/oyun/copy/t";
 import type { RunState } from "@/oyun/sim/types";
 import { TercihDugmeleri, type Tercih } from "@/oyun/screens/ortak/UstCubuk";
@@ -41,7 +43,7 @@ export function KurucuMenu({ state, ayrintilar, tercih, kosu, kosuGizli = false,
   }, [acik]);
   const kapat = (odak: boolean): void => {
     setAcik(false);
-    if (odak) kok.current?.querySelector<HTMLButtonElement>(":scope > button")?.focus();
+    if (odak) kok.current?.querySelector<HTMLButtonElement>(":scope > span > button")?.focus();
   };
   /** Bir eylem seçilince panel kapanır (eylem kendi katmanını açar). */
   const sar = <A extends unknown[]>(f: ((...a: A) => void) | undefined): ((...a: A) => void) | undefined => (f ? (...a) => { setAcik(false); f(...a); } : undefined);
@@ -60,9 +62,15 @@ export function KurucuMenu({ state, ayrintilar, tercih, kosu, kosuGizli = false,
           }
         }}
       >
-        <Button variant="secondary" size="sm" aria-expanded={acik} aria-controls={acik ? panelId : undefined} onClick={() => setAcik(!acik)}>
-          {t("kurucu.menu.dugme")}
-        </Button>
+        <IkonDugmesi
+          variant="secondary"
+          hiza="son"
+          etiket={t("kurucu.menu.dugme")}
+          ikon={<MenuIcon size="20" />}
+          aria-expanded={acik}
+          aria-controls={acik ? panelId : undefined}
+          onClick={() => setAcik(!acik)}
+        />
         {acik ? (
           <div id={panelId} role="group" aria-label={t("ustcubuk.menu")} className={stil.panel}>
             {ekler ? ekler(() => setAcik(false)) : null}

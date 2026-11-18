@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState, type ReactNode } from "react";
 import { Button } from "@/components/primitives/Button";
+import { ChartIcon } from "@/components/primitives/icons";
+import { IkonDugmesi } from "@/oyun/ui/IkonDugmesi";
 import { Stack } from "@/components/primitives/Stack";
 import { t } from "@/oyun/copy/t";
 import { cityDisplayName } from "@/oyun/lib/names";
@@ -231,9 +233,13 @@ export function Ayrintilar(p: AyrintilarProps) {
 
   return (
     <>
-      <Button variant="secondary" size="sm" onClick={() => setAcik(true)}>
-        {t(p.salt ? "ekonomi.dugme" : "ayrintilar.dugme")}
-      </Button>
+      {p.salt ? (
+        <IkonDugmesi variant="secondary" etiket={t("ekonomi.dugme")} ikon={<ChartIcon size="20" />} onClick={() => setAcik(true)} />
+      ) : (
+        <Button variant="secondary" size="sm" onClick={() => setAcik(true)}>
+          {t("ayrintilar.dugme")}
+        </Button>
+      )}
       {acik && !p.baski && !p.bekle ? (
         <div className={renk.kok}>
           <Diyalog baslik={t(p.salt ? "ekonomi.baslik" : "ayrintilar.baslik")} onKapat={kapat} yuzen>

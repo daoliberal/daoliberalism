@@ -574,7 +574,7 @@ export function OyunApp() {
   const ekKatman = TARAYICI ? (
     <>
       {bildirimler}
-      <DurumRozeti hesaplaniyor={hesaplaniyor} kaydediliyor={kaydediliyor} />
+      {yuva !== null ? createPortal(<DurumRozeti hesaplaniyor={hesaplaniyor} kaydediliyor={kaydediliyor} yuvada />, yuva) : <DurumRozeti hesaplaniyor={hesaplaniyor} kaydediliyor={kaydediliyor} />}
       {panelAcik && hizmetler !== null ? (
         <KayitPaneli hizmetler={hizmetler} aktifKosuId={route.name === "canli" || route.name === "sonuc" ? route.runId : null} webkit={webkit} onKapat={() => setPanelAcik(false)} onAc={kayitAc} indir={(ad, metin) => void dosyaIndir(ad, metin)} />
       ) : null}
@@ -610,7 +610,7 @@ export function OyunApp() {
     );
   if (giris) {
     return (
-      <div lang="tr" className={`${durum.kok} ${sayfa.giris}`} data-hareket={tercih.etkinAzalt ? "azalt" : undefined}>
+      <div lang="tr" className={`${durum.kok} ${sayfa.yaziOlcek} ${sayfa.giris}`} data-hareket={tercih.etkinAzalt ? "azalt" : undefined}>
         <KayitBaglamiSaglayici value={kayitBaglami}>
         <BildirimYuvaSaglayici value={TARAYICI ? setYuva : null}>
         <GirisKabi tercih={tercih} geri={route.name !== "baslangic"} ust={route.name === "kurucu"}>
@@ -625,7 +625,7 @@ export function OyunApp() {
     );
   }
   return (
-    <div lang="tr" className={`${durum.kok} ${tamEkran ? sayfa.tamEkran : sayfa.sayfa}`} data-hareket={tercih.etkinAzalt ? "azalt" : undefined}>
+    <div lang="tr" className={`${durum.kok} ${sayfa.yaziOlcek} ${tamEkran ? sayfa.tamEkran : sayfa.sayfa}`} data-hareket={tercih.etkinAzalt ? "azalt" : undefined}>
       <KayitBaglamiSaglayici value={kayitBaglami}>
       <BildirimYuvaSaglayici value={TARAYICI ? setYuva : null}>
       <Stack gap="16">

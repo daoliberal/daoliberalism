@@ -10,3 +10,32 @@
   white-space: nowrap;
   pointer-events: none;
 }
+
+/* Dokunmatik bilgi kartı: tuvalin üstünde, yatayda ortalı; ✕ ile kapanır (kart tıklamayı tutar). */
+.kart {
+  position: absolute;
+  z-index: 5;
+  inset-inline: var(--space-16);
+  inset-block-end: var(--space-140);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-8);
+  box-sizing: border-box;
+  max-width: var(--measure-340);
+  margin-inline: auto;
+  padding: var(--space-10) var(--space-10) var(--space-10) var(--space-14);
+  border: var(--border-1) solid var(--ekran-cam-cerceve);
+  border-radius: var(--radius-14);
+  background: var(--ekran-cam);
+  color: var(--ekran-yazi);
+  box-shadow: var(--shadow-modal);
+}
+
+.metin {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}

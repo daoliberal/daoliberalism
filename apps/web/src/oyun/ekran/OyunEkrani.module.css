@@ -115,8 +115,31 @@
   flex-direction: column;
   align-items: flex-start;
   gap: var(--space-8);
-  width: var(--measure-560);
+  width: var(--measure-340);
   max-width: calc(100% - var(--space-32));
+}
+
+.olayKutu {
+  position: absolute;
+  top: var(--space-72);
+  left: 0;
+  width: var(--measure-340);
+}
+
+/* Ben paneli açıkken olay şeridinin (üç satır) altından başlar: çakışmaz. */
+.panelSol[data-olay="var"] {
+  top: calc(var(--size-88) + var(--space-100) + var(--space-8));
+}
+
+/* Alt orta: masaüstünde alt kenarda ortalı; sol alt sütun (340 px) ve sağ alt harita denetimi arasında. */
+.altOrta {
+  position: absolute;
+  z-index: 15;
+  left: 0;
+  right: 0;
+  bottom: var(--space-16);
+  width: fit-content;
+  margin-inline: auto;
 }
 
 .altSag {
@@ -166,6 +189,11 @@
 }
 
 @media (max-width: 1280px) {
+  /* Dar masaüstünde alt orta denetim, sağ alt harita denetiminin (katman düğmeleri) üstüne biner: bir sıra yukarı çıkar. */
+  .altOrta {
+    bottom: var(--space-120);
+  }
+
   .panelSol,
   .panelSag {
     width: var(--measure-sm);
@@ -187,6 +215,26 @@
     flex-basis: 100%;
   }
 
+  /* Telefon: Unvan solda, Ekonomi/Menü/Şehir düğmeleri sağa yaslı (aralarında boşluk). */
+  .ustSag {
+    margin-inline-start: auto;
+  }
+
+  /* Telefon: olay şeridi üst düğme satırının hemen altında, tam genişlikte. */
+  .olayKutu {
+    position: static;
+    order: 2;
+    flex-basis: 100%;
+    width: auto;
+  }
+
+  /*
+   * Telefon alt şerit (tek merkezi düzen): satır satır akar. Üstte bantlar ve ipucu (tam genişlik), sonra "Hesaplanıyor/Kaydediliyor" göstergesi ortalı,
+   * en altta hafta denetimi (göstergenin hemen altında; başparmak alt kenarda en rahat erişir, gösterge çakışmaz).
+   * Harita denetimi kutusu (+ − Sığdır, katmanlar) mobilde gizli; parmakla kaydırma/kıstırma kullanılır. `display: contents` sol sütun ve
+   * bildirim yuvasının öğelerini ortak şeride açar.
+   */
+
   .alt {
     position: absolute;
     z-index: 15;
@@ -194,20 +242,50 @@
     right: var(--space-10);
     bottom: var(--space-10);
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
     gap: var(--space-8);
     pointer-events: none;
   }
 
-  .altSol,
-  .altSag {
-    position: static;
-    width: auto;
-    max-width: none;
+  .altSol {
+    display: contents;
+  }
+
+  .altSol > *,
+  .altSol [data-bildirim-yuvasi] > * {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .altSol [data-bildirim-yuvasi] {
+    display: contents;
+  }
+
+  /* Gösterge en alt satırda, hafta denetiminin hemen altında ortalı. */
+  .alt [data-durum-rozeti] {
+    flex: 0 1 auto;
+    order: 2;
+    margin-inline: auto;
   }
 
   .altSag {
-    align-self: flex-end;
+    position: static;
+    order: 1;
+    flex: 1 1 100%;
+    width: auto;
+    max-width: none;
+    justify-content: flex-end;
+  }
+
+  .altOrta {
+    position: static;
+    order: 3;
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: center;
+    margin-inline: 0;
+    width: auto;
   }
 }

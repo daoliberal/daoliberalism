@@ -328,7 +328,7 @@ test("devam: sart degisikligi, 12/52/104. haftada yenile, 104'te dal", async ({ 
   try {
     await kurucuBaslat(page);
     for (let i = 1; i <= 2; i += 1) {
-      await page.getByRole("button", { name: "Tek hafta" }).click();
+      await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
       await expect(DENETIM(page).getByText(new RegExp(`Hafta ${i} /`))).toBeVisible({ timeout: 120_000 });
     }
     await (await ayrintilarAc(page, "Koşu ve kararlar")).getByRole("button", { name: "Şartı değiştir" }).click();

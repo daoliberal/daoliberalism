@@ -1,5 +1,7 @@
 import { useId, useRef, type ReactNode } from "react";
+import { CloseIcon } from "@/components/primitives/icons";
 import { t } from "../copy/t";
+import { IkonDugmesi } from "../ui/IkonDugmesi";
 import { useAcikKatman } from "./useAcikKatman";
 import stil from "./YuzenPanel.module.css";
 
@@ -11,18 +13,22 @@ export type YuzenPanelProps = {
   onAcikDegis?: (acik: boolean) => void;
   /** Verilirse başlıkta kapat düğmesi çıkar ve Escape paneli kapatır (sağ panel). */
   onKapat?: () => void;
+  /** Kapat düğmesi metin yerine ✕ ikonu olur (ipucu ve `aria-label` aynı metin). */
+  kapatIkon?: boolean;
+  /** Panelin kök kimliği (açan düğmenin `aria-controls` hedefi). */
+  id?: string;
   className?: string;
 };
 
 /** Haritanın üstünde yüzen cam panel. Harita türünü bilmez; içerik dışarıdan gelir. */
-export function YuzenPanel({ baslik, children, acik = true, onAcikDegis, onKapat, className }: YuzenPanelProps) {
+export function YuzenPanel({ baslik, children, acik = true, onAcikDegis, onKapat, kapatIkon = false, id: kokId, className }: YuzenPanelProps) {
   const id = useId();
   const baslikId = `${id}-baslik`;
   const govdeId = `${id}-govde`;
   const kok = useRef<HTMLElement>(null);
   useAcikKatman(kok, onKapat);
   return (
-    <aside ref={kok} tabIndex={-1} aria-labelledby={baslikId} className={`${stil.panel} ${acik ? "" : stil.daralmis} ${className ?? ""}`}>
+    <aside ref={kok} id={kokId} tabIndex={-1} aria-labelledby={baslikId} className={`${stil.panel} ${acik ? "" : stil.daralmis} ${className ?? ""}`}>
       <div className={stil.baslik}>
         <h2 id={baslikId}>{baslik}</h2>
         {onAcikDegis ? (
@@ -30,7 +36,9 @@ export function YuzenPanel({ baslik, children, acik = true, onAcikDegis, onKapat
             {t(acik ? "ekran.panel_daralt" : "ekran.panel_ac")}
           </button>
         ) : null}
-        {onKapat ? (
+        {onKapat && kapatIkon ? (
+          <IkonDugmesi variant="secondary" hiza="son" etiket={t("ekran.panel_kapat")} ikon={<CloseIcon size="18" />} onClick={onKapat} />
+        ) : onKapat ? (
           <button type="button" className={stil.dugme} onClick={onKapat}>
             {t("ekran.panel_kapat")}
           </button>

@@ -324,7 +324,7 @@ test("Başlangıç'tan Koşular'a: Kurucu, canlı koşu, şartı değiştir, dal
   // Şehir 2'ye geç (şehir seçici), harita katmanını aç; şehrin çekmecesi Genel'deki "en kötü şehir" bağlantısındandır.
   await page.keyboard.press("Escape");
   await expect(page.getByRole("dialog")).toHaveCount(0);
-  await page.getByRole("button", { name: /^Şehir: / }).click();
+  await page.getByRole("button", { name: "Şehir", exact: true }).click();
   await page.getByRole("option", { name: /^Gümüşkent/ }).click();
   await expect(page.getByRole("heading", { level: 2, name: "Gümüşkent" })).toBeVisible();
   await page.getByRole("button", { name: "Talep", exact: true }).click();

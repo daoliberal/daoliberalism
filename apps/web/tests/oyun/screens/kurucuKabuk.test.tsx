@@ -39,7 +39,7 @@ describe("Kurucu şehir ekranı: kabuk", () => {
     const e = screen.getByRole("region", { name: t("ekran.ana") });
     expect(within(e).getByRole("button", { name: t("ayrintilar.dugme") })).toBeInTheDocument();
     expect(within(e).getByRole("button", { name: t("kurucu.menu.dugme") })).toBeInTheDocument();
-    expect(within(e).getByRole("button", { name: /Şehir: Ada/ })).toBeInTheDocument();
+    expect(within(e).getByRole("button", { name: "Şehir" })).toBeInTheDocument();
     expect(within(e).getByRole("group", { name: t("ekran.kontrol") })).toBeInTheDocument();
     expect(sagPanel()).toBeNull();
     expect(solPanel()).toBeInTheDocument();
@@ -96,7 +96,7 @@ describe("Kurucu şehir ekranı: zaman kontrolleri ve kısayollar", () => {
     const saat = await screen.findByRole("region", { name: t("canli.saat") });
     expect(screen.getByRole("region", { name: t("ekran.ana") }).contains(saat)).toBe(true);
     expect(within(saat).getByText("Hafta 3 / 200")).toBeInTheDocument();
-    for (const ad of ["Oynat", "Tek hafta", "Sonraki kritik olaya atla"]) expect(within(saat).getByRole("button", { name: ad })).toBeInTheDocument();
+    for (const ad of ["Oynat", "Bir hafta ilerle", "Sonraki kritik olaya atla"]) expect(within(saat).getByRole("button", { name: ad })).toBeInTheDocument();
     const hizlar = within(saat).getByRole("group", { name: "Oynatma hızı" });
     expect(within(hizlar).getAllByRole("button").map((b) => b.textContent)).toEqual(["1×", "4×", "16×"]);
     fireEvent.click(within(saat).getByRole("button", { name: "Oynat" }));
@@ -233,7 +233,7 @@ describe("Kurucu şehir ekranı: sağ panel (işletme, meydan, şehir bilgisi, a
     // şehir değişince seçim temizlenir
     fireEvent.click(await (await tablo()).findByRole("button", { name: "Ada" }));
     await waitFor(() => expect(sagPanel()).not.toBeNull());
-    fireEvent.click(screen.getByRole("button", { name: /Şehir: Ada/ }));
+    fireEvent.click(screen.getByRole("button", { name: "Şehir" }));
     fireEvent.click(await screen.findByRole("option", { name: /Cem/ }));
     await waitFor(() => expect(window.location.hash).toBe("#/canli/r/2"));
     expect(sagPanel()).toBeNull();
@@ -243,14 +243,14 @@ describe("Kurucu şehir ekranı: sağ panel (işletme, meydan, şehir bilgisi, a
 describe("Kurucu şehir ekranı: şehir seçici ve katmanlar", () => {
   it("test_sehir_seciciler_ozet_gosterir_ve_rotayi_degistirir", async () => {
     mountCanli([state(), ...packets(3)]);
-    fireEvent.click(await screen.findByRole("button", { name: /Şehir: Ada/ }));
+    fireEvent.click(await screen.findByRole("button", { name: "Şehir" }));
     const secenek = await screen.findByRole("option", { name: /Bora/ });
     expect(secenek.textContent).toMatch(/işletme/); // işletme · işsiz · talep özeti
     expect(secenek.textContent).toMatch(/işsiz/);
     expect(secenek.textContent).toMatch(/talep/);
     fireEvent.click(secenek);
     await waitFor(() => expect(window.location.hash).toBe("#/canli/r/1"));
-    expect(await screen.findByRole("button", { name: /Şehir: Bora/ })).toBeInTheDocument();
+    expect(await screen.findByRole("button", { name: "Şehir" })).toBeInTheDocument();
   });
 
   it("test_talep_katmani_lejant_ve_fiyat_katmani_dort_hafta_onceki_paketle", async () => {

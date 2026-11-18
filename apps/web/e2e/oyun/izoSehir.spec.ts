@@ -75,7 +75,7 @@ async function kurucuBaslat(page: Page, bayrak = "izo", hafta = 2): Promise<void
   await page.getByRole("button", { name: "Dayanıklı taban" }).click();
   await page.getByRole("button", { name: "Başlat" }).click();
   await expect(page.getByRole("region", { name: "Oynatma denetimi" }).getByText("Hafta 0 / 200")).toBeVisible({ timeout: 90_000 });
-  for (let i = 1; i <= hafta; i++) await tur(page, "Tek hafta", "Oynatma denetimi", "Hafta", 1);
+  for (let i = 1; i <= hafta; i++) await tur(page, "Bir hafta ilerle", "Oynatma denetimi", "Hafta", 1);
 }
 
 async function daoBaslat(page: Page, bayrak = "izo"): Promise<void> {
@@ -181,8 +181,8 @@ test("sprite_istekleri_200_404_yok", async ({ page }) => {
   await daoBaslat(page);
   await izoAcik(page);
   await tuvalCizili(page);
-  await tur(page, "1 hafta", "Oyun kontrolü", "Hafta", 1);
-  await tur(page, "1 hafta", "Oyun kontrolü", "Hafta", 1);
+  await tur(page, "Bir hafta ilerle", "Oyun kontrolü", "Hafta", 1);
+  await tur(page, "Bir hafta ilerle", "Oyun kontrolü", "Hafta", 1);
   await tuvalCizili(page);
   expect(diger, "beklenmeyen hata yanıtları").toEqual([]);
   const l = sprite();

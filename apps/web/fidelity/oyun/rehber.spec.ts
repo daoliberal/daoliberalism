@@ -137,8 +137,8 @@ test.describe("rehberli ilk oyun", () => {
     await page.getByRole("button", { name: "Devam: Başlat ve oynat" }).click();
     await page.getByRole("button", { name: "Başlat", exact: true }).click();
     await expect(page.getByRole("region", { name: "Oynatma denetimi" }).getByText(/Hafta 0 \/ 200/)).toBeVisible();
-    await page.getByRole("button", { name: "Tek hafta" }).click();
-    await page.getByRole("button", { name: "Tek hafta" }).click();
+    await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
+    await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
     const ipucu = page.getByRole("status").filter({ hasText: "Bu hafta\" şeridi" });
     await expect(ipucu).toBeVisible();
     await assertOyunParity(page, { screen: "live", guided: true, week: 3 }, { screen: "live", only: [{ from: 78, to: 79 }], root: ipucu });

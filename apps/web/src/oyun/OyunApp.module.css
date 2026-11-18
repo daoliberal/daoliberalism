@@ -88,3 +88,62 @@
   box-sizing: border-box;
   padding: var(--space-24) var(--space-16);
 }
+
+/*
+ * MERKEZİ MOBİL YAZI ÖLÇEĞİ (oyun uygulaması, /oyun/ kökü). Mobilde (max-width: 720px) yazı boyutları yaklaşık 0,8 katına iner; en küçük yazı 10 px.
+ * tokens.css dondurulmuş ve tasarım kuralı özel özelliklerin yalnız başka belirteçlere yönlenmesine izin verir (hesap yok); bu yüzden her `--fs-N`
+ * en yakın 0,8 katı değere sahip MEVCUT belirtece yönlenir. Kök öğe özgün `--fs-N` değerlerini `--fs-N-orijinal` olarak saklar (var() hesaplanmış
+ * değer olarak kalıtılır); çocuklar `--fs-N`yi yeniden tanımlar (aynı öğede kendine başvuru döngü olurdu). Dokunma hedefleri ve boşluklar etkilenmez.
+ */
+.yaziOlcek {
+  --fs-13-orijinal: var(--fs-13);
+  --fs-14-orijinal: var(--fs-14);
+  --fs-15-orijinal: var(--fs-15);
+  --fs-16-orijinal: var(--fs-16);
+  --fs-18-orijinal: var(--fs-18);
+  --fs-19-orijinal: var(--fs-19);
+  --fs-20-orijinal: var(--fs-20);
+  --fs-22-orijinal: var(--fs-22);
+  --fs-24-orijinal: var(--fs-24);
+  --fs-26-orijinal: var(--fs-26);
+  --fs-27-orijinal: var(--fs-27);
+  --fs-28-orijinal: var(--fs-28);
+  --fs-32-orijinal: var(--fs-32);
+  --fs-36-orijinal: var(--fs-36);
+  --fs-40-orijinal: var(--fs-40);
+}
+
+@media (max-width: 720px) {
+  .yaziOlcek > * {
+    --fs-12: var(--size-10);
+    --fs-13: var(--size-10);
+    --fs-14: var(--size-11);
+    --fs-15: var(--size-12);
+    --fs-16: var(--fs-13-orijinal);
+    --fs-17: var(--fs-14-orijinal);
+    --fs-18: var(--fs-14-orijinal);
+    --fs-19: var(--fs-15-orijinal);
+    --fs-20: var(--fs-16-orijinal);
+    --fs-22: var(--fs-18-orijinal);
+    --fs-24: var(--fs-19-orijinal);
+    --fs-26: var(--fs-20-orijinal);
+    --fs-27: var(--fs-22-orijinal);
+    --fs-28: var(--fs-22-orijinal);
+    --fs-30: var(--fs-24-orijinal);
+    --fs-32: var(--fs-26-orijinal);
+    --fs-34: var(--fs-27-orijinal);
+    --fs-36: var(--fs-28-orijinal);
+    --fs-40: var(--fs-32-orijinal);
+    --fs-44: var(--fs-36-orijinal);
+    --fs-46: var(--fs-36-orijinal);
+    --fs-52: var(--fs-40-orijinal);
+    --fs-60: var(--size-48);
+  }
+}
+
+/* Açık boyut vermeyen yazılar (bant, ipucu, paragraf) gövdenin 16 px'ini kalıtır; mobilde küçülmüş 16 belirtecine bağlanır. `:where` özgüllüğü sıfırdır: öğenin kendi font-size kuralı yine kazanır. */
+@media (max-width: 720px) {
+  :where(.yaziOlcek > *) {
+    font-size: var(--fs-16);
+  }
+}

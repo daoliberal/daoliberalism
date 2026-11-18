@@ -1,5 +1,7 @@
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
+import { CityIcon } from "@/components/primitives/icons";
 import { t } from "../copy/t";
+import ikonStil from "../ui/IkonDugmesi.module.css";
 import type { SehirOzeti } from "./OyunEkrani";
 import stil from "./SehirSecici.module.css";
 
@@ -12,7 +14,6 @@ export function SehirSecici({ sehirler, sehir, onSehir }: { sehirler: SehirOzeti
   const liste = useRef<HTMLUListElement>(null);
   const id = useId();
   const seciliSira = sehirler.findIndex((s) => s.id === sehir);
-  const secili = sehirler[seciliSira];
   // Liste küçülürse aktif sıra sınırlanır (boş listede -1).
   const aktifSira = Math.min(aktif, sehirler.length - 1);
 
@@ -84,18 +85,22 @@ export function SehirSecici({ sehirler, sehir, onSehir }: { sehirler: SehirOzeti
 
   return (
     <div ref={kok} className={stil.kok}>
-      <button
-        ref={dugme}
-        type="button"
-        className={stil.dugme}
-        aria-haspopup="listbox"
-        aria-expanded={acik}
-        aria-controls={acik ? `${id}-liste` : undefined}
-        onClick={() => (acik ? kapat(false) : ac())}
-        onKeyDown={dugmeTus}
-      >
-        {t("ekran.sehir_secici", { sehir: secili?.ad ?? "" })}
-      </button>
+      <span className={`${ikonStil.ikonKap} ${ikonStil.ikonSonda}`}>
+        <button
+          ref={dugme}
+          type="button"
+          className={stil.dugme}
+          aria-label={t("ekran.sehir_secici")}
+          aria-haspopup="listbox"
+          aria-expanded={acik}
+          aria-controls={acik ? `${id}-liste` : undefined}
+          onClick={() => (acik ? kapat(false) : ac())}
+          onKeyDown={dugmeTus}
+        >
+          <CityIcon size="20" />
+        </button>
+        <span aria-hidden="true" className={ikonStil.ikonIpucu}>{t("ekran.sehir_secici")}</span>
+      </span>
       {acik ? (
         <ul
           ref={liste}

@@ -43,7 +43,7 @@ describe("OyunEkrani yuvaları", () => {
     expect(screen.getByRole("complementary", { name: "Şehir özeti" })).toBeInTheDocument();
     const log = screen.getByRole("log", { name: t("ekran.olay_baslik") });
     expect(within(log).getByText("Birinci olay")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: new RegExp(SEHIRLER[0].ad) })).toHaveAttribute("aria-haspopup", "listbox");
+    expect(screen.getByRole("button", { name: "Şehir" })).toHaveAttribute("aria-haspopup", "listbox");
   });
 
   it("kok_ekranRenkleri_kok_sinifini_tasir", () => {
@@ -138,16 +138,16 @@ describe("OyunEkrani telefon", () => {
     const ac = screen.getByRole("button", { name: t("ekran.panel_goster") });
     expect(ac).toHaveAttribute("aria-expanded", "false");
     await user.click(ac);
-    const sayfa = screen.getByRole("region", { name: "Şehir özeti" });
+    const sayfa = screen.getByRole("dialog", { name: "Şehir özeti" });
     expect(within(sayfa).getByText("sol-icerik")).toBeVisible();
-    await user.click(within(sayfa).getByRole("button", { name: t("ekran.alt_sayfa_kapat") }));
+    await user.click(within(sayfa).getByRole("button", { name: t("ekran.panel_kapat") }));
     expect(screen.queryByText("sol-icerik")).toBeNull();
 
     const kapat = vi.fn();
     rerender(ekran({ sagPanel: { baslik: "Bina ayrıntısı", icerik: <p>sag-icerik</p>, onKapat: kapat } }));
-    const sag = screen.getByRole("region", { name: "Bina ayrıntısı" });
+    const sag = screen.getByRole("dialog", { name: "Bina ayrıntısı" });
     expect(within(sag).getByText("sag-icerik")).toBeVisible();
-    await user.click(within(sag).getByRole("button", { name: t("ekran.alt_sayfa_kapat") }));
+    await user.click(within(sag).getByRole("button", { name: t("ekran.panel_kapat") }));
     expect(kapat).toHaveBeenCalledTimes(1);
   });
 });
@@ -159,13 +159,13 @@ describe("OyunEkrani odak yönetimi", () => {
     render(ekran());
     const ac = screen.getByRole("button", { name: t("ekran.panel_goster") });
     await user.click(ac);
-    const sayfa = screen.getByRole("region", { name: "Şehir özeti" });
+    const sayfa = screen.getByRole("dialog", { name: "Şehir özeti" });
     expect(sayfa.contains(document.activeElement)).toBe(true);
     expect(ac).toHaveAttribute("aria-expanded", "true");
     expect(ac).toHaveAttribute("aria-controls", sayfa.id);
     (document.activeElement as HTMLElement).blur();
     await user.keyboard("{Escape}");
-    expect(screen.queryByRole("region", { name: "Şehir özeti" })).toBeNull();
+    expect(screen.queryByRole("dialog", { name: "Şehir özeti" })).toBeNull();
     expect(ac).toHaveFocus();
   });
 
@@ -177,7 +177,7 @@ describe("OyunEkrani odak yönetimi", () => {
     genislikAyarla(1600);
     rerender(ekran({ olaylar: [] }));
     // Masaüstü sol panel tercihi dokunulmadı: genişliğe göre açık kalır, alt sayfa durumu sızmaz (aria-expanded true = varsayılan açık).
-    expect(screen.queryByRole("region", { name: "Şehir özeti" })).toBeNull();
+    expect(screen.queryByRole("dialog", { name: "Şehir özeti" })).toBeNull();
     genislikAyarla(1280);
     rerender(ekran({ olaylar: [{ id: 9, metin: "x" }] }));
     expect(screen.getByRole("button", { name: t("ekran.panel_ac") })).toHaveAttribute("aria-expanded", "false");
@@ -191,7 +191,7 @@ describe("OyunEkrani odak yönetimi", () => {
     document.body.append(tetik);
     tetik.focus();
     render(ekran({ sagPanel: { baslik: "Bina ayrıntısı", icerik: <p>sag</p>, onKapat: kapat } }));
-    expect(screen.getByRole("region", { name: "Bina ayrıntısı" }).contains(document.activeElement)).toBe(true);
+    expect(screen.getByRole("dialog", { name: "Bina ayrıntısı" }).contains(document.activeElement)).toBe(true);
     (document.activeElement as HTMLElement).blur();
     await user.keyboard("{Escape}");
     expect(kapat).toHaveBeenCalledTimes(1);
@@ -222,7 +222,7 @@ describe("OyunEkrani odak yönetimi", () => {
     const user = userEvent.setup();
     const kapat = vi.fn();
     render(ekran({ sagPanel: { baslik: "Bina ayrıntısı", icerik: <p>sag</p>, onKapat: kapat } }));
-    await user.click(screen.getByRole("button", { name: new RegExp(SEHIRLER[0].ad) }));
+    await user.click(screen.getByRole("button", { name: "Şehir" }));
     await user.keyboard("{Escape}");
     expect(screen.queryByRole("listbox")).toBeNull();
     expect(kapat).not.toHaveBeenCalled();

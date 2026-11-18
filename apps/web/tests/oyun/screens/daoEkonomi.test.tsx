@@ -21,7 +21,7 @@ describe("DAO: Ekonomi penceresi (Kurucu Ayrıntılar, salt okunur)", () => {
     const ekran = within(await screen.findByRole("region", { name: t("ekran.ana") }));
     const dugme = await ekran.findByRole("button", { name: t("ekonomi.dugme") });
     expect(ekran.getByRole("button", { name: t("kurucu.menu.dugme") })).toBeInTheDocument();
-    expect(ekran.getByRole("button", { name: /Şehir: Közlüdere/ })).toBeInTheDocument();
+    expect(ekran.getByRole("button", { name: "Şehir" })).toBeInTheDocument();
     expect(ekran.queryByRole("button", { name: t("ayrintilar.dugme") })).toBeNull();
     expect(screen.queryByRole("dialog")).toBeNull();
     fireEvent.click(dugme);

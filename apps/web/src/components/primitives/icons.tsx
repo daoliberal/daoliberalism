@@ -112,3 +112,68 @@ export function BotIcon({ size }: IconProps) {
     </Svg>
   );
 }
+
+/** Oynat (üçgen). */
+export function PlayIcon({ size }: IconProps) {
+  return (
+    <Svg size={size} viewBox="0 0 24 24" stroke="s18">
+      <path d="M7 5l12 7-12 7z" />
+    </Svg>
+  );
+}
+
+/** Duraklat (iki dikey çizgi). */
+export function PauseIcon({ size }: IconProps) {
+  return (
+    <Svg size={size} viewBox="0 0 24 24" stroke="s20">
+      <path d="M9 5v14M15 5v14" />
+    </Svg>
+  );
+}
+
+/** Tek adım: üçgen ve duran çizgi (bir hafta ilerle). */
+export function StepIcon({ size }: IconProps) {
+  return (
+    <Svg size={size} viewBox="0 0 24 24" stroke="s18">
+      <path d="M5 5l11 7-11 7z" />
+      <path d="M20 5v14" />
+    </Svg>
+  );
+}
+
+/** Hızlı ileri: iki üçgen (bir şey olana kadar devam et). */
+export function FastForwardIcon({ size }: IconProps) {
+  return (
+    <Svg size={size} viewBox="0 0 24 24" stroke="s18">
+      <path d="M3 6l9 6-9 6z" />
+      <path d="M12 6l9 6-9 6z" />
+    </Svg>
+  );
+}
+
+/** Hamburger menü: üç yatay çizgi. */
+export function MenuIcon({ size }: IconProps) {
+  return (
+    <Svg size={size} viewBox="0 0 24 24" stroke="s20">
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </Svg>
+  );
+}
+
+/** Çubuk grafik (Ekonomi). */
+export function ChartIcon({ size }: IconProps) {
+  return (
+    <Svg size={size} viewBox="0 0 24 24" stroke="s18">
+      <path d="M4 20h16M7 20v-7M12 20V6M17 20v-10" />
+    </Svg>
+  );
+}
+
+/** Şehir silueti: iki bina (Şehir seçici). */
+export function CityIcon({ size }: IconProps) {
+  return (
+    <Svg size={size} viewBox="0 0 24 24" stroke="s18">
+      <path d="M3 20h18M5 20V9h6v11M11 20V4h8v16M8 12h0M8 15.5h0M14 8h2M14 12h2M14 16h2" />
+    </Svg>
+  );
+}

@@ -86,7 +86,7 @@ async function tuvalYokAnaSayfa(page: Page): Promise<void> {
 const tur = async (page: Page, n: number): Promise<void> => {
   const kontrol = page.getByRole("region", { name: "Oyun kontrolü" });
   const once = Number(/Hafta (\d+)/.exec((await kontrol.textContent()) ?? "")?.[1] ?? -1);
-  await page.getByRole("button", { name: "1 hafta" }).click();
+  await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
   await expect(kontrol.getByText(`Hafta ${once + n} / 520`)).toBeVisible({ timeout: 30_000 });
 };
 
@@ -216,12 +216,13 @@ test("DAO: ahırdan çık, ilan, başvur, işe gir (ya da nedenli ret)", async (
   await dortGorunum(page, "dao-sehir-sonuc");
 
   // Ben panelinde unvan ilerlemesi (çırak için kalfa şartları: tecrübe haftası ve itibar).
+  await page.getByRole("button", { name: /^Unvan/ }).click(); // G3: Ben paneli Unvan düğmesiyle açılır (varsayılan kapalı)
   await expect(page.getByRole("complementary", { name: "Ben" }).getByText(/^Kalfa olmak için( \(yaklaşık\))?: tecrübe \d+\/40 hafta, itibar [\d,]+\/4$/)).toBeVisible();
   await ekonomiPenceresi(page);
 
   // "Bir şey olana kadar": gerçek sunucu akışında oynatma bir olayda durur (sonsuza kadar koşmaz); durunca "1 hafta" yeniden basılabilir.
-  await page.getByRole("button", { name: "Bir şey olana kadar" }).click();
-  await expect(page.getByRole("button", { name: "1 hafta" })).toBeEnabled({ timeout: 90_000 });
+  await page.getByRole("button", { name: "Bir şey olana kadar devam et" }).click();
+  await expect(page.getByRole("button", { name: "Bir hafta ilerle" })).toBeEnabled({ timeout: 90_000 });
 });
 
 /**
@@ -274,13 +275,13 @@ test("Kurucu: kur, şehir, şehir değiştir, binaya tıkla, işletme penceresi,
   await page.getByRole("button", { name: "Dayanıklı taban" }).click();
   await page.getByRole("button", { name: "Başlat" }).click();
   await expect(page.getByRole("region", { name: "Oynatma denetimi" }).getByText("Hafta 0 / 200")).toBeVisible({ timeout: 30_000 });
-  await page.getByRole("button", { name: "Tek hafta" }).click();
+  await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
   await expect(page.getByRole("region", { name: "Oynatma denetimi" }).getByText("Hafta 1 / 200")).toBeVisible({ timeout: 30_000 });
   await tuvalCizili(page);
   await dortGorunum(page, "kurucu-sehir");
 
   // Şehir değiştir.
-  await page.getByRole("button", { name: /^Şehir: / }).click();
+  await page.getByRole("button", { name: "Şehir", exact: true }).click();
   await page.getByRole("option", { name: /^Şehir 2/ }).click();
   await expect(page.getByRole("heading", { level: 2, name: "Şehir 2" })).toBeVisible();
   await tuvalCizili(page);

@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 import { Button } from "@/components/primitives/Button";
 import { Stack } from "@/components/primitives/Stack";
 import { t } from "@/oyun/copy/t";
@@ -83,6 +83,9 @@ export function DaoOyun({ runId, tercih }: { runId: string; tercih?: Tercih }) {
   const sehirNo = route.name === "dao" && route.sehir !== undefined ? route.sehir : (benSehir ?? 0);
   /** Haritada seçili yer (sağ panel); şehir değişince geçersizdir. */
   const [secim, setSecim] = useState<DaoSecimi | null>(null);
+  /** Ben paneli: kapalı başlar (Unvan düğmesi açar); tercih saklanmaz. */
+  const [benAcik, setBenAcik] = useState(false);
+  const benPanelId = useId();
   const [katman, setKatman] = useState<Katman>("yok");
   const [kamera, setKamera] = useState<Gorunum>({ x: 0, y: 0, olcek: 1 });
   const [komut, setKomut] = useState<KameraKomutu | null>(null);
@@ -262,10 +265,9 @@ export function DaoOyun({ runId, tercih }: { runId: string; tercih?: Tercih }) {
           <SehirTuvaliKap kabuk sahne={etkin.sahne} tabloSahnesi={sahne} onSpriteHatasi={gorunum.spriteHatasiBildir} yukleniyor={gorunum.mod === "bekle"} dustu={gorunum.dustu} secili={secimGecerli?.ref ?? null} onSec={sahneSec} kamera={kamera} onKamera={setKamera} {...(komut ? { komut } : {})} adlar={adlar} pay={pay} />
         )
       }
-      ustSol={<DaoUst g={gozlem} />}
+      ustSol={<DaoUst g={gozlem} acik={benAcik} panelId={benPanelId} onAc={() => setBenAcik((a) => !a)} />}
       ustOrta={
         <div className={kabuk.ustOrta}>
-          <DaoKontrol runId={runId} state={state} />
           <div className={kabuk.bantlar}>
             {run.error !== null ? <Banner tone="warn">{t(run.error)}</Banner> : null}
             {state.status === "failed" ? <Banner tone="crisis">{t(state.error?.messageKey ?? "durum.hata")}</Banner> : null}
@@ -292,10 +294,12 @@ export function DaoOyun({ runId, tercih }: { runId: string; tercih?: Tercih }) {
           )}
         />
       }
-      solPanel={{ baslik: t("dao.panel.ben"), icerik: benIcerigi }}
+      solPanel={{ baslik: t("dao.panel.ben"), icerik: benIcerigi, kontrol: { acik: benAcik, onKapat: () => setBenAcik(false), id: benPanelId } }}
       sagPanel={sagPanel}
       olaylar={olayOgeleri}
       olayKapisi={{ ad: t("dao.olaylar.tumu"), onAc: () => setOlaylarAcik(true) }}
+      olayUstte
+      altOrta={<DaoKontrol runId={runId} state={state} />}
       haritaKontrolleri={
         <HaritaAltSag lejant={etkin.kaynak ? <KatmanLejanti veri={etkin.kaynak.katman} /> : null}>
           <HaritaKontrolleri onYaklas={() => komutVer("yakin")} onUzaklas={() => komutVer("uzak")} onSigdir={() => komutVer("sigdir")} ekler={<KatmanSecici katman={katman} onKatman={setKatman} />} />

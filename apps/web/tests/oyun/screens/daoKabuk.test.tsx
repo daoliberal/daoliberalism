@@ -23,7 +23,7 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-const ust = (id: string): HTMLElement => document.querySelector(`[data-ust="${id}"] dd`) as HTMLElement;
+const ust = (id: string): HTMLElement => document.querySelector(`[data-ust="${id}"] span:last-child`) as HTMLElement;
 const sehirBinasi = "Közlüdere";
 
 describe("DAO şehir ekranı: kabuk", () => {
@@ -32,15 +32,38 @@ describe("DAO şehir ekranı: kabuk", () => {
     await screen.findByRole("region", { name: t("dao.kontrol") });
     const e = screen.getByRole("region", { name: t("ekran.ana") });
     expect(within(e).getByRole("button", { name: t("kurucu.menu.dugme") })).toBeInTheDocument();
-    expect(within(e).getByRole("button", { name: /Şehir: Közlüdere/ })).toBeInTheDocument();
+    expect(within(e).getByRole("button", { name: "Şehir" })).toBeInTheDocument();
     expect(within(e).getByRole("group", { name: t("ekran.kontrol") })).toBeInTheDocument();
     expect(within(e).getByRole("region", { name: t("dao.kontrol") })).toBeInTheDocument();
     expect(solPanel().getByText("Çalışıyor")).toBeInTheDocument();
     expect(screen.queryAllByRole("complementary")).toHaveLength(1); // yalnız sol panel
-    expect(ust("nakit").textContent).toBe("900 Akçe");
-    expect(ust("mevduat").textContent).toBe("300 Akçe");
-    expect(ust("durum").textContent).toBe("Çalışıyor");
+    // G3: üst şeritte yalnız Unvan; nakit, mevduat ve durum Ben panelindedir (bilgi kaybı yok)
     expect(ust("unvan").textContent).toBe("Kalfa");
+    expect(document.querySelector('[data-ust="nakit"], [data-ust="mevduat"], [data-ust="durum"]')).toBeNull();
+    expect(solPanel().getByText("900 Akçe")).toBeInTheDocument();
+    expect(solPanel().getByText(/^300 Akçe/)).toBeInTheDocument();
+  });
+
+  it("test_unvan_dugmesi_ben_panelini_acar_kapat_ikonu_ve_esc_kapatir_odak_unvana_doner", async () => {
+    mountDao(GOZLEM_CALISAN, { benKapali: true });
+    const unvan = await screen.findByRole("button", { name: /^Unvan/ });
+    expect(unvan).toHaveAttribute("aria-expanded", "false");
+    expect(screen.queryByRole("complementary", { name: t("dao.panel.ben") })).toBeNull(); // varsayılan kapalı
+    unvan.focus();
+    fireEvent.click(unvan);
+    const panel = screen.getByRole("complementary", { name: t("dao.panel.ben") });
+    expect(unvan).toHaveAttribute("aria-expanded", "true");
+    expect(unvan).toHaveAttribute("aria-controls", panel.id);
+    expect(panel).toHaveFocus();
+    expect(within(panel).queryByRole("button", { name: t("ekran.panel_daralt") })).toBeNull();
+    const kapat = within(panel).getByRole("button", { name: t("ekran.panel_kapat") });
+    expect(kapat.textContent).toBe(""); // ✕ ikonu, yazı yok
+    fireEvent.click(kapat);
+    expect(screen.queryByRole("complementary", { name: t("dao.panel.ben") })).toBeNull();
+    expect(unvan).toHaveFocus();
+    fireEvent.click(unvan);
+    fireEvent.keyDown(document, { key: "Escape" });
+    expect(screen.queryByRole("complementary", { name: t("dao.panel.ben") })).toBeNull();
   });
 
   it("test_ben_paneli_alanlari_ve_olay_seridi", async () => {
@@ -119,7 +142,7 @@ describe("DAO şehir ekranı: kabuk", () => {
     mountDao(GOZLEM_CALISAN);
     await screen.findByRole("region", { name: t("dao.kontrol") });
     await sec("Lonca meydanı");
-    for (const b of document.body.querySelectorAll("button")) expect(b.textContent?.trim() ?? b.getAttribute("aria-label") ?? "").not.toBe("");
+    for (const b of document.body.querySelectorAll("button")) expect(b.textContent?.trim() || b.getAttribute("aria-label") || "").not.toBe("");
     for (const f of document.body.querySelectorAll("input, select")) expect(f.id).not.toBe("");
     expect(document.body.querySelector("[style]")).toBeNull();
   });
@@ -128,17 +151,17 @@ describe("DAO şehir ekranı: kabuk", () => {
 describe("DAO şehir ekranı: şehir seçimi", () => {
   it("test_sehir_verilmezse_oyuncunun_sehri_secilidir_oyuncunun_sehrinde_burada_yasiyorsun_notu", async () => {
     mountDao({ ...GOZLEM_CALISAN, ben: { ...GOZLEM_CALISAN.ben, sehir: 2 } });
-    expect(await screen.findByRole("button", { name: /Şehir: Bakırbük/ })).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: /Şehir: Bakırbük/ }));
+    expect(await screen.findByRole("button", { name: "Şehir" })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Şehir" }));
     expect(await screen.findByText(t("dao.sehir.sen"))).toBeInTheDocument();
   });
 
   it("test_rotadaki_sehir_oncelikli_ve_sehir_degisince_secim_temizlenir_hash_yazilir", async () => {
     mountDao(GOZLEM_CALISAN, { route: { sehir: 1 } });
-    expect(await screen.findByRole("button", { name: /Şehir: Yaldızova/ })).toBeInTheDocument();
+    expect(await screen.findByRole("button", { name: "Şehir" })).toBeInTheDocument();
     await sec("Ahır");
     expect(sagPanel("Ahır")).toBeDefined();
-    fireEvent.click(screen.getByRole("button", { name: /Şehir: Yaldızova/ }));
+    fireEvent.click(screen.getByRole("button", { name: "Şehir" }));
     fireEvent.click(await screen.findByRole("option", { name: /Demirpınar/ }));
     await waitFor(() => expect(window.location.hash).toBe("#/dao/r/3"));
     expect(screen.queryByRole("complementary", { name: "Ahır" })).toBeNull();
@@ -151,7 +174,7 @@ describe("DAO şehir ekranı: şehir seçimi", () => {
     expect(screen.getByRole("complementary", { name: "Ahır" })).toBeInTheDocument();
     haftaYayimla(src, { ...GOZLEM_CALISAN, hafta: 4, ben: { ...GOZLEM_CALISAN.ben, sehir: 2 }, olaylar: [{ tur: "goc_etti", hafta: 4, sehir: 2 }] });
     await waitFor(() => expect(window.location.hash).toBe("#/dao/r/2"));
-    expect(await screen.findByRole("button", { name: /Şehir: Bakırbük/ })).toBeInTheDocument();
+    expect(await screen.findByRole("button", { name: "Şehir" })).toBeInTheDocument();
     expect(screen.queryByRole("complementary", { name: "Ahır" })).toBeNull();
   });
 });
@@ -161,8 +184,8 @@ describe("DAO şehir ekranı: ahır ve ahırdan çık", () => {
     const { daoKarar } = mountDao(null, { harita: false, state: { dao0: { ...GOZLEM_AHIR, hafta: 0, ilanlar: [] } } });
     expect(await screen.findByText(t("dao.ipucu.ahir"))).toBeInTheDocument();
     expect(solPanel().getByText(t("dao.ilk_hafta_ipucu"))).toBeInTheDocument();
-    expect(ust("nakit").textContent).not.toBe(t("canli.gosterge.olculmuyor")); // I-3: hafta 0 üst metrikler state.dao0'dan dolu (ilk paket yokken)
-    expect(ust("nakit").textContent).toMatch(/\d/);
+    expect(ust("unvan").textContent).not.toBe(t("canli.gosterge.olculmuyor")); // I-3: hafta 0 unvan state.dao0'dan dolu (ilk paket yokken)
+    expect(solPanel().getAllByText(/^\d+ Akçe$/, { selector: "dd" }).length).toBeGreaterThan(0);
     await sec("Ahır");
     const p = sagPanel("Ahır");
     expect(p.getByText(t("dao.ahir.ahirda"))).toBeInTheDocument();
@@ -496,9 +519,9 @@ describe("DAO şehir ekranı: haritasız ortam ve durumlar", () => {
     const { control } = mountDao(GOZLEM_AHIR);
     const k = within(await screen.findByRole("region", { name: t("dao.kontrol") }));
     expect(k.getByText("Hafta 3 / 520")).toBeInTheDocument();
-    fireEvent.click(k.getByRole("button", { name: "1 hafta" }));
+    fireEvent.click(k.getByRole("button", { name: "Bir hafta ilerle" }));
     expect(control).toHaveBeenLastCalledWith("r", { action: "step" });
-    fireEvent.click(k.getByRole("button", { name: "Bir şey olana kadar" }));
+    fireEvent.click(k.getByRole("button", { name: "Bir şey olana kadar devam et" }));
     expect(control).toHaveBeenLastCalledWith("r", { action: "olay" });
     expect(k.getByRole("button", { name: "Duraklat" })).toBeDisabled();
   });
@@ -507,7 +530,7 @@ describe("DAO şehir ekranı: haritasız ortam ve durumlar", () => {
     const { control } = mountDao(GOZLEM_AHIR, { state: { status: "running" } });
     const dur = await screen.findByRole("button", { name: "Duraklat" });
     expect(dur).toBeEnabled();
-    expect(screen.getByRole("button", { name: "1 hafta" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Bir hafta ilerle" })).toBeDisabled();
     fireEvent.click(dur);
     expect(control).toHaveBeenLastCalledWith("r", { action: "pause" });
   });
@@ -545,7 +568,7 @@ describe("DAO şehir ekranı: oyun sonucu penceresi", () => {
     expect(tab.getByText("40 hafta")).toBeInTheDocument();
     // şehir ekranı yerinde (tablo hâlâ DOM'da), oynatma kapalı
     expect(await screen.findByRole("region", { name: /\(liste\)$/ })).toBeInTheDocument(); // sahne harita paketiyle kurulur (Y-r2-1): paket gelene dek bekleme
-    expect(screen.getByRole("button", { name: "1 hafta" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Bir hafta ilerle" })).toBeDisabled();
     fireEvent.click(d.getByRole("button", { name: t("dao.sonuc.kapat") }));
     expect(screen.queryByRole("dialog")).toBeNull();
     fireEvent.click(screen.getByRole("button", { name: t("kurucu.menu.dugme") }));
@@ -643,7 +666,7 @@ describe("DAO hafta 0 haritası", () => {
   it("test_dao0_yokken_ust_metrikler_olculmuyor_sayi_uydurulmaz", async () => {
     mountDao(null, { harita: false });
     expect(await screen.findByText(t("dao.ipucu.ahir"))).toBeInTheDocument();
-    expect(ust("nakit").textContent).toBe(t("canli.gosterge.olculmuyor"));
+    expect(ust("unvan").textContent).toBe(t("canli.gosterge.olculmuyor"));
   });
 
   it("test_hafta0_ilan_sekmesi_bos_metni_ilk_haftadan_sonra_ve_maas_odeyemedi_uyarisi", async () => {

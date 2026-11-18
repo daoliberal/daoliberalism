@@ -107,7 +107,7 @@ test("tarayicida_model 14 hf @yavas: ilk goruntu 13. haftada alinir, yenileme go
   await expect(page.getByLabel("Dünya adı")).toBeVisible({ timeout: 120_000 });
   const kosuId = await oyunKur(page);
   for (let i = 1; i <= 14; i += 1) {
-    await page.getByRole("button", { name: "Tek hafta" }).click();
+    await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
     await expect(DENETIM(page).getByText(new RegExp(`Hafta ${i} /`))).toBeVisible({ timeout: 90_000 });
   }
   await expect.poll(() => goruntuSayisi(page, kosuId), { timeout: 60_000 }).toBeGreaterThanOrEqual(1);
@@ -156,7 +156,7 @@ test("kural_degisikligi (/changes, Kurucu): gunluge yazilir, yenileme gunlukten 
   await expect(page.getByLabel("Dünya adı")).toBeVisible({ timeout: 120_000 });
   const kosuId = await oyunKur(page);
   for (let i = 1; i <= 2; i += 1) {
-    await page.getByRole("button", { name: "Tek hafta" }).click();
+    await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
     await expect(DENETIM(page).getByText(new RegExp(`Hafta ${i} /`))).toBeVisible({ timeout: 90_000 });
   }
   await (await ayrintilarAc(page, "Koşu ve kararlar")).getByRole("button", { name: "Şartı değiştir" }).click();
@@ -171,7 +171,7 @@ test("kural_degisikligi (/changes, Kurucu): gunluge yazilir, yenileme gunlukten 
   for (;;) {
     const w = await hafta(page);
     if (w >= seam + 1) break;
-    await page.getByRole("button", { name: "Tek hafta" }).click();
+    await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
     await expect(DENETIM(page).getByText(new RegExp(`Hafta ${w + 1} /`))).toBeVisible({ timeout: 90_000 });
   }
   const w1 = await hafta(page);
@@ -216,7 +216,7 @@ test("tarayicida_model: yukle, 5 hafta, cekmece, yenile -> kayittan devam, hafta
   const sureler: number[] = [];
   for (let i = 1; i <= 5; i += 1) {
     const b = Date.now();
-    await page.getByRole("button", { name: "Tek hafta" }).click();
+    await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
     await expect(DENETIM(page).getByText(new RegExp(`Hafta ${i} /`))).toBeVisible({ timeout: 90_000 });
     sureler.push(Date.now() - b);
   }
@@ -251,7 +251,7 @@ test("tarayicida_model: yukle, 5 hafta, cekmece, yenile -> kayittan devam, hafta
   for (const k of once.slice(0, 5)) expect(sonra.find((x) => x.hafta === k.hafta)?.paket, `hafta ${k.hafta} paketi`).toBe(k.paket);
 
   // 8) Devam eden oyun ilerler
-  await page.getByRole("button", { name: "Tek hafta" }).click();
+  await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
   await expect(DENETIM(page).getByText(/Hafta 6 \//)).toBeVisible({ timeout: 90_000 });
   expect((await depodakiHaftalar(page, kosuId)).map((k) => k.hafta)).toContain(6);
 

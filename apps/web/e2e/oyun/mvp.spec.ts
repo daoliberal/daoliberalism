@@ -63,9 +63,9 @@ test.describe("oyun MVP uçtan uca", () => {
     const hash = new URL(page.url()).hash;
     expect(hash).toMatch(/^#\/canli\//);
 
-    // 8 kez "Tek hafta"
+    // 8 kez "Bir hafta ilerle"
     for (let i = 1; i <= 8; i += 1) {
-      await page.getByRole("button", { name: "Tek hafta" }).click();
+      await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
       await expect(page.getByRole("region", { name: "Oynatma denetimi" }).getByText(`Hafta ${i} / 200`)).toBeVisible();
     }
 
@@ -130,11 +130,11 @@ test.describe("oyun MVP uçtan uca", () => {
     await expect(page.getByRole("button", { name: "Oynat" })).toBeVisible();
     await expect(page.getByText("v1", { exact: true }).first()).toBeVisible();
     for (let i = 1; i <= 8; i += 1) {
-      await page.getByRole("button", { name: "Tek hafta" }).click();
+      await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
       await expect(page.getByRole("region", { name: "Oynatma denetimi" }).getByText(`Hafta ${i} / 200`)).toBeVisible();
     }
     await expect(page.getByText(dikisYazi)).toHaveCount(0);
-    await page.getByRole("button", { name: "Tek hafta" }).click();
+    await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
     await expect(page.getByRole("region", { name: "Oynatma denetimi" }).getByText("Hafta 9 / 200")).toBeVisible();
     await expect(page.getByText(dikisYazi)).toBeVisible();
     await expect(page.getByText("v2", { exact: true }).first()).toBeVisible();

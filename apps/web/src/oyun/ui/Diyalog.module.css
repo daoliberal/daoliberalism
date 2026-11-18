@@ -80,14 +80,21 @@
   }
 
   /* Yüzen kurallar yukarıdakilerden SONRA yazılır (aynı özgüllük: sonraki kazanır). */
+  /* Telefon: yüzen pencere tam ekran sayfadır (AltSayfa ile aynı düzen): haritanın üstünde sabit, gövde kendi içinde kayar. */
   .yuzenKaplama {
+    top: 0;
+    z-index: 60;
     padding: 0;
-    align-items: flex-end;
+    pointer-events: auto;
   }
 
   .yuzenDiyalog {
     width: 100%;
+    max-height: none;
+    height: 100%;
     margin: 0;
-    border-radius: var(--radius-20) var(--radius-20) 0 0;
+    border: 0;
+    border-radius: 0;
+    overscroll-behavior: contain;
   }
 }

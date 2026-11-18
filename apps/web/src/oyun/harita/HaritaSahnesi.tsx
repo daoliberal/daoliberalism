@@ -780,7 +780,7 @@ export function SehirTuvali({ sahne, secili, onSec, kamera, onKamera, komut = nu
   return (
     <div ref={kap} className={styles.sahneKap} data-harita-sahne="" {...(ipucuGoster ? { "aria-describedby": ipucuId } : {})}>
       <Application resizeTo={kap} antialias autoDensity resolution={cozunurluk(izo)} autoStart={false} onInit={setApp} />
-      {ipucuGoster ? <IzoIpucu id={ipucuId} veri={ipucu!.veri} /> : null}
+      {ipucuGoster ? <IzoIpucu id={ipucuId} veri={ipucu!.veri} {...(ipucu!.dokunma ? { kapat: () => setIpucu(null) } : {})} /> : null}
     </div>
   );
 }

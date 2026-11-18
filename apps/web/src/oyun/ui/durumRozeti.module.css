@@ -44,3 +44,10 @@
     animation: none;
   }
 }
+
+/* Bildirim yuvasında akar (konum sabit değil): yuvanın bir öğesidir, tam ekran katmanın altında kalır. */
+.yuvada {
+  position: static;
+  align-self: flex-start;
+  z-index: auto;
+}

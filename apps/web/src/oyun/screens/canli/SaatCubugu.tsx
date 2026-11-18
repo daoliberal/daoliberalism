@@ -1,6 +1,8 @@
 "use client";
 import { useCallback, useEffect, useRef } from "react";
 import { Button } from "@/components/primitives/Button";
+import { FastForwardIcon, PauseIcon, PlayIcon, StepIcon } from "@/components/primitives/icons";
+import { IkonDugmesi } from "@/oyun/ui/IkonDugmesi";
 import { t } from "@/oyun/copy/t";
 import { useSimSource } from "@/oyun/sim/SimSourceContext";
 import type { RunState, SimSource, Speed } from "@/oyun/sim/types";
@@ -112,9 +114,14 @@ export function SaatCubugu({ runId, state, onDegistir, panelAcik }: { runId: str
       <div className={stil.satir}>
         <div className={stil.dugmeler}>
           <div className={stil.grup}>
-            <Button variant="toggle" size="sm" pressed={running} disabled={kilit} onClick={toggle}>
-              {running ? t("canli.duraklat") : t("canli.oynat")}
-            </Button>
+            <IkonDugmesi
+              variant="toggle"
+              etiket={running ? t("canli.duraklat") : t("canli.oynat")}
+              ikon={running ? <PauseIcon size="20" /> : <PlayIcon size="20" />}
+              pressed={running}
+              disabled={kilit}
+              onClick={toggle}
+            />
             <div role="group" aria-label={t("canli.hiz_grup")} className={stil.hizlar}>
               {SPEEDS.map((s) => (
                 <Button key={s} variant="toggle" size="sm" pressed={state.speed === s} disabled={kilit} onClick={() => play(s)}>
@@ -124,12 +131,8 @@ export function SaatCubugu({ runId, state, onDegistir, panelAcik }: { runId: str
             </div>
           </div>
           <div className={`${stil.grup} ${stil.grupAdim}`}>
-            <Button variant="secondary" size="sm" disabled={kilit || running} onClick={step}>
-              {t("canli.tek_hafta")}
-            </Button>
-            <Button variant="secondary" size="sm" disabled={kilit || running} onClick={skip}>
-              {t("canli.atla")}
-            </Button>
+            <IkonDugmesi variant="secondary" etiket={t("canli.tek_hafta")} ikon={<StepIcon size="20" />} disabled={kilit || running} onClick={step} />
+            <IkonDugmesi variant="secondary" etiket={t("canli.atla")} ikon={<FastForwardIcon size="20" />} disabled={kilit || running} onClick={skip} />
           </div>
         </div>
       </div>

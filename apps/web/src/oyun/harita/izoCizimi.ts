@@ -809,11 +809,8 @@ export class IzoCizimi {
         if (e?.pointerType === "touch" || e?.pointerType === "pen") {
           const id = anahtar.startsWith("b:") ? anahtar.slice(2) : anahtar;
           const v = e.global ? this.ipucuVerisi(id, e.global.x, e.global.y) : null;
-          if (v) {
-            this.ipucuCiz(v);
-            this.app.render();
-            this.onHover?.(v, true);
-          }
+          // Dokunmatik ipucusu DOM'da kalıcı bir kart olarak çizilir (✕ ile kapanır; `IzoIpucu`), Pixi kutusu yalnız fare içindir.
+          if (v) this.onHover?.(v, true);
         }
       });
       kap.on("pointerover", (e?: { pointerType?: string; global?: { x: number; y: number } }) => {

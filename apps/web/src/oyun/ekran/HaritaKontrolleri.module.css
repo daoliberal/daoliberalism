@@ -26,3 +26,10 @@
 .dugme:hover {
   background: var(--ekran-seri);
 }
+
+/* Mobil: harita denetimi kutusu tamamen gizli (parmakla yakınlaştırma ve kaydırma kullanılır). */
+@media (max-width: 720px) {
+  .grup {
+    display: none;
+  }
+}

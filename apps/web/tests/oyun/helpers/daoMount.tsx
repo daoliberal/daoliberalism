@@ -30,6 +30,8 @@ export type DaoKur = {
   drawer?: FakeOpts["drawer"];
   route?: { sehir?: 0 | 1 | 2 | 3 | 4 };
   caps?: FakeOpts["caps"];
+  /** Ben paneli varsayılan kapalıdır; testlerin çoğu içeriği okuduğu için kurulum Unvan düğmesine basıp açar. `true`: kapalı bırak. */
+  benKapali?: boolean;
 };
 
 /** `g` null: hafta 0 (ilk paket yok; sunucu `hazirlaniyor` döner). */
@@ -46,6 +48,7 @@ export function mountDao(g: DaoGozlem | null, o: DaoKur = {}) {
       <DaoEkrani route={{ name: "dao", runId: "r", ...(o.route?.sehir !== undefined ? { sehir: o.route.sehir } : {}) }} />
     </SimSourceProvider>,
   );
+  if (!o.benKapali) fireEvent.click(screen.getByRole("button", { name: new RegExp(`^${t("dao.ust.unvan")}`) }));
   return { src, daoKarar, control, daoGozlem, ...view };
 }
 

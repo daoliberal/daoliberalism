@@ -44,7 +44,7 @@ test.describe("canlı koşu tam ekran kabuğu", () => {
 
   test("oynat: hafta ilerler", async ({ page }) => {
     await baslat(page);
-    await page.getByRole("button", { name: "Tek hafta" }).click();
+    await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
     await expect(saat(page).getByText("Hafta 1 / 200")).toBeVisible();
     await expectNoA11yViolations(page);
   });

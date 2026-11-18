@@ -198,7 +198,7 @@ test("1b ana_akis (DAO, insanli): ahirdan cikis karari uygulanir, 10 hafta, yeni
   await ahir.getByRole("button", { name: "Ahırdan çık, iş ara" }).click();
   await expect(H(0)).toBeVisible();
   for (let i = 1; i <= 10; i += 1) {
-    await page.getByRole("button", { name: "1 hafta" }).click();
+    await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
     await expect(H(i)).toBeVisible({ timeout: HAFTA_MS });
   }
   const olay = page.getByText("Ahırdan çıktın; artık iş arıyorsun.").first();

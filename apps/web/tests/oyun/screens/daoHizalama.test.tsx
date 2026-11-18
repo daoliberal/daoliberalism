@@ -45,14 +45,14 @@ describe("DaoKontrol hizalama", () => {
   it("kontrol_hatasi_yutulmaz_alert_gosterir", async () => {
     const { src } = kur(GOZLEM_AHIR, {});
     vi.spyOn(src, "control").mockRejectedValue(new SimUnsupported("hata.sunucu_yok"));
-    fireEvent.click(await screen.findByRole("button", { name: "1 hafta" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Bir hafta ilerle" }));
     expect(await screen.findByRole("alert")).toHaveTextContent(t("hata.sunucu_yok"));
   });
 
   it("kontrol_bilinmeyen_hata_genel_komut_metni", async () => {
     const { src } = kur(GOZLEM_AHIR, {});
     vi.spyOn(src, "control").mockRejectedValue(new Error("x"));
-    fireEvent.click(await screen.findByRole("button", { name: "1 hafta" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Bir hafta ilerle" }));
     expect(await screen.findByRole("alert")).toHaveTextContent(t("dao.hata.kontrol"));
   });
 
@@ -64,7 +64,7 @@ describe("DaoKontrol hizalama", () => {
   it("olay_sonrasi_onceki_hiz_pause_ve_speed_ile_geri_yuklenir", async () => {
     const { src } = kur(GOZLEM_AHIR, { speed: 1 });
     const control = vi.spyOn(src, "control").mockResolvedValue(durum({ speed: 16 }));
-    fireEvent.click(await screen.findByRole("button", { name: "Bir şey olana kadar" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Bir şey olana kadar devam et" }));
     expect(control).toHaveBeenLastCalledWith("r", { action: "olay" });
     act(() => src.emit("r", { type: "state", state: durum({ speed: 16, status: "running" }) }));
     expect(control).toHaveBeenCalledTimes(1);
@@ -79,7 +79,7 @@ describe("DaoKontrol hizalama", () => {
   it("olay_hizi_zaten_16_ise_geri_yukleme_yok", async () => {
     const { src } = kur(GOZLEM_AHIR, { speed: 16 });
     const control = vi.spyOn(src, "control").mockResolvedValue(durum({ speed: 16 }));
-    fireEvent.click(await screen.findByRole("button", { name: "Bir şey olana kadar" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Bir şey olana kadar devam et" }));
     act(() => src.emit("r", { type: "state", state: durum({ speed: 16, status: "paused", week: 4 }) }));
     expect(control).toHaveBeenCalledTimes(1);
   });
@@ -89,14 +89,14 @@ describe("DaoKontrol olay geri yükleme sırası", () => {
   it("yanit_zaten_running_degilse_akis_beklenmeden_geri_yukler", async () => {
     const { src } = kur(GOZLEM_AHIR, { speed: 1 });
     const control = vi.spyOn(src, "control").mockResolvedValueOnce(durum({ speed: 16, status: "paused", week: 4 })).mockResolvedValue(durum({ speed: 1 }));
-    fireEvent.click(await screen.findByRole("button", { name: "Bir şey olana kadar" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Bir şey olana kadar devam et" }));
     await waitFor(() => expect(control).toHaveBeenLastCalledWith("r", { action: "pause", speed: 1 }));
   });
 
   it("running_gorulmeden_gelen_paused_16_olayi_erken_geri_yuklemez", async () => {
     const { src } = kur(GOZLEM_AHIR, { speed: 1 });
     const control = vi.spyOn(src, "control").mockResolvedValue(durum({ speed: 16, status: "running" }));
-    fireEvent.click(await screen.findByRole("button", { name: "Bir şey olana kadar" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Bir şey olana kadar devam et" }));
     await waitFor(() => expect(control).toHaveBeenCalledTimes(1));
     act(() => src.emit("r", { type: "state", state: durum({ speed: 16, status: "paused" }) }));
     expect(control).toHaveBeenCalledTimes(1);

@@ -1,0 +1,51 @@
+/* İkon düğmesi: düğme + fareyle gelince/odaklanınca beliren ipucu. Renk ve ölçüler merkezi stil token'larından. */
+.ikonKap {
+  position: relative;
+  display: inline-flex;
+}
+
+.ikonIpucu {
+  position: absolute;
+  z-index: 50;
+  top: calc(100% + var(--space-6));
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-6);
+  background: var(--color-ink);
+  color: var(--color-surface);
+  font-size: var(--fs-12);
+  white-space: nowrap;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.ikonSonda .ikonIpucu {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+.ikonKap:has(:focus-visible) .ikonIpucu {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Açılır liste/panel açıkken ipucu liste üstünde kalmasın. */
+.ikonKap:has([aria-expanded="true"]) .ikonIpucu {
+  visibility: hidden;
+}
+
+.ikonYukari .ikonIpucu {
+  top: auto;
+  bottom: calc(100% + var(--space-6));
+}
+
+/* Fare ipucu yalnız hover destekleyen aygıtlarda: dokunmatikte dokunuş ipucunu kalıcı açık bırakmaz (aria-label aynen). */
+@media (hover: hover) {
+  .ikonKap:hover .ikonIpucu {
+    visibility: visible;
+    opacity: 1;
+  }
+}

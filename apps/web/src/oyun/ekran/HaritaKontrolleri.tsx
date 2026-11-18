@@ -20,7 +20,7 @@ export function HaritaKontrolleri({ onYaklas, onUzaklas, onSigdir, ekler }: Hari
       <button type="button" className={stil.dugme} aria-label={t("ekran.uzaklas")} onClick={onUzaklas}>
         −
       </button>
-      <button type="button" className={stil.dugme} onClick={onSigdir}>
+      <button type="button" className={`${stil.dugme} ${stil.sigdir}`} onClick={onSigdir}>
         {t("harita.sigdir")}
       </button>
       {ekler}

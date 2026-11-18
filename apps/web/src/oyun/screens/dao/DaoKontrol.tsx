@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Button } from "@/components/primitives/Button";
+import { FastForwardIcon, PauseIcon, StepIcon } from "@/components/primitives/icons";
+import { IkonDugmesi } from "@/oyun/ui/IkonDugmesi";
 import { t } from "@/oyun/copy/t";
 import { daoKontrolHataAnahtari } from "@/oyun/sim/dao";
 import { useSimSource } from "@/oyun/sim/SimSourceContext";
@@ -69,15 +70,9 @@ export function DaoKontrol({ runId, state }: { runId: string; state: RunState })
         <span className={styles.hiz} aria-live="polite">{t("dao.hiz", { n: state.speed })}</span>
       </p>
       <div className={styles.dugmeler}>
-        <Button variant="primary" size="sm" disabled={kapali || running} onClick={() => send("step")}>
-          {t("dao.bir_hafta")}
-        </Button>
-        <Button variant="secondary" size="sm" disabled={kapali || running} onClick={() => send("olay")}>
-          {t("dao.olay_kadar")}
-        </Button>
-        <Button variant="secondary" size="sm" disabled={!running} onClick={() => send("pause")}>
-          {t("dao.duraklat")}
-        </Button>
+        <IkonDugmesi yukari variant="primary" etiket={t("dao.bir_hafta")} ikon={<StepIcon size="20" />} disabled={kapali || running} onClick={() => send("step")} />
+        <IkonDugmesi yukari variant="secondary" etiket={t("dao.olay_kadar")} ikon={<FastForwardIcon size="20" />} disabled={kapali || running} onClick={() => send("olay")} />
+        <IkonDugmesi yukari variant="secondary" etiket={t("dao.duraklat")} ikon={<PauseIcon size="20" />} disabled={!running} onClick={() => send("pause")} />
       </div>
       {state.computing ? <p role="status" className={styles.durum}>{t("dao.hesaplaniyor")}</p> : null}
       {hata !== null ? <p role="alert" className={styles.hata}>{hata}</p> : null}

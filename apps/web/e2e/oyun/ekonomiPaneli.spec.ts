@@ -58,7 +58,7 @@ async function daoKur(page: Page, hafta: number): Promise<void> {
   await expect(kontrol(page).getByText("Hafta 0 / 520")).toBeVisible({ timeout: 90_000 });
   await page.getByRole("button", { name: "Tamam" }).click();
   for (let i = 1; i <= hafta; i++) {
-    await page.getByRole("button", { name: "1 hafta" }).click();
+    await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
     await expect(kontrol(page).getByText(new RegExp(`Hafta ${i} /`))).toBeVisible({ timeout: 60_000 });
   }
 }

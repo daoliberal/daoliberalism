@@ -128,7 +128,7 @@ export async function oyunKur(page: Page, ad = "Uctan uca"): Promise<string> {
 export async function haftaIlerlet(page: Page, n: number, ilkSure = HAFTA_MS): Promise<void> {
   for (let i = 0; i < n; i += 1) {
     const once = await hafta(page);
-    await page.getByRole("button", { name: "Tek hafta" }).click();
+    await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
     await expect(DENETIM(page).getByText(new RegExp(`Hafta ${once + 1} /`))).toBeVisible({ timeout: i === 0 ? ilkSure : HAFTA_MS });
   }
 }

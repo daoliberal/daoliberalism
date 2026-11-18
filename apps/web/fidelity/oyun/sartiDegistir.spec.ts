@@ -9,7 +9,7 @@ async function ac(page: Page, haftaAdim = 0): Promise<void> {
   await page.getByRole("button", { name: "Başlat" }).click();
   await expect(page.getByRole("region", { name: "Oynatma denetimi" }).getByText("Hafta 0 / 200")).toBeVisible();
   for (let i = 1; i <= haftaAdim; i += 1) {
-    await page.getByRole("button", { name: "Tek hafta" }).click();
+    await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
     await expect(page.getByRole("region", { name: "Oynatma denetimi" }).getByText(`Hafta ${i} / 200`)).toBeVisible();
   }
   await (await ayrintilarAc(page, "Koşu ve kararlar")).getByRole("button", { name: "Şartı değiştir" }).click();

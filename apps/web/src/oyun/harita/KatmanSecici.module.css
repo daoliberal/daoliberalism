@@ -91,4 +91,9 @@
   .etiket {
     display: none;
   }
+
+  /* Mobilde katman düğmeleri gizli: harita seçili katmanla (varsayılan Yok) çalışır. */
+  .grup {
+    display: none;
+  }
 }

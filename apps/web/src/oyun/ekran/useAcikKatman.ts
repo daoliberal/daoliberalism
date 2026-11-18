@@ -22,7 +22,11 @@ export function useAcikKatman(kok: RefObject<HTMLElement | null>, onKapat: (() =
     kok.current?.focus();
     const tus = (e: KeyboardEvent): void => {
       if (e.key !== "Escape" || e.defaultPrevented) return;
-      if (e.target instanceof Element && (e.target.closest(UST_KATMAN) || e.target.closest(YAZI_ALANI))) return;
+      if (e.target instanceof Element) {
+        const ust = e.target.closest(UST_KATMAN);
+        // Katmanın kendisi `role="dialog"` olabilir (AltSayfa): yalnız BAŞKA bir üst katman Esc'i kendine alır.
+        if ((ust !== null && ust !== kok.current) || e.target.closest(YAZI_ALANI)) return;
+      }
       son.current?.();
     };
     document.addEventListener("keydown", tus);

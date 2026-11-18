@@ -49,3 +49,23 @@
   color: var(--ekran-yazi);
   font-weight: var(--weight-bold);
 }
+
+/* Şeridin kendisi düğme: şeridi tamamen kaplayan saydam düğme (en az 44 px yükseklik şeridin üç satırından gelir). */
+.seritTik {
+  position: relative;
+  cursor: pointer;
+}
+
+.tumu {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  border: 0;
+  border-radius: var(--radius-14);
+  background: transparent;
+  cursor: pointer;
+}
+
+.tumu:focus-visible {
+  outline: var(--border-2) solid var(--ekran-vurgu);
+}

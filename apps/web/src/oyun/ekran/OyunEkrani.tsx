@@ -12,7 +12,11 @@ import { YuzenPanel } from "./YuzenPanel";
 
 export type SehirOzeti = { id: number; ad: string; ozet?: string };
 
-export type SolPanel = { baslik: string; icerik: ReactNode };
+/**
+ * `kontrol` verilirse sol panel dışarıdan yönetilir (DAO: Unvan düğmesi açar): yalnız `acik` iken çizilir, başlıkta ✕ kapat ikonu ve Esc `onKapat`ı çağırır,
+ * daralt ve telefondaki "Paneli göster" düğmeleri yoktur; `id` açan düğmenin `aria-controls` hedefidir.
+ */
+export type SolPanel = { baslik: string; icerik: ReactNode; kontrol?: { acik: boolean; onKapat: () => void; id: string } };
 /** Sağ panel yalnız seçimde verilir (`null`/`undefined` iken kapalıdır). */
 export type SagPanel = { baslik: string; icerik: ReactNode; onKapat: () => void };
 
@@ -31,6 +35,10 @@ export type OyunEkraniProps = {
   olaylar?: OlayOgesi[];
   /** Olay şeridinin yanındaki "Tüm olaylar" kapısı. */
   olayKapisi?: OlayKapisi;
+  /** DAO: olay şeridi sol üstte (Unvan düğmesinin ve Ben panelinin altında) durur ve şeridin kendisi "Tüm olaylar" düğmesidir; alt-sol sütunda çizilmez. */
+  olayUstte?: boolean;
+  /** Alt ortada duran denetim (DAO: hafta ilerletme); masaüstünde ve telefonda aynı yer. */
+  altOrta?: ReactNode;
   /** Sağ altta yüzen harita kontrolleri (ör. `HaritaKontrolleri`). */
   haritaKontrolleri?: ReactNode;
   /** Kayıt kaynağında bina verisi yoktur; notu gösterir (K3). */
@@ -72,6 +80,8 @@ export function OyunEkrani({
   sagPanel,
   olaylar = [],
   olayKapisi,
+  olayUstte = false,
+  altOrta,
   haritaKontrolleri,
   binaVerisiYok = false,
   tuvalKilitli = false,
@@ -105,6 +115,7 @@ export function OyunEkrani({
     let altUst = Infinity;
     for (const e of Array.from(el.querySelectorAll("[data-pay]"))) {
       const r = e.getBoundingClientRect();
+      if (r.width === 0 && r.height === 0) continue; // `display: contents` (telefon alt sütunu) kutu üretmez: ölçüye katılmaz
       switch (e.getAttribute("data-pay")) {
         case "ust": p.ust = Math.max(p.ust, r.bottom - a.top); break;
         case "sol": p.sol = Math.max(p.sol, r.right - a.left); break;
@@ -149,6 +160,11 @@ export function OyunEkrani({
       <div className={stil.kaplama}>
         <div className={stil.ustSerit} data-pay="ust">
           {ustSol ? <div className={stil.ustSol}>{ustSol}</div> : null}
+          {olayUstte && olaylar.length > 0 ? (
+            <div className={stil.olayKutu}>
+              <OlaySeridi olaylar={olaylar} kapiUstte {...(olayKapisi ? { kapi: olayKapisi } : {})} />
+            </div>
+          ) : null}
           <div className={stil.ustOrta}>{ustOrta}</div>
           <div className={stil.ustSag}>
             {menu}
@@ -156,16 +172,23 @@ export function OyunEkrani({
           </div>
         </div>
 
-        {!telefon && solPanel ? (
+        {!telefon && solPanel && solPanel.kontrol === undefined ? (
           <div className={stil.panelSol} data-pay="sol" data-daraltilmis={!solAcik} data-alt-seviye={yuvaVar ? altSeviye : undefined}>
             <YuzenPanel baslik={solPanel.baslik} acik={solAcik} onAcikDegis={setSolTercih}>
               {solPanel.icerik}
             </YuzenPanel>
           </div>
         ) : null}
+        {!telefon && solPanel?.kontrol?.acik ? (
+          <div className={stil.panelSol} data-pay="sol" data-olay={olayUstte && olaylar.length > 0 ? "var" : undefined} data-alt-seviye={yuvaVar ? altSeviye : undefined}>
+            <YuzenPanel id={solPanel.kontrol.id} baslik={solPanel.baslik} onKapat={solPanel.kontrol.onKapat} kapatIkon>
+              {solPanel.icerik}
+            </YuzenPanel>
+          </div>
+        ) : null}
         {!telefon && sagPanel ? (
           <div className={stil.panelSag} data-pay="sag" data-alt-seviye={yuvaVar ? altSeviye : undefined}>
-            <YuzenPanel baslik={sagPanel.baslik} onKapat={sagPanel.onKapat}>
+            <YuzenPanel baslik={sagPanel.baslik} onKapat={sagPanel.onKapat} kapatIkon>
               {sagPanel.icerik}
             </YuzenPanel>
           </div>
@@ -178,16 +201,17 @@ export function OyunEkrani({
                 {t("harita.bina_yok")}
               </p>
             ) : null}
-            {telefon && solPanel && !sagPanel ? (
+            {telefon && solPanel && solPanel.kontrol === undefined && !sagPanel ? (
               <button type="button" className={stil.panelDugme} aria-expanded={altSayfaAcik} aria-controls={altSayfaAcik ? altSayfaId : undefined} onClick={() => setAltSayfaAcik((a) => !a)}>
                 {t("ekran.panel_goster")}
               </button>
             ) : null}
             <BildirimYuvasi />
             {ipucu}
-            <OlaySeridi olaylar={olaylar} {...(olayKapisi ? { kapi: olayKapisi } : {})} />
+            {olayUstte ? null : <OlaySeridi olaylar={olaylar} {...(olayKapisi ? { kapi: olayKapisi } : {})} />}
           </div>
           {haritaKontrolleri ? <div className={stil.altSag} data-pay="alt">{haritaKontrolleri}</div> : null}
+          {altOrta ? <div className={stil.altOrta} data-pay="alt">{altOrta}</div> : null}
         </div>
 
         {telefon && sagPanel ? (
@@ -195,7 +219,12 @@ export function OyunEkrani({
             {sagPanel.icerik}
           </AltSayfa>
         ) : null}
-        {telefon && !sagPanel && solPanel && altSayfaAcik ? (
+        {telefon && !sagPanel && solPanel?.kontrol?.acik ? (
+          <AltSayfa id={solPanel.kontrol.id} baslik={solPanel.baslik} onKapat={solPanel.kontrol.onKapat} kapatIkon>
+            {solPanel.icerik}
+          </AltSayfa>
+        ) : null}
+        {telefon && !sagPanel && solPanel && solPanel.kontrol === undefined && altSayfaAcik ? (
           <AltSayfa id={altSayfaId} baslik={solPanel.baslik} onKapat={() => setAltSayfaAcik(false)}>
             {solPanel.icerik}
           </AltSayfa>

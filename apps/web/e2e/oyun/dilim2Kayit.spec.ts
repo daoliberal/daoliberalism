@@ -113,7 +113,7 @@ test.describe("Dilim 2 kayıt kaynağı", () => {
 
     // oynatma: tek hafta ×3, şartı değiştir (geçiş desteği), dikiş
     for (let i = 1; i <= 3; i += 1) {
-      await page.getByRole("button", { name: "Tek hafta" }).click();
+      await page.getByRole("button", { name: "Bir hafta ilerle" }).click();
       await expect(saat(page).getByText(`Hafta ${i} / 200`)).toBeVisible();
     }
     await (await ayrintilarAc(page, "Koşu ve kararlar")).getByRole("button", { name: "Şartı değiştir" }).click();

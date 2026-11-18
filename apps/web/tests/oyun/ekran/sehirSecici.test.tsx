@@ -10,7 +10,7 @@ afterEach(cleanup);
 function kur(sehir = 0) {
   const onSehir = vi.fn();
   render(<SehirSecici sehirler={SEHIRLER} sehir={sehir} onSehir={onSehir} />);
-  return { onSehir, dugme: screen.getByRole("button", { name: new RegExp(SEHIRLER[sehir].ad) }) };
+  return { onSehir, dugme: screen.getByRole("button", { name: "Şehir" }) };
 }
 
 describe("SehirSecici", () => {

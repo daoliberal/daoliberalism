@@ -2,8 +2,10 @@
 import { useEffect, useId, useRef, useSyncExternalStore, type ReactNode } from "react";
 import { Button } from "@/components/primitives/Button";
 import { cx } from "@/components/primitives/cx";
+import { CloseIcon } from "@/components/primitives/icons";
 import { useModalFocus } from "@/components/shell/useModalFocus";
 import { t } from "@/oyun/copy/t";
+import { IkonDugmesi } from "./IkonDugmesi";
 import styles from "./Diyalog.module.css";
 
 /** Açık (sayılan) iletişim kutusu sayısı: iki modal üst üste açılmasın diye bekletilen kutular okur. */
@@ -41,7 +43,9 @@ export function Diyalog({ baslik, onKapat, kapatMetni, disabled = false, kapatSo
           <h2 id={titleId} className={styles.baslik}>
             {baslik}
           </h2>
-          {kapatSonda ? null : (
+          {kapatSonda ? null : yuzen ? (
+            <IkonDugmesi variant="secondary" hiza="son" etiket={kapatMetni ?? t("diyalog.kapat")} ikon={<CloseIcon size="18" />} disabled={disabled} onClick={onKapat} />
+          ) : (
             <Button variant="secondary" size="sm" disabled={disabled} onClick={onKapat}>
               {kapatMetni ?? t("diyalog.kapat")}
             </Button>
